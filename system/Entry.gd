@@ -1,4 +1,5 @@
 extends Object
+class_name Entry
 
 var text : String
 var category : String
