@@ -8,8 +8,6 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var e = Entry.new("First Entry")
-	print(e.to_string())
 	pass # Replace with function body.
 
 
