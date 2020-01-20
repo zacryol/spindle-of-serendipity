@@ -1,15 +1,26 @@
 extends Node
 
+
 func import_entries_from_file(path : String):
 	var f := File.new()
 	f.open(path, File.READ)
-	while f.eof_reached() == false:
-		var line = parse_json(f.get_line())
-		print(line)
-		pass
+	while not f.eof_reached():
+		var j = parse_json(f.get_line())
+		print(typeof(j))
 	pass
 
 func grab_files():
+	var path = GlobalVars.ENTRIES_SAVE
 	var d = Directory.new()
-	d.open(GlobalVars.ENTRIES_SAVE)
+	if d.dir_exists(path) == false:
+		d.make_dir_recursive(path)
+	d.open(path)
+	d.list_dir_begin(true, true)
+	while true:
+		var f = d.get_next()
+		print(f)
+		if f == "":
+			break
+		import_entries_from_file(path + f)
+	
 	pass
