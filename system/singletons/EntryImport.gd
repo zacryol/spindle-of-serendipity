@@ -11,7 +11,7 @@ func import_entries_from_file(path : String):
 			EntryManager.add_entry(data)
 	pass
 
-func grab_files():
+func grab_saved_files():
 	var path = GlobalVars.ENTRIES_SAVE
 	var d = Directory.new()
 	if d.dir_exists(path) == false:
