@@ -1,8 +1,11 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://game/menus/MainMenu.gd" type="Script" id=1]
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -11,6 +14,7 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -27,7 +31,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="ImportButton" type="Button" parent="VBoxContainer"]
 margin_right = 91.0
 margin_bottom = 20.0
 text = "Import JSON"
+
+[node name="FileDialog" type="FileDialog" parent="."]
+margin_left = 306.0
+margin_top = 111.0
+margin_right = 738.0
+margin_bottom = 354.0
+window_title = "Choose File[s]"
+resizable = true
+mode = 1
+access = 2
+filters = PoolStringArray( "\"*.json\"" )
+current_dir = "/home/zach/Documents/godot/spindle-of-serendipity"
+current_path = "/home/zach/Documents/godot/spindle-of-serendipity/"
+[connection signal="pressed" from="VBoxContainer/ImportButton" to="." method="_on_ImportButton_pressed"]
