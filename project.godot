@@ -17,6 +17,10 @@ _global_script_class_icons={
 
 config/name="spindle of serendipity"
 
+[autoload]
+
+Global="*res://system/singletons/GlobalVars.gd"
+
 [rendering]
 
 quality/driver/driver_name="GLES2"
