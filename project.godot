@@ -25,6 +25,8 @@ config/name="spindle of serendipity"
 [autoload]
 
 GlobalVars="*res://system/singletons/GlobalVars.gd"
+EntryManager="*res://system/singletons/EntryManager.gd"
+EntryImport="*res://system/singletons/EntryImport.gd"
 
 [rendering]
 
