@@ -8,3 +8,8 @@ func import_entries_from_file(path : String):
 		print(line)
 		pass
 	pass
+
+func grab_files():
+	var d = Directory.new()
+	d.open(GlobalVars.ENTRIES_SAVE)
+	pass
