@@ -18,3 +18,6 @@ func get_import_category() -> String:
 
 func get_import_source() -> String:
 	return source
+
+func _to_string():
+	return "Text: " + text + ", Category: " + category + ", Source: " + source
