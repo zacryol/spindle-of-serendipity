@@ -21,10 +21,13 @@ _global_script_class_icons={
 [application]
 
 config/name="spindle of serendipity"
+run/main_scene="res://testing/TestMenu.tscn"
 
 [autoload]
 
 GlobalVars="*res://system/singletons/GlobalVars.gd"
+EntryManager="*res://system/singletons/EntryManager.gd"
+EntryImport="*res://system/singletons/EntryImport.gd"
 
 [rendering]
 
