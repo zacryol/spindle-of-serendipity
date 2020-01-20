@@ -45,7 +45,8 @@ window_title = "Choose File[s]"
 resizable = true
 mode = 1
 access = 2
-filters = PoolStringArray( "\"*.json\"" )
+filters = PoolStringArray( "*.json" )
 current_dir = "/home/zach/Documents/godot/spindle-of-serendipity"
 current_path = "/home/zach/Documents/godot/spindle-of-serendipity/"
 [connection signal="pressed" from="VBoxContainer/ImportButton" to="." method="_on_ImportButton_pressed"]
+[connection signal="files_selected" from="FileDialog" to="." method="_on_FileDialog_files_selected"]
