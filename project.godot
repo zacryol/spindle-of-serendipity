@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="spindle of serendipity"
-run/main_scene="res://testing/TestMenu.tscn"
+run/main_scene="res://game/menus/MainMenu.tscn"
 
 [autoload]
 
