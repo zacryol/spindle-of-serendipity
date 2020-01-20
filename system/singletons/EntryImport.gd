@@ -8,7 +8,7 @@ func import_entries_from_file(path : String):
 		var j = parse_json(f.get_line())
 		if typeof(j) == 19:
 			var data = PoolStringArray(j)
-			EntryManager.add_entry(j)
+			EntryManager.add_entry(data)
 	pass
 
 func grab_files():
