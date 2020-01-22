@@ -19,5 +19,13 @@ func get_import_category() -> String:
 func get_import_source() -> String:
 	return source
 
+func get_game_category() -> String:
+	# For Aliases Later
+	return get_import_category()
+
+func get_game_source() -> String:
+	# For Aliases Later
+	return get_import_source()
+
 func _to_string():
 	return "Text: " + text + ", Category: " + category + ", Source: " + source
