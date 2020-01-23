@@ -1,0 +1,208 @@
+[gd_scene format=2]
+
+[node name="Keyboard" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -128.5
+margin_top = -34.0
+margin_right = 128.5
+margin_bottom = 34.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer"]
+margin_right = 257.0
+margin_bottom = 68.0
+columns = 10
+
+[node name="Button" type="Button" parent="CenterContainer/GridContainer"]
+margin_right = 23.0
+margin_bottom = 20.0
+text = "Q"
+
+[node name="Button2" type="Button" parent="CenterContainer/GridContainer"]
+margin_left = 27.0
+margin_right = 52.0
+margin_bottom = 20.0
+text = "W"
+
+[node name="Button3" type="Button" parent="CenterContainer/GridContainer"]
+margin_left = 56.0
+margin_right = 78.0
+margin_bottom = 20.0
+text = "E"
+
+[node name="Button4" type="Button" parent="CenterContainer/GridContainer"]
+margin_left = 82.0
+margin_right = 102.0
+margin_bottom = 20.0
+text = "R"
+
+[node name="Button5" type="Button" parent="CenterContainer/GridContainer"]
+margin_left = 106.0
+margin_right = 128.0
+margin_bottom = 20.0
+text = "T"
+
+[node name="Button6" type="Button" parent="CenterContainer/GridContainer"]
+margin_left = 132.0
+margin_right = 154.0
+margin_bottom = 20.0
+text = "Y"
+
+[node name="Button7" type="Button" parent="CenterContainer/GridContainer"]
+margin_left = 158.0
+margin_right = 182.0
+margin_bottom = 20.0
+text = "U"
+
+[node name="Button8" type="Button" parent="CenterContainer/GridContainer"]
+margin_left = 186.0
+margin_right = 206.0
+margin_bottom = 20.0
+text = "I"
+
+[node name="Button9" type="Button" parent="CenterContainer/GridContainer"]
+margin_left = 210.0
+margin_right = 233.0
+margin_bottom = 20.0
+text = "O"
+
+[node name="Button10" type="Button" parent="CenterContainer/GridContainer"]
+margin_left = 237.0
+margin_right = 257.0
+margin_bottom = 20.0
+text = "P"
+
+[node name="Button11" type="Button" parent="CenterContainer/GridContainer"]
+margin_top = 24.0
+margin_right = 23.0
+margin_bottom = 44.0
+text = "A"
+
+[node name="Button12" type="Button" parent="CenterContainer/GridContainer"]
+margin_left = 27.0
+margin_top = 24.0
+margin_right = 52.0
+margin_bottom = 44.0
+text = "S"
+
+[node name="Button13" type="Button" parent="CenterContainer/GridContainer"]
+margin_left = 56.0
+margin_top = 24.0
+margin_right = 78.0
+margin_bottom = 44.0
+text = "D"
+
+[node name="Button14" type="Button" parent="CenterContainer/GridContainer"]
+margin_left = 82.0
+margin_top = 24.0
+margin_right = 102.0
+margin_bottom = 44.0
+text = "F"
+
+[node name="Button15" type="Button" parent="CenterContainer/GridContainer"]
+margin_left = 106.0
+margin_top = 24.0
+margin_right = 128.0
+margin_bottom = 44.0
+text = "G"
+
+[node name="Button16" type="Button" parent="CenterContainer/GridContainer"]
+margin_left = 132.0
+margin_top = 24.0
+margin_right = 154.0
+margin_bottom = 44.0
+text = "H"
+
+[node name="Button17" type="Button" parent="CenterContainer/GridContainer"]
+margin_left = 158.0
+margin_top = 24.0
+margin_right = 182.0
+margin_bottom = 44.0
+text = "J"
+
+[node name="Button18" type="Button" parent="CenterContainer/GridContainer"]
+margin_left = 186.0
+margin_top = 24.0
+margin_right = 206.0
+margin_bottom = 44.0
+text = "K"
+
+[node name="Button19" type="Button" parent="CenterContainer/GridContainer"]
+margin_left = 210.0
+margin_top = 24.0
+margin_right = 233.0
+margin_bottom = 44.0
+text = "L"
+
+[node name="Control" type="Control" parent="CenterContainer/GridContainer"]
+margin_left = 237.0
+margin_top = 24.0
+margin_right = 257.0
+margin_bottom = 44.0
+
+[node name="Button20" type="Button" parent="CenterContainer/GridContainer"]
+margin_top = 48.0
+margin_right = 23.0
+margin_bottom = 68.0
+text = "Z"
+
+[node name="Button21" type="Button" parent="CenterContainer/GridContainer"]
+margin_left = 27.0
+margin_top = 48.0
+margin_right = 52.0
+margin_bottom = 68.0
+text = "X"
+
+[node name="Button22" type="Button" parent="CenterContainer/GridContainer"]
+margin_left = 56.0
+margin_top = 48.0
+margin_right = 78.0
+margin_bottom = 68.0
+text = "C"
+
+[node name="Button23" type="Button" parent="CenterContainer/GridContainer"]
+margin_left = 82.0
+margin_top = 48.0
+margin_right = 102.0
+margin_bottom = 68.0
+text = "V"
+
+[node name="Button24" type="Button" parent="CenterContainer/GridContainer"]
+margin_left = 106.0
+margin_top = 48.0
+margin_right = 128.0
+margin_bottom = 68.0
+text = "B"
+
+[node name="Button25" type="Button" parent="CenterContainer/GridContainer"]
+margin_left = 132.0
+margin_top = 48.0
+margin_right = 154.0
+margin_bottom = 68.0
+text = "N"
+
+[node name="Button26" type="Button" parent="CenterContainer/GridContainer"]
+margin_left = 158.0
+margin_top = 48.0
+margin_right = 182.0
+margin_bottom = 68.0
+text = "M"
