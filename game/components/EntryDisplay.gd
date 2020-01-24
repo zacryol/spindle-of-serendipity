@@ -29,16 +29,25 @@ var bool_mask : Dictionary = {
 	"Y":false,
 	"Z":false
 }
+var placeholder_char := "*"
 
 func _ready():
 	pass
 
 func set_display(entry : Entry):
 	entry_text = entry.get_entry_text().to_upper()
-	$EntryLabel.text = entry.get_entry_text()
+	
 	$CategoryLabel.text = entry.get_game_category()
 	$SourceLabel.text = entry.get_game_source()
-	pass
+	$EntryLabel.text = get_display_text()
 
 func get_display_text() -> String:
-	return ""
+	var display_text = ""
+	for i in entry_text.length():
+		var current_char = entry_text.substr(i)
+		if bool_mask.has(current_char):
+			if bool_mask[current_char]:
+				display_text += current_char
+			else:
+				display_text += placeholder_char
+	return display_text
