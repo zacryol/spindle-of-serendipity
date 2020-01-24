@@ -44,7 +44,7 @@ func set_display(entry : Entry):
 func get_display_text() -> String:
 	var display_text = ""
 	for i in entry_text.length():
-		var current_char = entry_text.substr(i)
+		var current_char = entry_text.substr(i, 1)
 		if bool_mask.has(current_char):
 			if bool_mask[current_char]:
 				display_text += current_char
