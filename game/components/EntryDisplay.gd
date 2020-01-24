@@ -52,6 +52,8 @@ func get_display_text() -> String:
 				display_text += current_char
 			else:
 				display_text += placeholder_char
+		else:
+			display_text += current_char
 	return display_text
 
 func _on_letter_guessed(letter: String):
