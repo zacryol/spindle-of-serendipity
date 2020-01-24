@@ -61,5 +61,5 @@ func _on_letter_guessed(letter: String):
 	if bool_mask.has(guess):
 		bool_mask[guess] = true
 		$EntryLabel.text = get_display_text()
-		pass
+		emit_signal("letters_revealed", entry_text.countn(guess))
 	pass
