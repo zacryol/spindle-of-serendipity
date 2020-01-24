@@ -1,5 +1,7 @@
 extends Control
 
+signal letters_revealed(number)
+
 var entry_text : String
 var bool_mask : Dictionary = {
 	"A":false,
@@ -51,3 +53,11 @@ func get_display_text() -> String:
 			else:
 				display_text += placeholder_char
 	return display_text
+
+func _on_letter_guessed(letter: String):
+	var guess = letter.substr(0, 1)
+	if bool_mask.has(guess):
+		bool_mask[guess] = true
+		$EntryLabel.text = get_display_text()
+		pass
+	pass
