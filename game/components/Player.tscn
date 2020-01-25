@@ -10,3 +10,38 @@ __meta__ = {
 [node name="PanelContainer" type="PanelContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1017.0
+margin_bottom = 593.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/CenterContainer"]
+margin_left = 438.0
+margin_top = 268.0
+margin_right = 572.0
+margin_bottom = 318.0
+
+[node name="PlayerLabel" type="Label" parent="PanelContainer/CenterContainer/VBoxContainer"]
+margin_right = 134.0
+margin_bottom = 14.0
+text = "Player"
+align = 1
+
+[node name="ScoreLabelCurr" type="Label" parent="PanelContainer/CenterContainer/VBoxContainer"]
+margin_top = 18.0
+margin_right = 134.0
+margin_bottom = 32.0
+text = "Current Round Score:"
+align = 1
+
+[node name="Label3" type="Label" parent="PanelContainer/CenterContainer/VBoxContainer"]
+margin_top = 36.0
+margin_right = 134.0
+margin_bottom = 50.0
+text = "Total Score"
+align = 1
