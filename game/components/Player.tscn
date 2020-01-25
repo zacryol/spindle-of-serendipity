@@ -1,8 +1,11 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://game/components/Player.gd" type="Script" id=1]
 
 [node name="Player" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -39,7 +42,7 @@ margin_bottom = 32.0
 text = "Current Round Score:"
 align = 1
 
-[node name="Label3" type="Label" parent="PanelContainer/CenterContainer/VBoxContainer"]
+[node name="TotalLabel" type="Label" parent="PanelContainer/CenterContainer/VBoxContainer"]
 margin_top = 36.0
 margin_right = 134.0
 margin_bottom = 50.0
