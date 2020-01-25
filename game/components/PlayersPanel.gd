@@ -13,5 +13,5 @@ func _ready():
 	pass
 
 func _letters_guessed(number: int):
-	players_array[current_player].score += number
+	players_array[current_player].add_to_score(number)
 	pass
