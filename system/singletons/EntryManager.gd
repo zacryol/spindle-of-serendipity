@@ -7,7 +7,7 @@ func add_entry(data : PoolStringArray):
 		entries.append(Entry.new(data[0]))
 	elif data.size() == 2:
 		entries.append(Entry.new(data[0], data[1]))
-	else:
+	elif data.size() >= 3:
 		entries.append(Entry.new(data[0], data[1], data[2]))
 
 func _to_string():
