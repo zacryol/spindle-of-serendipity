@@ -1,5 +1,7 @@
 extends Node
 
+func _ready():
+	grab_saved_files()
 
 func import_entries_from_file(path : String):
 	var f := File.new()
