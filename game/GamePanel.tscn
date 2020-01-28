@@ -47,39 +47,44 @@ margin_left = 7.0
 margin_top = 7.0
 margin_right = 1003.0
 margin_bottom = 547.0
-split_offset = 512
+split_offset = 700
+dragger_visibility = 1
 
 [node name="VSplitContainer" type="VSplitContainer" parent="PanelContainer/VBoxContainer/PanelContainer2/HSplitContainer"]
-margin_right = 512.0
+margin_right = 700.0
 margin_bottom = 540.0
 split_offset = 348
+dragger_visibility = 1
 
 [node name="EntryDisplay" parent="PanelContainer/VBoxContainer/PanelContainer2/HSplitContainer/VSplitContainer" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 512.0
+margin_right = 700.0
 margin_bottom = 348.0
 
 [node name="Keyboard" parent="PanelContainer/VBoxContainer/PanelContainer2/HSplitContainer/VSplitContainer" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 360.0
-margin_right = 512.0
+margin_right = 700.0
 margin_bottom = 540.0
 
 [node name="VSplitContainer2" type="VSplitContainer" parent="PanelContainer/VBoxContainer/PanelContainer2/HSplitContainer"]
-margin_left = 524.0
+margin_left = 712.0
 margin_right = 996.0
 margin_bottom = 540.0
+split_offset = 100
+dragger_visibility = 1
 
 [node name="Spindle" parent="PanelContainer/VBoxContainer/PanelContainer2/HSplitContainer/VSplitContainer2" instance=ExtResource( 4 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 472.0
+margin_right = 284.0
+margin_bottom = 100.0
 
 [node name="PlayersPanel" parent="PanelContainer/VBoxContainer/PanelContainer2/HSplitContainer/VSplitContainer2" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 12.0
-margin_right = 472.0
+margin_top = 112.0
+margin_right = 284.0
 margin_bottom = 540.0
