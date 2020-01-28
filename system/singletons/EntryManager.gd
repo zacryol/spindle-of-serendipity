@@ -15,3 +15,7 @@ func _to_string():
 	for entry in entries:
 		out = out + entry.to_string() + '\n'
 	return out
+
+func get_random_entry() -> Entry:
+	var index := randi() % entries.size()
+	return entries[index]
