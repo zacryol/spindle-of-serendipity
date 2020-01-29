@@ -1,4 +1,4 @@
-extends Control
+extends "res://game/components/GameComponent.gd"
 
 var current_value : int
 signal score(points)

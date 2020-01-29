@@ -1,4 +1,4 @@
-extends Control
+extends "res://game/components/GameComponent.gd"
 
 var score: int = 0
 onready var score_label = $PanelContainer/CenterContainer/VBoxContainer/ScoreLabelCurr

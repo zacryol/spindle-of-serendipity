@@ -1,4 +1,4 @@
-extends Control
+extends "res://game/components/GameComponent.gd"
 
 signal key_pressed(letter)
 

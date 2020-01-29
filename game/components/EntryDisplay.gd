@@ -1,4 +1,4 @@
-extends Control
+extends "res://game/components/GameComponent.gd"
 
 signal letters_revealed(number)
 
@@ -67,7 +67,9 @@ func _on_letter_guessed(letter: String):
 		if bool_mask.has(guess) && bool_mask[guess] == false:
 			bool_mask[guess] = true
 			$EntryLabel.text = get_display_text()
-			emit_signal("letters_revealed", entry_text.countn(guess))
+			var num := entry_text.countn(guess)
+			emit_signal("game_log", str(num) + " revealed")
+			emit_signal("letters_revealed", num)
 			current_mode = MODE_DISABLED
 	pass
 
