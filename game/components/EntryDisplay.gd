@@ -64,7 +64,7 @@ func get_display_text() -> String:
 func _on_letter_guessed(letter: String):
 	if current_mode == MODE_ENABLED:
 		var guess = letter.substr(0, 1)
-		if bool_mask.has(guess):
+		if bool_mask.has(guess) && bool_mask[guess] == false:
 			bool_mask[guess] = true
 			$EntryLabel.text = get_display_text()
 			emit_signal("letters_revealed", entry_text.countn(guess))
