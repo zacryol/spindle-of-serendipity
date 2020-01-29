@@ -1,4 +1,4 @@
-extends Control
+extends "res://game/components/GameComponent.gd"
 
 onready var p1 := $PanelContainer/VBoxContainer/Player
 onready var p2 := $PanelContainer/VBoxContainer/Player2
