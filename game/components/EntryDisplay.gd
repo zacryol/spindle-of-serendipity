@@ -2,6 +2,11 @@ extends Control
 
 signal letters_revealed(number)
 
+enum {
+	MODE_DISABLED
+	MODE_ENABLED
+}
+var current_mode := MODE_DISABLED
 var entry_text : String
 var bool_mask : Dictionary = {
 	"A":false,
@@ -57,9 +62,15 @@ func get_display_text() -> String:
 	return display_text
 
 func _on_letter_guessed(letter: String):
-	var guess = letter.substr(0, 1)
-	if bool_mask.has(guess):
-		bool_mask[guess] = true
-		$EntryLabel.text = get_display_text()
-		emit_signal("letters_revealed", entry_text.countn(guess))
+	if current_mode == MODE_ENABLED:
+		var guess = letter.substr(0, 1)
+		if bool_mask.has(guess):
+			bool_mask[guess] = true
+			$EntryLabel.text = get_display_text()
+			emit_signal("letters_revealed", entry_text.countn(guess))
+			current_mode = MODE_DISABLED
 	pass
+
+func _on_Spindle_spun():
+	current_mode = MODE_ENABLED
+	pass # Replace with function body.
