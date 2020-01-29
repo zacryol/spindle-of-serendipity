@@ -7,3 +7,6 @@ func _ready():
 	entry_display.set_display(EntryManager.get_random_entry())
 	
 	pass
+
+func _log(text: String):
+	pass

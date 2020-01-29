@@ -15,3 +15,6 @@ func _score_gained(number: int):
 	players_array[current_player].add_to_score(number)
 	current_player = wrapi(current_player + 1, 0, NUM_PLAYER)
 	pass
+
+func _on_Player_game_log(text):
+	emit_signal("game_log", text)

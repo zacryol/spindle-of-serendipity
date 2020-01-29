@@ -43,3 +43,6 @@ margin_top = 392.0
 margin_right = 1010.0
 margin_bottom = 586.0
 size_flags_vertical = 3
+[connection signal="game_log" from="PanelContainer/VBoxContainer/Player" to="." method="_on_Player_game_log"]
+[connection signal="game_log" from="PanelContainer/VBoxContainer/Player2" to="." method="_on_Player_game_log"]
+[connection signal="game_log" from="PanelContainer/VBoxContainer/Player3" to="." method="_on_Player_game_log"]
