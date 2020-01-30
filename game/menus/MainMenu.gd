@@ -26,3 +26,8 @@ func _on_FileDialog_files_selected(paths):
 		Directory.new().copy(path, save_path)
 	
 	pass # Replace with function body.
+
+
+func _on_StartButton_pressed():
+	get_tree().change_scene("res://game/GamePanel.tscn")
+	pass # Replace with function body.
