@@ -26,9 +26,10 @@ margin_left = -20.0
 margin_top = -7.0
 margin_right = 20.0
 margin_bottom = 7.0
+grow_horizontal = 2
 align = 1
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": true
 }
 
 [node name="CategoryLabel" type="Label" parent="."]
