@@ -64,13 +64,17 @@ func get_display_text() -> String:
 func _on_letter_guessed(letter: String):
 	if current_mode == MODE_ENABLED:
 		var guess = letter.substr(0, 1)
-		if bool_mask.has(guess) && bool_mask[guess] == false:
+		if !bool_mask.has(guess):
+			return 
+		if bool_mask[guess] == false:
 			bool_mask[guess] = true
 			$EntryLabel.text = get_display_text()
 			var num := entry_text.countn(guess)
 			emit_signal("game_log", str(num) + " revealed")
 			emit_signal("letters_revealed", num)
 			current_mode = MODE_DISABLED
+		else:
+			emit_signal("game_log", guess + " has already been guessed")
 	pass
 
 func _on_Spindle_spun():
