@@ -9,8 +9,11 @@ func _ready():
 	log_label.text = ""
 	pass
 
-func _log(text: String):
-	var new_text := str(log_label.text) + text + " -- "
-	while new_text.length() > MAX_LOG_CHAR:
-		new_text = new_text.substr(1)
-	log_label.text = new_text
+func _log(text: String = ""):
+	if text == "":
+		log_label.text = text
+	else:
+		var new_text := str(log_label.text) + text + " -- "
+		while new_text.length() > MAX_LOG_CHAR:
+			new_text = new_text.substr(1)
+		log_label.text = new_text
