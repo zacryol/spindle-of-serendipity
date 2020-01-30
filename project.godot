@@ -29,6 +29,11 @@ GlobalVars="*res://system/singletons/GlobalVars.gd"
 EntryManager="*res://system/singletons/EntryManager.gd"
 EntryImport="*res://system/singletons/EntryImport.gd"
 
+[display]
+
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
+
 [rendering]
 
 quality/driver/driver_name="GLES2"

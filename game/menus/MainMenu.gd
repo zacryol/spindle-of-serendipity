@@ -1,7 +1,7 @@
 extends Control
 
 func _ready():
-	EntryImport.grab_saved_files()
+	pass
 
 func _on_ImportButton_pressed():
 	$FileDialog.current_dir = "res://"
@@ -25,4 +25,9 @@ func _on_FileDialog_files_selected(paths):
 				copy += 1
 		Directory.new().copy(path, save_path)
 	
+	pass # Replace with function body.
+
+
+func _on_StartButton_pressed():
+	get_tree().change_scene("res://game/GamePanel.tscn")
 	pass # Replace with function body.
