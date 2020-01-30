@@ -22,7 +22,6 @@ func grab_saved_files():
 	d.list_dir_begin(true, true)
 	while true:
 		var f = d.get_next()
-		print(f)
 		if f == "":
 			break
 		import_entries_from_file(path + f)
