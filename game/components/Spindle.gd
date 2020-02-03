@@ -10,7 +10,7 @@ func _ready():
 
 func _letters_guessed(number: int, solves: bool):
 	emit_signal("score", number * current_value, solves)
-	enabled = true
+	enabled = not solves
 
 func _on_Button_pressed():
 	if enabled:
