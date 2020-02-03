@@ -14,11 +14,14 @@ func _ready():
 	p3.set_name("Player 3")
 	pass
 
-func _score_gained(number: int):
+func _score_gained(number: int, final: bool):
 	players_array[current_player].add_to_score(number)
 	emit_signal("game_log", str(number) + " points gained")
-	current_player = wrapi(current_player + 1, 0, NUM_PLAYER)
-	emit_signal("game_log", players_array[current_player].player_name + " spin!")
+	if not final:
+		current_player = wrapi(current_player + 1, 0, NUM_PLAYER)
+		emit_signal("game_log", players_array[current_player].player_name + " spin!")
+	else:
+		emit_signal("game_log", "You solved it!")
 	pass
 
 func _on_Player_game_log(text):

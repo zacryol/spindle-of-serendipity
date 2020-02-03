@@ -1,7 +1,7 @@
 extends "res://game/components/GameComponent.gd"
 
 var current_value : int
-signal score(points)
+signal score(points, final)
 signal spun
 var enabled := true
 
@@ -9,7 +9,7 @@ func _ready():
 	pass
 
 func _letters_guessed(number: int, solves: bool):
-	emit_signal("score", number * current_value)
+	emit_signal("score", number * current_value, solves)
 	enabled = true
 
 func _on_Button_pressed():
