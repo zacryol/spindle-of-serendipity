@@ -62,7 +62,12 @@ func get_display_text() -> String:
 	return display_text
 
 func is_solved() -> bool:
-	return false
+	var letters := get_letters_in_entry()
+	for l in letters:
+		if !bool_mask[l]:
+			return false
+		pass
+	return true
 
 func get_letters_in_entry() -> PoolStringArray:
 	var letters : PoolStringArray
