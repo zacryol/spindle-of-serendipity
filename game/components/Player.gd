@@ -21,4 +21,5 @@ func set_name(new_name: String) -> void:
 
 func cache_score() -> void:
 	total += score
+	add_to_score(-score)
 	total_label.text = "Total: " + str(total)
