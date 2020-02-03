@@ -64,6 +64,18 @@ func get_display_text() -> String:
 func is_solved() -> bool:
 	return false
 
+func get_letters_in_entry() -> PoolStringArray:
+	var letters : PoolStringArray
+	for i in entry_text.length():
+		var current_char := get_char_at(i)
+		if bool_mask.has(current_char):
+			if not current_char in letters:
+				letters.append(current_char)
+	return letters
+
+func get_char_at(index : int) -> String:
+	return entry_text.substr(index, 1)
+
 func _on_letter_guessed(letter: String):
 	if current_mode == MODE_ENABLED:
 		var guess = letter.substr(0, 1)
