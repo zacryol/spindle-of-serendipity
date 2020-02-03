@@ -7,7 +7,6 @@ func _on_ImportButton_pressed():
 	$FileDialog.current_dir = "res://"
 	$FileDialog.current_path = "res://"
 	$FileDialog.show()
-	pass # Replace with function body.
 
 func _on_FileDialog_files_selected(paths):
 	for path in paths:
@@ -24,10 +23,7 @@ func _on_FileDialog_files_selected(paths):
 				save_path = str(GlobalVars.ENTRIES_SAVE + new_file_path)
 				copy += 1
 		Directory.new().copy(path, save_path)
-	
-	pass # Replace with function body.
 
 
 func _on_StartButton_pressed():
 	get_tree().change_scene("res://game/GamePanel.tscn")
-	pass # Replace with function body.

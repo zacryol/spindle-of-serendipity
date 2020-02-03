@@ -25,7 +25,6 @@ func _on_NewG_pressed():
 	log_label.text = ""
 	new_button.hide()
 	spindle.enabled = true
-	pass # Replace with function body.
 
 func _pre_reset():
 	new_button.show()

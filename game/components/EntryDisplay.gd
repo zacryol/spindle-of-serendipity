@@ -102,4 +102,3 @@ func _on_letter_guessed(letter: String):
 
 func _on_Spindle_spun():
 	current_mode = MODE_ENABLED
-	pass # Replace with function body.

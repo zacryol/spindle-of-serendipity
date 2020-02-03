@@ -14,7 +14,6 @@ func import_entries_from_file(path : String):
 			if typeof(j) == TYPE_ARRAY:
 				var data = PoolStringArray(j)
 				EntryManager.add_entry(data)
-	pass
 
 func grab_saved_files():
 	var path = GlobalVars.ENTRIES_SAVE
@@ -28,5 +27,3 @@ func grab_saved_files():
 		if f == "":
 			break
 		import_entries_from_file(path + f)
-	
-	pass
