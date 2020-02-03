@@ -27,5 +27,5 @@ func get_game_source() -> String:
 	# For Aliases Later
 	return get_import_source()
 
-func _to_string():
+func _to_string() -> String:
 	return "Text: " + text + ", Category: " + category + ", Source: " + source

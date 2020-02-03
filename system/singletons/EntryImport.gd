@@ -7,11 +7,13 @@ func import_entries_from_file(path : String):
 	var f := File.new()
 	f.open(path, File.READ)
 	while not f.eof_reached():
-		var j = parse_json(f.get_line())
-		if typeof(j) == 19:
-			var data = PoolStringArray(j)
-			EntryManager.add_entry(data)
-	pass
+		var line := f.get_line()
+		var v := validate_json(line)
+		if not v:
+			var j = parse_json(line)
+			if typeof(j) == TYPE_ARRAY:
+				var data = PoolStringArray(j)
+				EntryManager.add_entry(data)
 
 func grab_saved_files():
 	var path = GlobalVars.ENTRIES_SAVE
@@ -25,5 +27,3 @@ func grab_saved_files():
 		if f == "":
 			break
 		import_entries_from_file(path + f)
-	
-	pass

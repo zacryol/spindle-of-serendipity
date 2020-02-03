@@ -14,37 +14,49 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="GP" type="PanelContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="GP"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 1017.0
 margin_bottom = 593.0
 
-[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/VBoxContainer"]
+[node name="Top" type="PanelContainer" parent="GP/VBoxContainer"]
 margin_right = 1010.0
 margin_bottom = 28.0
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/PanelContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="GP/VBoxContainer/Top"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 1003.0
 margin_bottom = 21.0
+
+[node name="Label" type="Label" parent="GP/VBoxContainer/Top/HBoxContainer"]
+margin_right = 996.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
 text = "Game Status Bar"
 
-[node name="PanelContainer2" type="PanelContainer" parent="PanelContainer/VBoxContainer"]
+[node name="NewG" type="Button" parent="GP/VBoxContainer/Top/HBoxContainer"]
+visible = false
+margin_left = 956.0
+margin_right = 996.0
+margin_bottom = 20.0
+text = "New"
+
+[node name="Game" type="PanelContainer" parent="GP/VBoxContainer"]
 margin_top = 32.0
 margin_right = 1010.0
 margin_bottom = 586.0
 size_flags_vertical = 3
 
-[node name="HSplitContainer" type="HSplitContainer" parent="PanelContainer/VBoxContainer/PanelContainer2"]
+[node name="HSplit" type="HSplitContainer" parent="GP/VBoxContainer/Game"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 1003.0
@@ -52,49 +64,51 @@ margin_bottom = 547.0
 split_offset = 700
 dragger_visibility = 1
 
-[node name="VSplitContainer" type="VSplitContainer" parent="PanelContainer/VBoxContainer/PanelContainer2/HSplitContainer"]
+[node name="EDKB" type="VSplitContainer" parent="GP/VBoxContainer/Game/HSplit"]
 margin_right = 700.0
 margin_bottom = 540.0
 split_offset = 348
 dragger_visibility = 1
 
-[node name="EntryDisplay" parent="PanelContainer/VBoxContainer/PanelContainer2/HSplitContainer/VSplitContainer" instance=ExtResource( 3 )]
+[node name="EntryDisplay" parent="GP/VBoxContainer/Game/HSplit/EDKB" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 700.0
 margin_bottom = 348.0
 
-[node name="Keyboard" parent="PanelContainer/VBoxContainer/PanelContainer2/HSplitContainer/VSplitContainer" instance=ExtResource( 2 )]
+[node name="Keyboard" parent="GP/VBoxContainer/Game/HSplit/EDKB" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 360.0
 margin_right = 700.0
 margin_bottom = 540.0
 
-[node name="VSplitContainer2" type="VSplitContainer" parent="PanelContainer/VBoxContainer/PanelContainer2/HSplitContainer"]
+[node name="SP" type="VSplitContainer" parent="GP/VBoxContainer/Game/HSplit"]
 margin_left = 712.0
 margin_right = 996.0
 margin_bottom = 540.0
 split_offset = 100
 dragger_visibility = 1
 
-[node name="Spindle" parent="PanelContainer/VBoxContainer/PanelContainer2/HSplitContainer/VSplitContainer2" instance=ExtResource( 4 )]
+[node name="Spindle" parent="GP/VBoxContainer/Game/HSplit/SP" instance=ExtResource( 4 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 284.0
 margin_bottom = 100.0
 
-[node name="PlayersPanel" parent="PanelContainer/VBoxContainer/PanelContainer2/HSplitContainer/VSplitContainer2" instance=ExtResource( 1 )]
+[node name="PlayersPanel" parent="GP/VBoxContainer/Game/HSplit/SP" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 112.0
 margin_right = 284.0
 margin_bottom = 540.0
-[connection signal="game_log" from="PanelContainer/VBoxContainer/PanelContainer2/HSplitContainer/VSplitContainer/EntryDisplay" to="." method="_log"]
-[connection signal="letters_revealed" from="PanelContainer/VBoxContainer/PanelContainer2/HSplitContainer/VSplitContainer/EntryDisplay" to="PanelContainer/VBoxContainer/PanelContainer2/HSplitContainer/VSplitContainer2/Spindle" method="_letters_guessed"]
-[connection signal="game_log" from="PanelContainer/VBoxContainer/PanelContainer2/HSplitContainer/VSplitContainer/Keyboard" to="." method="_log"]
-[connection signal="key_pressed" from="PanelContainer/VBoxContainer/PanelContainer2/HSplitContainer/VSplitContainer/Keyboard" to="PanelContainer/VBoxContainer/PanelContainer2/HSplitContainer/VSplitContainer/EntryDisplay" method="_on_letter_guessed"]
-[connection signal="game_log" from="PanelContainer/VBoxContainer/PanelContainer2/HSplitContainer/VSplitContainer2/Spindle" to="." method="_log"]
-[connection signal="score" from="PanelContainer/VBoxContainer/PanelContainer2/HSplitContainer/VSplitContainer2/Spindle" to="PanelContainer/VBoxContainer/PanelContainer2/HSplitContainer/VSplitContainer2/PlayersPanel" method="_score_gained"]
-[connection signal="spun" from="PanelContainer/VBoxContainer/PanelContainer2/HSplitContainer/VSplitContainer2/Spindle" to="PanelContainer/VBoxContainer/PanelContainer2/HSplitContainer/VSplitContainer/EntryDisplay" method="_on_Spindle_spun"]
-[connection signal="game_log" from="PanelContainer/VBoxContainer/PanelContainer2/HSplitContainer/VSplitContainer2/PlayersPanel" to="." method="_log"]
+[connection signal="pressed" from="GP/VBoxContainer/Top/HBoxContainer/NewG" to="." method="_on_NewG_pressed"]
+[connection signal="game_log" from="GP/VBoxContainer/Game/HSplit/EDKB/EntryDisplay" to="." method="_log"]
+[connection signal="letters_revealed" from="GP/VBoxContainer/Game/HSplit/EDKB/EntryDisplay" to="GP/VBoxContainer/Game/HSplit/SP/Spindle" method="_letters_guessed"]
+[connection signal="game_log" from="GP/VBoxContainer/Game/HSplit/EDKB/Keyboard" to="." method="_log"]
+[connection signal="key_pressed" from="GP/VBoxContainer/Game/HSplit/EDKB/Keyboard" to="GP/VBoxContainer/Game/HSplit/EDKB/EntryDisplay" method="_on_letter_guessed"]
+[connection signal="game_log" from="GP/VBoxContainer/Game/HSplit/SP/Spindle" to="." method="_log"]
+[connection signal="score" from="GP/VBoxContainer/Game/HSplit/SP/Spindle" to="GP/VBoxContainer/Game/HSplit/SP/PlayersPanel" method="_score_gained"]
+[connection signal="spun" from="GP/VBoxContainer/Game/HSplit/SP/Spindle" to="GP/VBoxContainer/Game/HSplit/EDKB/EntryDisplay" method="_on_Spindle_spun"]
+[connection signal="game_log" from="GP/VBoxContainer/Game/HSplit/SP/PlayersPanel" to="." method="_log"]
+[connection signal="pre_reset" from="GP/VBoxContainer/Game/HSplit/SP/PlayersPanel" to="." method="_pre_reset"]

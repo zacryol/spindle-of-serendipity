@@ -1,5 +1,6 @@
 extends "res://game/components/GameComponent.gd"
 
+signal pre_reset
 onready var p1 := $PanelContainer/VBoxContainer/Player
 onready var p2 := $PanelContainer/VBoxContainer/Player2
 onready var p3 := $PanelContainer/VBoxContainer/Player3
@@ -14,11 +15,18 @@ func _ready():
 	p3.set_name("Player 3")
 	pass
 
-func _score_gained(number: int):
+func _score_gained(number: int, final: bool):
 	players_array[current_player].add_to_score(number)
 	emit_signal("game_log", str(number) + " points gained")
-	current_player = wrapi(current_player + 1, 0, NUM_PLAYER)
-	emit_signal("game_log", players_array[current_player].player_name + " spin!")
+	if not final:
+		current_player = wrapi(current_player + 1, 0, NUM_PLAYER)
+		emit_signal("game_log", players_array[current_player].player_name + " spin!")
+	else:
+		emit_signal("game_log", "You solved it!")
+		p1.cache_score()
+		p2.cache_score()
+		p3.cache_score()
+		emit_signal("pre_reset")
 	pass
 
 func _on_Player_game_log(text):
