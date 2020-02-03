@@ -2,6 +2,7 @@ extends Control
 
 onready var entry_display := $GP/VBoxContainer/Game/HSplit/EDKB/EntryDisplay
 onready var log_label := $GP/VBoxContainer/Top/HBoxContainer/Label
+onready var new_button := $GP/VBoxContainer/Top/HBoxContainer/NewG
 const MAX_LOG_CHAR := 150
 
 func _ready():
@@ -18,6 +19,11 @@ func _log(text: String = ""):
 			new_text = new_text.substr(1)
 		log_label.text = new_text
 
-
 func _on_NewG_pressed():
+	entry_display.set_display(EntryManager.get_random_entry())
+	log_label.text = ""
+	new_button.hide()
 	pass # Replace with function body.
+
+func _pre_reset():
+	new_button.show()
