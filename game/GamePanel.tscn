@@ -29,28 +29,29 @@ margin_bottom = 593.0
 
 [node name="Top" type="PanelContainer" parent="GP/VBoxContainer"]
 margin_right = 1010.0
-margin_bottom = 34.0
+margin_bottom = 28.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="GP/VBoxContainer/Top"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 1003.0
-margin_bottom = 27.0
+margin_bottom = 21.0
 
 [node name="Label" type="Label" parent="GP/VBoxContainer/Top/HBoxContainer"]
-margin_top = 3.0
-margin_right = 980.0
-margin_bottom = 17.0
+margin_right = 996.0
+margin_bottom = 14.0
 size_flags_horizontal = 3
 text = "Game Status Bar"
 
-[node name="Button" type="Button" parent="GP/VBoxContainer/Top/HBoxContainer"]
-margin_left = 984.0
+[node name="NewG" type="Button" parent="GP/VBoxContainer/Top/HBoxContainer"]
+visible = false
+margin_left = 956.0
 margin_right = 996.0
 margin_bottom = 20.0
+text = "New"
 
 [node name="Game" type="PanelContainer" parent="GP/VBoxContainer"]
-margin_top = 38.0
+margin_top = 32.0
 margin_right = 1010.0
 margin_bottom = 586.0
 size_flags_vertical = 3
@@ -59,13 +60,13 @@ size_flags_vertical = 3
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 1003.0
-margin_bottom = 541.0
+margin_bottom = 547.0
 split_offset = 700
 dragger_visibility = 1
 
 [node name="EDKB" type="VSplitContainer" parent="GP/VBoxContainer/Game/HSplit"]
 margin_right = 700.0
-margin_bottom = 534.0
+margin_bottom = 540.0
 split_offset = 348
 dragger_visibility = 1
 
@@ -80,12 +81,12 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 360.0
 margin_right = 700.0
-margin_bottom = 534.0
+margin_bottom = 540.0
 
 [node name="SP" type="VSplitContainer" parent="GP/VBoxContainer/Game/HSplit"]
 margin_left = 712.0
 margin_right = 996.0
-margin_bottom = 534.0
+margin_bottom = 540.0
 split_offset = 100
 dragger_visibility = 1
 
@@ -100,7 +101,8 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 112.0
 margin_right = 284.0
-margin_bottom = 534.0
+margin_bottom = 540.0
+[connection signal="pressed" from="GP/VBoxContainer/Top/HBoxContainer/NewG" to="." method="_on_NewG_pressed"]
 [connection signal="game_log" from="GP/VBoxContainer/Game/HSplit/EDKB/EntryDisplay" to="." method="_log"]
 [connection signal="letters_revealed" from="GP/VBoxContainer/Game/HSplit/EDKB/EntryDisplay" to="GP/VBoxContainer/Game/HSplit/SP/Spindle" method="_letters_guessed"]
 [connection signal="game_log" from="GP/VBoxContainer/Game/HSplit/EDKB/Keyboard" to="." method="_log"]

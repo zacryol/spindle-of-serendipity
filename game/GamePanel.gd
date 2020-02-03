@@ -17,3 +17,7 @@ func _log(text: String = ""):
 		while new_text.length() > MAX_LOG_CHAR:
 			new_text = new_text.substr(1)
 		log_label.text = new_text
+
+
+func _on_NewG_pressed():
+	pass # Replace with function body.
