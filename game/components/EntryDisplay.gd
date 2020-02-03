@@ -1,6 +1,6 @@
 extends "res://game/components/GameComponent.gd"
 
-signal letters_revealed(number)
+signal letters_revealed(number, final)
 
 enum {
 	MODE_DISABLED
@@ -61,6 +61,9 @@ func get_display_text() -> String:
 			display_text += current_char
 	return display_text
 
+func is_solved() -> bool:
+	return false
+
 func _on_letter_guessed(letter: String):
 	if current_mode == MODE_ENABLED:
 		var guess = letter.substr(0, 1)
@@ -71,7 +74,7 @@ func _on_letter_guessed(letter: String):
 			$EntryLabel.text = get_display_text()
 			var num := entry_text.countn(guess)
 			emit_signal("game_log", str(num) + " revealed")
-			emit_signal("letters_revealed", num)
+			emit_signal("letters_revealed", num, is_solved())
 			current_mode = MODE_DISABLED
 		else:
 			emit_signal("game_log", guess + " has already been guessed")

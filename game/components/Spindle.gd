@@ -8,7 +8,7 @@ var enabled := true
 func _ready():
 	pass
 
-func _letters_guessed(number: int):
+func _letters_guessed(number: int, solves: bool):
 	emit_signal("score", number * current_value)
 	enabled = true
 
