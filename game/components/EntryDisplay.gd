@@ -44,12 +44,12 @@ func _ready():
 func set_display(entry : Entry):
 	entry_text = entry.get_entry_text().to_upper()
 	
+	for k in bool_mask.keys():
+		bool_mask[k] = false
+	
 	$CategoryLabel.text = entry.get_game_category()
 	$SourceLabel.text = entry.get_game_source()
 	$EntryLabel.text = get_display_text()
-	
-	for k in bool_mask.keys():
-		bool_mask[k] = false
 
 func get_display_text() -> String:
 	var display_text = ""
