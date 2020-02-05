@@ -27,3 +27,7 @@ func _on_FileDialog_files_selected(paths):
 
 func _on_StartButton_pressed():
 	get_tree().change_scene("res://game/GamePanel.tscn")
+
+
+func _on_Settings_pressed():
+	get_tree().change_scene("res://game/menus/settings/Settings.tscn")
