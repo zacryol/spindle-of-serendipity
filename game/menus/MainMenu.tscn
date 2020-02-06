@@ -74,7 +74,6 @@ __meta__ = {
 }
 
 [node name="AcceptDialog" type="AcceptDialog" parent="."]
-visible = true
 margin_left = 430.586
 margin_top = 251.797
 margin_right = 590.586
