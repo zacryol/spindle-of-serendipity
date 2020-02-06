@@ -1,7 +1,7 @@
 extends Control
 
 func _ready():
-	pass
+	$AcceptDialog.add_button("What?", true, "files")
 
 func _on_ImportButton_pressed():
 	$FileDialog.current_dir = "res://"
@@ -26,8 +26,16 @@ func _on_FileDialog_files_selected(paths):
 
 
 func _on_StartButton_pressed():
-	get_tree().change_scene("res://game/GamePanel.tscn")
+	if EntryManager.entries.size() == 0:
+		$AcceptDialog.show()
+	else:
+		get_tree().change_scene("res://game/GamePanel.tscn")
 
 
 func _on_Settings_pressed():
 	get_tree().change_scene("res://game/menus/settings/Settings.tscn")
+
+
+func _on_AcceptDialog_custom_action(action):
+	if action == "files":
+		OS.shell_open("https://gitlab.com/zacryol/spindle-of-serendipity/-/wikis/entries")
