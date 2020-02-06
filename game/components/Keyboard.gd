@@ -12,3 +12,11 @@ func _ready():
 func _on_Key_pressed(letter : String):
 	emit_signal("key_pressed", letter)
 	pass
+
+func _input(event):
+	if event is InputEventKey \
+			&& event.scancode in range(KEY_A, KEY_Z + 1) \
+			&& not event.is_echo() \
+			&& event.is_pressed():
+		var e := str(event.as_text().right(event.as_text().length() - 1))
+		emit_signal("key_pressed", e)
