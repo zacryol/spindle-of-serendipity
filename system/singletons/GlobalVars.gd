@@ -24,11 +24,12 @@ var rand_mode := RAND_NON
 
 
 func _ready():
+	load_settings_from_file()
 	randomize()
 
 
 func save_settings_to_file():
-	var f = File.new()
+	var f := File.new()
 	f.open(SETTINGS_SAVE, File.WRITE)
 	var settings_dict := {
 		"show_source" : show_source,
@@ -38,7 +39,16 @@ func save_settings_to_file():
 	f.close()
 
 func load_settings_from_file():
-	var f = File.new()
+	var f := File.new()
 	if f.file_exists(SETTINGS_SAVE):
 		f.open(SETTINGS_SAVE, File.READ)
+		var settings_string := f.get_as_text()
+		var v := validate_json(settings_string)
+		if not v:
+			var settings_dict = parse_json(settings_string)
+			if typeof(settings_dict) == TYPE_DICTIONARY:
+				if settings_dict.has("show_source"):
+					show_source = settings_dict["show_source"]
+				if settings_dict.has("rand_mode"):
+					rand_mode = settings_dict["rand_mode"]
 	
