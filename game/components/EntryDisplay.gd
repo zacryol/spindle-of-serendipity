@@ -8,6 +8,7 @@ enum {
 }
 var current_mode := MODE_DISABLED
 var entry_text : String
+var source_text : String
 var bool_mask : Dictionary = {
 	"A":false,
 	"B":false,
@@ -37,18 +38,23 @@ var bool_mask : Dictionary = {
 	"Z":false
 }
 var placeholder_char := "*"
+var source_hide := "???"
 
 func _ready():
 	pass
 
 func set_display(entry : Entry):
 	entry_text = entry.get_entry_text().to_upper()
+	source_text = entry.get_game_source()
 	
 	for k in bool_mask.keys():
 		bool_mask[k] = false
 	
 	$CategoryLabel.text = entry.get_game_category()
-	$SourceLabel.text = entry.get_game_source()
+	if GlobalVars.show_source == GlobalVars.SOURCE_ALWAYS:
+		$SourceLabel.text = source_text
+	else:
+		$SourceLabel.text = source_hide
 	$EntryLabel.text = get_display_text()
 
 func get_display_text() -> String:
@@ -98,6 +104,8 @@ func _on_letter_guessed(letter: String):
 			current_mode = MODE_DISABLED
 		else:
 			emit_signal("game_log", guess + " has already been guessed")
+		if is_solved() && GlobalVars.show_source == GlobalVars.SOURCE_SOLVE:
+			$SourceLabel.text = source_text
 	pass
 
 func _on_Spindle_spun():

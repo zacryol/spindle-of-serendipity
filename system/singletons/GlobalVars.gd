@@ -51,4 +51,4 @@ func load_settings_from_file():
 					show_source = settings_dict["show_source"]
 				if settings_dict.has("rand_mode"):
 					rand_mode = settings_dict["rand_mode"]
-	
+
