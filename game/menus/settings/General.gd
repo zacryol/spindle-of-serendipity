@@ -11,8 +11,8 @@ func _ready():
 
 
 func _on_source_option_selected(id):
-	pass # Replace with function body.
+	GlobalVars.show_source = id
 
 
 func _on_rand_option_selected(id):
-	pass # Replace with function body.
+	GlobalVars.rand_mode = id
