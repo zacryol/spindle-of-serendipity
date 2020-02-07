@@ -21,11 +21,25 @@ func _to_string() -> String:
 func get_random_entry() -> Entry:
 	match GlobalVars.rand_mode:
 		GlobalVars.RAND_CAT:
-			pass
+			return randomize_by_category()
 		GlobalVars.RAND_SOU:
-			pass
+			return randomize_by_source()
 	var index := randi() % entries.size()
 	return entries[index]
+
+
+func randomize_by_category() -> Entry:
+	var cats := get_categories()
+	var cat := cats[randi() % cats.size()]
+	var es := get_entries_in_category(cat)
+	return es[randi() % es.size()]
+
+
+func randomize_by_source() -> Entry:
+	var sous := get_sources()
+	var sou := sous[randi() % sous.size()]
+	var es := get_entries_in_source(sou)
+	return es[randi() % es.size()]
 
 
 func get_categories() -> PoolStringArray:
