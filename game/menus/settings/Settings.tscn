@@ -22,7 +22,6 @@ margin_left = 7.0
 margin_top = 7.0
 margin_right = 1017.0
 margin_bottom = 593.0
-tab_align = 0
 
 [node name="General" type="Tabs" parent="PanelContainer/TabContainer"]
 anchor_right = 1.0
@@ -35,9 +34,62 @@ margin_bottom = -4.0
 [node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/TabContainer/General"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 225.0
+margin_right = -225.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/TabContainer/General/ScrollContainer"]
+margin_right = 552.0
+margin_bottom = 65.0
+size_flags_horizontal = 3
+custom_constants/separation = 25
+
+[node name="RevealSource" type="HBoxContainer" parent="PanelContainer/TabContainer/General/ScrollContainer/VBoxContainer"]
+margin_right = 552.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="PanelContainer/TabContainer/General/ScrollContainer/VBoxContainer/RevealSource"]
+margin_top = 3.0
+margin_right = 274.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+text = "Reveal Source: "
+align = 2
+
+[node name="OptionButton" type="OptionButton" parent="PanelContainer/TabContainer/General/ScrollContainer/VBoxContainer/RevealSource"]
+margin_left = 278.0
+margin_right = 552.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+text = "Never"
+items = [ "Never", null, false, 0, null, "When Solved", null, false, 1, null, "Always", null, false, 2, null ]
+selected = 0
+
+[node name="RandMode" type="HBoxContainer" parent="PanelContainer/TabContainer/General/ScrollContainer/VBoxContainer"]
+margin_top = 45.0
+margin_right = 552.0
+margin_bottom = 65.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="PanelContainer/TabContainer/General/ScrollContainer/VBoxContainer/RandMode"]
+margin_top = 3.0
+margin_right = 274.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+text = "Randomize Mode: "
+align = 2
+
+[node name="OptionButton" type="OptionButton" parent="PanelContainer/TabContainer/General/ScrollContainer/VBoxContainer/RandMode"]
+margin_left = 278.0
+margin_right = 552.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+text = "Random"
+items = [ "Random", null, false, 0, null, "By Category", null, false, 1, null, "By Source", null, false, 2, null ]
+selected = 0
 
 [node name="Legal" type="Tabs" parent="PanelContainer/TabContainer"]
 visible = false
