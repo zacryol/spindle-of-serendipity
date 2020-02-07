@@ -44,3 +44,23 @@ func get_sources() -> PoolStringArray:
 			if not e.get_game_source().to_lower() in sou:
 				sou.append(e.get_game_source().to_lower())
 	return sou
+
+
+func get_entries_in_category(category : String) -> Array:
+	var cat = category.to_lower()
+	var es : Array
+	for e in entries:
+		if e is Entry:
+			if e.get_game_category().to_lower() == cat:
+				es.append(e)
+	return es
+
+
+func get_entries_in_source(source : String) -> Array:
+	var sou := source.to_lower()
+	var es : Array
+	for e in entries:
+		if e is Entry:
+			if e.get_game_source().to_lower() == sou:
+				es.append(e)
+	return es
