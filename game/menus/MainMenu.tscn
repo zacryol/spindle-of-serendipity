@@ -42,6 +42,12 @@ margin_right = 91.0
 margin_bottom = 44.0
 text = "Start Game"
 
+[node name="Settings" type="Button" parent="VBoxContainer"]
+margin_top = 48.0
+margin_right = 91.0
+margin_bottom = 68.0
+text = "Settings"
+
 [node name="FileDialog" type="FileDialog" parent="."]
 margin_left = 306.0
 margin_top = 111.0
@@ -66,6 +72,17 @@ text = "spindle of serendipity"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AcceptDialog" type="AcceptDialog" parent="."]
+margin_left = 430.586
+margin_top = 251.797
+margin_right = 590.586
+margin_bottom = 363.797
+dialog_text = "No Entry files found.
+Please import a .json entry file before attempting to play"
+dialog_autowrap = true
 [connection signal="pressed" from="VBoxContainer/ImportButton" to="." method="_on_ImportButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_Settings_pressed"]
 [connection signal="files_selected" from="FileDialog" to="." method="_on_FileDialog_files_selected"]
+[connection signal="custom_action" from="AcceptDialog" to="." method="_on_AcceptDialog_custom_action"]
