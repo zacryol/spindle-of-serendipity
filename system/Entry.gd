@@ -20,12 +20,12 @@ func get_import_source() -> String:
 	return source
 
 func get_game_category() -> String:
-	# For Aliases Later
-	return get_import_category()
+	return Alias.category(category)
+	#return get_import_category()
 
 func get_game_source() -> String:
-	# For Aliases Later
-	return get_import_source()
+	return Alias.source(source)
+	#return get_import_source()
 
 func _to_string() -> String:
 	return "Text: " + text + ", Category: " + category + ", Source: " + source

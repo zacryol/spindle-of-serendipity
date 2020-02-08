@@ -31,15 +31,15 @@ func erase_sou(old : String):
 
 
 func category(import: String) -> String:
-	if aliases_cat.has(import):
-		return aliases_cat[import]
+	if aliases_cat.has(import.to_lower()):
+		return aliases_cat[import.to_lower()]
 	else:
 		return import
 
 
 func source(import: String) -> String:
-	if aliases_sou.has(import):
-		return aliases_sou[import]
+	if aliases_sou.has(import.to_lower()):
+		return aliases_sou[import.to_lower()]
 	else:
 		return import
 
