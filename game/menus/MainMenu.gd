@@ -3,10 +3,12 @@ extends Control
 func _ready():
 	$AcceptDialog.add_button("What?", true, "files")
 
+
 func _on_ImportButton_pressed():
 	$FileDialog.current_dir = "res://"
 	$FileDialog.current_path = "res://"
 	$FileDialog.show()
+
 
 func _on_FileDialog_files_selected(paths):
 	for path in paths:

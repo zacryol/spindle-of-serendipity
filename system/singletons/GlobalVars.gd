@@ -39,6 +39,7 @@ func save_settings_to_file():
 	f.store_string(to_json(settings_dict))
 	f.close()
 
+
 func load_settings_from_file():
 	var f := File.new()
 	if f.file_exists(SETTINGS_SAVE):
@@ -52,4 +53,3 @@ func load_settings_from_file():
 					show_source = settings_dict["show_source"]
 				if settings_dict.has("rand_mode"):
 					rand_mode = settings_dict["rand_mode"]
-
