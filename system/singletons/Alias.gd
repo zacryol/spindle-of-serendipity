@@ -16,10 +16,12 @@ func has(import : String, is_cat : bool) -> bool:
 
 func add_category(old : String, new : String):
 	aliases_cat[old] = new
+	save_to_file()
 
 
 func add_source(old : String, new : String):
 	aliases_sou[old] = new
+	save_to_file()
 
 
 func erase_cat(old : String):
@@ -47,7 +49,7 @@ func source(import: String) -> String:
 func load_from_file():
 	var f := File.new()
 	if f.file_exists(GlobalVars.ALIAS_SAVE):
-		f.open(GlobalVars.ALIAS_SAVE, File.WRITE)
+		f.open(GlobalVars.ALIAS_SAVE, File.READ)
 		var s := f.get_as_text()
 		var v = validate_json(s)
 		if not v:
