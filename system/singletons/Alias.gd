@@ -6,6 +6,14 @@ var aliases_sou : Dictionary
 func _ready():
 	pass
 
+
+func has(import : String, is_cat : bool) -> bool:
+	if is_cat:
+		return aliases_cat.has(import)
+	else:
+		return aliases_sou.has(import)
+
+
 func category(import: String) -> String:
 	if aliases_cat.has(import):
 		return aliases_cat[import]

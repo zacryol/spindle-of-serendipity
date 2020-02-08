@@ -21,7 +21,7 @@ func initialize_imports():
 	
 	for i in import_values:
 		var s = single.instance()
-		s.set_text(i)
+		s.set_text(i, is_categories)
 		s.connect("set_alias", self, "alias_set")
 		s.connect("clear_alias", self, "alias_cleared")
 		imports.add_child(s)
