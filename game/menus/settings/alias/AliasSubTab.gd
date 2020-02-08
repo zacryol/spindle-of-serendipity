@@ -11,6 +11,23 @@ var single = preload("res://game/menus/settings/alias/SingleAlias.tscn")
 func set_ui(cat : bool):
 	is_categories = cat
 	initialize_imports()
+	update_game_list()
+
+
+func update_game_list():
+	for node in outs.get_children():
+		node.queue_free()
+	
+	var out : PoolStringArray
+	if is_categories:
+		out = EntryManager.get_categories()
+	else:
+		out = EntryManager.get_sources()
+	
+	for o in out:
+		var l = Label.new()
+		l.text = o
+		outs.add_child(l)
 
 
 func initialize_imports():
@@ -32,6 +49,7 @@ func alias_set(old : String, new : String):
 		Alias.add_category(old, new)
 	else:
 		Alias.add_source(old, new)
+	update_game_list()
 
 
 func alias_cleared(old : String):
