@@ -141,6 +141,8 @@ margin_right = 479.0
 margin_bottom = 514.0
 
 [node name="VBox" type="VBoxContainer" parent="PanelContainer/TabContainer/Alias/T/Categories/H/Import"]
+margin_right = 479.0
+size_flags_horizontal = 3
 
 [node name="View" type="ScrollContainer" parent="PanelContainer/TabContainer/Alias/T/Categories/H"]
 margin_left = 491.0
@@ -169,6 +171,8 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="VBox" type="VBoxContainer" parent="PanelContainer/TabContainer/Alias/T/Sources/H/Import"]
+margin_right = 40.0
+size_flags_horizontal = 3
 
 [node name="View" type="ScrollContainer" parent="PanelContainer/TabContainer/Alias/T/Sources/H"]
 margin_right = 40.0
