@@ -24,4 +24,5 @@ func _on_Add_pressed():
 
 
 func _on_Clear_pressed():
+	$Input.text = ""
 	emit_signal("clear_alias", text)

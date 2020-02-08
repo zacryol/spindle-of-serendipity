@@ -4,7 +4,7 @@ var aliases_cat : Dictionary
 var aliases_sou : Dictionary
 
 func _ready():
-	pass
+	load_from_file()
 
 
 func has(import : String, is_cat : bool) -> bool:
@@ -12,6 +12,22 @@ func has(import : String, is_cat : bool) -> bool:
 		return aliases_cat.has(import)
 	else:
 		return aliases_sou.has(import)
+
+
+func add_category(old : String, new : String):
+	aliases_cat[old] = new
+
+
+func add_source(old : String, new : String):
+	aliases_sou[old] = new
+
+
+func erase_cat(old : String):
+	aliases_cat.erase(old)
+
+
+func erase_sou(old : String):
+	aliases_sou.erase(old)
 
 
 func category(import: String) -> String:

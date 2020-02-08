@@ -29,13 +29,13 @@ func initialize_imports():
 
 func alias_set(old : String, new : String):
 	if is_categories:
-		Alias.aliases_cat[old] = new
+		Alias.add_category(old, new)
 	else:
-		Alias.aliases_sou[old] = new
+		Alias.add_source(old, new)
 
 
 func alias_cleared(old : String):
 	if is_categories:
-		Alias.aliases_cat.erase(old)
+		Alias.erase_cat(old)
 	else:
-		Alias.aliases_sou.erase(old)
+		Alias.erase_sou(old)
