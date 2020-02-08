@@ -28,10 +28,14 @@ func initialize_imports():
 
 
 func alias_set(old : String, new : String):
-	print(old + " to " + new)
-	pass
+	if is_categories:
+		Alias.aliases_cat[old] = new
+	else:
+		Alias.aliases_sou[old] = new
 
 
 func alias_cleared(old : String):
-	print(old)
-	pass
+	if is_categories:
+		Alias.aliases_cat.erase(old)
+	else:
+		Alias.aliases_sou.erase(old)
