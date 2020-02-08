@@ -6,6 +6,19 @@ var aliases_sou : Dictionary
 func _ready():
 	pass
 
+func category(import: String) -> String:
+	if aliases_cat.has(import):
+		return aliases_cat[import]
+	else:
+		return import
+
+
+func source(import: String) -> String:
+	if aliases_sou.has(import):
+		return aliases_sou[import]
+	else:
+		return import
+
 
 func load_from_file():
 	var f := File.new()
