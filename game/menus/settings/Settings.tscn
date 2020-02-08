@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://game/menus/settings/Settings.gd" type="Script" id=1]
 [ext_resource path="res://game/menus/settings/General.gd" type="Script" id=2]
+[ext_resource path="res://game/menus/settings/AliasMenu.gd" type="Script" id=3]
 
 [node name="Settings" type="Control"]
 anchor_right = 1.0
@@ -107,6 +108,67 @@ margin_left = 4.0
 margin_top = 32.0
 margin_right = -4.0
 margin_bottom = -4.0
+script = ExtResource( 3 )
+
+[node name="TabContainer" type="TabContainer" parent="PanelContainer/TabContainer/Alias"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+tab_align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Categories" type="Tabs" parent="PanelContainer/TabContainer/Alias/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="H" type="HSplitContainer" parent="PanelContainer/TabContainer/Alias/TabContainer/Categories"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Import" type="ScrollContainer" parent="PanelContainer/TabContainer/Alias/TabContainer/Categories/H"]
+margin_bottom = 514.0
+
+[node name="VBox" type="VBoxContainer" parent="PanelContainer/TabContainer/Alias/TabContainer/Categories/H/Import"]
+
+[node name="View" type="ScrollContainer" parent="PanelContainer/TabContainer/Alias/TabContainer/Categories/H"]
+margin_left = 12.0
+margin_right = 994.0
+margin_bottom = 514.0
+
+[node name="VBox" type="VBoxContainer" parent="PanelContainer/TabContainer/Alias/TabContainer/Categories/H/View"]
+
+[node name="Sources" type="Tabs" parent="PanelContainer/TabContainer/Alias/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="H" type="HSplitContainer" parent="PanelContainer/TabContainer/Alias/TabContainer/Sources"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Import" type="ScrollContainer" parent="PanelContainer/TabContainer/Alias/TabContainer/Sources/H"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="VBox" type="VBoxContainer" parent="PanelContainer/TabContainer/Alias/TabContainer/Sources/H/Import"]
+
+[node name="View" type="ScrollContainer" parent="PanelContainer/TabContainer/Alias/TabContainer/Sources/H"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="VBox" type="VBoxContainer" parent="PanelContainer/TabContainer/Alias/TabContainer/Sources/H/View"]
 
 [node name="Legal" type="Tabs" parent="PanelContainer/TabContainer"]
 visible = false
