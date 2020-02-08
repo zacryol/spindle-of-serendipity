@@ -26,7 +26,17 @@ margin_top = 7.0
 margin_right = 1017.0
 margin_bottom = 593.0
 
+[node name="Back" type="Button" parent="PanelContainer/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+text = "Back to Main Menu"
+
 [node name="General" type="Tabs" parent="PanelContainer/TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -241,13 +251,7 @@ margin_right = 462.0
 margin_bottom = 713.0
 text = "Portions of this software are copyright © 2020 The FreeType Project (www.freetype.org). All rights reserved."
 autowrap = true
-
-[node name="Button" type="Button" parent="PanelContainer/TabContainer/Legal/ScrollContainer/VBoxContainer"]
-margin_top = 717.0
-margin_right = 462.0
-margin_bottom = 737.0
-text = "Back to Main"
+[connection signal="pressed" from="PanelContainer/TabContainer/Back" to="." method="_on_Back_pressed"]
 [connection signal="item_selected" from="PanelContainer/TabContainer/General/Scroll/List/RevealSource/OptionButton" to="PanelContainer/TabContainer/General" method="_on_source_option_selected"]
 [connection signal="item_selected" from="PanelContainer/TabContainer/General/Scroll/List/RandMode/OptionButton" to="PanelContainer/TabContainer/General" method="_on_rand_option_selected"]
 [connection signal="pressed" from="PanelContainer/TabContainer/General/Scroll/List/Save" to="PanelContainer/TabContainer/General" method="_on_Save_pressed"]
-[connection signal="pressed" from="PanelContainer/TabContainer/Legal/ScrollContainer/VBoxContainer/Button" to="." method="_on_Back_pressed"]
