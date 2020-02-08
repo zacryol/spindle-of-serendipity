@@ -129,17 +129,19 @@ margin_bottom = -4.0
 [node name="H" type="HSplitContainer" parent="PanelContainer/TabContainer/Alias/TabContainer/Categories"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+split_offset = 479
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Import" type="ScrollContainer" parent="PanelContainer/TabContainer/Alias/TabContainer/Categories/H"]
+margin_right = 479.0
 margin_bottom = 514.0
 
 [node name="VBox" type="VBoxContainer" parent="PanelContainer/TabContainer/Alias/TabContainer/Categories/H/Import"]
 
 [node name="View" type="ScrollContainer" parent="PanelContainer/TabContainer/Alias/TabContainer/Categories/H"]
-margin_left = 12.0
+margin_left = 491.0
 margin_right = 994.0
 margin_bottom = 514.0
 
@@ -157,6 +159,7 @@ margin_bottom = -4.0
 [node name="H" type="HSplitContainer" parent="PanelContainer/TabContainer/Alias/TabContainer/Sources"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+split_offset = 479
 
 [node name="Import" type="ScrollContainer" parent="PanelContainer/TabContainer/Alias/TabContainer/Sources/H"]
 margin_right = 40.0
