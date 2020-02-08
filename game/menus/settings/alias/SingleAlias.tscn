@@ -35,3 +35,5 @@ margin_left = 945.0
 margin_right = 1024.0
 margin_bottom = 24.0
 text = "Clear Alias"
+[connection signal="pressed" from="Add" to="." method="_on_Add_pressed"]
+[connection signal="pressed" from="Clear" to="." method="_on_Clear_pressed"]

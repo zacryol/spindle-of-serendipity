@@ -8,13 +8,9 @@ var import_values : PoolStringArray
 
 var single = preload("res://game/menus/settings/alias/SingleAlias.tscn")
 
-func _ready():
-	pass
-
 func set_ui(cat : bool):
 	is_categories = cat
 	initialize_imports()
-	pass
 
 
 func initialize_imports():
@@ -27,4 +23,3 @@ func initialize_imports():
 		var s = single.instance()
 		s.set_text(i)
 		imports.add_child(s)
-	pass
