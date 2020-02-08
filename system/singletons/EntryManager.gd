@@ -78,3 +78,21 @@ func get_entries_in_source(source : String) -> Array:
 			if e.get_game_source().to_lower() == sou:
 				es.append(e)
 	return es
+
+
+func get_import_categories() -> PoolStringArray:
+	var categories : PoolStringArray
+	for e in entries:
+		if e is Entry:
+			if not e.get_import_category().to_lower() in categories:
+				categories.append(e.get_import_category().to_lower())
+	return categories
+
+
+func get_import_sources() -> PoolStringArray:
+	var sources : PoolStringArray
+	for e in entries:
+		if e is Entry:
+			if not e.get_import_source().to_lower() in sources:
+				sources.append(e.get_import_source().to_lower())
+	return sources

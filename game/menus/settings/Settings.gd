@@ -2,7 +2,7 @@ extends Control
 
 
 func _ready():
-	pass
+	$PanelContainer/TabContainer.current_tab = 1
 
 
 func _on_Back_pressed():

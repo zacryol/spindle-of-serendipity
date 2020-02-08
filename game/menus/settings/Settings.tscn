@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://game/menus/settings/Settings.gd" type="Script" id=1]
 [ext_resource path="res://game/menus/settings/General.gd" type="Script" id=2]
+[ext_resource path="res://game/menus/settings/alias/AliasMenu.gd" type="Script" id=3]
+[ext_resource path="res://game/menus/settings/alias/AliasSubTab.gd" type="Script" id=4]
 
 [node name="Settings" type="Control"]
 anchor_right = 1.0
@@ -24,7 +26,17 @@ margin_top = 7.0
 margin_right = 1017.0
 margin_bottom = 593.0
 
+[node name="Back" type="Button" parent="PanelContainer/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+text = "Back to Main Menu"
+
 [node name="General" type="Tabs" parent="PanelContainer/TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -99,6 +111,85 @@ margin_right = 552.0
 margin_bottom = 110.0
 text = "Save"
 
+[node name="Alias" type="Tabs" parent="PanelContainer/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+script = ExtResource( 3 )
+
+[node name="T" type="TabContainer" parent="PanelContainer/TabContainer/Alias"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+tab_align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Categories" type="Tabs" parent="PanelContainer/TabContainer/Alias/T"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+script = ExtResource( 4 )
+
+[node name="H" type="HSplitContainer" parent="PanelContainer/TabContainer/Alias/T/Categories"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+split_offset = 479
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Import" type="ScrollContainer" parent="PanelContainer/TabContainer/Alias/T/Categories/H"]
+margin_right = 479.0
+margin_bottom = 514.0
+
+[node name="VBox" type="VBoxContainer" parent="PanelContainer/TabContainer/Alias/T/Categories/H/Import"]
+margin_right = 479.0
+size_flags_horizontal = 3
+
+[node name="View" type="ScrollContainer" parent="PanelContainer/TabContainer/Alias/T/Categories/H"]
+margin_left = 491.0
+margin_right = 994.0
+margin_bottom = 514.0
+
+[node name="VBox" type="VBoxContainer" parent="PanelContainer/TabContainer/Alias/T/Categories/H/View"]
+
+[node name="Sources" type="Tabs" parent="PanelContainer/TabContainer/Alias/T"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+script = ExtResource( 4 )
+
+[node name="H" type="HSplitContainer" parent="PanelContainer/TabContainer/Alias/T/Sources"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+split_offset = 479
+
+[node name="Import" type="ScrollContainer" parent="PanelContainer/TabContainer/Alias/T/Sources/H"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="VBox" type="VBoxContainer" parent="PanelContainer/TabContainer/Alias/T/Sources/H/Import"]
+margin_right = 40.0
+size_flags_horizontal = 3
+
+[node name="View" type="ScrollContainer" parent="PanelContainer/TabContainer/Alias/T/Sources/H"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="VBox" type="VBoxContainer" parent="PanelContainer/TabContainer/Alias/T/Sources/H/View"]
+
 [node name="Legal" type="Tabs" parent="PanelContainer/TabContainer"]
 visible = false
 anchor_right = 1.0
@@ -160,13 +251,7 @@ margin_right = 462.0
 margin_bottom = 713.0
 text = "Portions of this software are copyright © 2020 The FreeType Project (www.freetype.org). All rights reserved."
 autowrap = true
-
-[node name="Button" type="Button" parent="PanelContainer/TabContainer/Legal/ScrollContainer/VBoxContainer"]
-margin_top = 717.0
-margin_right = 462.0
-margin_bottom = 737.0
-text = "Back to Main"
+[connection signal="pressed" from="PanelContainer/TabContainer/Back" to="." method="_on_Back_pressed"]
 [connection signal="item_selected" from="PanelContainer/TabContainer/General/Scroll/List/RevealSource/OptionButton" to="PanelContainer/TabContainer/General" method="_on_source_option_selected"]
 [connection signal="item_selected" from="PanelContainer/TabContainer/General/Scroll/List/RandMode/OptionButton" to="PanelContainer/TabContainer/General" method="_on_rand_option_selected"]
 [connection signal="pressed" from="PanelContainer/TabContainer/General/Scroll/List/Save" to="PanelContainer/TabContainer/General" method="_on_Save_pressed"]
-[connection signal="pressed" from="PanelContainer/TabContainer/Legal/ScrollContainer/VBoxContainer/Button" to="." method="_on_Back_pressed"]
