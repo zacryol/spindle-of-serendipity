@@ -25,6 +25,7 @@ margin_right = 1017.0
 margin_bottom = 593.0
 
 [node name="General" type="Tabs" parent="PanelContainer/TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -98,6 +99,14 @@ margin_top = 90.0
 margin_right = 552.0
 margin_bottom = 110.0
 text = "Save"
+
+[node name="Alias" type="Tabs" parent="PanelContainer/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
 
 [node name="Legal" type="Tabs" parent="PanelContainer/TabContainer"]
 visible = false
