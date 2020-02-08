@@ -26,10 +26,12 @@ func add_source(old : String, new : String):
 
 func erase_cat(old : String):
 	aliases_cat.erase(old)
+	save_to_file()
 
 
 func erase_sou(old : String):
 	aliases_sou.erase(old)
+	save_to_file()
 
 
 func category(import: String) -> String:

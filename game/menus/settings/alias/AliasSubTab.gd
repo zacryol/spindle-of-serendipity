@@ -57,3 +57,4 @@ func alias_cleared(old : String):
 		Alias.erase_cat(old)
 	else:
 		Alias.erase_sou(old)
+	update_game_list()
