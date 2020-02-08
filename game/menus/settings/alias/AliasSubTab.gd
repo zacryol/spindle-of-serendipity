@@ -22,4 +22,16 @@ func initialize_imports():
 	for i in import_values:
 		var s = single.instance()
 		s.set_text(i)
+		s.connect("set_alias", self, "alias_set")
+		s.connect("clear_alias", self, "alias_cleared")
 		imports.add_child(s)
+
+
+func alias_set(old : String, new : String):
+	print(old + " to " + new)
+	pass
+
+
+func alias_cleared(old : String):
+	print(old)
+	pass
