@@ -26,6 +26,7 @@ run/main_scene="res://game/menus/MainMenu.tscn"
 [autoload]
 
 GlobalVars="*res://system/singletons/GlobalVars.gd"
+Alias="*res://system/singletons/Alias.gd"
 EntryManager="*res://system/singletons/EntryManager.gd"
 EntryImport="*res://system/singletons/EntryImport.gd"
 
