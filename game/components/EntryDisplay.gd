@@ -35,13 +35,10 @@ var bool_mask : Dictionary = {
 	"W":false,
 	"X":false,
 	"Y":false,
-	"Z":false
+	"Z":false,
 }
 var placeholder_char := "*"
 var source_hide := "???"
-
-func _ready():
-	pass
 
 func set_display(entry : Entry):
 	entry_text = entry.get_entry_text().to_upper()
@@ -57,6 +54,7 @@ func set_display(entry : Entry):
 		$SourceLabel.text = source_hide
 	$EntryLabel.text = get_display_text()
 
+
 func get_display_text() -> String:
 	var display_text = ""
 	for i in entry_text.length():
@@ -70,13 +68,14 @@ func get_display_text() -> String:
 			display_text += current_char
 	return display_text
 
+
 func is_solved() -> bool:
 	var letters := get_letters_in_entry()
 	for l in letters:
 		if !bool_mask[l]:
 			return false
-		pass
 	return true
+
 
 func get_letters_in_entry() -> PoolStringArray:
 	var letters : PoolStringArray
@@ -87,8 +86,10 @@ func get_letters_in_entry() -> PoolStringArray:
 				letters.append(current_char)
 	return letters
 
+
 func get_char_at(index : int) -> String:
 	return entry_text.substr(index, 1)
+
 
 func _on_letter_guessed(letter: String):
 	if current_mode == MODE_ENABLED:
@@ -106,7 +107,7 @@ func _on_letter_guessed(letter: String):
 			emit_signal("game_log", guess + " has already been guessed")
 		if is_solved() && GlobalVars.show_source == GlobalVars.SOURCE_SOLVE:
 			$SourceLabel.text = source_text
-	pass
+
 
 func _on_Spindle_spun():
 	current_mode = MODE_ENABLED

@@ -9,9 +9,10 @@ func _ready():
 		if key is Button:
 			key.connect("pressed", self, "_on_Key_pressed", [key.text])
 
+
 func _on_Key_pressed(letter : String):
 	emit_signal("key_pressed", letter)
-	pass
+
 
 func _input(event):
 	if event is InputEventKey \
