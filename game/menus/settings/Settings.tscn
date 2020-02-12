@@ -141,21 +141,21 @@ script = ExtResource( 4 )
 [node name="H" type="HSplitContainer" parent="PanelContainer/TabContainer/Alias/T/Categories"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-split_offset = 479
+split_offset = 600
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Import" type="ScrollContainer" parent="PanelContainer/TabContainer/Alias/T/Categories/H"]
-margin_right = 479.0
+margin_right = 600.0
 margin_bottom = 514.0
 
 [node name="VBox" type="VBoxContainer" parent="PanelContainer/TabContainer/Alias/T/Categories/H/Import"]
-margin_right = 479.0
+margin_right = 600.0
 size_flags_horizontal = 3
 
 [node name="View" type="ScrollContainer" parent="PanelContainer/TabContainer/Alias/T/Categories/H"]
-margin_left = 491.0
+margin_left = 612.0
 margin_right = 994.0
 margin_bottom = 514.0
 
@@ -174,7 +174,7 @@ script = ExtResource( 4 )
 [node name="H" type="HSplitContainer" parent="PanelContainer/TabContainer/Alias/T/Sources"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-split_offset = 479
+split_offset = 600
 
 [node name="Import" type="ScrollContainer" parent="PanelContainer/TabContainer/Alias/T/Sources/H"]
 margin_right = 40.0
@@ -208,7 +208,7 @@ __meta__ = {
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/TabContainer/Legal/ScrollContainer"]
 margin_right = 462.0
-margin_bottom = 737.0
+margin_bottom = 713.0
 
 [node name="GPLLabel" type="Label" parent="PanelContainer/TabContainer/Legal/ScrollContainer/VBoxContainer"]
 margin_right = 462.0
