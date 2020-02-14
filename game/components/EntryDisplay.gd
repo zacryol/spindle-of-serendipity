@@ -50,6 +50,8 @@ func set_display(entry : Entry):
 	$CategoryLabel.text = entry.get_game_category()
 	if GlobalVars.show_source == GlobalVars.SOURCE_ALWAYS:
 		$SourceLabel.text = source_text
+	elif GlobalVars.show_source == GlobalVars.SOURCE_NEVER:
+		$SourceLabel.text = ""
 	else:
 		$SourceLabel.text = source_hide
 	$EntryLabel.text = get_display_text()
