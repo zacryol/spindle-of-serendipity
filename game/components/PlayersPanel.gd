@@ -13,7 +13,7 @@ func _ready():
 	p1.set_name("Player 1")
 	p2.set_name("Player 2")
 	p3.set_name("Player 3")
-	pass
+
 
 func _score_gained(number: int, final: bool):
 	players_array[current_player].add_to_score(number)
@@ -27,7 +27,7 @@ func _score_gained(number: int, final: bool):
 		p2.cache_score()
 		p3.cache_score()
 		emit_signal("pre_reset")
-	pass
+
 
 func _on_Player_game_log(text):
 	emit_signal("game_log", text)

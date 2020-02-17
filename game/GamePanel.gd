@@ -9,7 +9,7 @@ const MAX_LOG_CHAR := 150
 func _ready():
 	entry_display.set_display(EntryManager.get_random_entry())
 	log_label.text = ""
-	pass
+
 
 func _log(text: String = ""):
 	if text == "":
@@ -20,11 +20,13 @@ func _log(text: String = ""):
 			new_text = new_text.substr(1)
 		log_label.text = new_text
 
+
 func _on_NewG_pressed():
 	entry_display.set_display(EntryManager.get_random_entry())
 	log_label.text = ""
 	new_button.hide()
 	spindle.enabled = true
+
 
 func _pre_reset():
 	new_button.show()

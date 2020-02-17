@@ -10,22 +10,26 @@ func _init(new_text : String, new_category := GlobalVars.DEFAULT_CATEGORY, new_s
 	category = new_category
 	source = new_source
 
+
 func get_entry_text() -> String:
 	return text
+
 
 func get_import_category() -> String:
 	return category
 
+
 func get_import_source() -> String:
 	return source
 
+
 func get_game_category() -> String:
-	# For Aliases Later
-	return get_import_category()
+	return Alias.category(category)
+
 
 func get_game_source() -> String:
-	# For Aliases Later
-	return get_import_source()
+	return Alias.source(source)
+
 
 func _to_string() -> String:
 	return "Text: " + text + ", Category: " + category + ", Source: " + source

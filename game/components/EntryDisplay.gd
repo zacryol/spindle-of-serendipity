@@ -8,6 +8,7 @@ enum {
 }
 var current_mode := MODE_DISABLED
 var entry_text : String
+var source_text : String
 var bool_mask : Dictionary = {
 	"A":false,
 	"B":false,
@@ -34,22 +35,27 @@ var bool_mask : Dictionary = {
 	"W":false,
 	"X":false,
 	"Y":false,
-	"Z":false
+	"Z":false,
 }
 var placeholder_char := "*"
-
-func _ready():
-	pass
+var source_hide := "???"
 
 func set_display(entry : Entry):
 	entry_text = entry.get_entry_text().to_upper()
+	source_text = entry.get_game_source()
 	
 	for k in bool_mask.keys():
 		bool_mask[k] = false
 	
 	$CategoryLabel.text = entry.get_game_category()
-	$SourceLabel.text = entry.get_game_source()
+	if GlobalVars.show_source == GlobalVars.SOURCE_ALWAYS:
+		$SourceLabel.text = source_text
+	elif GlobalVars.show_source == GlobalVars.SOURCE_NEVER:
+		$SourceLabel.text = ""
+	else:
+		$SourceLabel.text = source_hide
 	$EntryLabel.text = get_display_text()
+
 
 func get_display_text() -> String:
 	var display_text = ""
@@ -64,13 +70,14 @@ func get_display_text() -> String:
 			display_text += current_char
 	return display_text
 
+
 func is_solved() -> bool:
 	var letters := get_letters_in_entry()
 	for l in letters:
 		if !bool_mask[l]:
 			return false
-		pass
 	return true
+
 
 func get_letters_in_entry() -> PoolStringArray:
 	var letters : PoolStringArray
@@ -81,8 +88,10 @@ func get_letters_in_entry() -> PoolStringArray:
 				letters.append(current_char)
 	return letters
 
+
 func get_char_at(index : int) -> String:
 	return entry_text.substr(index, 1)
+
 
 func _on_letter_guessed(letter: String):
 	if current_mode == MODE_ENABLED:
@@ -98,7 +107,9 @@ func _on_letter_guessed(letter: String):
 			current_mode = MODE_DISABLED
 		else:
 			emit_signal("game_log", guess + " has already been guessed")
-	pass
+		if is_solved() && GlobalVars.show_source == GlobalVars.SOURCE_SOLVE:
+			$SourceLabel.text = source_text
+
 
 func _on_Spindle_spun():
 	current_mode = MODE_ENABLED

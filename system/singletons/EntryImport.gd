@@ -3,6 +3,7 @@ extends Node
 func _ready():
 	grab_saved_files()
 
+
 func import_entries_from_file(path : String):
 	var f := File.new()
 	f.open(path, File.READ)
@@ -14,6 +15,7 @@ func import_entries_from_file(path : String):
 			if typeof(j) == TYPE_ARRAY:
 				var data = PoolStringArray(j)
 				EntryManager.add_entry(data)
+
 
 func grab_saved_files():
 	var path = GlobalVars.ENTRIES_SAVE

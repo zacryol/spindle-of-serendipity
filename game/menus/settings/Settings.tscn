@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://game/menus/settings/Settings.gd" type="Script" id=1]
+[ext_resource path="res://game/menus/settings/General.gd" type="Script" id=2]
+[ext_resource path="res://game/menus/settings/alias/AliasMenu.gd" type="Script" id=3]
+[ext_resource path="res://game/menus/settings/alias/AliasSubTab.gd" type="Script" id=4]
 
 [node name="Settings" type="Control"]
 anchor_right = 1.0
@@ -22,9 +25,173 @@ margin_left = 7.0
 margin_top = 7.0
 margin_right = 1017.0
 margin_bottom = 593.0
+
+[node name="Back" type="Button" parent="PanelContainer/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+text = "Back to Main Menu"
+
+[node name="General" type="Tabs" parent="PanelContainer/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+script = ExtResource( 2 )
+
+[node name="Scroll" type="ScrollContainer" parent="PanelContainer/TabContainer/General"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 225.0
+margin_right = -225.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="List" type="VBoxContainer" parent="PanelContainer/TabContainer/General/Scroll"]
+margin_right = 552.0
+margin_bottom = 110.0
+size_flags_horizontal = 3
+custom_constants/separation = 25
+
+[node name="RevealSource" type="HBoxContainer" parent="PanelContainer/TabContainer/General/Scroll/List"]
+margin_right = 552.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="PanelContainer/TabContainer/General/Scroll/List/RevealSource"]
+margin_top = 3.0
+margin_right = 274.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+text = "Reveal Source: "
+align = 2
+
+[node name="OptionButton" type="OptionButton" parent="PanelContainer/TabContainer/General/Scroll/List/RevealSource"]
+margin_left = 278.0
+margin_right = 552.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+text = "Never"
+items = [ "Never", null, false, 0, null, "When Solved", null, false, 1, null, "Always", null, false, 2, null ]
+selected = 0
+
+[node name="RandMode" type="HBoxContainer" parent="PanelContainer/TabContainer/General/Scroll/List"]
+margin_top = 45.0
+margin_right = 552.0
+margin_bottom = 65.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="PanelContainer/TabContainer/General/Scroll/List/RandMode"]
+margin_top = 3.0
+margin_right = 274.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+text = "Randomize Mode: "
+align = 2
+
+[node name="OptionButton" type="OptionButton" parent="PanelContainer/TabContainer/General/Scroll/List/RandMode"]
+margin_left = 278.0
+margin_right = 552.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+text = "Random"
+items = [ "Random", null, false, 0, null, "By Category", null, false, 1, null, "By Source", null, false, 2, null ]
+selected = 0
+
+[node name="Save" type="Button" parent="PanelContainer/TabContainer/General/Scroll/List"]
+margin_top = 90.0
+margin_right = 552.0
+margin_bottom = 110.0
+text = "Save"
+
+[node name="Alias" type="Tabs" parent="PanelContainer/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+script = ExtResource( 3 )
+
+[node name="T" type="TabContainer" parent="PanelContainer/TabContainer/Alias"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 tab_align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Categories" type="Tabs" parent="PanelContainer/TabContainer/Alias/T"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+script = ExtResource( 4 )
+
+[node name="H" type="HSplitContainer" parent="PanelContainer/TabContainer/Alias/T/Categories"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+split_offset = 600
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Import" type="ScrollContainer" parent="PanelContainer/TabContainer/Alias/T/Categories/H"]
+margin_right = 600.0
+margin_bottom = 514.0
+
+[node name="VBox" type="VBoxContainer" parent="PanelContainer/TabContainer/Alias/T/Categories/H/Import"]
+margin_right = 600.0
+size_flags_horizontal = 3
+
+[node name="View" type="ScrollContainer" parent="PanelContainer/TabContainer/Alias/T/Categories/H"]
+margin_left = 612.0
+margin_right = 994.0
+margin_bottom = 514.0
+
+[node name="VBox" type="VBoxContainer" parent="PanelContainer/TabContainer/Alias/T/Categories/H/View"]
+
+[node name="Sources" type="Tabs" parent="PanelContainer/TabContainer/Alias/T"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+script = ExtResource( 4 )
+
+[node name="H" type="HSplitContainer" parent="PanelContainer/TabContainer/Alias/T/Sources"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+split_offset = 600
+
+[node name="Import" type="ScrollContainer" parent="PanelContainer/TabContainer/Alias/T/Sources/H"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="VBox" type="VBoxContainer" parent="PanelContainer/TabContainer/Alias/T/Sources/H/Import"]
+margin_right = 40.0
+size_flags_horizontal = 3
+
+[node name="View" type="ScrollContainer" parent="PanelContainer/TabContainer/Alias/T/Sources/H"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="VBox" type="VBoxContainer" parent="PanelContainer/TabContainer/Alias/T/Sources/H/View"]
 
 [node name="Legal" type="Tabs" parent="PanelContainer/TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -41,12 +208,13 @@ __meta__ = {
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/TabContainer/Legal/ScrollContainer"]
 margin_right = 462.0
-margin_bottom = 720.0
+margin_bottom = 713.0
 
 [node name="GPLLabel" type="Label" parent="PanelContainer/TabContainer/Legal/ScrollContainer/VBoxContainer"]
 margin_right = 462.0
-margin_bottom = 201.0
-text = "This program is free software: you can redistribute it and/or modify
+margin_bottom = 218.0
+text = "Copyright (C) 2020 \"zacryol\" (https://gitlab.com/zacryol)
+This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
@@ -60,9 +228,9 @@ text = "This program is free software: you can redistribute it and/or modify
     along with this program.  If not, see <https://www.gnu.org/licenses/>."
 
 [node name="MITLabel" type="Label" parent="PanelContainer/TabContainer/Legal/ScrollContainer/VBoxContainer"]
-margin_top = 205.0
+margin_top = 222.0
 margin_right = 462.0
-margin_bottom = 661.0
+margin_bottom = 678.0
 text = "
 
     This game uses Godot Engine, available under the following license:
@@ -78,15 +246,12 @@ text = "
 autowrap = true
 
 [node name="FreeType" type="Label" parent="PanelContainer/TabContainer/Legal/ScrollContainer/VBoxContainer"]
-margin_top = 665.0
+margin_top = 682.0
 margin_right = 462.0
-margin_bottom = 696.0
+margin_bottom = 713.0
 text = "Portions of this software are copyright © 2020 The FreeType Project (www.freetype.org). All rights reserved."
 autowrap = true
-
-[node name="Button" type="Button" parent="PanelContainer/TabContainer/Legal/ScrollContainer/VBoxContainer"]
-margin_top = 700.0
-margin_right = 462.0
-margin_bottom = 720.0
-text = "Back to Main"
-[connection signal="pressed" from="PanelContainer/TabContainer/Legal/ScrollContainer/VBoxContainer/Button" to="." method="_on_Back_pressed"]
+[connection signal="pressed" from="PanelContainer/TabContainer/Back" to="." method="_on_Back_pressed"]
+[connection signal="item_selected" from="PanelContainer/TabContainer/General/Scroll/List/RevealSource/OptionButton" to="PanelContainer/TabContainer/General" method="_on_source_option_selected"]
+[connection signal="item_selected" from="PanelContainer/TabContainer/General/Scroll/List/RandMode/OptionButton" to="PanelContainer/TabContainer/General" method="_on_rand_option_selected"]
+[connection signal="pressed" from="PanelContainer/TabContainer/General/Scroll/List/Save" to="PanelContainer/TabContainer/General" method="_on_Save_pressed"]

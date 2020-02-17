@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://game/menus/settings/alias/SingleAlias.gd" type="Script" id=1]
+
+[node name="SingleAlias" type="HBoxContainer"]
+anchor_right = 1.0
+margin_bottom = 24.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Import" type="Label" parent="."]
+margin_top = 5.0
+margin_right = 287.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+text = "Import"
+
+[node name="Input" type="LineEdit" parent="."]
+margin_left = 291.0
+margin_right = 865.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="Add" type="Button" parent="."]
+margin_left = 869.0
+margin_right = 941.0
+margin_bottom = 24.0
+text = "Add Alias"
+
+[node name="Clear" type="Button" parent="."]
+margin_left = 945.0
+margin_right = 1024.0
+margin_bottom = 24.0
+text = "Clear Alias"
+[connection signal="pressed" from="Add" to="." method="_on_Add_pressed"]
+[connection signal="pressed" from="Clear" to="." method="_on_Clear_pressed"]
