@@ -31,7 +31,9 @@ func _ready():
 
 func save_settings_to_file():
 	var f := File.new()
-	f.open(SETTINGS_SAVE, File.WRITE)
+	var err = f.open(SETTINGS_SAVE, File.WRITE)
+	if err:
+		return
 	var settings_dict := {
 		"show_source" : show_source,
 		"rand_mode" : rand_mode
@@ -43,7 +45,9 @@ func save_settings_to_file():
 func load_settings_from_file():
 	var f := File.new()
 	if f.file_exists(SETTINGS_SAVE):
-		f.open(SETTINGS_SAVE, File.READ)
+		var err = f.open(SETTINGS_SAVE, File.READ)
+		if err:
+			return
 		var settings_string := f.get_as_text()
 		var v := validate_json(settings_string)
 		if not v:

@@ -51,7 +51,9 @@ func source(import: String) -> String:
 func load_from_file():
 	var f := File.new()
 	if f.file_exists(GlobalVars.ALIAS_SAVE):
-		f.open(GlobalVars.ALIAS_SAVE, File.READ)
+		var err = f.open(GlobalVars.ALIAS_SAVE, File.READ)
+		if err:
+			return
 		var s := f.get_as_text()
 		var v = validate_json(s)
 		if not v:
@@ -71,6 +73,8 @@ func save_to_file():
 		"sou" : aliases_sou
 	}
 	var f := File.new()
-	f.open(GlobalVars.ALIAS_SAVE, File.WRITE)
+	var err = f.open(GlobalVars.ALIAS_SAVE, File.WRITE)
+	if err:
+		return
 	f.store_string(to_json(save_dict))
 	f.close()

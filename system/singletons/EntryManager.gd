@@ -43,7 +43,7 @@ func randomize_by_source() -> Entry:
 
 
 func get_categories() -> PoolStringArray:
-	var cat : PoolStringArray
+	var cat : PoolStringArray = []
 	for e in entries:
 		if e is Entry:
 			if not e.get_game_category().to_lower() in cat:
@@ -52,7 +52,7 @@ func get_categories() -> PoolStringArray:
 
 
 func get_sources() -> PoolStringArray:
-	var sou : PoolStringArray
+	var sou : PoolStringArray = []
 	for e in entries:
 		if e is Entry:
 			if not e.get_game_source().to_lower() in sou:
@@ -62,7 +62,7 @@ func get_sources() -> PoolStringArray:
 
 func get_entries_in_category(category : String) -> Array:
 	var cat = category.to_lower()
-	var es : Array
+	var es : Array = []
 	for e in entries:
 		if e is Entry:
 			if e.get_game_category().to_lower() == cat:
@@ -72,7 +72,7 @@ func get_entries_in_category(category : String) -> Array:
 
 func get_entries_in_source(source : String) -> Array:
 	var sou := source.to_lower()
-	var es : Array
+	var es : Array = []
 	for e in entries:
 		if e is Entry:
 			if e.get_game_source().to_lower() == sou:
@@ -81,7 +81,7 @@ func get_entries_in_source(source : String) -> Array:
 
 
 func get_import_categories() -> PoolStringArray:
-	var categories : PoolStringArray
+	var categories : PoolStringArray = []
 	for e in entries:
 		if e is Entry:
 			if not e.get_import_category().to_lower() in categories:
@@ -90,7 +90,7 @@ func get_import_categories() -> PoolStringArray:
 
 
 func get_import_sources() -> PoolStringArray:
-	var sources : PoolStringArray
+	var sources : PoolStringArray = []
 	for e in entries:
 		if e is Entry:
 			if not e.get_import_source().to_lower() in sources:

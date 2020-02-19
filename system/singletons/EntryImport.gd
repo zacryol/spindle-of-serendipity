@@ -6,7 +6,9 @@ func _ready():
 
 func import_entries_from_file(path : String):
 	var f := File.new()
-	f.open(path, File.READ)
+	var err = f.open(path, File.READ)
+	if err:
+		return
 	while not f.eof_reached():
 		var line := f.get_line()
 		var v := validate_json(line)
