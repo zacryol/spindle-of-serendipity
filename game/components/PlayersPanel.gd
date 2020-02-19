@@ -23,10 +23,13 @@ func _score_gained(number: int, final: bool):
 		emit_signal("game_log", players_array[current_player].player_name + " spin!")
 	else:
 		emit_signal("game_log", "You solved it!")
-		p1.cache_score()
-		p2.cache_score()
-		p3.cache_score()
 		emit_signal("pre_reset")
+
+
+func cache_scores() -> void:
+	p1.cache_score()
+	p2.cache_score()
+	p3.cache_score()
 
 
 func _on_Player_game_log(text):
