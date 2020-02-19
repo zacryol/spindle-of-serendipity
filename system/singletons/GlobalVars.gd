@@ -26,6 +26,16 @@ var rand_mode := RAND_NON
 
 func _ready():
 	load_settings_from_file()
+	
+	var t = Timer.new()
+	add_child(t)
+	t.wait_time = 5
+	t.connect("timeout", self, "_timer")
+	t.start()
+	randomize()
+
+
+func _timer():
 	randomize()
 
 
