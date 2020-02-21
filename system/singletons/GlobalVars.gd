@@ -23,6 +23,9 @@ enum {
 var rand_mode := RAND_NON
 # End of Settings
 
+var p1_name := "Player 1"
+var p2_name := "Player 2"
+var p3_name := "Player 3"
 
 func _ready():
 	load_settings_from_file()
