@@ -10,9 +10,9 @@ var current_player = 0
 const NUM_PLAYER = 3
 
 func _ready():
-	p1.set_name("Player 1")
-	p2.set_name("Player 2")
-	p3.set_name("Player 3")
+	p1.set_name(GlobalVars.p1_name)
+	p2.set_name(GlobalVars.p2_name)
+	p3.set_name(GlobalVars.p3_name)
 
 
 func _score_gained(number: int, final: bool):

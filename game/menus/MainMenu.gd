@@ -31,7 +31,7 @@ func _on_StartButton_pressed():
 	if EntryManager.entries.size() == 0:
 		$AcceptDialog.show()
 	else:
-		get_tree().change_scene("res://game/GamePanel.tscn")
+		get_tree().change_scene("res://game/GameSetting.tscn")
 
 
 func _on_Settings_pressed():
