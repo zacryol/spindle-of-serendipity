@@ -1,11 +1,11 @@
 extends Control
 
-onready var entry_display := $GP/VBoxContainer/Game/HSplit/EDKB/EntryDisplay
-onready var log_label := $GP/VBoxContainer/Top/HB/Label
-onready var new_button := $GP/VBoxContainer/Top/HB/NewG
-onready var quit_button := $GP/VBoxContainer/Top/HB/Quit
-onready var spindle := $GP/VBoxContainer/Game/HSplit/SP/Spindle
-onready var players := $GP/VBoxContainer/Game/HSplit/SP/PlayersPanel
+onready var entry_display := $GP/VB/Game/HSplit/EDKB/EntryDisplay
+onready var log_label := $GP/VB/Top/HB/Label
+onready var new_button := $GP/VB/Top/HB/NewG
+onready var quit_button := $GP/VB/Top/HB/Quit
+onready var spindle := $GP/VB/Game/HSplit/SP/Spindle
+onready var players := $GP/VB/Game/HSplit/SP/PlayersPanel
 const MAX_LOG_CHAR := 150
 
 func _ready():
