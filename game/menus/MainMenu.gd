@@ -14,7 +14,7 @@ func _on_FileDialog_files_selected(paths):
 	for path in paths:
 		EntryImport.import_entries_from_file(path)
 		
-		var file_name := str(Array(path.split("/")).back())
+		var file_name := str(path).get_file()
 		var save_path := str(GlobalVars.ENTRIES_SAVE + file_name)
 		if File.new().file_exists(save_path):
 			var copy := 0
