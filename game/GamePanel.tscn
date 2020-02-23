@@ -31,24 +31,31 @@ margin_bottom = 593.0
 margin_right = 1010.0
 margin_bottom = 28.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="GP/VBoxContainer/Top"]
+[node name="HB" type="HBoxContainer" parent="GP/VBoxContainer/Top"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 1003.0
 margin_bottom = 21.0
 
-[node name="Label" type="Label" parent="GP/VBoxContainer/Top/HBoxContainer"]
+[node name="Label" type="Label" parent="GP/VBoxContainer/Top/HB"]
 margin_right = 996.0
 margin_bottom = 14.0
 size_flags_horizontal = 3
 text = "Game Status Bar"
 
-[node name="NewG" type="Button" parent="GP/VBoxContainer/Top/HBoxContainer"]
+[node name="NewG" type="Button" parent="GP/VBoxContainer/Top/HB"]
 visible = false
 margin_left = 956.0
 margin_right = 996.0
 margin_bottom = 20.0
 text = "New"
+
+[node name="Quit" type="Button" parent="GP/VBoxContainer/Top/HB"]
+visible = false
+margin_left = 956.0
+margin_right = 996.0
+margin_bottom = 20.0
+text = "Quit"
 
 [node name="Game" type="PanelContainer" parent="GP/VBoxContainer"]
 margin_top = 32.0
@@ -102,7 +109,7 @@ anchor_bottom = 0.0
 margin_top = 112.0
 margin_right = 284.0
 margin_bottom = 540.0
-[connection signal="pressed" from="GP/VBoxContainer/Top/HBoxContainer/NewG" to="." method="_on_NewG_pressed"]
+[connection signal="pressed" from="GP/VBoxContainer/Top/HB/NewG" to="." method="_on_NewG_pressed"]
 [connection signal="game_log" from="GP/VBoxContainer/Game/HSplit/EDKB/EntryDisplay" to="." method="_log"]
 [connection signal="letters_revealed" from="GP/VBoxContainer/Game/HSplit/EDKB/EntryDisplay" to="GP/VBoxContainer/Game/HSplit/SP/Spindle" method="_letters_guessed"]
 [connection signal="game_log" from="GP/VBoxContainer/Game/HSplit/EDKB/Keyboard" to="." method="_log"]

@@ -1,8 +1,8 @@
 extends Control
 
 onready var entry_display := $GP/VBoxContainer/Game/HSplit/EDKB/EntryDisplay
-onready var log_label := $GP/VBoxContainer/Top/HBoxContainer/Label
-onready var new_button := $GP/VBoxContainer/Top/HBoxContainer/NewG
+onready var log_label := $GP/VBoxContainer/Top/HB/Label
+onready var new_button := $GP/VBoxContainer/Top/HB/NewG
 onready var spindle := $GP/VBoxContainer/Game/HSplit/SP/Spindle
 onready var players := $GP/VBoxContainer/Game/HSplit/SP/PlayersPanel
 const MAX_LOG_CHAR := 150
