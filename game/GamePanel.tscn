@@ -110,6 +110,7 @@ margin_top = 112.0
 margin_right = 284.0
 margin_bottom = 540.0
 [connection signal="pressed" from="GP/VBoxContainer/Top/HB/NewG" to="." method="_on_NewG_pressed"]
+[connection signal="pressed" from="GP/VBoxContainer/Top/HB/Quit" to="." method="_on_Quit_pressed"]
 [connection signal="game_log" from="GP/VBoxContainer/Game/HSplit/EDKB/EntryDisplay" to="." method="_log"]
 [connection signal="letters_revealed" from="GP/VBoxContainer/Game/HSplit/EDKB/EntryDisplay" to="GP/VBoxContainer/Game/HSplit/SP/Spindle" method="_letters_guessed"]
 [connection signal="game_log" from="GP/VBoxContainer/Game/HSplit/EDKB/Keyboard" to="." method="_log"]
