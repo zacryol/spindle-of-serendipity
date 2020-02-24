@@ -28,6 +28,14 @@ func pick(e : Entry) -> Entry:
 	return e
 
 
+func get_unpicked_entries() -> Array:
+	var unpicked := []
+	for e in entries:
+		if not e.picked:
+			unpicked.append(e)
+	return unpicked
+
+
 func get_random_entry() -> Entry:
 	match GlobalVars.rand_mode:
 		GlobalVars.RAND_CAT:
