@@ -6,7 +6,9 @@ func _ready():
 
 func import_entries_from_file(path : String):
 	var f := File.new()
-	f.open(path, File.READ)
+	var err = f.open(path, File.READ)
+	if err:
+		return
 	while not f.eof_reached():
 		var line := f.get_line()
 		var v := validate_json(line)
@@ -15,6 +17,9 @@ func import_entries_from_file(path : String):
 			if typeof(j) == TYPE_ARRAY:
 				var data = PoolStringArray(j)
 				EntryManager.add_entry(data)
+		else:
+			if line:
+				print("ERROR: Entry \"" + line + "\" in file " + path.get_file() + " is invalid")
 
 
 func grab_saved_files():

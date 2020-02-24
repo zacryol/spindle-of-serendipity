@@ -10,9 +10,9 @@ var current_player = 0
 const NUM_PLAYER = 3
 
 func _ready():
-	p1.set_name("Player 1")
-	p2.set_name("Player 2")
-	p3.set_name("Player 3")
+	p1.set_name(GlobalVars.p1_name)
+	p2.set_name(GlobalVars.p2_name)
+	p3.set_name(GlobalVars.p3_name)
 
 
 func _score_gained(number: int, final: bool):
@@ -23,10 +23,13 @@ func _score_gained(number: int, final: bool):
 		emit_signal("game_log", players_array[current_player].player_name + " spin!")
 	else:
 		emit_signal("game_log", "You solved it!")
-		p1.cache_score()
-		p2.cache_score()
-		p3.cache_score()
 		emit_signal("pre_reset")
+
+
+func cache_scores() -> void:
+	p1.cache_score()
+	p2.cache_score()
+	p3.cache_score()
 
 
 func _on_Player_game_log(text):

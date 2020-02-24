@@ -1,0 +1,70 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://game/GameSetting.gd" type="Script" id=1]
+
+[node name="GameSetting" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -48.5
+margin_top = -79.0
+margin_right = 48.5
+margin_bottom = 79.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_right = 97.0
+margin_bottom = 14.0
+text = "Player 1 Name:"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer"]
+margin_top = 18.0
+margin_right = 97.0
+margin_bottom = 42.0
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+margin_top = 46.0
+margin_right = 97.0
+margin_bottom = 60.0
+text = "Player 2 Name:"
+
+[node name="LineEdit2" type="LineEdit" parent="VBoxContainer"]
+margin_top = 64.0
+margin_right = 97.0
+margin_bottom = 88.0
+
+[node name="Label3" type="Label" parent="VBoxContainer"]
+margin_top = 92.0
+margin_right = 97.0
+margin_bottom = 106.0
+text = "Player 3 Name:"
+
+[node name="LineEdit3" type="LineEdit" parent="VBoxContainer"]
+margin_top = 110.0
+margin_right = 97.0
+margin_bottom = 134.0
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+margin_top = 138.0
+margin_right = 97.0
+margin_bottom = 158.0
+text = "Start"
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_Button_pressed"]

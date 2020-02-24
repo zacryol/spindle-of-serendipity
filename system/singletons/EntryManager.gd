@@ -18,14 +18,35 @@ func _to_string() -> String:
 	return out
 
 
+func reset_picked() -> void:
+	for e in entries:
+		(e as Entry).picked = false
+
+
+func pick(e : Entry) -> Entry:
+	e.picked = true
+	return e
+
+
+func get_unpicked_entries() -> Array:
+	var unpicked := []
+	for e in entries:
+		if not e.picked:
+			unpicked.append(e)
+	return unpicked
+
+
 func get_random_entry() -> Entry:
+	if get_unpicked_entries().size() < GlobalVars.refresh_entries_at:
+		reset_picked()
+	
 	match GlobalVars.rand_mode:
 		GlobalVars.RAND_CAT:
-			return randomize_by_category()
+			return pick(randomize_by_category())
 		GlobalVars.RAND_SOU:
-			return randomize_by_source()
-	var index := randi() % entries.size()
-	return entries[index]
+			return pick(randomize_by_source())
+	var es := get_unpicked_entries()
+	return pick(es[randi() % es.size()])
 
 
 func randomize_by_category() -> Entry:
@@ -43,8 +64,8 @@ func randomize_by_source() -> Entry:
 
 
 func get_categories() -> PoolStringArray:
-	var cat : PoolStringArray
-	for e in entries:
+	var cat : PoolStringArray = []
+	for e in get_unpicked_entries():
 		if e is Entry:
 			if not e.get_game_category().to_lower() in cat:
 				cat.append(e.get_game_category().to_lower())
@@ -52,8 +73,8 @@ func get_categories() -> PoolStringArray:
 
 
 func get_sources() -> PoolStringArray:
-	var sou : PoolStringArray
-	for e in entries:
+	var sou : PoolStringArray = []
+	for e in get_unpicked_entries():
 		if e is Entry:
 			if not e.get_game_source().to_lower() in sou:
 				sou.append(e.get_game_source().to_lower())
@@ -62,8 +83,8 @@ func get_sources() -> PoolStringArray:
 
 func get_entries_in_category(category : String) -> Array:
 	var cat = category.to_lower()
-	var es : Array
-	for e in entries:
+	var es : Array = []
+	for e in get_unpicked_entries():
 		if e is Entry:
 			if e.get_game_category().to_lower() == cat:
 				es.append(e)
@@ -72,8 +93,8 @@ func get_entries_in_category(category : String) -> Array:
 
 func get_entries_in_source(source : String) -> Array:
 	var sou := source.to_lower()
-	var es : Array
-	for e in entries:
+	var es : Array = []
+	for e in get_unpicked_entries():
 		if e is Entry:
 			if e.get_game_source().to_lower() == sou:
 				es.append(e)
@@ -81,7 +102,7 @@ func get_entries_in_source(source : String) -> Array:
 
 
 func get_import_categories() -> PoolStringArray:
-	var categories : PoolStringArray
+	var categories : PoolStringArray = []
 	for e in entries:
 		if e is Entry:
 			if not e.get_import_category().to_lower() in categories:
@@ -90,7 +111,7 @@ func get_import_categories() -> PoolStringArray:
 
 
 func get_import_sources() -> PoolStringArray:
-	var sources : PoolStringArray
+	var sources : PoolStringArray = []
 	for e in entries:
 		if e is Entry:
 			if not e.get_import_source().to_lower() in sources:

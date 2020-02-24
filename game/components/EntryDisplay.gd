@@ -80,7 +80,7 @@ func is_solved() -> bool:
 
 
 func get_letters_in_entry() -> PoolStringArray:
-	var letters : PoolStringArray
+	var letters : PoolStringArray = []
 	for i in entry_text.length():
 		var current_char := get_char_at(i)
 		if bool_mask.has(current_char):
