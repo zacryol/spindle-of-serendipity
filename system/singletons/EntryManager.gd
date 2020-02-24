@@ -42,8 +42,8 @@ func get_random_entry() -> Entry:
 			return pick(randomize_by_category())
 		GlobalVars.RAND_SOU:
 			return pick(randomize_by_source())
-	var index := randi() % entries.size()
-	return pick(entries[index])
+	var index := randi() % get_unpicked_entries().size()
+	return pick(get_unpicked_entries()[index])
 
 
 func randomize_by_category() -> Entry:
@@ -62,7 +62,7 @@ func randomize_by_source() -> Entry:
 
 func get_categories() -> PoolStringArray:
 	var cat : PoolStringArray = []
-	for e in entries:
+	for e in get_unpicked_entries():
 		if e is Entry:
 			if not e.get_game_category().to_lower() in cat:
 				cat.append(e.get_game_category().to_lower())
@@ -71,7 +71,7 @@ func get_categories() -> PoolStringArray:
 
 func get_sources() -> PoolStringArray:
 	var sou : PoolStringArray = []
-	for e in entries:
+	for e in get_unpicked_entries():
 		if e is Entry:
 			if not e.get_game_source().to_lower() in sou:
 				sou.append(e.get_game_source().to_lower())
@@ -81,7 +81,7 @@ func get_sources() -> PoolStringArray:
 func get_entries_in_category(category : String) -> Array:
 	var cat = category.to_lower()
 	var es : Array = []
-	for e in entries:
+	for e in get_unpicked_entries():
 		if e is Entry:
 			if e.get_game_category().to_lower() == cat:
 				es.append(e)
@@ -91,7 +91,7 @@ func get_entries_in_category(category : String) -> Array:
 func get_entries_in_source(source : String) -> Array:
 	var sou := source.to_lower()
 	var es : Array = []
-	for e in entries:
+	for e in get_unpicked_entries():
 		if e is Entry:
 			if e.get_game_source().to_lower() == sou:
 				es.append(e)
