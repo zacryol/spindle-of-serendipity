@@ -37,13 +37,16 @@ func get_unpicked_entries() -> Array:
 
 
 func get_random_entry() -> Entry:
+	if get_unpicked_entries().size() < GlobalVars.refresh_entries_at:
+		reset_picked()
+	
 	match GlobalVars.rand_mode:
 		GlobalVars.RAND_CAT:
 			return pick(randomize_by_category())
 		GlobalVars.RAND_SOU:
 			return pick(randomize_by_source())
-	var index := randi() % get_unpicked_entries().size()
-	return pick(get_unpicked_entries()[index])
+	var es := get_unpicked_entries()
+	return es[randi() % es.size()]
 
 
 func randomize_by_category() -> Entry:
