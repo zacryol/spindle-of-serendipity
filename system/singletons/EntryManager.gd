@@ -23,6 +23,11 @@ func reset_picked() -> void:
 		(e as Entry).picked = false
 
 
+func pick(e : Entry) -> Entry:
+	e.picked = true
+	return e
+
+
 func get_random_entry() -> Entry:
 	match GlobalVars.rand_mode:
 		GlobalVars.RAND_CAT:
