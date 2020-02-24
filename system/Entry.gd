@@ -5,6 +5,8 @@ var text : String
 var category : String
 var source : String
 
+var picked := false
+
 func _init(new_text : String, new_category := GlobalVars.DEFAULT_CATEGORY, new_source := GlobalVars.DEFAULT_SOURCE):
 	text = new_text
 	category = new_category

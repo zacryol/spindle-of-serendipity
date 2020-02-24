@@ -2,6 +2,8 @@ extends Control
 
 func _ready():
 	$AcceptDialog.add_button("What?", true, "files")
+	
+	EntryManager.reset_picked()
 
 
 func _on_ImportButton_pressed():
