@@ -22,7 +22,7 @@ enum {
 }
 var rand_mode := RAND_NON
 
-var refresh_entries_at := 5
+var refresh_entries_at := 15
 # End of Settings
 
 var p1_name := "Player 1"
