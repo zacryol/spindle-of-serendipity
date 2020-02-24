@@ -46,7 +46,7 @@ func get_random_entry() -> Entry:
 		GlobalVars.RAND_SOU:
 			return pick(randomize_by_source())
 	var es := get_unpicked_entries()
-	return es[randi() % es.size()]
+	return pick(es[randi() % es.size()])
 
 
 func randomize_by_category() -> Entry:
