@@ -31,11 +31,11 @@ func pick(e : Entry) -> Entry:
 func get_random_entry() -> Entry:
 	match GlobalVars.rand_mode:
 		GlobalVars.RAND_CAT:
-			return randomize_by_category()
+			return pick(randomize_by_category())
 		GlobalVars.RAND_SOU:
-			return randomize_by_source()
+			return pick(randomize_by_source())
 	var index := randi() % entries.size()
-	return entries[index]
+	return pick(entries[index])
 
 
 func randomize_by_category() -> Entry:
