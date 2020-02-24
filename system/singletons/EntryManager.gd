@@ -18,6 +18,11 @@ func _to_string() -> String:
 	return out
 
 
+func reset_picked() -> void:
+	for e in entries:
+		(e as Entry).picked = false
+
+
 func get_random_entry() -> Entry:
 	match GlobalVars.rand_mode:
 		GlobalVars.RAND_CAT:
