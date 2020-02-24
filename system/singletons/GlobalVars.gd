@@ -21,6 +21,8 @@ enum {
 	RAND_SOU
 }
 var rand_mode := RAND_NON
+
+var refresh_entries_at := 5
 # End of Settings
 
 var p1_name := "Player 1"
@@ -49,7 +51,8 @@ func save_settings_to_file():
 		return
 	var settings_dict := {
 		"show_source" : show_source,
-		"rand_mode" : rand_mode
+		"rand_mode" : rand_mode,
+		"refresh" : refresh_entries_at,
 	}
 	f.store_string(to_json(settings_dict))
 	f.close()
@@ -70,3 +73,5 @@ func load_settings_from_file():
 					show_source = settings_dict["show_source"]
 				if settings_dict.has("rand_mode"):
 					rand_mode = settings_dict["rand_mode"]
+				if settings_dict.has("refresh"):
+					refresh_entries_at = settings_dict["refresh"]
