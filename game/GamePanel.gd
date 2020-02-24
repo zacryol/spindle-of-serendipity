@@ -11,6 +11,7 @@ const MAX_LOG_CHAR := 150
 func _ready():
 	entry_display.set_display(EntryManager.get_random_entry())
 	log_label.text = ""
+	EntryManager.reset_picked()
 
 
 func _log(text: String = ""):
