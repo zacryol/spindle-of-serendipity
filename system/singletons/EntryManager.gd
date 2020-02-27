@@ -63,18 +63,20 @@ func randomize_by_source() -> Entry:
 	return es[randi() % es.size()]
 
 
-func get_categories() -> PoolStringArray:
+func get_categories(all : bool = false) -> PoolStringArray:
 	var cat : PoolStringArray = []
-	for e in get_unpicked_entries():
+	var es : Array = entries if all else get_unpicked_entries()
+	for e in es:
 		if e is Entry:
 			if not e.get_game_category().to_lower() in cat:
 				cat.append(e.get_game_category().to_lower())
 	return cat
 
 
-func get_sources() -> PoolStringArray:
+func get_sources(all : bool = false) -> PoolStringArray:
 	var sou : PoolStringArray = []
-	for e in get_unpicked_entries():
+	var es : Array = entries if all else get_unpicked_entries()
+	for e in es:
 		if e is Entry:
 			if not e.get_game_source().to_lower() in sou:
 				sou.append(e.get_game_source().to_lower())
