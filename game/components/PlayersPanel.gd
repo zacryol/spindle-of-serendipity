@@ -18,8 +18,8 @@ func _ready():
 func _score_gained(number: int, final: bool):
 	current_player().add_to_score(number)
 	emit_signal("game_log", str(number) + " points gained")
+	current_player = wrapi(current_player + 1, 0, NUM_PLAYER)
 	if not final:
-		current_player = wrapi(current_player + 1, 0, NUM_PLAYER)
 		emit_signal("game_log", current_player().player_name + " spin!")
 	else:
 		emit_signal("game_log", "You solved it!")
