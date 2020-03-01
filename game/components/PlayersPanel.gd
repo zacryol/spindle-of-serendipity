@@ -4,8 +4,8 @@ signal pre_reset
 onready var p1 := $PanelContainer/VBoxContainer/Player
 onready var p2 := $PanelContainer/VBoxContainer/Player2
 onready var p3 := $PanelContainer/VBoxContainer/Player3
-onready var players_array = [p1, p2, p3]
-var current_player = 0
+onready var players_array := [p1, p2, p3]
+var current_player := 0
 
 onready var p_label : Label = $PanelContainer/VBoxContainer/PanelContainer/Label
 
@@ -15,6 +15,7 @@ func _ready():
 	p1.set_name(GlobalVars.p1_name)
 	p2.set_name(GlobalVars.p2_name)
 	p3.set_name(GlobalVars.p3_name)
+	current_player = randi() % NUM_PLAYER
 	
 	set_label()
 
