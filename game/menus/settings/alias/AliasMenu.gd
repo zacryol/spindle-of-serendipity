@@ -1,7 +1,7 @@
-extends Tabs
+extends Control
 
-onready var cat := $T/Categories
-onready var sou := $T/Sources
+onready var cat := $Categories
+onready var sou := $Sources
 
 func _ready():
 	cat.set_ui(true)
