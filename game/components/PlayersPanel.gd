@@ -14,6 +14,9 @@ func _ready():
 	p2.set_name(GlobalVars.p2_name)
 	p3.set_name(GlobalVars.p3_name)
 
+func start():
+	emit_signal("game_log", current_player().player_name + " go!")
+
 
 func _score_gained(number: int, final: bool):
 	current_player().add_to_score(number)
