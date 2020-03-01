@@ -28,7 +28,6 @@ func _log(text: String = ""):
 
 
 func _on_NewG_pressed():
-	players.cache_scores()
 	entry_display.set_display(EntryManager.get_random_entry())
 	log_label.text = ""
 	players.start()
