@@ -35,3 +35,9 @@ func get_button(letter : String) -> Button:
 			if key.text == letter:
 				return key
 	return null
+
+
+func enable() -> void:
+	for key in key_container.get_children():
+		if key is Button:
+			key.disabled = false
