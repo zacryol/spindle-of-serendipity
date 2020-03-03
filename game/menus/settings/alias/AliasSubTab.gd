@@ -20,9 +20,9 @@ func update_game_list():
 	
 	var out : PoolStringArray
 	if is_categories:
-		out = EntryManager.get_categories()
+		out = EntryManager.get_categories(true)
 	else:
-		out = EntryManager.get_sources()
+		out = EntryManager.get_sources(true)
 	
 	for o in out:
 		var l = Label.new()

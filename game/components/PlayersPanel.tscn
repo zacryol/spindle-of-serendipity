@@ -21,25 +21,36 @@ margin_top = 7.0
 margin_right = 1017.0
 margin_bottom = 593.0
 
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/VBoxContainer"]
+margin_right = 1010.0
+margin_bottom = 28.0
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1003.0
+margin_bottom = 21.0
+
 [node name="Player" parent="PanelContainer/VBoxContainer" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
+margin_top = 32.0
 margin_right = 1010.0
-margin_bottom = 192.0
+margin_bottom = 214.0
 size_flags_vertical = 3
 
 [node name="Player2" parent="PanelContainer/VBoxContainer" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 196.0
+margin_top = 218.0
 margin_right = 1010.0
-margin_bottom = 388.0
+margin_bottom = 400.0
 size_flags_vertical = 3
 
 [node name="Player3" parent="PanelContainer/VBoxContainer" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 392.0
+margin_top = 404.0
 margin_right = 1010.0
 margin_bottom = 586.0
 size_flags_vertical = 3

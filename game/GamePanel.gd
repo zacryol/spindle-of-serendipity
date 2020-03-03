@@ -6,13 +6,16 @@ onready var new_button := $GP/VB/Top/HB/NewG
 onready var quit_button := $GP/VB/Top/HB/Quit
 onready var spindle := $GP/VB/Game/HSplit/SP/Spindle
 onready var players := $GP/VB/Game/HSplit/SP/PlayersPanel
-const MAX_LOG_CHAR := 150
+onready var keyboard := $GP/VB/Game/HSplit/EDKB/Keyboard
+const MAX_LOG_CHAR := 140
 
 func _ready():
 	EntryManager.reset_picked()
 	
 	entry_display.set_display(EntryManager.get_random_entry())
 	log_label.text = ""
+	
+	players.start()
 
 
 func _log(text: String = ""):
@@ -26,11 +29,12 @@ func _log(text: String = ""):
 
 
 func _on_NewG_pressed():
-	players.cache_scores()
 	entry_display.set_display(EntryManager.get_random_entry())
 	log_label.text = ""
+	players.start()
 	new_button.hide()
 	quit_button.hide()
+	keyboard.enable()
 	spindle.enabled = true
 
 

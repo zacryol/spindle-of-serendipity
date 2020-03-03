@@ -1,10 +1,11 @@
 extends "res://game/components/GameComponent.gd"
 
 signal letters_revealed(number, final)
+signal one_letter(letter)
 
 enum {
 	MODE_DISABLED
-	MODE_ENABLED
+	MODE_LETTER
 }
 var current_mode := MODE_DISABLED
 var entry_text : String
@@ -94,22 +95,27 @@ func get_char_at(index : int) -> String:
 
 
 func _on_letter_guessed(letter: String):
-	if current_mode == MODE_ENABLED:
-		var guess = letter.substr(0, 1)
-		if !bool_mask.has(guess):
-			return 
-		if bool_mask[guess] == false:
-			bool_mask[guess] = true
-			$EntryLabel.text = get_display_text()
-			var num := entry_text.countn(guess)
-			emit_signal("game_log", str(num) + " revealed")
-			emit_signal("letters_revealed", num, is_solved())
-			current_mode = MODE_DISABLED
-		else:
-			emit_signal("game_log", guess + " has already been guessed")
-		if is_solved() && GlobalVars.show_source == GlobalVars.SOURCE_SOLVE:
-			$SourceLabel.text = source_text
+	if current_mode == MODE_LETTER:
+		single_letter_guessed(letter)
+
+
+func single_letter_guessed(letter : String):
+	var guess = letter.substr(0, 1)
+	if !bool_mask.has(guess):
+		return 
+	if bool_mask[guess] == false:
+		bool_mask[guess] = true
+		$EntryLabel.text = get_display_text()
+		var num := entry_text.countn(guess)
+		emit_signal("game_log", str(num) + " revealed")
+		emit_signal("letters_revealed", num, is_solved())
+		current_mode = MODE_DISABLED
+		emit_signal("one_letter", letter)
+	else:
+		emit_signal("game_log", guess + " has already been guessed")
+	if is_solved() && GlobalVars.show_source == GlobalVars.SOURCE_SOLVE:
+		$SourceLabel.text = source_text
 
 
 func _on_Spindle_spun():
-	current_mode = MODE_ENABLED
+	current_mode = MODE_LETTER

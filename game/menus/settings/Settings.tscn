@@ -36,7 +36,8 @@ margin_right = -4.0
 margin_bottom = -4.0
 text = "Back to Main Menu"
 
-[node name="General" type="Tabs" parent="PanelContainer/TabContainer"]
+[node name="General" type="Control" parent="PanelContainer/TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -69,6 +70,8 @@ size_flags_horizontal = 3
 margin_top = 3.0
 margin_right = 274.0
 margin_bottom = 17.0
+hint_tooltip = "Set when the game tells you of the source for the current entry."
+mouse_filter = 1
 size_flags_horizontal = 3
 text = "Reveal Source: "
 align = 2
@@ -92,6 +95,8 @@ size_flags_horizontal = 3
 margin_top = 3.0
 margin_right = 274.0
 margin_bottom = 17.0
+hint_tooltip = "You can set the game to choose a random category/source, then an entry from that. Useful if your entries heavily feature some over others."
+mouse_filter = 1
 size_flags_horizontal = 3
 text = "Randomize Mode: "
 align = 2
@@ -115,6 +120,8 @@ size_flags_horizontal = 3
 margin_top = 5.0
 margin_right = 274.0
 margin_bottom = 19.0
+hint_tooltip = "The game prevents repeat entries. When this many entries are left, all entries will be made available again."
+mouse_filter = 1
 size_flags_horizontal = 3
 text = "Refresh Entries at: "
 align = 2
@@ -133,25 +140,20 @@ margin_right = 552.0
 margin_bottom = 159.0
 text = "Save"
 
-[node name="Alias" type="Tabs" parent="PanelContainer/TabContainer"]
-visible = false
+[node name="Alias" type="TabContainer" parent="PanelContainer/TabContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
 margin_top = 32.0
 margin_right = -4.0
 margin_bottom = -4.0
-script = ExtResource( 3 )
-
-[node name="T" type="TabContainer" parent="PanelContainer/TabContainer/Alias"]
-anchor_right = 1.0
-anchor_bottom = 1.0
 tab_align = 0
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Categories" type="Tabs" parent="PanelContainer/TabContainer/Alias/T"]
+[node name="Categories" type="Tabs" parent="PanelContainer/TabContainer/Alias"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -160,7 +162,7 @@ margin_right = -4.0
 margin_bottom = -4.0
 script = ExtResource( 4 )
 
-[node name="H" type="HSplitContainer" parent="PanelContainer/TabContainer/Alias/T/Categories"]
+[node name="H" type="HSplitContainer" parent="PanelContainer/TabContainer/Alias/Categories"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 split_offset = 600
@@ -168,22 +170,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Import" type="ScrollContainer" parent="PanelContainer/TabContainer/Alias/T/Categories/H"]
+[node name="Import" type="ScrollContainer" parent="PanelContainer/TabContainer/Alias/Categories/H"]
 margin_right = 600.0
 margin_bottom = 514.0
 
-[node name="VBox" type="VBoxContainer" parent="PanelContainer/TabContainer/Alias/T/Categories/H/Import"]
+[node name="VBox" type="VBoxContainer" parent="PanelContainer/TabContainer/Alias/Categories/H/Import"]
 margin_right = 600.0
 size_flags_horizontal = 3
 
-[node name="View" type="ScrollContainer" parent="PanelContainer/TabContainer/Alias/T/Categories/H"]
+[node name="View" type="ScrollContainer" parent="PanelContainer/TabContainer/Alias/Categories/H"]
 margin_left = 612.0
 margin_right = 994.0
 margin_bottom = 514.0
 
-[node name="VBox" type="VBoxContainer" parent="PanelContainer/TabContainer/Alias/T/Categories/H/View"]
+[node name="VBox" type="VBoxContainer" parent="PanelContainer/TabContainer/Alias/Categories/H/View"]
 
-[node name="Sources" type="Tabs" parent="PanelContainer/TabContainer/Alias/T"]
+[node name="Sources" type="Tabs" parent="PanelContainer/TabContainer/Alias"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -193,26 +195,26 @@ margin_right = -4.0
 margin_bottom = -4.0
 script = ExtResource( 4 )
 
-[node name="H" type="HSplitContainer" parent="PanelContainer/TabContainer/Alias/T/Sources"]
+[node name="H" type="HSplitContainer" parent="PanelContainer/TabContainer/Alias/Sources"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 split_offset = 600
 
-[node name="Import" type="ScrollContainer" parent="PanelContainer/TabContainer/Alias/T/Sources/H"]
+[node name="Import" type="ScrollContainer" parent="PanelContainer/TabContainer/Alias/Sources/H"]
 margin_right = 40.0
 margin_bottom = 40.0
 
-[node name="VBox" type="VBoxContainer" parent="PanelContainer/TabContainer/Alias/T/Sources/H/Import"]
+[node name="VBox" type="VBoxContainer" parent="PanelContainer/TabContainer/Alias/Sources/H/Import"]
 margin_right = 40.0
 size_flags_horizontal = 3
 
-[node name="View" type="ScrollContainer" parent="PanelContainer/TabContainer/Alias/T/Sources/H"]
+[node name="View" type="ScrollContainer" parent="PanelContainer/TabContainer/Alias/Sources/H"]
 margin_right = 40.0
 margin_bottom = 40.0
 
-[node name="VBox" type="VBoxContainer" parent="PanelContainer/TabContainer/Alias/T/Sources/H/View"]
+[node name="VBox" type="VBoxContainer" parent="PanelContainer/TabContainer/Alias/Sources/H/View"]
 
-[node name="Legal" type="Tabs" parent="PanelContainer/TabContainer"]
+[node name="Legal" type="ScrollContainer" parent="PanelContainer/TabContainer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -220,19 +222,15 @@ margin_left = 4.0
 margin_top = 32.0
 margin_right = -4.0
 margin_bottom = -4.0
-
-[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/TabContainer/Legal"]
-anchor_right = 1.0
-anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/TabContainer/Legal/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/TabContainer/Legal"]
 margin_right = 462.0
 margin_bottom = 713.0
 
-[node name="GPLLabel" type="Label" parent="PanelContainer/TabContainer/Legal/ScrollContainer/VBoxContainer"]
+[node name="GPLLabel" type="Label" parent="PanelContainer/TabContainer/Legal/VBoxContainer"]
 margin_right = 462.0
 margin_bottom = 218.0
 text = "Copyright (C) 2020 \"zacryol\" (https://gitlab.com/zacryol)
@@ -249,7 +247,7 @@ This program is free software: you can redistribute it and/or modify
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>."
 
-[node name="MITLabel" type="Label" parent="PanelContainer/TabContainer/Legal/ScrollContainer/VBoxContainer"]
+[node name="MITLabel" type="Label" parent="PanelContainer/TabContainer/Legal/VBoxContainer"]
 margin_top = 222.0
 margin_right = 462.0
 margin_bottom = 678.0
@@ -267,7 +265,7 @@ text = "
 "
 autowrap = true
 
-[node name="FreeType" type="Label" parent="PanelContainer/TabContainer/Legal/ScrollContainer/VBoxContainer"]
+[node name="FreeType" type="Label" parent="PanelContainer/TabContainer/Legal/VBoxContainer"]
 margin_top = 682.0
 margin_right = 462.0
 margin_bottom = 713.0

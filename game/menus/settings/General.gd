@@ -1,4 +1,4 @@
-extends Tabs
+extends Control
 
 onready var source_options := $Scroll/List/RevealSource/OptionButton
 onready var rand_options := $Scroll/List/RandMode/OptionButton
