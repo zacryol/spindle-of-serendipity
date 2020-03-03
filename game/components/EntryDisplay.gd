@@ -1,6 +1,7 @@
 extends "res://game/components/GameComponent.gd"
 
 signal letters_revealed(number, final)
+signal one_letter(letter)
 
 enum {
 	MODE_DISABLED
@@ -109,6 +110,7 @@ func single_letter_guessed(letter : String):
 		emit_signal("game_log", str(num) + " revealed")
 		emit_signal("letters_revealed", num, is_solved())
 		current_mode = MODE_DISABLED
+		emit_signal("one_letter", letter)
 	else:
 		emit_signal("game_log", guess + " has already been guessed")
 	if is_solved() && GlobalVars.show_source == GlobalVars.SOURCE_SOLVE:

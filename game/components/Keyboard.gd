@@ -12,8 +12,6 @@ func _ready():
 
 func guess_letter(letter : String):
 	emit_signal("key_pressed", letter)
-	if get_button(letter):
-		get_button(letter).disabled = true
 
 
 func _on_Key_pressed(letter : String):
@@ -41,3 +39,8 @@ func enable() -> void:
 	for key in key_container.get_children():
 		if key is Button:
 			key.disabled = false
+
+
+func _on_EntryDisplay_one_letter(letter):
+	if get_button(letter):
+		get_button(letter).disabled = true
