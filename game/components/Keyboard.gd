@@ -10,8 +10,14 @@ func _ready():
 			key.connect("pressed", self, "_on_Key_pressed", [key.text])
 
 
-func _on_Key_pressed(letter : String):
+func guess_letter(letter : String):
 	emit_signal("key_pressed", letter)
+	if get_button(letter):
+		get_button(letter).disabled = true
+
+
+func _on_Key_pressed(letter : String):
+	guess_letter(letter)
 
 
 func _input(event):
@@ -20,11 +26,11 @@ func _input(event):
 			&& not event.is_echo() \
 			&& event.is_pressed():
 		var e := str(event.as_text().right(event.as_text().length() - 1))
-		emit_signal("key_pressed", e)
+		guess_letter(e)
 
 
 func get_button(letter : String) -> Button:
-	for key in key_container:
+	for key in key_container.get_children():
 		if key is Button:
 			if key.text == letter:
 				return key
