@@ -21,17 +21,17 @@ func _ready():
 
 
 func start():
-	emit_signal("game_log", current_player().player_name + " go!")
+	emit_signal("game_log", get_current_player().player_name + " go!")
 	cache_scores()
 	set_label()
 
 
 func _score_gained(number: int, final: bool):
-	current_player().add_to_score(number)
+	get_current_player().add_to_score(number)
 	emit_signal("game_log", str(number) + " points gained")
 	advance_player()
 	if not final:
-		emit_signal("game_log", current_player().player_name + " spin!")
+		emit_signal("game_log", get_current_player().player_name + " spin!")
 	else:
 		emit_signal("game_log", "You solved it!")
 		emit_signal("pre_reset")
@@ -44,7 +44,7 @@ func cache_scores() -> void:
 	p3.cache_score()
 
 
-func current_player():
+func get_current_player():
 	return players_array[current_player]
 
 
@@ -54,7 +54,7 @@ func advance_player():
 
 
 func set_label():
-	p_label.text = current_player().player_name + "'s turn!"
+	p_label.text = get_current_player().player_name + "'s turn!"
 
 
 func clear_label():
