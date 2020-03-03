@@ -6,6 +6,7 @@ onready var new_button := $GP/VB/Top/HB/NewG
 onready var quit_button := $GP/VB/Top/HB/Quit
 onready var spindle := $GP/VB/Game/HSplit/SP/Spindle
 onready var players := $GP/VB/Game/HSplit/SP/PlayersPanel
+onready var keyboard := $GP/VB/Game/HSplit/EDKB/Keyboard
 const MAX_LOG_CHAR := 150
 
 func _ready():
@@ -33,6 +34,7 @@ func _on_NewG_pressed():
 	players.start()
 	new_button.hide()
 	quit_button.hide()
+	keyboard.enable()
 	spindle.enabled = true
 
 
