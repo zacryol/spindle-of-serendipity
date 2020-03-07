@@ -1,6 +1,6 @@
 extends "res://game/components/GameComponent.gd"
 
-var current_value : int
+var current_value: int
 signal score(points, final)
 signal spun
 var enabled := true

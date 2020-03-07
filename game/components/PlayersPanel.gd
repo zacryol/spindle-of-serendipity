@@ -7,9 +7,9 @@ onready var p3 := $PanelContainer/VBoxContainer/Player3
 onready var players_array := [p1, p2, p3]
 var current_player := 0
 
-onready var p_label : Label = $PanelContainer/VBoxContainer/PanelContainer/Label
+onready var p_label: Label = $PanelContainer/VBoxContainer/PanelContainer/Label
 
-const NUM_PLAYER = 3
+const NUM_PLAYER := 3
 
 func _ready():
 	p1.set_name(GlobalVars.p1_name)
@@ -61,5 +61,5 @@ func clear_label():
 	p_label.text = ""
 
 
-func _on_Player_game_log(text):
+func _on_Player_game_log(text: String):
 	emit_signal("game_log", text)

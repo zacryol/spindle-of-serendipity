@@ -1,35 +1,35 @@
 extends Node
 
-var aliases_cat : Dictionary
-var aliases_sou : Dictionary
+var aliases_cat: Dictionary
+var aliases_sou: Dictionary
 
 func _ready():
 	load_from_file()
 
 
-func has(import : String, is_cat : bool) -> bool:
+func has(import: String, is_cat: bool) -> bool:
 	if is_cat:
 		return aliases_cat.has(import)
 	else:
 		return aliases_sou.has(import)
 
 
-func add_category(old : String, new : String):
+func add_category(old: String, new: String):
 	aliases_cat[old] = new
 	save_to_file()
 
 
-func add_source(old : String, new : String):
+func add_source(old: String, new: String):
 	aliases_sou[old] = new
 	save_to_file()
 
 
-func erase_cat(old : String):
+func erase_cat(old: String):
 	aliases_cat.erase(old)
 	save_to_file()
 
 
-func erase_sou(old : String):
+func erase_sou(old: String):
 	aliases_sou.erase(old)
 	save_to_file()
 
@@ -55,7 +55,7 @@ func load_from_file():
 		if err:
 			return
 		var s := f.get_as_text()
-		var v = validate_json(s)
+		var v := validate_json(s)
 		if not v:
 			var a = parse_json(s)
 			if typeof(a) == TYPE_DICTIONARY:
@@ -73,7 +73,7 @@ func save_to_file():
 		"sou" : aliases_sou
 	}
 	var f := File.new()
-	var err = f.open(GlobalVars.ALIAS_SAVE, File.WRITE)
+	var err := f.open(GlobalVars.ALIAS_SAVE, File.WRITE)
 	if err:
 		return
 	f.store_string(to_json(save_dict))
