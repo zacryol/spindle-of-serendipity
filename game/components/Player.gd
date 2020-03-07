@@ -2,10 +2,11 @@ extends "res://game/components/GameComponent.gd"
 
 var score := 0
 var total := 0
+var player_name: String
+
+onready var name_label := $PanelContainer/CenterContainer/VBoxContainer/PlayerLabel
 onready var score_label := $PanelContainer/CenterContainer/VBoxContainer/ScoreLabelCurr
 onready var total_label := $PanelContainer/CenterContainer/VBoxContainer/TotalLabel
-var player_name: String
-onready var name_label := $PanelContainer/CenterContainer/VBoxContainer/PlayerLabel
 
 func add_to_score(points: int) -> void:
 	score += points

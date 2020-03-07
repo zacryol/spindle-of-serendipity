@@ -1,15 +1,16 @@
 extends "res://game/components/GameComponent.gd"
 
 signal pre_reset
+
+const NUM_PLAYER := 3
+var current_player := 0
+
 onready var p1 := $PanelContainer/VBoxContainer/Player
 onready var p2 := $PanelContainer/VBoxContainer/Player2
 onready var p3 := $PanelContainer/VBoxContainer/Player3
 onready var players_array := [p1, p2, p3]
-var current_player := 0
-
 onready var p_label: Label = $PanelContainer/VBoxContainer/PanelContainer/Label
 
-const NUM_PLAYER := 3
 
 func _ready():
 	p1.set_name(GlobalVars.p1_name)

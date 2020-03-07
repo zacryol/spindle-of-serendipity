@@ -1,10 +1,10 @@
 extends "res://game/components/GameComponent.gd"
 
-var current_value: int
 signal score(points, final)
 signal spun
-var enabled := true
 
+var current_value: int
+var enabled := true
 
 func _letters_guessed(number: int, solves: bool):
 	emit_signal("score", number * current_value, solves)

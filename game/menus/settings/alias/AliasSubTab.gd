@@ -1,12 +1,11 @@
 extends Tabs
 
-onready var imports := $H/Import/VBox
-onready var outs := $H/View/VBox
-
 var is_categories: bool
 var import_values: PoolStringArray
-
 var single := preload("res://game/menus/settings/alias/SingleAlias.tscn")
+
+onready var imports := $H/Import/VBox
+onready var outs := $H/View/VBox
 
 func set_ui(cat: bool):
 	is_categories = cat

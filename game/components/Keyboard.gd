@@ -1,7 +1,7 @@
 extends "res://game/components/GameComponent.gd"
 
-onready var key_container := $CenterContainer/GridContainer
 signal key_pressed(letter)
+onready var key_container := $CenterContainer/GridContainer
 
 func _ready():
 	var keys := key_container.get_children()

@@ -1,5 +1,5 @@
-extends Object
 class_name Entry
+extends Object
 
 var text: String
 var category: String
