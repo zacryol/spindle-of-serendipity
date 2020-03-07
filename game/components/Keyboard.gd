@@ -1,7 +1,7 @@
 extends "res://game/components/GameComponent.gd"
 
-onready var key_container := $CenterContainer/GridContainer
 signal key_pressed(letter)
+onready var key_container := $CenterContainer/GridContainer
 
 func _ready():
 	var keys := key_container.get_children()
@@ -10,11 +10,11 @@ func _ready():
 			key.connect("pressed", self, "_on_Key_pressed", [key.text])
 
 
-func guess_letter(letter : String):
+func guess_letter(letter: String):
 	emit_signal("key_pressed", letter)
 
 
-func _on_Key_pressed(letter : String):
+func _on_Key_pressed(letter: String):
 	guess_letter(letter)
 
 
@@ -27,7 +27,7 @@ func _input(event):
 		guess_letter(e)
 
 
-func get_button(letter : String) -> Button:
+func get_button(letter: String) -> Button:
 	for key in key_container.get_children():
 		if key is Button:
 			if key.text == letter:

@@ -1,5 +1,6 @@
 extends Control
 
+const MAX_LOG_CHAR := 140
 onready var entry_display := $GP/VB/Game/HSplit/EDKB/EntryDisplay
 onready var log_label := $GP/VB/Top/HB/Label
 onready var new_button := $GP/VB/Top/HB/NewG
@@ -7,7 +8,6 @@ onready var quit_button := $GP/VB/Top/HB/Quit
 onready var spindle := $GP/VB/Game/HSplit/SP/Spindle
 onready var players := $GP/VB/Game/HSplit/SP/PlayersPanel
 onready var keyboard := $GP/VB/Game/HSplit/EDKB/Keyboard
-const MAX_LOG_CHAR := 140
 
 func _ready():
 	EntryManager.reset_picked()

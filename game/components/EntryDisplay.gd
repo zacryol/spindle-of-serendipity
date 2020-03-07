@@ -8,9 +8,9 @@ enum {
 	MODE_LETTER
 }
 var current_mode := MODE_DISABLED
-var entry_text : String
-var source_text : String
-var bool_mask : Dictionary = {
+var entry_text: String
+var source_text: String
+var bool_mask: Dictionary = {
 	"A":false,
 	"B":false,
 	"C":false,
@@ -59,7 +59,7 @@ func set_display(entry : Entry):
 
 
 func get_display_text() -> String:
-	var display_text = ""
+	var display_text := ""
 	for i in entry_text.length():
 		var current_char = entry_text.substr(i, 1)
 		if bool_mask.has(current_char):
@@ -81,7 +81,7 @@ func is_solved() -> bool:
 
 
 func get_letters_in_entry() -> PoolStringArray:
-	var letters : PoolStringArray = []
+	var letters: PoolStringArray = []
 	for i in entry_text.length():
 		var current_char := get_char_at(i)
 		if bool_mask.has(current_char):
@@ -99,8 +99,8 @@ func _on_letter_guessed(letter: String):
 		single_letter_guessed(letter)
 
 
-func single_letter_guessed(letter : String):
-	var guess = letter.substr(0, 1)
+func single_letter_guessed(letter: String):
+	var guess := letter.substr(0, 1)
 	if !bool_mask.has(guess):
 		return 
 	if bool_mask[guess] == false:

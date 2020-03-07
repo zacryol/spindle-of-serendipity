@@ -18,7 +18,7 @@ func _on_FileDialog_files_selected(paths):
 		if File.new().file_exists(save_path):
 			var copy := 0
 			var new_file_path : String
-			var f = File.new()
+			var f := File.new()
 			while f.file_exists(save_path):
 				new_file_path = str(copy) + file_name
 				save_path = str(GlobalVars.ENTRIES_SAVE + new_file_path)
