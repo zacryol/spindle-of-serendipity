@@ -70,7 +70,7 @@ func load_from_file():
 func save_to_file():
 	var save_dict := {
 		"cat" : aliases_cat,
-		"sou" : aliases_sou
+		"sou" : aliases_sou,
 	}
 	var f := File.new()
 	var err := f.open(GlobalVars.ALIAS_SAVE, File.WRITE)
