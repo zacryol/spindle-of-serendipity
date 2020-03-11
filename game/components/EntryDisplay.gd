@@ -100,7 +100,7 @@ func _on_letter_guessed(letter: String):
 	if current_mode == MODE_LETTER:
 		single_letter_guessed(letter)
 	elif current_mode == MODE_SOLVE:
-		pass
+		add_solve(letter)
 
 
 func single_letter_guessed(letter: String):
