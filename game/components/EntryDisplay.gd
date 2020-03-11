@@ -99,6 +99,8 @@ func get_char_at(index: int) -> String:
 func _on_letter_guessed(letter: String):
 	if current_mode == MODE_LETTER:
 		single_letter_guessed(letter)
+	elif current_mode == MODE_SOLVE:
+		pass
 
 
 func single_letter_guessed(letter: String):
