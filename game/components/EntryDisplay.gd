@@ -121,5 +121,14 @@ func single_letter_guessed(letter: String):
 		$SourceLabel.text = source_text
 
 
+func add_solve(letter: String):
+	solve_stack.append(letter)
+
+
+func init_solve():
+	solve_stack = []
+	current_mode = MODE_SOLVE
+
+
 func _on_Spindle_spun():
 	current_mode = MODE_LETTER
