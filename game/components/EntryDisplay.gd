@@ -128,7 +128,8 @@ func single_letter_guessed(letter: String):
 
 
 func add_solve(letter: String):
-	solve_stack.append(letter)
+	if bool_mask.has(letter) and not bool_mask[letter]:
+		solve_stack.append(letter)
 	$EntryLabel.text = get_display_text()
 
 
