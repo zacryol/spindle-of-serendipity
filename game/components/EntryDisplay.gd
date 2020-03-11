@@ -4,8 +4,9 @@ signal letters_revealed(number, final)
 signal one_letter(letter)
 
 enum {
-	MODE_DISABLED
-	MODE_LETTER
+	MODE_DISABLED,
+	MODE_LETTER,
+	MODE_SOLVE,
 }
 var current_mode := MODE_DISABLED
 var entry_text: String
@@ -40,6 +41,7 @@ var bool_mask: Dictionary = {
 }
 var placeholder_char := "*"
 var source_hide := "???"
+var solve_stack: PoolStringArray = []
 
 func set_display(entry : Entry):
 	entry_text = entry.get_entry_text().to_upper()
