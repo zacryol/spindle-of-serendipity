@@ -61,6 +61,8 @@ func set_display(entry : Entry):
 
 
 func get_display_text() -> String:
+	var solve_i := 0 # For if solving
+	
 	var display_text := ""
 	for i in entry_text.length():
 		var current_char = entry_text.substr(i, 1)
@@ -68,7 +70,11 @@ func get_display_text() -> String:
 			if bool_mask[current_char]:
 				display_text += current_char
 			else:
-				display_text += placeholder_char
+				if current_mode == MODE_SOLVE and solve_stack.size() > solve_i:
+					display_text += solve_stack[solve_i]
+					solve_i += 1
+				else:
+					display_text += placeholder_char
 		else:
 			display_text += current_char
 	return display_text
