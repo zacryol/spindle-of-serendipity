@@ -129,6 +129,7 @@ func single_letter_guessed(letter: String):
 
 func add_solve(letter: String):
 	solve_stack.append(letter)
+	$EntryLabel.text = get_display_text()
 
 
 func init_solve():
