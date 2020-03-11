@@ -90,7 +90,7 @@ func get_letters_in_entry() -> PoolStringArray:
 	return letters
 
 
-func get_char_at(index : int) -> String:
+func get_char_at(index: int) -> String:
 	return entry_text.substr(index, 1)
 
 
