@@ -2,6 +2,13 @@ extends Node
 
 var entries: Array # Only add Entry objects
 
+func _to_string() -> String:
+	var out := ""
+	for entry in entries:
+		out = out + entry.to_string() + '\n'
+	return out
+
+
 func add_entry(data: PoolStringArray):
 	if data.size() == 1:
 		entries.append(Entry.new(data[0]))
@@ -9,13 +16,6 @@ func add_entry(data: PoolStringArray):
 		entries.append(Entry.new(data[0], data[1]))
 	elif data.size() >= 3:
 		entries.append(Entry.new(data[0], data[1], data[2]))
-
-
-func _to_string() -> String:
-	var out := ""
-	for entry in entries:
-		out = out + entry.to_string() + '\n'
-	return out
 
 
 func reset_picked() -> void:
