@@ -170,8 +170,12 @@ func _on_Spindle_spun():
 
 
 func _on_SolveButton_pressed():
+	var solved := check_solve()
 	$SolveButton.hide()
-	emit_signal("guess_checked", check_solve())
+	emit_signal("guess_checked", solved)
 	solve_stack = []
 	current_mode = MODE_DISABLED
+	if solved:
+		for k in bool_mask.keys():
+			bool_mask[k] = true
 	$EntryLabel.text = get_display_text()
