@@ -33,6 +33,8 @@ func _score_gained(number: int, final: bool):
 	# Solve attempt goes here
 	# If correct, reward player and start new
 	# else continue
+	$ConfirmationDialog.show()
+	
 	advance_player()
 	if not final:
 		emit_signal("game_log", get_current_player().player_name + " spin!")
