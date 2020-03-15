@@ -10,6 +10,7 @@ onready var p2 := $PanelContainer/VBoxContainer/Player2
 onready var p3 := $PanelContainer/VBoxContainer/Player3
 onready var players_array := [p1, p2, p3]
 onready var p_label: Label = $PanelContainer/VBoxContainer/PanelContainer/Label
+onready var solve_box := $ConfirmationDialog
 
 
 func _ready():
@@ -36,7 +37,7 @@ func _score_gained(number: int, final: bool):
 		advance_player()
 		clear_label()
 	else:
-		$ConfirmationDialog.show()
+		solve_box.show()
 		pass_turn()
 
 
