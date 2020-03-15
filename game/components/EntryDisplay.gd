@@ -137,6 +137,7 @@ func add_solve(letter: String):
 func check_solve() -> bool:
 	return true
 
+
 func init_solve():
 	solve_stack = []
 	current_mode = MODE_SOLVE
