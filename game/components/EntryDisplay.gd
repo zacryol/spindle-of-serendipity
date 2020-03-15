@@ -141,6 +141,7 @@ func check_solve() -> bool:
 func init_solve():
 	solve_stack = []
 	current_mode = MODE_SOLVE
+	$SolveButton.show()
 
 
 func _on_Spindle_spun():
@@ -148,5 +149,6 @@ func _on_Spindle_spun():
 
 
 func _on_SolveButton_pressed():
+	$SolveButton.hide()
 	emit_signal("guess_checked", check_solve())
 	pass # Replace with function body.
