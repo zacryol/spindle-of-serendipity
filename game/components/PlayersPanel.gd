@@ -81,7 +81,6 @@ func _on_Player_game_log(text: String):
 
 func _on_ConfirmationDialog_confirmed():
 	emit_signal("init_solve")
-#	pass_turn() # Temp
 
 
 func _on_ConfirmationDialog_canceled():
