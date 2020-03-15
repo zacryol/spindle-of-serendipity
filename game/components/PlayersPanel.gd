@@ -89,7 +89,8 @@ func _on_ConfirmationDialog_canceled():
 
 func _on_EntryDisplay_guess_checked(solved: bool):
 	if solved:
-		pass
+		emit_signal("game_log", "Correct!")
+		emit_signal("pre_reset")
 	else:
 		emit_signal("game_log", "Incorrect")
 		pass_turn()
