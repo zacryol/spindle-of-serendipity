@@ -51,7 +51,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="."]
+[node name="SolveButton" type="Button" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -12.0
@@ -59,3 +59,4 @@ margin_bottom = 20.0
 grow_horizontal = 0
 text = "Submit Guess"
 align = 2
+[connection signal="pressed" from="SolveButton" to="." method="_on_SolveButton_pressed"]

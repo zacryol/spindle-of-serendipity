@@ -140,3 +140,7 @@ func init_solve():
 
 func _on_Spindle_spun():
 	current_mode = MODE_LETTER
+
+
+func _on_SolveButton_pressed():
+	pass # Replace with function body.
