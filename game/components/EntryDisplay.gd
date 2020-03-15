@@ -133,6 +133,9 @@ func add_solve(letter: String):
 	$EntryLabel.text = get_display_text()
 
 
+func check_solve() -> bool:
+	return true
+
 func init_solve():
 	solve_stack = []
 	current_mode = MODE_SOLVE
