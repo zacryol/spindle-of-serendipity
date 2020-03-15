@@ -2,10 +2,12 @@ extends "res://game/components/GameComponent.gd"
 
 signal letters_revealed(number, final)
 signal one_letter(letter)
+signal guess_checked(solved)
 
 enum {
-	MODE_DISABLED
-	MODE_LETTER
+	MODE_DISABLED,
+	MODE_LETTER,
+	MODE_SOLVE,
 }
 var current_mode := MODE_DISABLED
 var entry_text: String
@@ -40,8 +42,19 @@ var bool_mask: Dictionary = {
 }
 var placeholder_char := "*"
 var source_hide := "???"
+var solve_stack: PoolStringArray = []
 
-func set_display(entry : Entry):
+func _input(event):
+	if event is InputEventKey:
+		if event.is_pressed() and \
+				not event.is_echo() and \
+				event.scancode == KEY_BACKSPACE:
+			if solve_stack.size():
+				solve_stack.remove(solve_stack.size() - 1)
+	$EntryLabel.text = get_display_text()
+
+
+func set_display(entry: Entry):
 	entry_text = entry.get_entry_text().to_upper()
 	source_text = entry.get_game_source()
 	
@@ -59,6 +72,8 @@ func set_display(entry : Entry):
 
 
 func get_display_text() -> String:
+	var solve_i := 0 # For if solving
+	
 	var display_text := ""
 	for i in entry_text.length():
 		var current_char = entry_text.substr(i, 1)
@@ -66,7 +81,11 @@ func get_display_text() -> String:
 			if bool_mask[current_char]:
 				display_text += current_char
 			else:
-				display_text += placeholder_char
+				if current_mode == MODE_SOLVE and solve_stack.size() > solve_i:
+					display_text += solve_stack[solve_i]
+					solve_i += 1
+				else:
+					display_text += placeholder_char
 		else:
 			display_text += current_char
 	return display_text
@@ -97,6 +116,8 @@ func get_char_at(index: int) -> String:
 func _on_letter_guessed(letter: String):
 	if current_mode == MODE_LETTER:
 		single_letter_guessed(letter)
+	elif current_mode == MODE_SOLVE:
+		add_solve(letter)
 
 
 func single_letter_guessed(letter: String):
@@ -117,5 +138,46 @@ func single_letter_guessed(letter: String):
 		$SourceLabel.text = source_text
 
 
+func add_solve(letter: String):
+	if bool_mask.has(letter) and not bool_mask[letter]:
+		solve_stack.append(letter)
+	$EntryLabel.text = get_display_text()
+
+
+func check_solve() -> bool:
+	var stack_index := 0
+	for c in entry_text.length():
+		if not bool_mask.has(get_char_at(c)):
+			continue
+		elif bool_mask[get_char_at(c)]:
+			continue
+		else:
+			if not get_char_at(c) == solve_stack[stack_index]:
+				return false
+			else:
+				stack_index += 1
+	return true
+
+
+func init_solve():
+	solve_stack = []
+	current_mode = MODE_SOLVE
+	$SolveButton.show()
+
+
 func _on_Spindle_spun():
 	current_mode = MODE_LETTER
+
+
+func _on_SolveButton_pressed():
+	var solved := check_solve()
+	$SolveButton.hide()
+	emit_signal("guess_checked", solved)
+	solve_stack = []
+	current_mode = MODE_DISABLED
+	if solved:
+		for k in bool_mask.keys():
+			bool_mask[k] = true
+		if GlobalVars.show_source == GlobalVars.SOURCE_SOLVE:
+			$SourceLabel.text = source_text
+	$EntryLabel.text = get_display_text()
