@@ -43,7 +43,6 @@ func _score_gained(number: int, final: bool):
 		clear_label()
 	else:
 		solve_box.show()
-#		pass_turn()
 
 
 func pass_turn() -> void:
