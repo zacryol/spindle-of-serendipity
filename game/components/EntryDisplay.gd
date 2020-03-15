@@ -165,4 +165,3 @@ func _on_SolveButton_pressed():
 	solve_stack = []
 	current_mode = MODE_DISABLED
 	$EntryLabel.text = get_display_text()
-	pass # Replace with function body.
