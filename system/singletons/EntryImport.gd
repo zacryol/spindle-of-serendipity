@@ -17,9 +17,9 @@ func import_entries_from_file(path : String):
 			if typeof(j) == TYPE_ARRAY:
 				var data := PoolStringArray(j)
 				EntryManager.add_entry(data)
-		else:
-			if line:
-				print("ERROR: Entry \"" + line + "\" in file " + path.get_file() + " is invalid")
+		elif line:
+			print("ERROR: Entry \"" + line + "\" in file " +
+					path.get_file() + " is invalid")
 
 
 func grab_saved_files():
