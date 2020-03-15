@@ -135,7 +135,18 @@ func add_solve(letter: String):
 
 
 func check_solve() -> bool:
-	return false
+	var stack_index := 0
+	for c in entry_text.length():
+		if not bool_mask.has(get_char_at(c)):
+			continue
+		elif bool_mask[get_char_at(c)]:
+			continue
+		else:
+			if not get_char_at(c) == solve_stack[stack_index]:
+				return false
+			else:
+				stack_index += 1
+	return true
 
 
 func init_solve():
