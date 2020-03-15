@@ -33,20 +33,16 @@ func _score_gained(number: int, final: bool):
 	if final:
 		emit_signal("game_log", "You solved it!")
 		emit_signal("pre_reset")
-		clear_label()
 		advance_player()
+		clear_label()
 	else:
 		$ConfirmationDialog.show()
-	# Solve attempt goes here
-	# If correct, reward player and start new
-	# else continue
-	
-	
+		pass_turn()
+
+
+func pass_turn() -> void:
 	advance_player()
-	if not final:
-		emit_signal("game_log", get_current_player().player_name + " spin!")
-	else:
-		pass
+	emit_signal("game_log", get_current_player().player_name + " spin!")
 
 
 func cache_scores() -> void:
