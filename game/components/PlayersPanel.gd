@@ -15,6 +15,7 @@ onready var solve_box := $ConfirmationDialog
 
 func _ready():
 	solve_box.get_cancel().connect("pressed", self, "_on_ConfirmationDialog_canceled")
+	solve_box.get_close_button().hide()
 	p1.set_name(GlobalVars.p1_name)
 	p2.set_name(GlobalVars.p2_name)
 	p3.set_name(GlobalVars.p3_name)
