@@ -14,6 +14,7 @@ onready var solve_box := $ConfirmationDialog
 
 
 func _ready():
+	solve_box.get_cancel().connect("pressed", self, "_on_ConfirmationDialog_canceled")
 	p1.set_name(GlobalVars.p1_name)
 	p2.set_name(GlobalVars.p2_name)
 	p3.set_name(GlobalVars.p3_name)
@@ -38,7 +39,7 @@ func _score_gained(number: int, final: bool):
 		clear_label()
 	else:
 		solve_box.show()
-		pass_turn()
+#		pass_turn()
 
 
 func pass_turn() -> void:
@@ -71,3 +72,12 @@ func clear_label():
 
 func _on_Player_game_log(text: String):
 	emit_signal("game_log", text)
+
+
+func _on_ConfirmationDialog_confirmed():
+	# Inititalize Solve
+	pass # Replace with function body.
+
+
+func _on_ConfirmationDialog_canceled():
+	pass_turn()

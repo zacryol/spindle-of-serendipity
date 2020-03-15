@@ -70,3 +70,4 @@ dialog_autowrap = true
 [connection signal="game_log" from="PanelContainer/VBoxContainer/Player" to="." method="_on_Player_game_log"]
 [connection signal="game_log" from="PanelContainer/VBoxContainer/Player2" to="." method="_on_Player_game_log"]
 [connection signal="game_log" from="PanelContainer/VBoxContainer/Player3" to="." method="_on_Player_game_log"]
+[connection signal="confirmed" from="ConfirmationDialog" to="." method="_on_ConfirmationDialog_confirmed"]
