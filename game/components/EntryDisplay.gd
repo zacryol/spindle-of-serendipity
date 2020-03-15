@@ -151,4 +151,7 @@ func _on_Spindle_spun():
 func _on_SolveButton_pressed():
 	$SolveButton.hide()
 	emit_signal("guess_checked", check_solve())
+	solve_stack = []
+	$EntryLabel.text = get_display_text()
+	current_mode = MODE_DISABLED
 	pass # Replace with function body.
