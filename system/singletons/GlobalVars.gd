@@ -25,6 +25,8 @@ var rand_mode := RAND_NON
 var refresh_entries_at := 15
 # End of Settings
 
+const PLAYER_NAME_MAX := 19
+
 var p1_name := "Player 1"
 var p2_name := "Player 2"
 var p3_name := "Player 3"

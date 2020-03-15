@@ -17,4 +17,11 @@ func _on_Button_pressed():
 		GlobalVars.p3_name = p3_enter.text
 	else:
 		GlobalVars.p3_name = GlobalVars.p3_name_default
+	
+	if GlobalVars.p1_name.length() > GlobalVars.PLAYER_NAME_MAX:
+		GlobalVars.p1_name = GlobalVars.p1_name.substr(0, GlobalVars.PLAYER_NAME_MAX)
+	if GlobalVars.p2_name.length() > GlobalVars.PLAYER_NAME_MAX:
+		GlobalVars.p2_name = GlobalVars.p2_name.substr(0, GlobalVars.PLAYER_NAME_MAX)
+	if GlobalVars.p3_name.length() > GlobalVars.PLAYER_NAME_MAX:
+		GlobalVars.p3_name = GlobalVars.p3_name.substr(0, GlobalVars.PLAYER_NAME_MAX)
 	get_tree().change_scene("res://game/GamePanel.tscn")
