@@ -44,6 +44,16 @@ var placeholder_char := "*"
 var source_hide := "???"
 var solve_stack: PoolStringArray = []
 
+func _input(event):
+	if event is InputEventKey:
+		if event.is_pressed() and \
+				not event.is_echo() and \
+				event.scancode == KEY_BACKSPACE:
+			if solve_stack.size():
+				solve_stack.remove(solve_stack.size() - 1)
+	$EntryLabel.text = get_display_text()
+
+
 func set_display(entry: Entry):
 	entry_text = entry.get_entry_text().to_upper()
 	source_text = entry.get_game_source()
