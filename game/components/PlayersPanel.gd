@@ -6,6 +6,7 @@ signal init_solve
 
 const NUM_PLAYER := 3
 var current_player := 0
+var solve_reward := 150
 
 onready var p1 := $PanelContainer/VBoxContainer/Player
 onready var p2 := $PanelContainer/VBoxContainer/Player2
@@ -89,7 +90,9 @@ func _on_ConfirmationDialog_canceled():
 
 func _on_EntryDisplay_guess_checked(solved: bool):
 	if solved:
-		emit_signal("game_log", "Correct!")
+		emit_signal("game_log",
+				"Correct! " + str(solve_reward) + " points earned!")
+		get_current_player().add_to_score(solve_reward)
 		emit_signal("pre_reset")
 	else:
 		emit_signal("game_log", "Incorrect")
