@@ -93,6 +93,8 @@ func _on_EntryDisplay_guess_checked(solved: bool):
 				"Correct! " + str(solve_reward) + " points earned!")
 		get_current_player().add_to_score(solve_reward)
 		emit_signal("pre_reset")
+		advance_player()
+		clear_label()
 	else:
 		emit_signal("game_log", "Incorrect")
 		pass_turn()
