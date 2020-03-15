@@ -2,6 +2,7 @@ extends "res://game/components/GameComponent.gd"
 
 signal letters_revealed(number, final)
 signal one_letter(letter)
+signal guess_checked(solved)
 
 enum {
 	MODE_DISABLED,
@@ -146,4 +147,5 @@ func _on_Spindle_spun():
 
 
 func _on_SolveButton_pressed():
+	emit_signal("guess_checked", check_solve())
 	pass # Replace with function body.
