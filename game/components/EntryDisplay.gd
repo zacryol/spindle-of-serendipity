@@ -84,11 +84,10 @@ func get_display_text() -> String:
 		if bool_mask.has(current_char):
 			if bool_mask[current_char]:
 				display_text += current_char
+			elif current_mode == MODE_SOLVE and solve_stack.size() > solve_i:
+				display_text += solve_stack[solve_i]
+				solve_i += 1
 			else:
-				if current_mode == MODE_SOLVE and solve_stack.size() > solve_i:
-					display_text += solve_stack[solve_i]
-					solve_i += 1
-				else:
 					display_text += placeholder_char
 		else:
 			display_text += current_char
