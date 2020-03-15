@@ -178,4 +178,6 @@ func _on_SolveButton_pressed():
 	if solved:
 		for k in bool_mask.keys():
 			bool_mask[k] = true
+		if GlobalVars.show_source == GlobalVars.SOURCE_SOLVE:
+			$SourceLabel.text = source_text
 	$EntryLabel.text = get_display_text()
