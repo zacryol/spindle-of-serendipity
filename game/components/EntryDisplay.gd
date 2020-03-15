@@ -44,7 +44,7 @@ var placeholder_char := "*"
 var source_hide := "???"
 var solve_stack: PoolStringArray = []
 
-func set_display(entry : Entry):
+func set_display(entry: Entry):
 	entry_text = entry.get_entry_text().to_upper()
 	source_text = entry.get_game_source()
 	
