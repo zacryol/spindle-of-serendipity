@@ -34,10 +34,13 @@ func _score_gained(number: int, final: bool):
 		emit_signal("game_log", "You solved it!")
 		emit_signal("pre_reset")
 		clear_label()
+		advance_player()
+	else:
+		$ConfirmationDialog.show()
 	# Solve attempt goes here
 	# If correct, reward player and start new
 	# else continue
-	$ConfirmationDialog.show()
+	
 	
 	advance_player()
 	if not final:
