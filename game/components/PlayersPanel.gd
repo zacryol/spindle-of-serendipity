@@ -30,6 +30,10 @@ func start():
 func _score_gained(number: int, final: bool):
 	get_current_player().add_to_score(number)
 	emit_signal("game_log", str(number) + " points gained")
+	if final:
+		emit_signal("game_log", "You solved it!")
+		emit_signal("pre_reset")
+		clear_label()
 	# Solve attempt goes here
 	# If correct, reward player and start new
 	# else continue
@@ -39,9 +43,7 @@ func _score_gained(number: int, final: bool):
 	if not final:
 		emit_signal("game_log", get_current_player().player_name + " spin!")
 	else:
-		emit_signal("game_log", "You solved it!")
-		emit_signal("pre_reset")
-		clear_label()
+		pass
 
 
 func cache_scores() -> void:
