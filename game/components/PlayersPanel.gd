@@ -1,6 +1,7 @@
 extends "res://game/components/GameComponent.gd"
 
 signal pre_reset
+signal turn_done
 
 const NUM_PLAYER := 3
 var current_player := 0
@@ -46,6 +47,7 @@ func _score_gained(number: int, final: bool):
 func pass_turn() -> void:
 	advance_player()
 	emit_signal("game_log", get_current_player().player_name + " spin!")
+	emit_signal("turn_done")
 
 
 func cache_scores() -> void:
@@ -77,7 +79,7 @@ func _on_Player_game_log(text: String):
 
 func _on_ConfirmationDialog_confirmed():
 	# Inititalize Solve
-	pass # Replace with function body.
+	pass_turn() # Temp
 
 
 func _on_ConfirmationDialog_canceled():
