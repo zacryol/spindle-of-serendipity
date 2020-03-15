@@ -135,7 +135,7 @@ func add_solve(letter: String):
 
 
 func check_solve() -> bool:
-	return true
+	return false
 
 
 func init_solve():

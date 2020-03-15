@@ -88,4 +88,8 @@ func _on_ConfirmationDialog_canceled():
 
 
 func _on_EntryDisplay_guess_checked(solved: bool):
-	pass # Replace with function body.
+	if solved:
+		pass
+	else:
+		emit_signal("game_log", "Incorrect")
+		pass_turn()
