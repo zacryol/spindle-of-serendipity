@@ -112,6 +112,7 @@ margin_bottom = 540.0
 [connection signal="pressed" from="GP/VB/Top/HB/NewG" to="." method="_on_NewG_pressed"]
 [connection signal="pressed" from="GP/VB/Top/HB/Quit" to="." method="_on_Quit_pressed"]
 [connection signal="game_log" from="GP/VB/Game/HSplit/EDKB/EntryDisplay" to="." method="_log"]
+[connection signal="guess_checked" from="GP/VB/Game/HSplit/EDKB/EntryDisplay" to="GP/VB/Game/HSplit/SP/PlayersPanel" method="_on_EntryDisplay_guess_checked"]
 [connection signal="letters_revealed" from="GP/VB/Game/HSplit/EDKB/EntryDisplay" to="GP/VB/Game/HSplit/SP/Spindle" method="_letters_guessed"]
 [connection signal="one_letter" from="GP/VB/Game/HSplit/EDKB/EntryDisplay" to="GP/VB/Game/HSplit/EDKB/Keyboard" method="_on_EntryDisplay_one_letter"]
 [connection signal="game_log" from="GP/VB/Game/HSplit/EDKB/Keyboard" to="." method="_log"]

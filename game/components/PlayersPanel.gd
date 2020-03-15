@@ -85,3 +85,7 @@ func _on_ConfirmationDialog_confirmed():
 
 func _on_ConfirmationDialog_canceled():
 	pass_turn()
+
+
+func _on_EntryDisplay_guess_checked(solved: bool):
+	pass # Replace with function body.
