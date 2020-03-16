@@ -184,3 +184,8 @@ func _on_SolveButton_pressed():
 		if GlobalVars.show_source == GlobalVars.SOURCE_SOLVE:
 			$SourceLabel.text = source_text
 	update_display()
+
+
+func _on_BSpace_pressed():
+	solve_stack.remove(solve_stack.size() - 1)
+	update_display()
