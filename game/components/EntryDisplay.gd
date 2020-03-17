@@ -155,7 +155,9 @@ func check_solve() -> bool:
 		elif bool_mask[get_char_at(c)]:
 			continue
 		else:
-			if not get_char_at(c) == solve_stack[stack_index]:
+			if not solve_stack.size() > stack_index:
+				return false
+			elif not get_char_at(c) == solve_stack[stack_index]:
 				return false
 			else:
 				stack_index += 1
