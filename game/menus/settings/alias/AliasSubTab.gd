@@ -1,4 +1,4 @@
-extends Tabs
+extends Control
 
 var is_categories: bool
 var import_values: PoolStringArray
