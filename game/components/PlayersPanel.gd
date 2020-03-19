@@ -41,8 +41,10 @@ func _score_gained(number: int, final: bool):
 		emit_signal("pre_reset")
 		advance_player()
 		clear_label()
-	else:
+	elif number:
 		solve_box.show()
+	else:
+		pass_turn()
 
 
 func pass_turn() -> void:

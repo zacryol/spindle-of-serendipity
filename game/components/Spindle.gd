@@ -7,8 +7,8 @@ var current_value: int
 var enabled := true
 
 func _letters_guessed(number: int, solves: bool):
-	emit_signal("score", number * current_value, solves)
 	enabled = false
+	emit_signal("score", number * current_value, solves)
 
 
 func _on_Button_pressed():
