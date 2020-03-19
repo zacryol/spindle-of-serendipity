@@ -15,4 +15,8 @@ godot-3.2.1-headless --export "Windows Desktop" export/win/spindle-of-serendipit
 echo Exporting Mac build
 godot-3.2.1-headless --export "Mac OSX" export/mac/spindle-of-serendipity.zip
 
+echo Pushing to Itch.io via butler . . .
+butler push export/lin zacryol/spindle-of-serendipity:linux --userversion-file version.txt
+butler push export/win zacryol/spindle-of-serendipity:windows --userversion-file version.txt
+butler push export/mac zacryol/spindle-of-serendipity:mac --userversion-file version.txt
 echo Done!
