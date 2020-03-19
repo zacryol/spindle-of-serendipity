@@ -25,14 +25,20 @@ var rand_mode := RAND_NON
 var refresh_entries_at := 15
 # End of Settings
 
+const PLAYER_NAME_MAX := 19
+
 var p1_name := "Player 1"
 var p2_name := "Player 2"
 var p3_name := "Player 3"
 
+var p1_name_default := "Player 1"
+var p2_name_default := "Player 2"
+var p3_name_default := "Player 3"
+
 func _ready():
 	load_settings_from_file()
 	
-	var t = Timer.new()
+	var t := Timer.new()
 	add_child(t)
 	t.wait_time = 5
 	t.connect("timeout", self, "_timer")
@@ -46,7 +52,7 @@ func _timer():
 
 func save_settings_to_file():
 	var f := File.new()
-	var err = f.open(SETTINGS_SAVE, File.WRITE)
+	var err := f.open(SETTINGS_SAVE, File.WRITE)
 	if err:
 		return
 	var settings_dict := {
@@ -61,7 +67,7 @@ func save_settings_to_file():
 func load_settings_from_file():
 	var f := File.new()
 	if f.file_exists(SETTINGS_SAVE):
-		var err = f.open(SETTINGS_SAVE, File.READ)
+		var err := f.open(SETTINGS_SAVE, File.READ)
 		if err:
 			return
 		var settings_string := f.get_as_text()
