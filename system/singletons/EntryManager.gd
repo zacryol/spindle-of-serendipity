@@ -17,7 +17,18 @@ func add_entry(data: PoolStringArray):
 		e = Entry.new(data[0], data[1])
 	elif data.size() >= 3:
 		e = Entry.new(data[0], data[1], data[2])
-	entries.append(e)
+	
+	if not contains_equivalent(e):
+		entries.append(e)
+	else:
+		print("Entry: \"" + e.to_string() + "\" already present")
+
+
+func contains_equivalent(e: Entry) -> bool:
+	for entry in entries:
+		if entry.to_string() == e.to_string():
+			return true
+	return false
 
 
 func reset_picked() -> void:
