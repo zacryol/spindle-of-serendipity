@@ -10,12 +10,25 @@ func _to_string() -> String:
 
 
 func add_entry(data: PoolStringArray):
+	var e: Entry
 	if data.size() == 1:
-		entries.append(Entry.new(data[0]))
+		e = Entry.new(data[0])
 	elif data.size() == 2:
-		entries.append(Entry.new(data[0], data[1]))
+		e = Entry.new(data[0], data[1])
 	elif data.size() >= 3:
-		entries.append(Entry.new(data[0], data[1], data[2]))
+		e = Entry.new(data[0], data[1], data[2])
+	
+	if not contains_equivalent(e):
+		entries.append(e)
+	else:
+		print("Entry: \"" + e.to_string() + "\" already present")
+
+
+func contains_equivalent(e: Entry) -> bool:
+	for entry in entries:
+		if entry.to_string() == e.to_string():
+			return true
+	return false
 
 
 func reset_picked() -> void:
