@@ -215,7 +215,7 @@ margin_bottom = 40.0
 
 [node name="VBox" type="VBoxContainer" parent="PanelContainer/TabContainer/Alias/Sources/H/View"]
 
-[node name="ProfilesTab" type="Control" parent="PanelContainer/TabContainer"]
+[node name="Profiles" type="ScrollContainer" parent="PanelContainer/TabContainer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -223,64 +223,80 @@ margin_left = 4.0
 margin_top = 32.0
 margin_right = -4.0
 margin_bottom = -4.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource( 5 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/TabContainer/ProfilesTab"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/TabContainer/Profiles"]
+margin_right = 1002.0
+margin_bottom = 550.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Top" type="HBoxContainer" parent="PanelContainer/TabContainer/ProfilesTab/VBoxContainer"]
+[node name="Top" type="HBoxContainer" parent="PanelContainer/TabContainer/Profiles/VBoxContainer"]
 margin_right = 1002.0
 margin_bottom = 24.0
 
-[node name="LoadButton" type="Button" parent="PanelContainer/TabContainer/ProfilesTab/VBoxContainer/Top"]
+[node name="LoadButton" type="Button" parent="PanelContainer/TabContainer/Profiles/VBoxContainer/Top"]
 margin_right = 87.0
 margin_bottom = 24.0
 text = "Load Profile"
 
-[node name="SaveButton" type="Button" parent="PanelContainer/TabContainer/ProfilesTab/VBoxContainer/Top"]
+[node name="SaveButton" type="Button" parent="PanelContainer/TabContainer/Profiles/VBoxContainer/Top"]
 margin_left = 91.0
 margin_right = 228.0
 margin_bottom = 24.0
 text = "Save Current Profile"
 
-[node name="SaveAs" type="Button" parent="PanelContainer/TabContainer/ProfilesTab/VBoxContainer/Top"]
+[node name="SaveAs" type="Button" parent="PanelContainer/TabContainer/Profiles/VBoxContainer/Top"]
 margin_left = 232.0
 margin_right = 301.0
 margin_bottom = 24.0
 text = "Save As: "
 
-[node name="LineEdit" type="LineEdit" parent="PanelContainer/TabContainer/ProfilesTab/VBoxContainer/Top"]
+[node name="LineEdit" type="LineEdit" parent="PanelContainer/TabContainer/Profiles/VBoxContainer/Top"]
 margin_left = 305.0
 margin_right = 1002.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="PanelContainer/TabContainer/ProfilesTab/VBoxContainer"]
+[node name="Label" type="Label" parent="PanelContainer/TabContainer/Profiles/VBoxContainer"]
 margin_top = 28.0
 margin_right = 1002.0
 margin_bottom = 42.0
 text = "Current Profile: <none>"
 
-[node name="Split" type="HBoxContainer" parent="PanelContainer/TabContainer/ProfilesTab/VBoxContainer"]
+[node name="Config" type="HBoxContainer" parent="PanelContainer/TabContainer/Profiles/VBoxContainer"]
 margin_top = 46.0
 margin_right = 1002.0
 margin_bottom = 550.0
 size_flags_vertical = 3
 
-[node name="Categories" type="PanelContainer" parent="PanelContainer/TabContainer/ProfilesTab/VBoxContainer/Split"]
+[node name="Categories" type="PanelContainer" parent="PanelContainer/TabContainer/Profiles/VBoxContainer/Config"]
 margin_right = 499.0
 margin_bottom = 504.0
 size_flags_horizontal = 3
 
-[node name="Sources" type="PanelContainer" parent="PanelContainer/TabContainer/ProfilesTab/VBoxContainer/Split"]
+[node name="List" type="VBoxContainer" parent="PanelContainer/TabContainer/Profiles/VBoxContainer/Config/Categories"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 492.0
+margin_bottom = 497.0
+
+[node name="Sources" type="PanelContainer" parent="PanelContainer/TabContainer/Profiles/VBoxContainer/Config"]
 margin_left = 503.0
 margin_right = 1002.0
 margin_bottom = 504.0
 size_flags_horizontal = 3
+
+[node name="List" type="VBoxContainer" parent="PanelContainer/TabContainer/Profiles/VBoxContainer/Config/Sources"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 492.0
+margin_bottom = 497.0
 
 [node name="Legal" type="ScrollContainer" parent="PanelContainer/TabContainer"]
 visible = false
