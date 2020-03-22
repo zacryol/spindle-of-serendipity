@@ -6,16 +6,18 @@ onready var sources := $VBoxContainer/Config/Sources/List
 
 func _ready():
 	for cat in EntryManager.get_import_categories():
-		var l := Label.new()
-		l.text = cat
+		var l := single.instance()
+		var new_text: String = cat
 		if Alias.has(cat, true):
-			l.text += " -> " + Alias.category(cat).to_lower()
+			new_text += " -> " + Alias.category(cat).to_lower()
+		l.set_text(new_text)
 		categories.add_child(l)
 	
 	for sou in EntryManager.get_import_sources():
-		var l := Label.new()
-		l.text = sou
+		var l := single.instance()
+		var new_text: String = sou
 		if Alias.has(sou, false):
-			l.text += " -> " + Alias.source(sou).to_lower()
+			new_text += " -> " + Alias.source(sou).to_lower()
+		l.set_text(new_text)
 		sources.add_child(l)
 	pass
