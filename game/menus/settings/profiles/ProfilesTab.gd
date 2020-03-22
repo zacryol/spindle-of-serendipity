@@ -1,5 +1,6 @@
 extends ScrollContainer
 
+var single := preload("res://game/menus/settings/profiles/ProfileSingle.tscn")
 onready var categories := $VBoxContainer/Config/Categories/List
 onready var sources := $VBoxContainer/Config/Sources/List
 
