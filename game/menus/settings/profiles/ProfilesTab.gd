@@ -1,8 +1,8 @@
-extends ScrollContainer
+extends Control
 
 var single := preload("res://game/menus/settings/profiles/ProfileSingle.tscn")
-onready var categories := $VBoxContainer/Config/Categories/List
-onready var sources := $VBoxContainer/Config/Sources/List
+onready var categories := $VBoxContainer/Config/Categories/SC/List
+onready var sources := $VBoxContainer/Config/Sources/SC/List
 
 func _ready():
 	for cat in EntryManager.get_import_categories():
