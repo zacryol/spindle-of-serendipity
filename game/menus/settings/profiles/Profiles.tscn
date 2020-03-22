@@ -3,7 +3,6 @@
 [ext_resource path="res://game/menus/settings/profiles/ProfilesTab.gd" type="Script" id=1]
 
 [node name="Profiles" type="ScrollContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -13,6 +12,9 @@ margin_bottom = -4.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 margin_right = 1016.0
@@ -24,7 +26,7 @@ __meta__ = {
 }
 
 [node name="Top" type="HBoxContainer" parent="VBoxContainer"]
-margin_right = 1002.0
+margin_right = 1016.0
 margin_bottom = 24.0
 
 [node name="LoadButton" type="Button" parent="VBoxContainer/Top"]
@@ -46,41 +48,41 @@ text = "Save As: "
 
 [node name="LineEdit" type="LineEdit" parent="VBoxContainer/Top"]
 margin_left = 305.0
-margin_right = 1002.0
+margin_right = 1016.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 margin_top = 28.0
-margin_right = 1002.0
+margin_right = 1016.0
 margin_bottom = 42.0
 text = "Current Profile: <none>"
 
 [node name="Config" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 46.0
-margin_right = 1002.0
-margin_bottom = 550.0
+margin_right = 1016.0
+margin_bottom = 564.0
 size_flags_vertical = 3
 
 [node name="Categories" type="PanelContainer" parent="VBoxContainer/Config"]
-margin_right = 499.0
-margin_bottom = 504.0
+margin_right = 506.0
+margin_bottom = 518.0
 size_flags_horizontal = 3
 
 [node name="List" type="VBoxContainer" parent="VBoxContainer/Config/Categories"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 492.0
-margin_bottom = 497.0
+margin_right = 499.0
+margin_bottom = 511.0
 
 [node name="Sources" type="PanelContainer" parent="VBoxContainer/Config"]
-margin_left = 503.0
-margin_right = 1002.0
-margin_bottom = 504.0
+margin_left = 510.0
+margin_right = 1016.0
+margin_bottom = 518.0
 size_flags_horizontal = 3
 
 [node name="List" type="VBoxContainer" parent="VBoxContainer/Config/Sources"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 492.0
-margin_bottom = 497.0
+margin_right = 499.0
+margin_bottom = 511.0
