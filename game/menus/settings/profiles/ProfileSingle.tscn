@@ -11,19 +11,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="CheckBox" type="CheckBox" parent="."]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 1017.0
 margin_bottom = 593.0
-
-[node name="CheckBox" type="CheckBox" parent="HBoxContainer"]
-margin_right = 24.0
-margin_bottom = 586.0
-
-[node name="Label" type="Label" parent="HBoxContainer"]
-margin_left = 28.0
-margin_top = 286.0
-margin_right = 1010.0
-margin_bottom = 300.0
 size_flags_horizontal = 3

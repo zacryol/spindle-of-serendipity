@@ -6,4 +6,4 @@ func _ready():
 
 
 func set_text(new_text: String):
-	$HBoxContainer/Label.text = new_text
+	$CheckBox.text = new_text
