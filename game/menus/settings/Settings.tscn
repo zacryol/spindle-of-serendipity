@@ -216,6 +216,11 @@ margin_bottom = 40.0
 [node name="VBox" type="VBoxContainer" parent="PanelContainer/TabContainer/Alias/Sources/H/View"]
 
 [node name="Profiles" parent="PanelContainer/TabContainer" instance=ExtResource( 5 )]
+visible = false
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
 
 [node name="Legal" type="ScrollContainer" parent="PanelContainer/TabContainer"]
 visible = false

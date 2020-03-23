@@ -31,19 +31,20 @@ margin_bottom = 24.0
 text = "Load Profile"
 
 [node name="SaveButton" type="Button" parent="VBoxContainer/Top"]
+visible = false
 margin_left = 91.0
 margin_right = 228.0
 margin_bottom = 24.0
 text = "Save Current Profile"
 
 [node name="SaveAs" type="Button" parent="VBoxContainer/Top"]
-margin_left = 232.0
-margin_right = 301.0
+margin_left = 91.0
+margin_right = 160.0
 margin_bottom = 24.0
 text = "Save As: "
 
 [node name="LineEdit" type="LineEdit" parent="VBoxContainer/Top"]
-margin_left = 305.0
+margin_left = 164.0
 margin_right = 1024.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
