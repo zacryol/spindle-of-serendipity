@@ -27,11 +27,19 @@ func _ready():
 
 
 func get_incl_categories() -> PoolStringArray:
-	return PoolStringArray([])
+	var cat: PoolStringArray = []
+	for line in categories.get_children():
+		if line.checked():
+			cat.append(line.get_core())
+	return cat
 
 
 func get_incl_sources() -> PoolStringArray:
-	return PoolStringArray([])
+	var sou: PoolStringArray = []
+	for line in sources.get_children():
+		if line.checked():
+			sou.append(line.get_core())
+	return sou
 
 
 func _on_SaveAs_pressed():

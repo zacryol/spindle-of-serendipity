@@ -9,3 +9,7 @@ func set_text(main: String, alias: String = "") -> void:
 
 func get_core() -> String:
 	return core_text
+
+
+func checked() -> bool:
+	return $CheckBox.pressed
