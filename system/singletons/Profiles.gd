@@ -6,7 +6,7 @@ func _ready() -> void:
 	pass
 
 
-func add_profile(id: String,
+func save_profile(id: String,
 		cat: PoolStringArray, sou: PoolStringArray, both: bool) -> void:
 	profiles_dict[id] = Profile.new(cat, sou, both)
 	pass
