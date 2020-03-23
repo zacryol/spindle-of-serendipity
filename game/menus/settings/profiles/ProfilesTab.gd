@@ -4,6 +4,8 @@ var current_profile := ""
 var single := preload("res://game/menus/settings/profiles/ProfileSingle.tscn")
 onready var categories := $VBoxContainer/Config/Categories/SC/List
 onready var sources := $VBoxContainer/Config/Sources/SC/List
+onready var save_name: LineEdit = $VBoxContainer/Top/LineEdit
+onready var alert := $SaveName
 
 func _ready():
 	for cat in EntryManager.get_import_categories():
@@ -43,4 +45,5 @@ func get_incl_sources() -> PoolStringArray:
 
 
 func _on_SaveAs_pressed():
-	pass # Replace with function body.
+	if not save_name.text:
+		alert.show()
