@@ -16,6 +16,7 @@ class Profile extends Object:
 		sources = sou
 		match_both = both
 	
+	
 	func append_category(cat: String):
 		categories.append(cat)
 	
