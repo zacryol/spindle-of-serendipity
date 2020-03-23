@@ -28,5 +28,13 @@ func _ready():
 	pass
 
 
+func get_incl_categories() -> PoolStringArray:
+	return PoolStringArray([])
+
+
+func get_incl_sources() -> PoolStringArray:
+	return PoolStringArray([])
+
+
 func _on_SaveAs_pressed():
 	pass # Replace with function body.
