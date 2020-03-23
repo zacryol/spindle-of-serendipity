@@ -7,5 +7,5 @@ func _ready():
 
 
 class Profile:
-	var categoies: PoolStringArray
+	var categories: PoolStringArray
 	var sources: PoolStringArray
