@@ -7,8 +7,14 @@ func _ready():
 
 
 class Profile:
+	var match_both: bool
 	var categories: PoolStringArray
 	var sources: PoolStringArray
+	
+	func _init(cat: PoolStringArray, sou: PoolStringArray, both: bool):
+		categories = cat
+		sources = sou
+		match_both = both
 	
 	func append_category(cat: String):
 		categories.append(cat)
