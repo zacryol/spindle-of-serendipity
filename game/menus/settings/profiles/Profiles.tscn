@@ -55,7 +55,6 @@ caret_blink_speed = 0.5
 margin_top = 28.0
 margin_right = 1024.0
 margin_bottom = 42.0
-text = "Current Profile: <none>"
 
 [node name="CheckBox" type="CheckBox" parent="VBoxContainer"]
 margin_top = 46.0
