@@ -6,7 +6,7 @@ func _ready():
 	pass
 
 
-class Profile:
+class Profile extends Object:
 	var match_both: bool
 	var categories: PoolStringArray
 	var sources: PoolStringArray
