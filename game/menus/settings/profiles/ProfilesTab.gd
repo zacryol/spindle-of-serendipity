@@ -1,5 +1,6 @@
 extends Control
 
+var current_profile := ""
 var single := preload("res://game/menus/settings/profiles/ProfileSingle.tscn")
 onready var categories := $VBoxContainer/Config/Categories/SC/List
 onready var sources := $VBoxContainer/Config/Sources/SC/List
