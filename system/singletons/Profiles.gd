@@ -8,6 +8,9 @@ func _ready() -> void:
 
 func save_profile(id: String,
 		cat: PoolStringArray, sou: PoolStringArray, both: bool) -> void:
+	if profiles_dict.has(id):
+		profiles_dict[id].free()
+		profiles_dict.erase(id)
 	profiles_dict[id] = Profile.new(cat, sou, both)
 	pass
 
