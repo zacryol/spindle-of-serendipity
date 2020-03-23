@@ -22,3 +22,7 @@ func _ready():
 		l.set_text(new_text)
 		sources.add_child(l)
 	pass
+
+
+func _on_SaveAs_pressed():
+	pass # Replace with function body.

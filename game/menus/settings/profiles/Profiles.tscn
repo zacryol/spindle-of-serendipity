@@ -93,3 +93,4 @@ margin_bottom = 547.0
 [node name="List" type="VBoxContainer" parent="VBoxContainer/Config/Sources/SC"]
 margin_right = 496.0
 size_flags_horizontal = 3
+[connection signal="pressed" from="VBoxContainer/Top/SaveAs" to="." method="_on_SaveAs_pressed"]
