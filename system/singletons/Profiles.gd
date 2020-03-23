@@ -6,6 +6,12 @@ func _ready():
 	pass
 
 
+func add_profile(id: String,
+		cat: PoolStringArray, sou: PoolStringArray, both: bool):
+	profiles_dict[id] = Profile.new(cat, sou, both)
+	pass
+
+
 class Profile extends Object:
 	var match_both: bool
 	var categories: PoolStringArray
