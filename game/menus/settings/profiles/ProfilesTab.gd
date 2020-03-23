@@ -44,6 +44,13 @@ func get_incl_sources() -> PoolStringArray:
 	return sou
 
 
+func requires_both() -> bool:
+	return $VBoxContainer/CheckBox.pressed
+
+
 func _on_SaveAs_pressed():
 	if not save_name.text:
 		alert.show()
+	else:
+		Profiles.save_profile(save_name.text, get_incl_categories(),
+				get_incl_sources(), requires_both())
