@@ -9,3 +9,10 @@ func _ready():
 class Profile:
 	var categories: PoolStringArray
 	var sources: PoolStringArray
+	
+	func append_category(cat: String):
+		categories.append(cat)
+	
+	
+	func append_source(sou: String):
+		sources.append(sou)
