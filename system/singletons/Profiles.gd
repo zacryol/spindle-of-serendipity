@@ -19,6 +19,13 @@ func get_keys() -> PoolStringArray:
 	return PoolStringArray(profiles_dict.keys())
 
 
+func get_profile(id: String) -> Dictionary:
+	if profiles_dict.has(id):
+		return profiles_dict[id].get_data()
+	else:
+		return {}
+
+
 func write_to_file() -> void:
 	var f := File.new()
 	f.open(GlobalVars.PROFILE_SAVE, File.WRITE)
@@ -56,6 +63,14 @@ class Profile extends Object:
 		categories = cat
 		sources = sou
 		match_both = both
+	
+	
+	func get_data() -> Dictionary:
+		return {
+			"both" : match_both,
+			"cat" : categories,
+			"sou" : sources
+		}
 	
 	
 	func append_category(cat: String) -> void:
