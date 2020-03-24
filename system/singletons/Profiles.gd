@@ -1,5 +1,6 @@
 extends Node
 
+const RESERVED := "Default (All Entries)"
 var profiles_dict: Dictionary # string for key, Profile object as value
 
 func _ready() -> void:

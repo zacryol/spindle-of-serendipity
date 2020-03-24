@@ -81,6 +81,8 @@ func _on_profile_loaded(idx: int) -> void:
 func _on_SaveAs_pressed():
 	if not save_name.text:
 		alert.show()
+	elif save_name.text == Profiles.RESERVED:
+		alert.show()
 	else:
 		Profiles.save_profile(save_name.text, get_incl_categories(),
 				get_incl_sources(), requires_both())
