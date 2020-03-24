@@ -19,7 +19,7 @@ func get_keys() -> PoolStringArray:
 	return PoolStringArray(profiles_dict.keys())
 
 
-func get_profile(id: String) -> Dictionary:
+func get_profile_data(id: String) -> Dictionary:
 	if profiles_dict.has(id):
 		return profiles_dict[id].get_data()
 	else:
