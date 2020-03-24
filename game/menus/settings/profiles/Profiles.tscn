@@ -25,10 +25,11 @@ __meta__ = {
 margin_right = 1024.0
 margin_bottom = 24.0
 
-[node name="LoadButton" type="Button" parent="VBoxContainer/Top"]
+[node name="LoadButton" type="MenuButton" parent="VBoxContainer/Top"]
 margin_right = 87.0
 margin_bottom = 24.0
 text = "Load Profile"
+flat = false
 
 [node name="SaveButton" type="Button" parent="VBoxContainer/Top"]
 visible = false
