@@ -16,6 +16,12 @@ func save_profile(id: String,
 
 
 func write_to_file() -> void:
+	var f := File.new()
+	f.open(GlobalVars.PROFILE_SAVE, File.WRITE)
+	for k in profiles_dict.keys():
+		f.store_line(k)
+		f.store_csv_line(profiles_dict[k].categories)
+		f.store_csv_line(profiles_dict[k].sources)
 	pass
 
 class Profile extends Object:
