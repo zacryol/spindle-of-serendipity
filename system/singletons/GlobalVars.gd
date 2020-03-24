@@ -6,7 +6,7 @@ const DEFAULT_SOURCE := "N/A"
 const ENTRIES_SAVE := "user://entries/"
 const SETTINGS_SAVE := "user://settings.json"
 const ALIAS_SAVE := "user://alias.json"
-const PROFILE_SAVE := "user://profiles.json"
+const PROFILE_SAVE := "user://profiles.dat"
 
 # Settings constants and vars
 enum {
