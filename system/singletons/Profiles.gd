@@ -20,12 +20,25 @@ func write_to_file() -> void:
 	f.open(GlobalVars.PROFILE_SAVE, File.WRITE)
 	for k in profiles_dict.keys():
 		f.store_line(k)
+		f.store_line("true" if profiles_dict[k].match_both else "false")
 		f.store_csv_line(profiles_dict[k].categories)
 		f.store_csv_line(profiles_dict[k].sources)
 
 
 func load_from_file() -> void:
-	pass
+	var f := File.new()
+	f.open(GlobalVars.PROFILE_SAVE, File.READ)
+	while not f.eof_reached():
+		var id: String = f.get_line()
+		var both: bool = true if f.get_line() == "true" else false
+		var cat := f.get_csv_line()
+		var sou := f.get_csv_line()
+		
+		if profiles_dict.has(id):
+			profiles_dict[id].free()
+			profiles_dict.erase(id)
+		
+		profiles_dict[id] = Profile.new(cat, sou, both)
 
 
 class Profile extends Object:
