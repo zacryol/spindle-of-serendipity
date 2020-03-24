@@ -22,7 +22,11 @@ func write_to_file() -> void:
 		f.store_line(k)
 		f.store_csv_line(profiles_dict[k].categories)
 		f.store_csv_line(profiles_dict[k].sources)
+
+
+func load_from_file() -> void:
 	pass
+
 
 class Profile extends Object:
 	var match_both: bool
