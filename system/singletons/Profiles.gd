@@ -31,29 +31,39 @@ func write_to_file() -> void:
 	var f := File.new()
 	f.open(GlobalVars.PROFILE_SAVE, File.WRITE)
 	for k in profiles_dict.keys():
-		f.store_line(k)
-		f.store_line("true" if profiles_dict[k].match_both else "false")
-		f.store_csv_line(profiles_dict[k].categories)
-		f.store_csv_line(profiles_dict[k].sources)
+		var store_dict := {
+			"id" : k,
+			"data" : get_profile_data(k)
+		}
+		f.store_line(to_json(store_dict))
 
 
 func load_from_file() -> void:
 	var f := File.new()
 	f.open(GlobalVars.PROFILE_SAVE, File.READ)
 	while not f.eof_reached():
-		var id: String = f.get_line()
-		if not id:
+		var data := f.get_line()
+		if not data:
 			continue
-		var both: bool = true if f.get_line() == "true" else false
-		var cat := f.get_csv_line()
-		var sou := f.get_csv_line()
 		
-		if profiles_dict.has(id):
-			profiles_dict[id].free()
-			profiles_dict.erase(id)
+		var v = validate_json(data)
+		if v:
+			continue
 		
-		profiles_dict[id] = Profile.new(cat, sou, both)
-
+		var d = parse_json(data)
+		if typeof(d) == TYPE_DICTIONARY:
+			var dict := d as Dictionary
+			if dict.has_all(["id", "data"]):
+				var profile_data := dict["data"] as Dictionary
+				var id: String = dict["id"]
+				if profile_data.has_all(["both", "cat", "sou"]):
+					if profiles_dict.has(id):
+						profiles_dict[id].free()
+						profiles_dict.erase(id)
+					profiles_dict[id]\
+							= Profile.new(profile_data["cat"], 
+									profile_data["sou"],
+									profile_data["both"])
 
 class Profile extends Object:
 	var match_both: bool
