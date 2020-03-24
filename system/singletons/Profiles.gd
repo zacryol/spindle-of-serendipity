@@ -1,9 +1,10 @@
 extends Node
 
+const RESERVED := "Default (All Entries)"
 var profiles_dict: Dictionary # string for key, Profile object as value
 
 func _ready() -> void:
-	pass
+	load_from_file()
 
 
 func save_profile(id: String,
@@ -15,14 +16,44 @@ func save_profile(id: String,
 	write_to_file()
 
 
+func get_keys() -> PoolStringArray:
+	return PoolStringArray(profiles_dict.keys())
+
+
+func get_profile_data(id: String) -> Dictionary:
+	if profiles_dict.has(id):
+		return profiles_dict[id].get_data()
+	else:
+		return {}
+
+
 func write_to_file() -> void:
 	var f := File.new()
 	f.open(GlobalVars.PROFILE_SAVE, File.WRITE)
 	for k in profiles_dict.keys():
 		f.store_line(k)
+		f.store_line("true" if profiles_dict[k].match_both else "false")
 		f.store_csv_line(profiles_dict[k].categories)
 		f.store_csv_line(profiles_dict[k].sources)
-	pass
+
+
+func load_from_file() -> void:
+	var f := File.new()
+	f.open(GlobalVars.PROFILE_SAVE, File.READ)
+	while not f.eof_reached():
+		var id: String = f.get_line()
+		if not id:
+			continue
+		var both: bool = true if f.get_line() == "true" else false
+		var cat := f.get_csv_line()
+		var sou := f.get_csv_line()
+		
+		if profiles_dict.has(id):
+			profiles_dict[id].free()
+			profiles_dict.erase(id)
+		
+		profiles_dict[id] = Profile.new(cat, sou, both)
+
 
 class Profile extends Object:
 	var match_both: bool
@@ -33,6 +64,14 @@ class Profile extends Object:
 		categories = cat
 		sources = sou
 		match_both = both
+	
+	
+	func get_data() -> Dictionary:
+		return {
+			"both" : match_both,
+			"cat" : categories,
+			"sou" : sources
+		}
 	
 	
 	func append_category(cat: String) -> void:

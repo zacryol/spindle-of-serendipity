@@ -6,6 +6,7 @@ onready var categories := $VBoxContainer/Config/Categories/SC/List
 onready var sources := $VBoxContainer/Config/Sources/SC/List
 onready var save_name: LineEdit = $VBoxContainer/Top/LineEdit
 onready var alert := $SaveName
+onready var load_button: MenuButton = $VBoxContainer/Top/LoadButton
 
 func _ready():
 	for cat in EntryManager.get_import_categories():
@@ -25,7 +26,9 @@ func _ready():
 		else:
 			l.set_text(new_text)
 		sources.add_child(l)
-	pass
+	
+	update_load()
+	load_button.get_popup().connect("index_pressed", self, "_on_profile_loaded")
 
 
 func get_incl_categories() -> PoolStringArray:
@@ -48,9 +51,39 @@ func requires_both() -> bool:
 	return $VBoxContainer/CheckBox.pressed
 
 
+func update_load() -> void:
+	load_button.get_popup().clear()
+	for k in Profiles.get_keys():
+		load_button.get_popup().add_item(k)
+
+
+func _on_profile_loaded(idx: int) -> void:
+	var id: String = load_button.get_popup().get_item_text(idx)
+	var dict := Profiles.get_profile_data(id)
+	if dict.has("both"):
+		$VBoxContainer/CheckBox.pressed = dict["both"]
+	if dict.has("cat"):
+		for c in categories.get_children():
+			if c.get_core() in dict["cat"]:
+				c.set_checked()
+			else:
+				c.set_checked(false)
+	if dict.has("sou"):
+		for s in sources.get_children():
+			if s.get_core() in dict["sou"]:
+				s.set_checked()
+			else:
+				s.set_checked(false)
+	
+	save_name.text = id
+
+
 func _on_SaveAs_pressed():
 	if not save_name.text:
+		alert.show()
+	elif save_name.text == Profiles.RESERVED:
 		alert.show()
 	else:
 		Profiles.save_profile(save_name.text, get_incl_categories(),
 				get_incl_sources(), requires_both())
+		update_load()
