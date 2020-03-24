@@ -12,7 +12,7 @@ func save_profile(id: String,
 		profiles_dict[id].free()
 		profiles_dict.erase(id)
 	profiles_dict[id] = Profile.new(cat, sou, both)
-	pass
+	write_to_file()
 
 
 func write_to_file() -> void:
