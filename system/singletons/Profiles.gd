@@ -15,6 +15,9 @@ func save_profile(id: String,
 	pass
 
 
+func write_to_file() -> void:
+	pass
+
 class Profile extends Object:
 	var match_both: bool
 	var categories: PoolStringArray
