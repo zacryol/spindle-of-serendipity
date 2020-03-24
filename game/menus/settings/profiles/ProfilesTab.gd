@@ -6,6 +6,7 @@ onready var categories := $VBoxContainer/Config/Categories/SC/List
 onready var sources := $VBoxContainer/Config/Sources/SC/List
 onready var save_name: LineEdit = $VBoxContainer/Top/LineEdit
 onready var alert := $SaveName
+onready var load_button: MenuButton = $VBoxContainer/Top/LoadButton
 
 func _ready():
 	for cat in EntryManager.get_import_categories():
@@ -25,7 +26,8 @@ func _ready():
 		else:
 			l.set_text(new_text)
 		sources.add_child(l)
-	pass
+	
+	update_load()
 
 
 func get_incl_categories() -> PoolStringArray:
@@ -46,6 +48,12 @@ func get_incl_sources() -> PoolStringArray:
 
 func requires_both() -> bool:
 	return $VBoxContainer/CheckBox.pressed
+
+
+func update_load() -> void:
+	load_button.get_popup().clear()
+	for k in Profiles.get_keys():
+		load_button.get_popup().add_item(k)
 
 
 func _on_SaveAs_pressed():
