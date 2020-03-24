@@ -58,7 +58,24 @@ func update_load() -> void:
 
 
 func _on_profile_loaded(idx: int) -> void:
-	pass
+	var id: String = load_button.get_popup().get_item_text(idx)
+	var dict := Profiles.get_profile_data(id)
+	if dict.has("both"):
+		$VBoxContainer/CheckBox.pressed = dict["both"]
+	if dict.has("cat"):
+		for c in categories.get_children():
+			if c.get_core() in dict["cat"]:
+				c.set_checked()
+			else:
+				c.set_checked(false)
+	if dict.has("sou"):
+		for s in sources.get_children():
+			if s.get_core() in dict["sou"]:
+				s.set_checked()
+			else:
+				s.set_checked(false)
+	
+	save_name.text = id
 
 
 func _on_SaveAs_pressed():

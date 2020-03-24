@@ -13,3 +13,7 @@ func get_core() -> String:
 
 func checked() -> bool:
 	return $CheckBox.pressed
+
+
+func set_checked(checked: bool = true) -> void:
+	$CheckBox.pressed = checked
