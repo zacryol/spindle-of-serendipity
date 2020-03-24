@@ -28,6 +28,7 @@ func _ready():
 		sources.add_child(l)
 	
 	update_load()
+	load_button.get_popup().connect("index_pressed", self, "_on_profile_loaded")
 
 
 func get_incl_categories() -> PoolStringArray:
@@ -54,6 +55,10 @@ func update_load() -> void:
 	load_button.get_popup().clear()
 	for k in Profiles.get_keys():
 		load_button.get_popup().add_item(k)
+
+
+func _on_profile_loaded(idx: int) -> void:
+	pass
 
 
 func _on_SaveAs_pressed():
