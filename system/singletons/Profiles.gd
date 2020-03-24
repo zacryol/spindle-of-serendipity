@@ -3,7 +3,7 @@ extends Node
 var profiles_dict: Dictionary # string for key, Profile object as value
 
 func _ready() -> void:
-	pass
+	load_from_file()
 
 
 func save_profile(id: String,
@@ -30,6 +30,8 @@ func load_from_file() -> void:
 	f.open(GlobalVars.PROFILE_SAVE, File.READ)
 	while not f.eof_reached():
 		var id: String = f.get_line()
+		if not id:
+			continue
 		var both: bool = true if f.get_line() == "true" else false
 		var cat := f.get_csv_line()
 		var sou := f.get_csv_line()
