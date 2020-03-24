@@ -84,3 +84,4 @@ func _on_SaveAs_pressed():
 	else:
 		Profiles.save_profile(save_name.text, get_incl_categories(),
 				get_incl_sources(), requires_both())
+		update_load()
