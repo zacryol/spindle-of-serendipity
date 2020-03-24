@@ -3,6 +3,12 @@ extends Control
 onready var p1_enter := $VBoxContainer/LineEdit
 onready var p2_enter := $VBoxContainer/LineEdit2
 onready var p3_enter := $VBoxContainer/LineEdit3
+onready var selector: OptionButton = $VBoxContainer/OptionButton
+
+func _ready() -> void:
+	selector.add_item(Profiles.RESERVED)
+	pass
+
 
 func _on_Button_pressed():
 	if p1_enter.text:
