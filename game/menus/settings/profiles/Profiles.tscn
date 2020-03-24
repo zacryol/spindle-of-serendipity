@@ -31,13 +31,6 @@ margin_bottom = 24.0
 text = "Load Profile"
 flat = false
 
-[node name="SaveButton" type="Button" parent="VBoxContainer/Top"]
-visible = false
-margin_left = 91.0
-margin_right = 228.0
-margin_bottom = 24.0
-text = "Save Current Profile"
-
 [node name="SaveAs" type="Button" parent="VBoxContainer/Top"]
 margin_left = 91.0
 margin_right = 160.0
@@ -52,33 +45,28 @@ size_flags_horizontal = 3
 caret_blink = true
 caret_blink_speed = 0.5
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer"]
 margin_top = 28.0
 margin_right = 1024.0
-margin_bottom = 42.0
-
-[node name="CheckBox" type="CheckBox" parent="VBoxContainer"]
-margin_top = 46.0
-margin_right = 1024.0
-margin_bottom = 70.0
+margin_bottom = 52.0
 text = "Require both category and source to match to be included"
 
 [node name="Config" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 74.0
+margin_top = 56.0
 margin_right = 1024.0
 margin_bottom = 600.0
 size_flags_vertical = 3
 
 [node name="Categories" type="PanelContainer" parent="VBoxContainer/Config"]
 margin_right = 510.0
-margin_bottom = 526.0
+margin_bottom = 544.0
 size_flags_horizontal = 3
 
 [node name="SC" type="ScrollContainer" parent="VBoxContainer/Config/Categories"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 503.0
-margin_bottom = 519.0
+margin_bottom = 537.0
 
 [node name="List" type="VBoxContainer" parent="VBoxContainer/Config/Categories/SC"]
 margin_right = 496.0
@@ -87,14 +75,14 @@ size_flags_horizontal = 3
 [node name="Sources" type="PanelContainer" parent="VBoxContainer/Config"]
 margin_left = 514.0
 margin_right = 1024.0
-margin_bottom = 526.0
+margin_bottom = 544.0
 size_flags_horizontal = 3
 
 [node name="SC" type="ScrollContainer" parent="VBoxContainer/Config/Sources"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 503.0
-margin_bottom = 519.0
+margin_bottom = 537.0
 
 [node name="List" type="VBoxContainer" parent="VBoxContainer/Config/Sources/SC"]
 margin_right = 496.0
