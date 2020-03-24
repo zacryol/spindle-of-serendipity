@@ -284,3 +284,5 @@ autowrap = true
 [connection signal="item_selected" from="PanelContainer/TabContainer/General/Scroll/List/RandMode/OptionButton" to="PanelContainer/TabContainer/General" method="_on_rand_option_selected"]
 [connection signal="value_changed" from="PanelContainer/TabContainer/General/Scroll/List/Refresh/SpinBox" to="PanelContainer/TabContainer/General" method="_on_Refresh_value_changed"]
 [connection signal="pressed" from="PanelContainer/TabContainer/General/Scroll/List/Save" to="PanelContainer/TabContainer/General" method="_on_Save_pressed"]
+[connection signal="alias_created" from="PanelContainer/TabContainer/Alias/Categories" to="PanelContainer/TabContainer/Profiles" method="_on_alias_created"]
+[connection signal="alias_created" from="PanelContainer/TabContainer/Alias/Sources" to="PanelContainer/TabContainer/Profiles" method="_on_alias_created"]

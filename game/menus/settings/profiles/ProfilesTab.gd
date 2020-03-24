@@ -87,3 +87,18 @@ func _on_SaveAs_pressed():
 		Profiles.save_profile(save_name.text, get_incl_categories(),
 				get_incl_sources(), requires_both())
 		update_load()
+
+
+func _on_alias_created():
+	for c in categories.get_children():
+		if Alias.has(c.get_core(), true):
+			c.set_text(c.get_core(),
+					" -> " + Alias.category(c.get_core()).to_lower())
+		else:
+			c.set_text(c.get_core())
+	for s in sources.get_children():
+		if Alias.has(s.get_core(), false):
+			s.set_text(s.get_core(),
+					" -> " + Alias.source(s.get_core()).to_lower())
+		else:
+			s.set_text(s.get_core())
