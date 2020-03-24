@@ -65,6 +65,7 @@ func load_from_file() -> void:
 									profile_data["sou"],
 									profile_data["both"])
 
+
 class Profile extends Object:
 	var match_both: bool
 	var categories: PoolStringArray
