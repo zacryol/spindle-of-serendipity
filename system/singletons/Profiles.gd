@@ -15,6 +15,10 @@ func save_profile(id: String,
 	write_to_file()
 
 
+func get_keys() -> PoolStringArray:
+	return PoolStringArray(profiles_dict.keys())
+
+
 func write_to_file() -> void:
 	var f := File.new()
 	f.open(GlobalVars.PROFILE_SAVE, File.WRITE)
