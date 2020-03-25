@@ -93,6 +93,10 @@ class Profile extends Object:
 		sources.append(sou)
 	
 	
+	func contains_entry(e: Entry) -> bool:
+		return true
+	
+	
 	func contains_category(cat: String) -> bool:
 		if categories.empty():
 			return true
