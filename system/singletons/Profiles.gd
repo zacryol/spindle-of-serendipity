@@ -126,4 +126,3 @@ class Profile extends Object:
 			return true
 		else:
 			return sou.to_lower() in sources
-	

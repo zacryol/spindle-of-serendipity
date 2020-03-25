@@ -9,7 +9,6 @@ func _ready() -> void:
 	selector.add_item(Profiles.RESERVED)
 	for k in Profiles.get_keys():
 		selector.add_item(k)
-	pass
 
 
 func _on_Button_pressed():
