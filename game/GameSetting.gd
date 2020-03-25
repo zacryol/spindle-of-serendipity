@@ -36,11 +36,14 @@ func _on_Button_pressed():
 #	print(EntryManager.is_profile_valid(
 #			Profiles.profiles_dict[selector.get_item_text(
 #			selector.get_selected_id())]))
+	var pid: String = selector.get_item_text(selector.get_selected_id())
 	
 	if selector.get_selected_id() == 0:
 		EntryManager.set_profile()
 	else:
-		EntryManager.set_profile(selector.get_item_text(
-			selector.get_selected_id()))
+		EntryManager.set_profile(pid)
 	
-	get_tree().change_scene("res://game/GamePanel.tscn")
+	if EntryManager.get_available_entries().empty():
+		print("bad")
+	else:
+		get_tree().change_scene("res://game/GamePanel.tscn")
