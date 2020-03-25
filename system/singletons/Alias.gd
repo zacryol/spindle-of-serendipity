@@ -51,7 +51,7 @@ func source(import: String) -> String:
 func load_from_file():
 	var f := File.new()
 	if f.file_exists(GlobalVars.ALIAS_SAVE):
-		var err = f.open_compressed(GlobalVars.ALIAS_SAVE, File.READ)
+		var err := f.open_compressed(GlobalVars.ALIAS_SAVE, File.READ)
 		if err:
 			return
 		var s := f.get_as_text()
