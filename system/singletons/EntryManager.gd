@@ -46,6 +46,10 @@ func get_available_entries() -> Array:
 	for e in entries:
 		if not e.picked:
 			unpicked.append(e)
+	
+	for e in unpicked:
+		# Remove entries not in profile
+		pass
 	return unpicked
 
 
