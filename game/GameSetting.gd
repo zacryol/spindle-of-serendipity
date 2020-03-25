@@ -33,9 +33,6 @@ func _on_Button_pressed():
 	if GlobalVars.p3_name.length() > GlobalVars.PLAYER_NAME_MAX:
 		GlobalVars.p3_name = GlobalVars.p3_name.substr(0, GlobalVars.PLAYER_NAME_MAX)
 	
-#	print(EntryManager.is_profile_valid(
-#			Profiles.profiles_dict[selector.get_item_text(
-#			selector.get_selected_id())]))
 	var pid: String = selector.get_item_text(selector.get_selected_id())
 	
 	if selector.get_selected_id() == 0:
