@@ -69,6 +69,13 @@ func load_from_file() -> void:
 									profile_data["both"])
 
 
+func clear(id: String):
+	if profiles_dict.has(id):
+		profiles_dict[id].free()
+		profiles_dict.erase(id)
+		write_to_file()
+
+
 class Profile extends Object:
 	var match_both: bool
 	var categories: PoolStringArray

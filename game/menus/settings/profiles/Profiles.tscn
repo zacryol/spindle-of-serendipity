@@ -39,11 +39,17 @@ text = "Save As: "
 
 [node name="LineEdit" type="LineEdit" parent="VBoxContainer/Top"]
 margin_left = 164.0
-margin_right = 1024.0
+margin_right = 920.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
 caret_blink = true
 caret_blink_speed = 0.5
+
+[node name="Delete" type="Button" parent="VBoxContainer/Top"]
+margin_left = 924.0
+margin_right = 1024.0
+margin_bottom = 24.0
+text = "Delete Profile"
 
 [node name="CheckBox" type="CheckBox" parent="VBoxContainer"]
 margin_top = 28.0
@@ -108,3 +114,4 @@ resizable = true
 dialog_text = "Invalid Save Name"
 dialog_autowrap = true
 [connection signal="pressed" from="VBoxContainer/Top/SaveAs" to="." method="_on_SaveAs_pressed"]
+[connection signal="pressed" from="VBoxContainer/Top/Delete" to="." method="_on_Delete_pressed"]
