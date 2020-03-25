@@ -32,4 +32,9 @@ func _on_Button_pressed():
 		GlobalVars.p2_name = GlobalVars.p2_name.substr(0, GlobalVars.PLAYER_NAME_MAX)
 	if GlobalVars.p3_name.length() > GlobalVars.PLAYER_NAME_MAX:
 		GlobalVars.p3_name = GlobalVars.p3_name.substr(0, GlobalVars.PLAYER_NAME_MAX)
+	
+	print(EntryManager.is_profile_valid(
+			Profiles.profiles_dict[selector.get_item_text(
+			selector.get_selected_id())]))
+	
 	get_tree().change_scene("res://game/GamePanel.tscn")

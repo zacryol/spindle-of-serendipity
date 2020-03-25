@@ -135,4 +135,7 @@ func get_import_sources() -> PoolStringArray:
 
 
 func is_profile_valid(p: Profiles.Profile) -> bool:
-	return true
+	for e in entries:
+		if p.contains_entry(e):
+			return true
+	return false

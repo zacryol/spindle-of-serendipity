@@ -94,7 +94,12 @@ class Profile extends Object:
 	
 	
 	func contains_entry(e: Entry) -> bool:
-		return true
+		if match_both:
+			return contains_category(e.get_import_category().to_lower())\
+					and contains_source(e.get_import_source().to_lower())
+		else:
+			return contains_category(e.get_import_category().to_lower())\
+					or contains_source(e.get_import_source().to_lower())
 	
 	
 	func contains_category(cat: String) -> bool:
