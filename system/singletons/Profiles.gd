@@ -42,8 +42,10 @@ func load_from_file() -> void:
 	var f := File.new()
 	if not f.file_exists(GlobalVars.PROFILE_SAVE):
 		return
+	var err = f.open(GlobalVars.PROFILE_SAVE, File.READ)
+	if err:
+		return
 	
-	f.open(GlobalVars.PROFILE_SAVE, File.READ)
 	while not f.eof_reached():
 		var data := f.get_line()
 		if not data:
