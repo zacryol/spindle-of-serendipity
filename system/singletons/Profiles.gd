@@ -91,3 +91,12 @@ class Profile extends Object:
 	
 	func append_source(sou: String) -> void:
 		sources.append(sou)
+	
+	
+	func contains_category(cat: String) -> bool:
+		return true
+	
+	
+	func contains_source(sou: String) -> bool:
+		return true
+	

@@ -132,3 +132,15 @@ func get_import_sources() -> PoolStringArray:
 			if not e.get_import_source().to_lower() in sources:
 				sources.append(e.get_import_source().to_lower())
 	return sources
+
+
+# Verify Profiles
+
+func is_profile_valid(p: Profiles.Profile) -> bool:
+	return true
+
+
+func is_entry_in_profile(e: Entry, p: Profiles.Profile) -> bool:
+	return true
+
+# End Verify
