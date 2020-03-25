@@ -4,8 +4,8 @@ const DEFAULT_CATEGORY := "Miscellaneous"
 const DEFAULT_SOURCE := "N/A"
 
 const ENTRIES_SAVE := "user://entries/"
-const SETTINGS_SAVE := "user://settings.json"
-const ALIAS_SAVE := "user://alias.json"
+const SETTINGS_SAVE := "user://settings.dat"
+const ALIAS_SAVE := "user://alias.dat"
 const PROFILE_SAVE := "user://profiles.dat"
 
 # Settings constants and vars
@@ -53,7 +53,7 @@ func _timer():
 
 func save_settings_to_file():
 	var f := File.new()
-	var err := f.open(SETTINGS_SAVE, File.WRITE)
+	var err := f.open_compressed(SETTINGS_SAVE, File.WRITE)
 	if err:
 		return
 	var settings_dict := {
@@ -68,7 +68,7 @@ func save_settings_to_file():
 func load_settings_from_file():
 	var f := File.new()
 	if f.file_exists(SETTINGS_SAVE):
-		var err := f.open(SETTINGS_SAVE, File.READ)
+		var err := f.open_compressed(SETTINGS_SAVE, File.READ)
 		if err:
 			return
 		var settings_string := f.get_as_text()

@@ -29,7 +29,7 @@ func get_profile_data(id: String) -> Dictionary:
 
 func write_to_file() -> void:
 	var f := File.new()
-	f.open(GlobalVars.PROFILE_SAVE, File.WRITE)
+	f.open_compressed(GlobalVars.PROFILE_SAVE, File.WRITE)
 	for k in profiles_dict.keys():
 		var store_dict := {
 			"id" : k,
@@ -42,8 +42,10 @@ func load_from_file() -> void:
 	var f := File.new()
 	if not f.file_exists(GlobalVars.PROFILE_SAVE):
 		return
+	var err = f.open_compressed(GlobalVars.PROFILE_SAVE, File.READ)
+	if err:
+		return
 	
-	f.open(GlobalVars.PROFILE_SAVE, File.READ)
 	while not f.eof_reached():
 		var data := f.get_line()
 		if not data:
