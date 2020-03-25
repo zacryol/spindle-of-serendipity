@@ -94,9 +94,15 @@ class Profile extends Object:
 	
 	
 	func contains_category(cat: String) -> bool:
-		return true
+		if categories.empty():
+			return true
+		else:
+			return cat.to_lower() in categories
 	
 	
 	func contains_source(sou: String) -> bool:
-		return true
+		if sources.empty():
+			return true
+		else:
+			return sou.to_lower() in sources
 	
