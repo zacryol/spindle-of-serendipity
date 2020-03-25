@@ -102,3 +102,9 @@ func _on_alias_created():
 					" -> " + Alias.source(s.get_core()).to_lower())
 		else:
 			s.set_text(s.get_core())
+
+
+func _on_Delete_pressed():
+	if save_name.text:
+		Profiles.clear(save_name.text)
+	update_load()
