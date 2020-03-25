@@ -49,6 +49,7 @@ caret_blink_speed = 0.5
 margin_top = 28.0
 margin_right = 1024.0
 margin_bottom = 52.0
+pressed = true
 text = "Require both category and source to match to be included"
 
 [node name="Config" type="HBoxContainer" parent="VBoxContainer"]
