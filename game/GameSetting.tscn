@@ -83,4 +83,17 @@ margin_top = 178.0
 margin_right = 173.0
 margin_bottom = 198.0
 text = "Start"
+
+[node name="AcceptDialog" type="AcceptDialog" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -92.0
+margin_top = -64.5
+margin_right = 92.0
+margin_bottom = 64.5
+window_title = "Error!"
+dialog_text = "Selected Profile is empty. Please edit the profile or choose a different one."
+dialog_autowrap = true
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_Button_pressed"]

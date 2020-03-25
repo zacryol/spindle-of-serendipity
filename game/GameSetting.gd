@@ -44,6 +44,6 @@ func _on_Button_pressed():
 		EntryManager.set_profile(pid)
 	
 	if EntryManager.get_available_entries().empty():
-		print("bad")
+		$AcceptDialog.show()
 	else:
 		get_tree().change_scene("res://game/GamePanel.tscn")
