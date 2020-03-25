@@ -40,6 +40,9 @@ func write_to_file() -> void:
 
 func load_from_file() -> void:
 	var f := File.new()
+	if not f.file_exists(GlobalVars.PROFILE_SAVE):
+		return
+	
 	f.open(GlobalVars.PROFILE_SAVE, File.READ)
 	while not f.eof_reached():
 		var data := f.get_line()
