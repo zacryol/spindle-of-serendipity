@@ -1,6 +1,8 @@
 extends Node
 
 var entries: Array # Only add Entry objects
+var filtering_profile: bool = false
+var current_profile: Profiles.Profile
 
 func _to_string() -> String:
 	var out := ""
@@ -41,16 +43,23 @@ func pick(e: Entry) -> Entry:
 	return e
 
 
-func get_unpicked_entries() -> Array:
+func get_available_entries() -> Array:
 	var unpicked := []
 	for e in entries:
 		if not e.picked:
 			unpicked.append(e)
-	return unpicked
+	
+	var available := []
+	if filtering_profile:
+		for e in unpicked:
+			if current_profile.contains_entry(e):
+				available.append(e)
+	
+	return available if filtering_profile else unpicked
 
 
 func get_random_entry() -> Entry:
-	if get_unpicked_entries().size() < GlobalVars.refresh_entries_at:
+	if get_available_entries().size() < GlobalVars.refresh_entries_at:
 		reset_picked()
 	
 	match GlobalVars.rand_mode:
@@ -58,7 +67,7 @@ func get_random_entry() -> Entry:
 			return pick(randomize_by_category())
 		GlobalVars.RAND_SOU:
 			return pick(randomize_by_source())
-	var es := get_unpicked_entries()
+	var es := get_available_entries()
 	return pick(es[randi() % es.size()])
 
 
@@ -78,7 +87,7 @@ func randomize_by_source() -> Entry:
 
 func get_categories(all := false) -> PoolStringArray:
 	var cat: PoolStringArray = []
-	var es: Array = entries if all else get_unpicked_entries()
+	var es: Array = entries if all else get_available_entries()
 	for e in es:
 		if e is Entry:
 			if not e.get_game_category().to_lower() in cat:
@@ -88,7 +97,7 @@ func get_categories(all := false) -> PoolStringArray:
 
 func get_sources(all := false) -> PoolStringArray:
 	var sou: PoolStringArray = []
-	var es: Array = entries if all else get_unpicked_entries()
+	var es: Array = entries if all else get_available_entries()
 	for e in es:
 		if e is Entry:
 			if not e.get_game_source().to_lower() in sou:
@@ -99,7 +108,7 @@ func get_sources(all := false) -> PoolStringArray:
 func get_entries_in_category(category: String) -> Array:
 	var cat := category.to_lower()
 	var es: Array = []
-	for e in get_unpicked_entries():
+	for e in get_available_entries():
 		if e is Entry:
 			if e.get_game_category().to_lower() == cat:
 				es.append(e)
@@ -109,7 +118,7 @@ func get_entries_in_category(category: String) -> Array:
 func get_entries_in_source(source: String) -> Array:
 	var sou := source.to_lower()
 	var es: Array = []
-	for e in get_unpicked_entries():
+	for e in get_available_entries():
 		if e is Entry:
 			if e.get_game_source().to_lower() == sou:
 				es.append(e)
@@ -132,3 +141,18 @@ func get_import_sources() -> PoolStringArray:
 			if not e.get_import_source().to_lower() in sources:
 				sources.append(e.get_import_source().to_lower())
 	return sources
+
+
+func is_profile_valid(p: Profiles.Profile) -> bool:
+	for e in entries:
+		if p.contains_entry(e):
+			return true
+	return false
+
+
+func set_profile(id: String = ""):
+	if not id:
+		filtering_profile = false
+	else:
+		filtering_profile = true
+		current_profile = Profiles.profiles_dict[id]

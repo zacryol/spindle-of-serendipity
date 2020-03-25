@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://game/menus/settings/Settings.gd" type="Script" id=1]
 [ext_resource path="res://game/menus/settings/General.gd" type="Script" id=2]
 [ext_resource path="res://game/menus/settings/alias/AliasMenu.gd" type="Script" id=3]
 [ext_resource path="res://game/menus/settings/alias/AliasSubTab.gd" type="Script" id=4]
+[ext_resource path="res://game/menus/settings/profiles/Profiles.tscn" type="PackedScene" id=5]
 
 [node name="Settings" type="Control"]
 anchor_right = 1.0
@@ -214,6 +215,13 @@ margin_bottom = 40.0
 
 [node name="VBox" type="VBoxContainer" parent="PanelContainer/TabContainer/Alias/Sources/H/View"]
 
+[node name="Profiles" parent="PanelContainer/TabContainer" instance=ExtResource( 5 )]
+visible = false
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
 [node name="Legal" type="ScrollContainer" parent="PanelContainer/TabContainer"]
 visible = false
 anchor_right = 1.0
@@ -276,3 +284,5 @@ autowrap = true
 [connection signal="item_selected" from="PanelContainer/TabContainer/General/Scroll/List/RandMode/OptionButton" to="PanelContainer/TabContainer/General" method="_on_rand_option_selected"]
 [connection signal="value_changed" from="PanelContainer/TabContainer/General/Scroll/List/Refresh/SpinBox" to="PanelContainer/TabContainer/General" method="_on_Refresh_value_changed"]
 [connection signal="pressed" from="PanelContainer/TabContainer/General/Scroll/List/Save" to="PanelContainer/TabContainer/General" method="_on_Save_pressed"]
+[connection signal="alias_created" from="PanelContainer/TabContainer/Alias/Categories" to="PanelContainer/TabContainer/Profiles" method="_on_alias_created"]
+[connection signal="alias_created" from="PanelContainer/TabContainer/Alias/Sources" to="PanelContainer/TabContainer/Profiles" method="_on_alias_created"]
