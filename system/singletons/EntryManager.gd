@@ -1,6 +1,8 @@
 extends Node
 
 var entries: Array # Only add Entry objects
+var filtering_profile: bool = false
+var current_profile: Profiles.Profile
 
 func _to_string() -> String:
 	var out := ""
@@ -47,10 +49,13 @@ func get_available_entries() -> Array:
 		if not e.picked:
 			unpicked.append(e)
 	
-	for e in unpicked:
-		# Remove entries not in profile
-		pass
-	return unpicked
+	var available := []
+	if filtering_profile:
+		for e in unpicked:
+			if current_profile.contains_entry(e):
+				available.append(e)
+	
+	return available if filtering_profile else unpicked
 
 
 func get_random_entry() -> Entry:
@@ -143,3 +148,11 @@ func is_profile_valid(p: Profiles.Profile) -> bool:
 		if p.contains_entry(e):
 			return true
 	return false
+
+
+func set_profile(id: String = ""):
+	if not id:
+		filtering_profile = false
+	else:
+		filtering_profile = true
+		current_profile = Profiles.profiles_dict[id]
