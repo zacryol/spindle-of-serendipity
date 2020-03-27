@@ -11,6 +11,7 @@ use_filter = true
 font_data = ExtResource( 2 )
 
 [node name="TitleHex" type="TextureRect"]
+self_modulate = Color( 0.329412, 0.654902, 1, 1 )
 margin_right = 55.0
 margin_bottom = 64.0
 texture = ExtResource( 1 )
