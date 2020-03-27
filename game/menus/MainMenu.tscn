@@ -107,6 +107,71 @@ margin_right = 350.0
 [node name="TitleHex7" parent="Title/HBoxContainer" instance=ExtResource( 2 )]
 margin_left = 354.0
 margin_right = 409.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Title"]
+margin_left = 29.5
+margin_top = 51.0
+margin_right = 143.5
+margin_bottom = 115.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleHex" parent="Title/HBoxContainer2" instance=ExtResource( 2 )]
+
+[node name="TitleHex2" parent="Title/HBoxContainer2" instance=ExtResource( 2 )]
+margin_left = 59.0
+margin_right = 114.0
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Title"]
+margin_top = 102.0
+margin_right = 114.0
+margin_bottom = 166.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleHex" parent="Title/HBoxContainer3" instance=ExtResource( 2 )]
+
+[node name="TitleHex2" parent="Title/HBoxContainer3" instance=ExtResource( 2 )]
+margin_left = 59.0
+margin_right = 114.0
+
+[node name="TitleHex3" parent="Title/HBoxContainer3" instance=ExtResource( 2 )]
+margin_left = 118.0
+margin_right = 173.0
+
+[node name="TitleHex4" parent="Title/HBoxContainer3" instance=ExtResource( 2 )]
+margin_left = 177.0
+margin_right = 232.0
+
+[node name="TitleHex5" parent="Title/HBoxContainer3" instance=ExtResource( 2 )]
+margin_left = 236.0
+margin_right = 291.0
+
+[node name="TitleHex6" parent="Title/HBoxContainer3" instance=ExtResource( 2 )]
+margin_left = 295.0
+margin_right = 350.0
+
+[node name="TitleHex7" parent="Title/HBoxContainer3" instance=ExtResource( 2 )]
+margin_left = 354.0
+margin_right = 409.0
+
+[node name="TitleHex8" parent="Title/HBoxContainer3" instance=ExtResource( 2 )]
+margin_left = 413.0
+margin_right = 468.0
+
+[node name="TitleHex9" parent="Title/HBoxContainer3" instance=ExtResource( 2 )]
+margin_left = 472.0
+margin_right = 527.0
+
+[node name="TitleHex10" parent="Title/HBoxContainer3" instance=ExtResource( 2 )]
+margin_left = 531.0
+margin_right = 586.0
+
+[node name="TitleHex11" parent="Title/HBoxContainer3" instance=ExtResource( 2 )]
+margin_left = 590.0
+margin_right = 645.0
 [connection signal="pressed" from="VBoxContainer/ImportButton" to="." method="_on_ImportButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_Settings_pressed"]
