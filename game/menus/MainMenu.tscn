@@ -21,14 +21,15 @@ __meta__ = {
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
+anchor_bottom = 1.0
 margin_left = -45.5
-margin_top = -20.0
+margin_top = -250.0
 margin_right = 45.5
-margin_bottom = 20.0
+margin_bottom = -182.0
 __meta__ = {
+"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
@@ -72,9 +73,12 @@ Please import a .json entry file before attempting to play"
 dialog_autowrap = true
 
 [node name="Title" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 214.129
+margin_top = 109.614
+margin_right = 254.129
+margin_bottom = 149.614
 __meta__ = {
+"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
