@@ -1,7 +1,7 @@
 #! /bin/bash
 
 VERSION_FILE=version.txt
-CONFIG_FILE=export_presets.cfg
+CONFIG_FILE=godot/export_presets.cfg
 
 if [ $# -eq 0 ]
 then
