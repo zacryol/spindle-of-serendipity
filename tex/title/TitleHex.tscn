@@ -30,7 +30,6 @@ margin_top = -29.5
 margin_right = 20.0
 margin_bottom = 29.5
 custom_fonts/font = SubResource( 1 )
-text = "s"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
