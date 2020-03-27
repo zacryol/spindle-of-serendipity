@@ -8,5 +8,5 @@ func _ready():
 
 
 func set_text(tex: String):
-	$Label.text = tex.substr(0, 1)
-	text = tex
+	text = tex.substr(0, 1)
+	$Label.text = text
