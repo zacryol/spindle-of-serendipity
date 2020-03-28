@@ -1,5 +1,7 @@
 extends Control
 
+signal alias_created
+
 var is_categories: bool
 var import_values: PoolStringArray
 var single := preload("res://game/menus/settings/alias/SingleAlias.tscn")
@@ -49,6 +51,7 @@ func alias_set(old : String, new : String):
 	else:
 		Alias.add_source(old, new)
 	update_game_list()
+	emit_signal("alias_created")
 
 
 func alias_cleared(old : String):
@@ -57,3 +60,4 @@ func alias_cleared(old : String):
 	else:
 		Alias.erase_sou(old)
 	update_game_list()
+	emit_signal("alias_created")

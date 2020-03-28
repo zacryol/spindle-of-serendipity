@@ -1,8 +1,8 @@
 extends Control
 
-onready var source_options := $Scroll/List/RevealSource/OptionButton
-onready var rand_options := $Scroll/List/RandMode/OptionButton
-onready var refr_options := $Scroll/List/Refresh/SpinBox
+onready var source_options: OptionButton = $Scroll/List/RevealSource/OptionButton
+onready var rand_options: OptionButton= $Scroll/List/RandMode/OptionButton
+onready var refr_options: SpinBox = $Scroll/List/Refresh/SpinBox
 
 func _ready():
 	source_options.select(GlobalVars.show_source)

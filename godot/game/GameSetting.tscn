@@ -22,49 +22,78 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -48.5
-margin_top = -79.0
-margin_right = 48.5
-margin_bottom = 79.0
+margin_left = -86.5
+margin_top = -99.0
+margin_right = 86.5
+margin_bottom = 99.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="VBoxContainer"]
-margin_right = 97.0
+margin_right = 173.0
 margin_bottom = 14.0
 text = "Player 1 Name:"
 
 [node name="LineEdit" type="LineEdit" parent="VBoxContainer"]
 margin_top = 18.0
-margin_right = 97.0
+margin_right = 173.0
 margin_bottom = 42.0
 
 [node name="Label2" type="Label" parent="VBoxContainer"]
 margin_top = 46.0
-margin_right = 97.0
+margin_right = 173.0
 margin_bottom = 60.0
 text = "Player 2 Name:"
 
 [node name="LineEdit2" type="LineEdit" parent="VBoxContainer"]
 margin_top = 64.0
-margin_right = 97.0
+margin_right = 173.0
 margin_bottom = 88.0
 
 [node name="Label3" type="Label" parent="VBoxContainer"]
 margin_top = 92.0
-margin_right = 97.0
+margin_right = 173.0
 margin_bottom = 106.0
 text = "Player 3 Name:"
 
 [node name="LineEdit3" type="LineEdit" parent="VBoxContainer"]
 margin_top = 110.0
-margin_right = 97.0
+margin_right = 173.0
 margin_bottom = 134.0
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="VSeparator" type="HSeparator" parent="VBoxContainer"]
 margin_top = 138.0
-margin_right = 97.0
-margin_bottom = 158.0
+margin_right = 173.0
+margin_bottom = 142.0
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer"]
+margin_top = 146.0
+margin_right = 173.0
+margin_bottom = 166.0
+text = "Select Entry Profile . . ."
+
+[node name="VSeparator2" type="HSeparator" parent="VBoxContainer"]
+margin_top = 170.0
+margin_right = 173.0
+margin_bottom = 174.0
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+margin_top = 178.0
+margin_right = 173.0
+margin_bottom = 198.0
 text = "Start"
+
+[node name="AcceptDialog" type="AcceptDialog" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -92.0
+margin_top = -64.5
+margin_right = 92.0
+margin_bottom = 64.5
+window_title = "Error!"
+dialog_text = "Selected Profile is empty. Please edit the profile or choose a different one."
+dialog_autowrap = true
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_Button_pressed"]

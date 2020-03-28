@@ -1,0 +1,203 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://game/menus/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://tex/title/TitleHex.tscn" type="PackedScene" id=2]
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -45.5
+margin_top = -250.0
+margin_right = 45.5
+margin_bottom = -182.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ImportButton" type="Button" parent="VBoxContainer"]
+margin_right = 91.0
+margin_bottom = 20.0
+text = "Import JSON"
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+margin_top = 24.0
+margin_right = 91.0
+margin_bottom = 44.0
+text = "Start Game"
+
+[node name="Settings" type="Button" parent="VBoxContainer"]
+margin_top = 48.0
+margin_right = 91.0
+margin_bottom = 68.0
+text = "Settings"
+
+[node name="FileDialog" type="FileDialog" parent="."]
+margin_left = 306.0
+margin_top = 111.0
+margin_right = 738.0
+margin_bottom = 354.0
+window_title = "Open File(s)"
+resizable = true
+mode = 1
+access = 2
+filters = PoolStringArray( "*.json" )
+current_dir = "/home/zach/Documents/godot/spindle-of-serendipity"
+current_path = "/home/zach/Documents/godot/spindle-of-serendipity/"
+
+[node name="AcceptDialog" type="AcceptDialog" parent="."]
+margin_left = 430.586
+margin_top = 251.797
+margin_right = 590.586
+margin_bottom = 363.797
+dialog_text = "No Entry files found.
+Please import a .json entry file before attempting to play"
+dialog_autowrap = true
+
+[node name="Title" type="Control" parent="."]
+margin_left = 214.129
+margin_top = 109.614
+margin_right = 254.129
+margin_bottom = 149.614
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Title"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="TitleHex" parent="Title/HBoxContainer" instance=ExtResource( 2 )]
+text = "s"
+
+[node name="TitleHex2" parent="Title/HBoxContainer" instance=ExtResource( 2 )]
+margin_left = 59.0
+margin_right = 114.0
+text = "p"
+
+[node name="TitleHex3" parent="Title/HBoxContainer" instance=ExtResource( 2 )]
+margin_left = 118.0
+margin_right = 173.0
+text = "i"
+
+[node name="TitleHex4" parent="Title/HBoxContainer" instance=ExtResource( 2 )]
+margin_left = 177.0
+margin_right = 232.0
+text = "n"
+
+[node name="TitleHex5" parent="Title/HBoxContainer" instance=ExtResource( 2 )]
+margin_left = 236.0
+margin_right = 291.0
+text = "d"
+
+[node name="TitleHex6" parent="Title/HBoxContainer" instance=ExtResource( 2 )]
+margin_left = 295.0
+margin_right = 350.0
+text = "l"
+
+[node name="TitleHex7" parent="Title/HBoxContainer" instance=ExtResource( 2 )]
+margin_left = 354.0
+margin_right = 409.0
+text = "e"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Title"]
+margin_left = 29.5
+margin_top = 51.0
+margin_right = 143.5
+margin_bottom = 115.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleHex" parent="Title/HBoxContainer2" instance=ExtResource( 2 )]
+text = "o"
+
+[node name="TitleHex2" parent="Title/HBoxContainer2" instance=ExtResource( 2 )]
+margin_left = 59.0
+margin_right = 114.0
+text = "f"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Title"]
+margin_top = 102.0
+margin_right = 114.0
+margin_bottom = 166.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleHex" parent="Title/HBoxContainer3" instance=ExtResource( 2 )]
+text = "s"
+
+[node name="TitleHex2" parent="Title/HBoxContainer3" instance=ExtResource( 2 )]
+margin_left = 59.0
+margin_right = 114.0
+text = "e"
+
+[node name="TitleHex3" parent="Title/HBoxContainer3" instance=ExtResource( 2 )]
+margin_left = 118.0
+margin_right = 173.0
+text = "r"
+
+[node name="TitleHex4" parent="Title/HBoxContainer3" instance=ExtResource( 2 )]
+margin_left = 177.0
+margin_right = 232.0
+text = "e"
+
+[node name="TitleHex5" parent="Title/HBoxContainer3" instance=ExtResource( 2 )]
+margin_left = 236.0
+margin_right = 291.0
+text = "n"
+
+[node name="TitleHex6" parent="Title/HBoxContainer3" instance=ExtResource( 2 )]
+margin_left = 295.0
+margin_right = 350.0
+text = "d"
+
+[node name="TitleHex7" parent="Title/HBoxContainer3" instance=ExtResource( 2 )]
+margin_left = 354.0
+margin_right = 409.0
+text = "i"
+
+[node name="TitleHex8" parent="Title/HBoxContainer3" instance=ExtResource( 2 )]
+margin_left = 413.0
+margin_right = 468.0
+text = "p"
+
+[node name="TitleHex9" parent="Title/HBoxContainer3" instance=ExtResource( 2 )]
+margin_left = 472.0
+margin_right = 527.0
+text = "i"
+
+[node name="TitleHex10" parent="Title/HBoxContainer3" instance=ExtResource( 2 )]
+margin_left = 531.0
+margin_right = 586.0
+text = "t"
+
+[node name="TitleHex11" parent="Title/HBoxContainer3" instance=ExtResource( 2 )]
+margin_left = 590.0
+margin_right = 645.0
+text = "y"
+[connection signal="pressed" from="VBoxContainer/ImportButton" to="." method="_on_ImportButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_Settings_pressed"]
+[connection signal="files_selected" from="FileDialog" to="." method="_on_FileDialog_files_selected"]
+[connection signal="custom_action" from="AcceptDialog" to="." method="_on_AcceptDialog_custom_action"]
