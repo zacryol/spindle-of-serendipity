@@ -73,9 +73,11 @@ Please import a .json entry file before attempting to play"
 dialog_autowrap = true
 
 [node name="Title" type="Control" parent="."]
-margin_left = 214.129
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -297.0
 margin_top = 109.614
-margin_right = 254.129
+margin_right = -257.0
 margin_bottom = 149.614
 __meta__ = {
 "_edit_group_": true,
