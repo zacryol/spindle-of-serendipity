@@ -63,17 +63,18 @@ margin_right = 1010.0
 margin_bottom = 586.0
 size_flags_vertical = 3
 
-[node name="HSplit" type="HSplitContainer" parent="GP/VB/Game"]
+[node name="HSplit" type="HBoxContainer" parent="GP/VB/Game"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 1003.0
 margin_bottom = 547.0
-split_offset = 700
-dragger_visibility = 1
+custom_constants/separation = 12
 
 [node name="EDKB" type="VSplitContainer" parent="GP/VB/Game/HSplit"]
 margin_right = 700.0
 margin_bottom = 540.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.47
 split_offset = 348
 dragger_visibility = 1
 
@@ -94,6 +95,7 @@ margin_bottom = 540.0
 margin_left = 712.0
 margin_right = 996.0
 margin_bottom = 540.0
+size_flags_horizontal = 3
 split_offset = 100
 dragger_visibility = 1
 
