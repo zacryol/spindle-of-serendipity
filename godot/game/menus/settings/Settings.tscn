@@ -166,7 +166,6 @@ script = ExtResource( 4 )
 [node name="H" type="HSplitContainer" parent="PanelContainer/TabContainer/Alias/Categories"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-split_offset = 600
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -174,6 +173,8 @@ __meta__ = {
 [node name="Import" type="ScrollContainer" parent="PanelContainer/TabContainer/Alias/Categories/H"]
 margin_right = 600.0
 margin_bottom = 514.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.57
 
 [node name="VBox" type="VBoxContainer" parent="PanelContainer/TabContainer/Alias/Categories/H/Import"]
 margin_right = 600.0
@@ -183,6 +184,7 @@ size_flags_horizontal = 3
 margin_left = 612.0
 margin_right = 994.0
 margin_bottom = 514.0
+size_flags_horizontal = 3
 
 [node name="VBox" type="VBoxContainer" parent="PanelContainer/TabContainer/Alias/Categories/H/View"]
 
@@ -199,11 +201,12 @@ script = ExtResource( 4 )
 [node name="H" type="HSplitContainer" parent="PanelContainer/TabContainer/Alias/Sources"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-split_offset = 600
 
 [node name="Import" type="ScrollContainer" parent="PanelContainer/TabContainer/Alias/Sources/H"]
 margin_right = 40.0
 margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.57
 
 [node name="VBox" type="VBoxContainer" parent="PanelContainer/TabContainer/Alias/Sources/H/Import"]
 margin_right = 40.0
@@ -212,6 +215,7 @@ size_flags_horizontal = 3
 [node name="View" type="ScrollContainer" parent="PanelContainer/TabContainer/Alias/Sources/H"]
 margin_right = 40.0
 margin_bottom = 40.0
+size_flags_horizontal = 3
 
 [node name="VBox" type="VBoxContainer" parent="PanelContainer/TabContainer/Alias/Sources/H/View"]
 
