@@ -33,6 +33,8 @@ Profiles="*res://system/singletons/Profiles.gd"
 
 [display]
 
+window/size/test_width=1280
+window/size/test_height=720
 window/stretch/aspect="expand"
 
 [rendering]
