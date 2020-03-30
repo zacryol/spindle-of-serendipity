@@ -45,6 +45,8 @@ func _ready():
 	t.connect("timeout", self, "_timer")
 	t.start()
 	randomize()
+	
+	OS.min_window_size = Vector2(1024, 600)
 
 
 func _timer():
