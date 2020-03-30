@@ -70,19 +70,20 @@ margin_right = 1003.0
 margin_bottom = 547.0
 custom_constants/separation = 12
 
-[node name="EDKB" type="VSplitContainer" parent="GP/VB/Game/HSplit"]
+[node name="EDKB" type="VBoxContainer" parent="GP/VB/Game/HSplit"]
 margin_right = 700.0
 margin_bottom = 540.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.47
-split_offset = 348
-dragger_visibility = 1
+custom_constants/separation = 12
 
 [node name="EntryDisplay" parent="GP/VB/Game/HSplit/EDKB" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 700.0
 margin_bottom = 348.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.93
 
 [node name="Keyboard" parent="GP/VB/Game/HSplit/EDKB" instance=ExtResource( 2 )]
 anchor_right = 0.0
@@ -90,6 +91,8 @@ anchor_bottom = 0.0
 margin_top = 360.0
 margin_right = 700.0
 margin_bottom = 540.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.99
 
 [node name="SP" type="VSplitContainer" parent="GP/VB/Game/HSplit"]
 margin_left = 712.0
