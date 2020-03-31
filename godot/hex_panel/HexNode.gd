@@ -11,5 +11,7 @@ const COLOR_BLOCKED = Color.black
 const COLOR_TEMP = Color.red
 const COLOR_NONE = Color.white
 
+var core_text: String = ""
+
 func _ready():
 	pass
