@@ -45,6 +45,7 @@ func get_line() -> String:
 
 
 func add_letter(letter: String) -> void:
-	var l := hex_node.instance()
+	var l: HexNode = hex_node.instance()
 	l.text = letter.substr(0, 1)
+	l.current_state = HexNode.State.REVEALED
 	add_child(l)
