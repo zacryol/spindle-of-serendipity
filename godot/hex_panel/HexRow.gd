@@ -1,3 +1,4 @@
+tool
 extends HBoxContainer
 
 export var line_text: String setget set_line, get_line
@@ -9,7 +10,7 @@ func _ready():
 
 
 func set_line(text: String):
-	pass
+	print(text.length())
 
 
 func get_line() -> String:
