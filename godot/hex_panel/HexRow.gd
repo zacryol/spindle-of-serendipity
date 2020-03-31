@@ -14,11 +14,11 @@ func set_line(text: String):
 	var i := 0
 	while i < length and i < get_child_count():
 		var c = get_child(i)
-		if not c is Label:
+		if not c is TextureRect:
 			remove_child(c)
 			c.queue_free()
 		else:
-			c.text = text.substr(i, 1)
+#			c.core_text = text.substr(i, 1)
 			i += 1
 	
 	if i >= get_child_count():
@@ -45,6 +45,6 @@ func get_line() -> String:
 
 
 func add_letter(letter: String) -> void:
-	var l := Label.new()
-	l.text = letter.substr(0, 1)
+	var l := HexNode.instance()
+#	l.core_text = letter.substr(0, 1)
 	add_child(l)
