@@ -12,6 +12,7 @@ const COLOR_TEMP = Color.red
 const COLOR_NONE = Color.white
 
 var core_text: String = "" setget set_core, get_core
+var current_state: int = State.BLOCKED setget set_state, get_state
 
 func _ready():
 	pass
@@ -23,3 +24,18 @@ func set_core(new_core: String):
 
 func get_core() -> String:
 	return core_text
+
+
+func set_state(new: int):
+	match new:
+		State.BLOCKED:
+			self_modulate = COLOR_BLOCKED
+		State.REVEALED:
+			self_modulate = COLOR_REVEALED
+			$Label.text = core_text
+		State.TEMP:
+			self_modulate = COLOR_TEMP
+
+
+func get_state() -> int:
+	return current_state
