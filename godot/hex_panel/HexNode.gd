@@ -21,6 +21,8 @@ func _ready():
 
 func set_text(new_text: String):
 	text = new_text.substr(0, 1)
+	if current_state == State.REVEALED:
+		$Label.text = text
 
 
 func get_text() -> String:
@@ -28,6 +30,7 @@ func get_text() -> String:
 
 
 func set_state(new: int):
+	current_state = new
 	match new:
 		State.BLOCKED:
 			self_modulate = COLOR_BLOCKED
