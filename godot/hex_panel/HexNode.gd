@@ -30,6 +30,7 @@ func set_state(new: int):
 	match new:
 		State.BLOCKED:
 			self_modulate = COLOR_BLOCKED
+			$Label.text = ""
 		State.REVEALED:
 			self_modulate = COLOR_REVEALED
 			$Label.text = core_text
