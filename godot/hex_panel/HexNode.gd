@@ -39,3 +39,8 @@ func set_state(new: int):
 
 func get_state() -> int:
 	return current_state
+
+
+func temp(guess: String) -> void:
+	set_state(State.TEMP)
+	$Label.text = guess.substr(0, 1)
