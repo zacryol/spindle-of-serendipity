@@ -22,10 +22,17 @@ func set_line(text: String):
 			i += 1
 	
 	if i >= get_child_count():
+		while i < text.length():
+			add_letter(text.substr(i, 1))
+			i += 1
 		# add extra
 		pass
 	
 	if i >= length:
+		while i < get_child_count():
+			var c = get_child(i)
+			remove_child(c)
+			c.queue_free()
 		# remove remaining children
 		pass
 	
