@@ -2,4 +2,5 @@ extends Node
 
 
 func parse(input: String) -> PoolStringArray:
-	return PoolStringArray([])
+	var lines: PoolStringArray = input.split(" ")
+	return lines
