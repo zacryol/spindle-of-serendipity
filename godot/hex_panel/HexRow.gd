@@ -4,7 +4,7 @@ extends HBoxContainer
 export var line_text: String setget set_line, get_line
 
 var hex_node: PackedScene = preload("res://hex_panel/HexNode.tscn")
-
+var HexType := preload("res://hex_panel/HexNode.gd")
 func _ready():
 	pass
 
@@ -14,7 +14,7 @@ func set_line(text: String):
 	var i := 0
 	while i < length and i < get_child_count():
 		var c = get_child(i)
-		if not c is HexNode:
+		if not c is HexType:
 			remove_child(c)
 			c.queue_free()
 		else:
@@ -45,7 +45,7 @@ func get_line() -> String:
 
 
 func add_letter(letter: String) -> void:
-	var l: HexNode = hex_node.instance()
+	var l = hex_node.instance()
 	l.text = letter.substr(0, 1)
-	l.current_state = HexNode.State.REVEALED
+	l.current_state = HexType.State.REVEALED
 	add_child(l)

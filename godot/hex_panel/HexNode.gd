@@ -1,5 +1,4 @@
 tool
-class_name HexNode
 extends TextureRect
 
 enum State {
