@@ -1,3 +1,5 @@
+tool
+class_name HexNode
 extends TextureRect
 
 enum State {
@@ -11,19 +13,19 @@ const COLOR_BLOCKED = Color.black
 const COLOR_TEMP = Color.red
 const COLOR_NONE = Color.white
 
-var core_text: String = "" setget set_core, get_core
+var text: String = "" setget set_text, get_text
 var current_state: int = State.BLOCKED setget set_state, get_state
 
 func _ready():
 	pass
 
 
-func set_core(new_core: String):
-	core_text = new_core.substr(0, 1)
+func set_text(new_text: String):
+	text = new_text.substr(0, 1)
 
 
-func get_core() -> String:
-	return core_text
+func get_text() -> String:
+	return text
 
 
 func set_state(new: int):
@@ -33,7 +35,7 @@ func set_state(new: int):
 			$Label.text = ""
 		State.REVEALED:
 			self_modulate = COLOR_REVEALED
-			$Label.text = core_text
+			$Label.text = text
 		State.TEMP:
 			self_modulate = COLOR_TEMP
 

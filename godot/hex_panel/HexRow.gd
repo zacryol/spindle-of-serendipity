@@ -3,7 +3,7 @@ extends HBoxContainer
 
 export var line_text: String setget set_line, get_line
 
-var HexNode: PackedScene = preload("res://hex_panel/HexNode.tscn")
+var hex_node: PackedScene = preload("res://hex_panel/HexNode.tscn")
 
 func _ready():
 	pass
@@ -14,11 +14,11 @@ func set_line(text: String):
 	var i := 0
 	while i < length and i < get_child_count():
 		var c = get_child(i)
-		if not c is TextureRect:
+		if not c is HexNode:
 			remove_child(c)
 			c.queue_free()
 		else:
-#			c.core_text = text.substr(i, 1)
+			c.text = text.substr(i, 1)
 			i += 1
 	
 	if i >= get_child_count():
@@ -45,6 +45,6 @@ func get_line() -> String:
 
 
 func add_letter(letter: String) -> void:
-	var l := HexNode.instance()
-#	l.core_text = letter.substr(0, 1)
+	var l := hex_node.instance()
+	l.text = letter.substr(0, 1)
 	add_child(l)
