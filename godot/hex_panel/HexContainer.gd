@@ -4,6 +4,14 @@ export var text: String setget set_text
 
 func _notification(what):
 	if what == NOTIFICATION_SORT_CHILDREN:
+		var count := 0
+		for c in get_children():
+			if not c is HexRow:
+				continue
+			
+			c = c as HexRow
+			c.rect_position.y = 50 * count
+			count += 1
 		# sort
 		pass
 
