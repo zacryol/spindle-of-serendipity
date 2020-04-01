@@ -1,4 +1,5 @@
 tool
+class_name HexRow
 extends HBoxContainer
 
 export var line_text: String setget set_line, get_line
