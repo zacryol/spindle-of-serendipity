@@ -25,6 +25,9 @@ func split_lines(lines: String) -> PoolStringArray:
 
 func set_text(new_text: String):
 	text = new_text
+	for i in range(1, get_child_count() - 1):
+		remove_child(get_child(i))
+	
 	for s in split_lines(new_text):
 		var h := HexRow.new()
 		h.line_text = s
