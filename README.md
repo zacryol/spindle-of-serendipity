@@ -2,11 +2,13 @@
 A "Wheel of Fortune"-styled game with customizable entries.
 
 # Installing
-*  Download Godot Engine version 3.2
+*  Download Godot Engine version 3.2.1
 *  Download files
 *  Open Godot, click "Import"
 *  Navigate to the project.godot file
 *  Open
+
+Alternatively, download for Linux, Windows, and OSX on [the itch.io page](https://zacryol.itch.io/spindle-of-serendipity)
 
 # License
 Copyright (C) 2020, "zacryol" (https://gitlab.com/zacryol)
