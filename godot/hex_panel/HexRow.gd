@@ -33,9 +33,6 @@ func set_line(text: String):
 			c.queue_free()
 		# remove remaining children
 		pass
-	
-	print(text.length())
-#	print(get_child_count())
 
 
 func get_line() -> String:
