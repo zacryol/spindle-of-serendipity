@@ -2,8 +2,10 @@ extends Container
 
 export var text: String setget set_text
 
-func _ready():
-	pass
+func _notification(what):
+	if what == NOTIFICATION_SORT_CHILDREN:
+		# sort
+		pass
 
 
 func split_lines(lines: String) -> PoolStringArray:
