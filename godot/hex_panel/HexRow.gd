@@ -7,6 +7,7 @@ var hex_node: PackedScene = preload("res://hex_panel/HexNode.tscn")
 var HexType := preload("res://hex_panel/HexNode.gd")
 
 func set_line(text: String):
+	line_text = text
 	var length := text.length()
 	var i := 0
 	while i < length and i < get_child_count():
