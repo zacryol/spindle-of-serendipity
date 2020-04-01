@@ -3,6 +3,7 @@ extends Control
 func _ready():
 	$AcceptDialog.add_button("What?", true, "files")
 
+
 func _on_ImportButton_pressed():
 	$FileDialog.current_dir = "res://"
 	$FileDialog.current_path = "res://"
@@ -17,7 +18,7 @@ func _on_FileDialog_files_selected(paths):
 		var save_path := str(GlobalVars.ENTRIES_SAVE + file_name)
 		if File.new().file_exists(save_path):
 			var copy := 0
-			var new_file_path : String
+			var new_file_path: String
 			var f := File.new()
 			while f.file_exists(save_path):
 				new_file_path = str(copy) + file_name
