@@ -1,5 +1,8 @@
 extends Container
 
+const Y_CHANGE := 51
+const X_OFFSET := 29.5
+
 export var text: String setget set_text
 
 func _notification(what):
@@ -10,7 +13,7 @@ func _notification(what):
 				continue
 			
 			c = c as HexRow
-			c.rect_position.y = 50 * count
+			c.rect_position = Vector2(X_OFFSET * (count % 2), Y_CHANGE * count)
 			count += 1
 		# sort
 		pass
