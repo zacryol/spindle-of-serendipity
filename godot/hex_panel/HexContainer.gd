@@ -11,4 +11,5 @@ func split_lines(lines: String) -> PoolStringArray:
 
 
 func set_text(new_text: String):
+	print(split_lines(new_text).size())
 	pass
