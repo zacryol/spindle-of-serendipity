@@ -8,6 +8,9 @@ func parse(input: String) -> PoolStringArray:
 	
 	# Create lines
 	for s in input.split(" "):
+		if not s:
+			continue
+		
 		if s.length() >= max_line_length:
 			if current_line:
 				lines.append(current_line)
