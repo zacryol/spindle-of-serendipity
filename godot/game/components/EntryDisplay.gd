@@ -44,6 +44,8 @@ var placeholder_char := "*"
 var source_hide := "???"
 var solve_stack: PoolStringArray = []
 
+onready var hex := $PanelContainer/ScrollContainer/HexContainer
+
 func _input(event):
 	if event is InputEventKey:
 		if event.is_pressed() and \
@@ -55,7 +57,9 @@ func _input(event):
 
 
 func update_display() -> void:
-	$EntryLabel.text = get_display_text()
+#	$EntryLabel.text = get_display_text()
+	hex.text = get_display_text()
+	pass
 
 
 func set_display(entry: Entry):
