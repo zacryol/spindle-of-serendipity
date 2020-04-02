@@ -3,6 +3,23 @@ extends Node
 
 func parse(input: String) -> PoolStringArray:
 	var lines: PoolStringArray
+	var max_line_length := sqrt(2 * input.length())
+	var current_line: String = ""
 	for s in input.split(" "):
-		lines.append(s)
+		if s.length() >= max_line_length:
+			if current_line:
+				lines.append(current_line)
+				current_line = ""
+		
+		if current_line:
+			current_line = current_line + " " + s
+		else:
+			current_line = s
+		
+		if current_line.length() >= max_line_length:
+			lines.append(current_line)
+			current_line = ""
+	
+	if current_line:
+		lines.append(current_line)
 	return lines
