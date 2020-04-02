@@ -44,7 +44,7 @@ var placeholder_char := "*"
 var source_hide := "???"
 var solve_stack: PoolStringArray = []
 
-onready var hex := $PanelContainer/ScrollContainer/HexContainer
+onready var hex := $PanelContainer/HexContainer
 
 func _input(event):
 	if event is InputEventKey:
