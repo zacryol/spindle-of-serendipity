@@ -40,7 +40,6 @@ var bool_mask: Dictionary = {
 	"Y":false,
 	"Z":false,
 }
-var placeholder_char := "*"
 var source_hide := "???"
 var solve_stack: PoolStringArray = []
 
