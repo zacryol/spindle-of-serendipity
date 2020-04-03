@@ -43,7 +43,7 @@ var bool_mask: Dictionary = {
 var source_hide := "???"
 var solve_stack: PoolStringArray = []
 
-onready var hex := $PanelContainer/ScrollContainer/HexContainer
+onready var hex := $PanelContainer/ScrollContainer/HexWrapper/HexContainer
 
 func _input(event):
 	if event is InputEventKey:
