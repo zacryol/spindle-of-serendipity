@@ -25,10 +25,39 @@ func split_lines(lines: String) -> PoolStringArray:
 
 func set_text(new_text: String):
 	text = new_text
-	for i in range(1, get_child_count() - 1):
-		remove_child(get_child(i))
+	
+	while get_child_count() > 1:
+		remove_child(get_child(1))
 	
 	for s in split_lines(new_text):
 		var h := HexRow.new()
 		h.line_text = s
 		add_child(h)
+
+
+func reveal_letter(letter: String):
+	letter = letter.substr(0, 1)
+	for i in range(1, get_child_count()):
+		get_child(i).reveal_letter(letter)
+	pass
+
+
+func add_solve(stack: PoolStringArray):
+	clear_solve()
+	var index := 0
+	for i in range(1, get_child_count()):
+		index += get_child(i).add_solve(stack, index)
+		pass
+	pass
+
+
+func clear_solve():
+	for i in range(1, get_child_count()):
+		get_child(i).clear_solve()
+	pass
+
+
+func reveal_all():
+	for i in range(1, get_child_count()):
+		get_child(i).reveal_all()
+	pass

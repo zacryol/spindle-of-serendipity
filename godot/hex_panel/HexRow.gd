@@ -42,5 +42,42 @@ func get_line() -> String:
 func add_letter(letter: String) -> void:
 	var l = hex_node.instance()
 	l.text = letter.substr(0, 1)
-	l.current_state = HexType.State.REVEALED
+#	l.current_state = HexType.State.BLOCKED
 	add_child(l)
+
+
+func reveal_letter(letter: String):
+	for c in get_children():
+		if c.text == letter:
+			c.current_state = HexType.State.REVEALED
+	pass
+
+
+func add_solve(stack: PoolStringArray, from: int) -> int:
+	var used := 0
+	if from == stack.size():
+		return used
+	
+	for c in get_children():
+		if not c.current_state == HexType.State.BLOCKED:
+			continue
+		
+		c.temp(stack[from + used])
+		used += 1
+		if from + used == stack.size():
+			return used
+		pass
+	
+	return used
+
+
+func clear_solve():
+	for c in get_children():
+		if c.current_state == HexType.State.TEMP:
+			c.current_state = HexType.State.BLOCKED
+	pass
+
+
+func reveal_all():
+	for c in get_children():
+		c.current_state = HexType.State.REVEALED

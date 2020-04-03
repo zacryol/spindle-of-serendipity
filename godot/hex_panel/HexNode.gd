@@ -26,6 +26,8 @@ func set_text(new_text: String):
 	
 	if text == " ":
 		set_state(State.EMPTY)
+	else:
+		set_state(State.BLOCKED)
 
 
 func get_text() -> String:
