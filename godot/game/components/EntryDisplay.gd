@@ -58,6 +58,7 @@ func _input(event):
 
 func update_display() -> void:
 #	$EntryLabel.text = get_display_text()
+#	Remove get_display_text() and reimplement code here and in Hex scripts
 	hex.text = get_display_text()
 	pass
 
