@@ -69,5 +69,6 @@ margin_top = 24.0
 margin_right = 101.0
 margin_bottom = 44.0
 text = "<- Backspace"
+[connection signal="resized" from="PanelContainer/ScrollContainer" to="PanelContainer/ScrollContainer/HexWrapper" method="_on_ScrollContainer_resized"]
 [connection signal="pressed" from="SolveUI/SolveButton" to="." method="_on_SolveButton_pressed"]
 [connection signal="pressed" from="SolveUI/BSpace" to="." method="_on_BSpace_pressed"]

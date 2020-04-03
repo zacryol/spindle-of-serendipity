@@ -8,3 +8,8 @@ func _on_HexContainer_sort_children():
 		var hex_min: Vector2 = $HexContainer.rect_min_size
 		set("custom_constants/margin_top", max(0, rect.y - hex_min.y) / 2)
 		set("custom_constants/margin_left", max(0, rect.x - hex_min.x) / 2)
+
+
+func _on_ScrollContainer_resized():
+	_on_HexContainer_sort_children()
+	pass # Replace with function body.
