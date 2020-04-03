@@ -26,6 +26,8 @@ func set_text(new_text: String):
 	
 	if text == " ":
 		set_state(State.EMPTY)
+	elif not text in GlobalVars.LETTERS:
+		set_state(State.REVEALED)
 	else:
 		set_state(State.BLOCKED)
 

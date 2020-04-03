@@ -8,6 +8,34 @@ const SETTINGS_SAVE := "user://settings.dat"
 const ALIAS_SAVE := "user://alias.dat"
 const PROFILE_SAVE := "user://profiles.dat"
 
+const LETTERS := PoolStringArray([
+	"A",
+	"B",
+	"C",
+	"D",
+	"E",
+	"F",
+	"G",
+	"H",
+	"I",
+	"J",
+	"K",
+	"L",
+	"M",
+	"N",
+	"O",
+	"P",
+	"Q",
+	"R",
+	"S",
+	"T",
+	"U",
+	"V",
+	"W",
+	"X",
+	"Y",
+	"Z",
+])
 # Settings constants and vars
 enum {
 	SOURCE_NEVER
