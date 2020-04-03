@@ -194,6 +194,7 @@ func _on_SolveButton_pressed():
 	hex.clear_solve()
 	current_mode = MODE_DISABLED
 	if solved:
+		hex.reveal_all()
 		for k in bool_mask.keys():
 			bool_mask[k] = true
 		if GlobalVars.show_source == GlobalVars.SOURCE_SOLVE:

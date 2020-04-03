@@ -76,3 +76,8 @@ func clear_solve():
 		if c.current_state == HexType.State.TEMP:
 			c.current_state = HexType.State.BLOCKED
 	pass
+
+
+func reveal_all():
+	for c in get_children():
+		c.current_state = HexType.State.REVEALED

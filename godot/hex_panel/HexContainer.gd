@@ -55,3 +55,9 @@ func clear_solve():
 	for i in range(1, get_child_count()):
 		get_child(i).clear_solve()
 	pass
+
+
+func reveal_all():
+	for i in range(1, get_child_count()):
+		get_child(i).reveal_all()
+	pass
