@@ -53,13 +53,14 @@ func _input(event):
 				event.scancode == KEY_BACKSPACE:
 			if solve_stack.size():
 				solve_stack.remove(solve_stack.size() - 1)
-	update_display()
+#	update_display()
 
 
 func update_display() -> void:
 #	$EntryLabel.text = get_display_text()
 #	Remove get_display_text() and reimplement code here and in Hex scripts
-	hex.text = get_display_text()
+#	hex.text = get_display_text()
+	# Actually this is might be unnecessary. Keeping just in case
 	pass
 
 
@@ -77,7 +78,8 @@ func set_display(entry: Entry):
 		$SourceLabel.text = ""
 	else:
 		$SourceLabel.text = source_hide
-	update_display()
+	
+	hex.text = entry_text
 
 
 func get_display_text() -> String:
@@ -134,7 +136,10 @@ func single_letter_guessed(letter: String):
 		return 
 	if bool_mask[guess] == false:
 		bool_mask[guess] = true
-		update_display()
+		
+		hex.reveal_letter(guess)
+		
+#		update_display()
 		var num := entry_text.countn(guess)
 		emit_signal("game_log", str(num) + " revealed")
 		emit_signal("letters_revealed", num, is_solved())
@@ -149,7 +154,7 @@ func single_letter_guessed(letter: String):
 func add_solve(letter: String):
 	if bool_mask.has(letter) and not bool_mask[letter]:
 		solve_stack.append(letter)
-	update_display()
+#	update_display()
 
 
 func check_solve() -> bool:
@@ -190,9 +195,9 @@ func _on_SolveButton_pressed():
 			bool_mask[k] = true
 		if GlobalVars.show_source == GlobalVars.SOURCE_SOLVE:
 			$SourceLabel.text = source_text
-	update_display()
+#	update_display()
 
 
 func _on_BSpace_pressed():
 	solve_stack.remove(solve_stack.size() - 1)
-	update_display()
+#	update_display()

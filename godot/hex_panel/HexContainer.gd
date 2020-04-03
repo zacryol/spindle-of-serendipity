@@ -33,3 +33,10 @@ func set_text(new_text: String):
 		var h := HexRow.new()
 		h.line_text = s
 		add_child(h)
+
+
+func reveal_letter(letter: String):
+	letter = letter.substr(0, 1)
+	for i in range(1, get_child_count()):
+		get_child(i).reveal_letter(letter)
+	pass

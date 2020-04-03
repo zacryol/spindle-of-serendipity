@@ -44,3 +44,10 @@ func add_letter(letter: String) -> void:
 	l.text = letter.substr(0, 1)
 #	l.current_state = HexType.State.BLOCKED
 	add_child(l)
+
+
+func reveal_letter(letter: String):
+	for c in get_children():
+		if c.text == letter:
+			c.current_state = HexType.State.REVEALED
+	pass
