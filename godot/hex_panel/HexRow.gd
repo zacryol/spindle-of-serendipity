@@ -51,3 +51,28 @@ func reveal_letter(letter: String):
 		if c.text == letter:
 			c.current_state = HexType.State.REVEALED
 	pass
+
+
+func add_solve(stack: PoolStringArray, from: int) -> int:
+	var used := 0
+	if from == stack.size():
+		return used
+	
+	for c in get_children():
+		if not c.current_state == HexType.State.BLOCKED:
+			continue
+		
+		c.temp(stack[from + used])
+		used += 1
+		if from + used == stack.size():
+			return used
+		pass
+	
+	return used
+
+
+func clear_solve():
+	for c in get_children():
+		if c.current_state == HexType.State.TEMP:
+			c.current_state = HexType.State.BLOCKED
+	pass

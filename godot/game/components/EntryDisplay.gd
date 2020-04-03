@@ -53,6 +53,7 @@ func _input(event):
 				event.scancode == KEY_BACKSPACE:
 			if solve_stack.size():
 				solve_stack.remove(solve_stack.size() - 1)
+				hex.add_solve(solve_stack)
 #	update_display()
 
 
@@ -154,6 +155,7 @@ func single_letter_guessed(letter: String):
 func add_solve(letter: String):
 	if bool_mask.has(letter) and not bool_mask[letter]:
 		solve_stack.append(letter)
+		hex.add_solve(solve_stack)
 #	update_display()
 
 
@@ -189,6 +191,7 @@ func _on_SolveButton_pressed():
 	$SolveUI.hide()
 	emit_signal("guess_checked", solved)
 	solve_stack = []
+	hex.clear_solve()
 	current_mode = MODE_DISABLED
 	if solved:
 		for k in bool_mask.keys():
@@ -200,4 +203,5 @@ func _on_SolveButton_pressed():
 
 func _on_BSpace_pressed():
 	solve_stack.remove(solve_stack.size() - 1)
+	hex.add_solve(solve_stack)
 #	update_display()

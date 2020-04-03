@@ -40,3 +40,18 @@ func reveal_letter(letter: String):
 	for i in range(1, get_child_count()):
 		get_child(i).reveal_letter(letter)
 	pass
+
+
+func add_solve(stack: PoolStringArray):
+	clear_solve()
+	var index := 0
+	for i in range(1, get_child_count()):
+		index += get_child(i).add_solve(stack, index)
+		pass
+	pass
+
+
+func clear_solve():
+	for i in range(1, get_child_count()):
+		get_child(i).clear_solve()
+	pass
