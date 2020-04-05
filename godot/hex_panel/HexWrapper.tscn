@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://hex_panel/HexWrapper.gd" type="Script" id=1]
+[ext_resource path="res://hex_panel/HexContainer.tscn" type="PackedScene" id=2]
+
+[node name="HexWrapper" type="MarginContainer"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HexContainer" parent="." instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+[connection signal="sort_children" from="HexContainer" to="." method="_on_HexContainer_sort_children"]

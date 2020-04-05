@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "Entry",
 "language": "GDScript",
 "path": "res://system/Entry.gd"
+}, {
+"base": "HBoxContainer",
+"class": "HexRow",
+"language": "GDScript",
+"path": "res://hex_panel/HexRow.gd"
 } ]
 _global_script_class_icons={
-"Entry": ""
+"Entry": "",
+"HexRow": ""
 }
 
 [application]
