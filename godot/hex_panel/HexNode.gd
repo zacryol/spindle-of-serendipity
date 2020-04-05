@@ -9,7 +9,7 @@ enum State {
 
 const COLOR_REVEALED = Color(0.32, 0.65, 1.00, 1.00)
 const COLOR_BLOCKED = Color.black
-const COLOR_TEMP = Color.red
+const COLOR_TEMP = Color.mediumseagreen
 const COLOR_NONE = Color.transparent
 
 var text: String = "" setget set_text, get_text
