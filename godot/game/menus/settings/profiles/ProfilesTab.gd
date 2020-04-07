@@ -13,7 +13,7 @@ func _ready():
 		var l := single.instance()
 		var new_text: String = cat
 		if Alias.has(cat, true):
-			l.set_text(new_text, " -> " + Alias.category(cat).to_lower())
+			l.set_text(new_text, " -> " + Alias.category(cat))
 		else:
 			l.set_text(new_text)
 		categories.add_child(l)
@@ -22,7 +22,7 @@ func _ready():
 		var l := single.instance()
 		var new_text: String = sou
 		if Alias.has(sou, false):
-			l.set_text(new_text, " -> " + Alias.source(sou).to_lower())
+			l.set_text(new_text, " -> " + Alias.source(sou))
 		else:
 			l.set_text(new_text)
 		sources.add_child(l)
@@ -93,13 +93,13 @@ func _on_alias_created():
 	for c in categories.get_children():
 		if Alias.has(c.get_core(), true):
 			c.set_text(c.get_core(),
-					" -> " + Alias.category(c.get_core()).to_lower())
+					" -> " + Alias.category(c.get_core()))
 		else:
 			c.set_text(c.get_core())
 	for s in sources.get_children():
 		if Alias.has(s.get_core(), false):
 			s.set_text(s.get_core(),
-					" -> " + Alias.source(s.get_core()).to_lower())
+					" -> " + Alias.source(s.get_core()))
 		else:
 			s.set_text(s.get_core())
 
