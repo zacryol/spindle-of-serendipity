@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://game/menus/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://tex/title/TitleHex.tscn" type="PackedScene" id=2]
+[ext_resource path="res://GameTheme.theme" type="Theme" id=3]
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 3 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -24,30 +26,30 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -45.5
+margin_left = -66.0
 margin_top = -250.0
-margin_right = 45.5
-margin_bottom = -182.0
+margin_right = 66.0
+margin_bottom = -161.0
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="ImportButton" type="Button" parent="VBoxContainer"]
-margin_right = 91.0
-margin_bottom = 20.0
+margin_right = 132.0
+margin_bottom = 27.0
 text = "Import JSON"
 
 [node name="StartButton" type="Button" parent="VBoxContainer"]
-margin_top = 24.0
-margin_right = 91.0
-margin_bottom = 44.0
+margin_top = 31.0
+margin_right = 132.0
+margin_bottom = 58.0
 text = "Start Game"
 
 [node name="Settings" type="Button" parent="VBoxContainer"]
-margin_top = 48.0
-margin_right = 91.0
-margin_bottom = 68.0
+margin_top = 62.0
+margin_right = 132.0
+margin_bottom = 89.0
 text = "Settings"
 
 [node name="FileDialog" type="FileDialog" parent="."]
