@@ -31,25 +31,27 @@ margin_bottom = 713.0
 
 [node name="Top" type="PanelContainer" parent="GP/VB"]
 margin_right = 1266.0
-margin_bottom = 35.0
+margin_bottom = 41.0
+size_flags_vertical = 3
 
 [node name="HB" type="HBoxContainer" parent="GP/VB/Top"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 1259.0
-margin_bottom = 28.0
+margin_bottom = 34.0
 
 [node name="Label" type="Label" parent="GP/VB/Top/HB"]
+margin_top = 3.0
 margin_right = 1252.0
-margin_bottom = 21.0
+margin_bottom = 24.0
 size_flags_horizontal = 3
 text = "Game Status Bar"
 
 [node name="NewG" type="Button" parent="GP/VB/Top/HB"]
 visible = false
-margin_left = 956.0
-margin_right = 996.0
-margin_bottom = 20.0
+margin_left = 1199.0
+margin_right = 1252.0
+margin_bottom = 27.0
 text = "New"
 
 [node name="Quit" type="Button" parent="GP/VB/Top/HB"]
@@ -60,21 +62,22 @@ margin_bottom = 20.0
 text = "Quit"
 
 [node name="Game" type="PanelContainer" parent="GP/VB"]
-margin_top = 39.0
+margin_top = 45.0
 margin_right = 1266.0
 margin_bottom = 706.0
 size_flags_vertical = 3
+size_flags_stretch_ratio = 16.0
 
 [node name="HSplit" type="HBoxContainer" parent="GP/VB/Game"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 1259.0
-margin_bottom = 660.0
+margin_bottom = 654.0
 custom_constants/separation = 12
 
 [node name="EDKB" type="VBoxContainer" parent="GP/VB/Game/HSplit"]
 margin_right = 882.0
-margin_bottom = 653.0
+margin_bottom = 647.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.47
 custom_constants/separation = 12
@@ -83,23 +86,23 @@ custom_constants/separation = 12
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 882.0
-margin_bottom = 423.0
+margin_bottom = 419.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.93
 
 [node name="Keyboard" parent="GP/VB/Game/HSplit/EDKB" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 435.0
+margin_top = 431.0
 margin_right = 882.0
-margin_bottom = 653.0
+margin_bottom = 647.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.99
 
 [node name="SP" type="VBoxContainer" parent="GP/VB/Game/HSplit"]
 margin_left = 894.0
 margin_right = 1252.0
-margin_bottom = 653.0
+margin_bottom = 647.0
 size_flags_horizontal = 3
 custom_constants/separation = 12
 
@@ -107,15 +110,15 @@ custom_constants/separation = 12
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 358.0
-margin_bottom = 121.0
+margin_bottom = 120.0
 size_flags_vertical = 3
 
 [node name="PlayersPanel" parent="GP/VB/Game/HSplit/SP" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 133.0
+margin_top = 132.0
 margin_right = 358.0
-margin_bottom = 653.0
+margin_bottom = 647.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 4.28
 [connection signal="pressed" from="GP/VB/Top/HB/NewG" to="." method="_on_NewG_pressed"]
