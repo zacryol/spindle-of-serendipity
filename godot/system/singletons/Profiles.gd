@@ -107,22 +107,22 @@ class Profile extends Object:
 	
 	func contains_entry(e: Entry) -> bool:
 		if match_both:
-			return contains_category(e.get_import_category().to_lower())\
-					and contains_source(e.get_import_source().to_lower())
+			return contains_category(e.get_import_category())\
+					and contains_source(e.get_import_source())
 		else:
-			return contains_category(e.get_import_category().to_lower())\
-					or contains_source(e.get_import_source().to_lower())
+			return contains_category(e.get_import_category())\
+					or contains_source(e.get_import_source())
 	
 	
 	func contains_category(cat: String) -> bool:
 		if categories.empty():
 			return true
 		else:
-			return cat.to_lower() in categories
+			return cat in categories
 	
 	
 	func contains_source(sou: String) -> bool:
 		if sources.empty():
 			return true
 		else:
-			return sou.to_lower() in sources
+			return sou in sources
