@@ -1,6 +1,6 @@
 extends Control
 
-const MAX_LOG_CHAR := 140
+const MAX_LOG_CHAR := 120
 onready var entry_display := $GP/VB/Game/HSplit/EDKB/EntryDisplay
 onready var log_label := $GP/VB/Top/HB/Label
 onready var new_button := $GP/VB/Top/HB/NewG

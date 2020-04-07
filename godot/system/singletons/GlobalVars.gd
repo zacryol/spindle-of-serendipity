@@ -74,8 +74,7 @@ func _ready():
 	t.start()
 	randomize()
 	
-	OS.min_window_size = Vector2(1024, 600)
-	OS.max_window_size = Vector2(1920, 1080)
+	OS.min_window_size = Vector2(1024, 576)
 
 
 func _timer():
