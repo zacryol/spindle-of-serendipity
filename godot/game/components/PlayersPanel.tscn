@@ -18,41 +18,41 @@ anchor_bottom = 1.0
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 1017.0
-margin_bottom = 593.0
+margin_right = 1273.0
+margin_bottom = 713.0
 
 [node name="PanelContainer" type="PanelContainer" parent="PanelContainer/VBoxContainer"]
-margin_right = 1010.0
+margin_right = 1266.0
 margin_bottom = 28.0
 
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer/PanelContainer"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 1003.0
+margin_right = 1259.0
 margin_bottom = 21.0
 
 [node name="Player" parent="PanelContainer/VBoxContainer" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 32.0
-margin_right = 1010.0
-margin_bottom = 214.0
+margin_right = 1266.0
+margin_bottom = 254.0
 size_flags_vertical = 3
 
 [node name="Player2" parent="PanelContainer/VBoxContainer" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 218.0
-margin_right = 1010.0
-margin_bottom = 400.0
+margin_top = 258.0
+margin_right = 1266.0
+margin_bottom = 480.0
 size_flags_vertical = 3
 
 [node name="Player3" parent="PanelContainer/VBoxContainer" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 404.0
-margin_right = 1010.0
-margin_bottom = 586.0
+margin_top = 484.0
+margin_right = 1266.0
+margin_bottom = 706.0
 size_flags_vertical = 3
 
 [node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
@@ -60,10 +60,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -100.0
-margin_top = -37.5
-margin_right = 100.0
-margin_bottom = 37.5
+margin_left = -125.0
+margin_top = -50.0
+margin_right = 125.0
+margin_bottom = 50.0
 window_title = "Solve?"
 dialog_text = "Do you wish to attempt to solve the puzzle?"
 dialog_autowrap = true
