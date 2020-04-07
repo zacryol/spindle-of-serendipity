@@ -21,8 +21,8 @@ __meta__ = {
 [node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 1017.0
-margin_bottom = 593.0
+margin_right = 1273.0
+margin_bottom = 713.0
 
 [node name="HexWrapper" parent="PanelContainer/ScrollContainer" instance=ExtResource( 2 )]
 
@@ -53,6 +53,7 @@ anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -101.0
 margin_bottom = 40.0
+grow_horizontal = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
