@@ -90,8 +90,8 @@ func get_categories(all := false) -> PoolStringArray:
 	var es: Array = entries if all else get_available_entries()
 	for e in es:
 		if e is Entry:
-			if not e.get_game_category().to_lower() in cat:
-				cat.append(e.get_game_category().to_lower())
+			if not e.get_game_category() in cat:
+				cat.append(e.get_game_category())
 	return cat
 
 
@@ -100,27 +100,27 @@ func get_sources(all := false) -> PoolStringArray:
 	var es: Array = entries if all else get_available_entries()
 	for e in es:
 		if e is Entry:
-			if not e.get_game_source().to_lower() in sou:
-				sou.append(e.get_game_source().to_lower())
+			if not e.get_game_source() in sou:
+				sou.append(e.get_game_source())
 	return sou
 
 
 func get_entries_in_category(category: String) -> Array:
-	var cat := category.to_lower()
+	var cat := category
 	var es: Array = []
 	for e in get_available_entries():
 		if e is Entry:
-			if e.get_game_category().to_lower() == cat:
+			if e.get_game_category() == cat:
 				es.append(e)
 	return es
 
 
 func get_entries_in_source(source: String) -> Array:
-	var sou := source.to_lower()
+	var sou := source
 	var es: Array = []
 	for e in get_available_entries():
 		if e is Entry:
-			if e.get_game_source().to_lower() == sou:
+			if e.get_game_source() == sou:
 				es.append(e)
 	return es
 
@@ -129,8 +129,8 @@ func get_import_categories() -> PoolStringArray:
 	var categories: PoolStringArray = []
 	for e in entries:
 		if e is Entry:
-			if not e.get_import_category().to_lower() in categories:
-				categories.append(e.get_import_category().to_lower())
+			if not e.get_import_category() in categories:
+				categories.append(e.get_import_category())
 	return categories
 
 
@@ -138,8 +138,8 @@ func get_import_sources() -> PoolStringArray:
 	var sources: PoolStringArray = []
 	for e in entries:
 		if e is Entry:
-			if not e.get_import_source().to_lower() in sources:
-				sources.append(e.get_import_source().to_lower())
+			if not e.get_import_source() in sources:
+				sources.append(e.get_import_source())
 	return sources
 
 
