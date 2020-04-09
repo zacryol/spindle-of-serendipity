@@ -91,7 +91,7 @@ func single_letter_guessed(letter: String):
 		
 		hex.reveal_letter(guess)
 		
-		var num := entry_text.countn(guess)
+		var num := count_char(guess)
 		emit_signal("game_log", str(num) + " revealed")
 		emit_signal("letters_revealed", num, is_solved())
 		current_mode = MODE_DISABLED
@@ -100,6 +100,15 @@ func single_letter_guessed(letter: String):
 		emit_signal("game_log", guess + " has already been guessed")
 	if is_solved() && GlobalVars.show_source == GlobalVars.SOURCE_SOLVE:
 		$SourceLabel.text = source_text
+
+
+func count_char(c: String) -> int:
+	c = c.substr(0, 1)
+	var count := 0
+	for i in entry_text.length():
+		if CharSet.compare(c, get_char_at(i)):
+			count += 1
+	return count
 
 
 func add_solve(letter: String):
@@ -111,14 +120,15 @@ func add_solve(letter: String):
 func check_solve() -> bool:
 	var stack_index := 0
 	for c in entry_text.length():
-		if not bool_mask.has(get_char_at(c)):
+		var l := CharSet.get_char(get_char_at(c))
+		if not bool_mask.has(l):
 			continue
-		elif bool_mask[get_char_at(c)]:
+		elif bool_mask[l]:
 			continue
 		else:
 			if not solve_stack.size() > stack_index:
 				return false
-			elif not get_char_at(c) == solve_stack[stack_index]:
+			elif not CharSet.compare(l, solve_stack[stack_index]):
 				return false
 			else:
 				stack_index += 1
