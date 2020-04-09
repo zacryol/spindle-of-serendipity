@@ -42,3 +42,7 @@ func get_row_length() -> int:
 	for i in LINE_BREAKS:
 		length = max(i, length)
 	return length
+
+
+func has(c: String) -> bool:
+	return c in CHAR_MAIN
