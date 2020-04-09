@@ -1,5 +1,6 @@
 extends Node
 
+# Base character set that the player guesses from
 const CHAR_MAIN := PoolStringArray([
 	"Q",
 	"W",
@@ -10,7 +11,7 @@ const CHAR_MAIN := PoolStringArray([
 	"U",
 	"I",
 	"O",
-	"P",
+	"P", # End of Row 1
 	"A",
 	"S",
 	"D",
@@ -19,7 +20,7 @@ const CHAR_MAIN := PoolStringArray([
 	"H",
 	"J",
 	"K",
-	"L",
+	"L", # End of Row 2
 	"Z",
 	"X",
 	"C",
@@ -27,4 +28,10 @@ const CHAR_MAIN := PoolStringArray([
 	"B",
 	"N",
 	"M",
+])
+
+# Determine keyboard layout - row lengths
+const LINE_BREAKS := PoolIntArray([
+	10,
+	9,
 ])
