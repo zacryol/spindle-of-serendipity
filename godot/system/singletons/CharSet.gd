@@ -30,6 +30,40 @@ const CHAR_MAIN := PoolStringArray([
 	"M",
 ])
 
+# Extended charset
+# Each key is treated as the value for comparison
+# but is rendered as original when revealed
+# Could add more, but font of choice doesn't seem to have those
+const CHAR_EXTEND: Dictionary = {
+	"À":"A",
+	"Á":"A",
+	"Â":"A",
+	"Ã":"A",
+	"Ä":"A",
+	"Å":"A",
+	"Æ":"A",
+	"Ç":"C",
+	"È":"E",
+	"É":"E",
+	"Ê":"E",
+	"Ë":"E",
+	"Ì":"I",
+	"Í":"I",
+	"Î":"I",
+	"Ï":"I",
+	"Ñ":"N",
+	"Ò":"O",
+	"Ó":"O",
+	"Ô":"O",
+	"Õ":"O",
+	"Ö":"O",
+	"Ø":"0",
+	"Ù":"U",
+	"Ú":"U",
+	"Û":"U",
+	"Ü":"U",
+}
+
 # Determine keyboard layout - row lengths
 # Remaining letters will be arranged according to largest value
 const LINE_BREAKS := PoolIntArray([
