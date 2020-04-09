@@ -12,38 +12,18 @@ enum {
 var current_mode := MODE_DISABLED
 var entry_text: String
 var source_text: String
-var bool_mask: Dictionary = {
-	"A":false,
-	"B":false,
-	"C":false,
-	"D":false,
-	"E":false,
-	"F":false,
-	"G":false,
-	"H":false,
-	"I":false,
-	"J":false,
-	"K":false,
-	"L":false,
-	"M":false,
-	"N":false,
-	"O":false,
-	"P":false,
-	"Q":false,
-	"R":false,
-	"S":false,
-	"T":false,
-	"U":false,
-	"V":false,
-	"W":false,
-	"X":false,
-	"Y":false,
-	"Z":false,
-}
+var bool_mask: Dictionary
 var source_hide := "???"
 var solve_stack: PoolStringArray = []
 
 onready var hex := $PanelContainer/ScrollContainer/HexWrapper/HexContainer
+
+func _ready():
+	bool_mask.clear()
+	for c in CharSet.CHAR_MAIN:
+		bool_mask[c] = false
+	pass
+
 
 func _input(event):
 	if event is InputEventKey:
@@ -111,7 +91,7 @@ func single_letter_guessed(letter: String):
 		
 		hex.reveal_letter(guess)
 		
-		var num := entry_text.countn(guess)
+		var num := count_char(guess)
 		emit_signal("game_log", str(num) + " revealed")
 		emit_signal("letters_revealed", num, is_solved())
 		current_mode = MODE_DISABLED
@@ -120,6 +100,15 @@ func single_letter_guessed(letter: String):
 		emit_signal("game_log", guess + " has already been guessed")
 	if is_solved() && GlobalVars.show_source == GlobalVars.SOURCE_SOLVE:
 		$SourceLabel.text = source_text
+
+
+func count_char(c: String) -> int:
+	c = c.substr(0, 1)
+	var count := 0
+	for i in entry_text.length():
+		if CharSet.compare(c, get_char_at(i)):
+			count += 1
+	return count
 
 
 func add_solve(letter: String):
@@ -131,14 +120,15 @@ func add_solve(letter: String):
 func check_solve() -> bool:
 	var stack_index := 0
 	for c in entry_text.length():
-		if not bool_mask.has(get_char_at(c)):
+		var l := CharSet.get_char(get_char_at(c))
+		if not bool_mask.has(l):
 			continue
-		elif bool_mask[get_char_at(c)]:
+		elif bool_mask[l]:
 			continue
 		else:
 			if not solve_stack.size() > stack_index:
 				return false
-			elif not get_char_at(c) == solve_stack[stack_index]:
+			elif not CharSet.compare(l, solve_stack[stack_index]):
 				return false
 			else:
 				stack_index += 1
