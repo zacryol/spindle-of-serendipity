@@ -1,9 +1,11 @@
 extends "res://game/components/GameComponent.gd"
 
 signal key_pressed(letter)
-onready var key_container := $CenterContainer/GridContainer
+onready var key_container: GridContainer = $CenterContainer/GridContainer
 
 func _ready():
+	# Setup Keys
+	
 	var keys := key_container.get_children()
 	for key in keys:
 		if key is Button:
