@@ -79,4 +79,6 @@ func get_row_length() -> int:
 
 
 func has(c: String) -> bool:
-	return c in CHAR_MAIN
+	return c in CHAR_MAIN or \
+			(CHAR_EXTEND.has(c) and\
+			CHAR_EXTEND[c] in CHAR_MAIN)
