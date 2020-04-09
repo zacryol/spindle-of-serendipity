@@ -35,6 +35,7 @@ config/windows_native_icon="res://icons/icon_256.ico"
 [autoload]
 
 GlobalVars="*res://system/singletons/GlobalVars.gd"
+CharSet="*res://system/singletons/CharSet.gd"
 Alias="*res://system/singletons/Alias.gd"
 EntryManager="*res://system/singletons/EntryManager.gd"
 EntryImport="*res://system/singletons/EntryImport.gd"
