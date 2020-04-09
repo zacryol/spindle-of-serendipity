@@ -30,7 +30,6 @@ func _ready():
 				var b := Control.new()
 				key_container.add_child(b)
 				n += 1
-			pass
 	
 	while c < CharSet.CHAR_MAIN.size():
 		var b := Button.new()
@@ -38,16 +37,6 @@ func _ready():
 		key_container.add_child(b)
 		
 		c += 1
-		pass
-	
-	
-#	var row := 0
-#	for c in CharSet.CHAR_MAIN.size():
-#		var b := Button.new()
-#		b.text = CharSet.CHAR_MAIN[c]
-#		key_container.add_child(b)
-	
-	
 	
 	var keys := key_container.get_children()
 	for key in keys:
