@@ -12,38 +12,18 @@ enum {
 var current_mode := MODE_DISABLED
 var entry_text: String
 var source_text: String
-var bool_mask: Dictionary = {
-	"A":false,
-	"B":false,
-	"C":false,
-	"D":false,
-	"E":false,
-	"F":false,
-	"G":false,
-	"H":false,
-	"I":false,
-	"J":false,
-	"K":false,
-	"L":false,
-	"M":false,
-	"N":false,
-	"O":false,
-	"P":false,
-	"Q":false,
-	"R":false,
-	"S":false,
-	"T":false,
-	"U":false,
-	"V":false,
-	"W":false,
-	"X":false,
-	"Y":false,
-	"Z":false,
-}
+var bool_mask: Dictionary
 var source_hide := "???"
 var solve_stack: PoolStringArray = []
 
 onready var hex := $PanelContainer/ScrollContainer/HexWrapper/HexContainer
+
+func _ready():
+	bool_mask.clear()
+	for c in CharSet.CHAR_MAIN:
+		bool_mask[c] = false
+	pass
+
 
 func _input(event):
 	if event is InputEventKey:
