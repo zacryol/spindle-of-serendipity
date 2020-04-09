@@ -91,7 +91,7 @@ func single_letter_guessed(letter: String):
 		
 		hex.reveal_letter(guess)
 		
-		var num := entry_text.countn(guess)
+		var num := entry_text.countn(guess) # Need custom func
 		emit_signal("game_log", str(num) + " revealed")
 		emit_signal("letters_revealed", num, is_solved())
 		current_mode = MODE_DISABLED
@@ -111,14 +111,15 @@ func add_solve(letter: String):
 func check_solve() -> bool:
 	var stack_index := 0
 	for c in entry_text.length():
-		if not bool_mask.has(get_char_at(c)):
+		var l := CharSet.get_char(get_char_at(c))
+		if not bool_mask.has(l):
 			continue
-		elif bool_mask[get_char_at(c)]:
+		elif bool_mask[l]:
 			continue
 		else:
 			if not solve_stack.size() > stack_index:
 				return false
-			elif not get_char_at(c) == solve_stack[stack_index]:
+			elif not CharSet.compare(l, solve_stack[stack_index]):
 				return false
 			else:
 				stack_index += 1
