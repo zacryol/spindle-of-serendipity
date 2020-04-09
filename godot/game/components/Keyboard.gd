@@ -7,10 +7,45 @@ func _ready():
 	# Setup Keys
 	key_container.columns = CharSet.get_row_length()
 	
-	for c in CharSet.CHAR_MAIN.size():
+	var c := 0
+	for l in CharSet.LINE_BREAKS:
+		if l == key_container.columns:
+			for i in key_container.columns:
+				var b := Button.new()
+				b.text = CharSet.CHAR_MAIN[c]
+				key_container.add_child(b)
+				
+				c += 1
+		else:
+			var n := 0
+			while n < l:
+				var b := Button.new()
+				b.text = CharSet.CHAR_MAIN[c]
+				key_container.add_child(b)
+				
+				c += 1
+				n += 1
+			
+			while n < key_container.columns:
+				var b := Control.new()
+				key_container.add_child(b)
+				n += 1
+			pass
+	
+	while c < CharSet.CHAR_MAIN.size():
 		var b := Button.new()
 		b.text = CharSet.CHAR_MAIN[c]
 		key_container.add_child(b)
+		
+		c += 1
+		pass
+	
+	
+#	var row := 0
+#	for c in CharSet.CHAR_MAIN.size():
+#		var b := Button.new()
+#		b.text = CharSet.CHAR_MAIN[c]
+#		key_container.add_child(b)
 	
 	
 	
