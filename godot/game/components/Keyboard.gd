@@ -5,11 +5,12 @@ onready var key_container: GridContainer = $CenterContainer/GridContainer
 
 func _ready():
 	# Setup Keys
-	for c in CharSet.CHAR_MAIN:
+	for c in CharSet.CHAR_MAIN.size():
 		var b := Button.new()
-		b.text = c
+		b.text = CharSet.CHAR_MAIN[c]
 		key_container.add_child(b)
-		pass
+	
+	
 	
 	var keys := key_container.get_children()
 	for key in keys:

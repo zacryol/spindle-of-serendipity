@@ -26,13 +26,16 @@ margin_left = -128.5
 margin_top = -34.0
 margin_right = 128.5
 margin_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="GridContainer" type="GridContainer" parent="CenterContainer"]
-margin_left = 129.0
+margin_left = 128.0
 margin_top = 34.0
-margin_right = 129.0
+margin_right = 128.0
 margin_bottom = 34.0
-columns = 10
+grow_horizontal = 2
+grow_vertical = 2

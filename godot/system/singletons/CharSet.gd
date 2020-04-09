@@ -31,7 +31,14 @@ const CHAR_MAIN := PoolStringArray([
 ])
 
 # Determine keyboard layout - row lengths
+# Remaining letters will be arranged according to largest value
 const LINE_BREAKS := PoolIntArray([
 	10,
 	9,
 ])
+
+func get_row_length() -> int:
+	var length := 0
+	for i in LINE_BREAKS:
+		length = max(i, length)
+	return length
