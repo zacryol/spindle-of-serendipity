@@ -82,3 +82,17 @@ func has(c: String) -> bool:
 	return c in CHAR_MAIN or \
 			(CHAR_EXTEND.has(c) and\
 			CHAR_EXTEND[c] in CHAR_MAIN)
+
+
+func get_char(c: String) -> String:
+	if c in CHAR_EXTEND.keys():
+		if CHAR_EXTEND[c] in CHAR_MAIN:
+			return CHAR_EXTEND[c]
+		else:
+			return c
+	else:
+		return c
+
+
+func compare(c1: String, c2: String) -> bool:
+	return get_char(c1) == get_char(c2)	
