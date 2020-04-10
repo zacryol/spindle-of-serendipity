@@ -53,7 +53,7 @@ func reveal_letter(letter: String):
 	pass
 
 
-func add_solve(letter: String):
+func add_solve(letter: String) -> bool:
 #	var used := 0
 #	if from == stack.size():
 #		return used
@@ -67,8 +67,12 @@ func add_solve(letter: String):
 #		if from + used == stack.size():
 #			return used
 #		pass
-#
-	pass
+	for c in get_children():
+		if c.current_state == HexType.State.BLOCKED:
+			c.temp(letter)
+			return true
+		pass
+	return false
 
 
 func clear_solve():
