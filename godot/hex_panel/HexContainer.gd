@@ -46,16 +46,9 @@ func reveal_letter(letter: String):
 
 
 func add_solve(letter: String):
-#	clear_solve()
-#	var index := 0
-#	for i in range(1, get_child_count()):
-#		index += get_child(i).add_solve(stack, index)
-#		pass
 	for i in range(1, get_child_count()):
 		if get_child(i).add_solve(letter):
 			return
-		pass
-	pass
 
 
 func clear_solve():
