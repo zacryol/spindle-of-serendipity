@@ -48,7 +48,7 @@ func add_letter(letter: String) -> void:
 
 func reveal_letter(letter: String):
 	for c in get_children():
-		if c.text == letter:
+		if CharSet.compare(c.text, letter):
 			c.current_state = HexType.State.REVEALED
 	pass
 
