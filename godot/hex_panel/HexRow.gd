@@ -69,6 +69,10 @@ func clear_solve():
 	pass
 
 
+func pop_solve() -> bool:
+	return true
+
+
 func reveal_all():
 	for c in get_children():
 		c.current_state = HexType.State.REVEALED
