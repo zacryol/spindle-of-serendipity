@@ -32,7 +32,7 @@ func _input(event):
 				event.scancode == KEY_BACKSPACE:
 			if solve_stack.size():
 				solve_stack.remove(solve_stack.size() - 1)
-				hex.add_solve(solve_stack)
+				hex.pop_solve()
 
 
 func set_display(entry: Entry):

@@ -57,6 +57,11 @@ func clear_solve():
 
 
 func pop_solve() -> void:
+	var i := get_child_count() - 1
+	while i > 0:
+		if get_child(i).pop_solve():
+			return
+		i -= 1
 	pass
 
 

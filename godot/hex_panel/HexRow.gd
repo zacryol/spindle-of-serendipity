@@ -70,7 +70,13 @@ func clear_solve():
 
 
 func pop_solve() -> bool:
-	return true
+	var i := get_child_count() - 1
+	while i >= 0:
+		if get_child(i).current_state == HexType.State.TEMP:
+			get_child(i).current_state = HexType.State.BLOCKED
+			return true
+		i -= 1
+	return false
 
 
 func reveal_all():
