@@ -51,6 +51,10 @@ func add_solve(letter: String):
 #	for i in range(1, get_child_count()):
 #		index += get_child(i).add_solve(stack, index)
 #		pass
+	for i in range(1, get_child_count()):
+		if get_child(i).add_solve(letter):
+			return
+		pass
 	pass
 
 
