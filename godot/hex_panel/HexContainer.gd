@@ -45,12 +45,12 @@ func reveal_letter(letter: String):
 	pass
 
 
-func add_solve(stack: PoolStringArray):
-	clear_solve()
-	var index := 0
-	for i in range(1, get_child_count()):
-		index += get_child(i).add_solve(stack, index)
-		pass
+func add_solve(letter: String):
+#	clear_solve()
+#	var index := 0
+#	for i in range(1, get_child_count()):
+#		index += get_child(i).add_solve(stack, index)
+#		pass
 	pass
 
 

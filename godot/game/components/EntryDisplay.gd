@@ -114,7 +114,7 @@ func count_char(c: String) -> int:
 func add_solve(letter: String):
 	if bool_mask.has(letter) and not bool_mask[letter]:
 		solve_stack.append(letter)
-		hex.add_solve(solve_stack)
+		hex.add_solve(letter)
 
 
 func check_solve() -> bool:
