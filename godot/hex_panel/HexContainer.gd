@@ -62,7 +62,16 @@ func pop_solve() -> void:
 		if get_child(i).pop_solve():
 			return
 		i -= 1
-	pass
+
+
+func verify() -> bool:
+	for c in get_children():
+		if not c is HexRow:
+			continue
+		else:
+			if not c.verify():
+				return false
+	return true
 
 
 func reveal_all():
