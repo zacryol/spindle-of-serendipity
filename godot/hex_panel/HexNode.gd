@@ -37,17 +37,18 @@ func get_text() -> String:
 
 
 func set_state(new: int):
-	current_state = new
-	match new:
+	if text == " ":
+		current_state = State.EMPTY
+	else:
+		current_state = new
+	
+	match current_state:
 		State.BLOCKED:
 			self_modulate = COLOR_BLOCKED
 			$Label.text = ""
 		State.REVEALED:
-			if text == " ":
-				set_state(State.EMPTY)
-			else:
-				self_modulate = COLOR_REVEALED
-				$Label.text = text
+			self_modulate = COLOR_REVEALED
+			$Label.text = text
 		State.TEMP:
 			self_modulate = COLOR_TEMP
 		State.EMPTY:
