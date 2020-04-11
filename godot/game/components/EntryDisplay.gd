@@ -121,22 +121,6 @@ func add_solve(letter: String):
 
 func check_solve() -> bool:
 	return hex.verify()
-	
-	var stack_index := 0
-	for c in entry_text.length():
-		var l := CharSet.get_char(get_char_at(c))
-		if not bool_mask.has(l):
-			continue
-		elif bool_mask[l]:
-			continue
-		else:
-			if not solve_stack.size() > stack_index:
-				return false
-			elif not CharSet.compare(l, solve_stack[stack_index]):
-				return false
-			else:
-				stack_index += 1
-	return true
 
 
 func init_solve():
