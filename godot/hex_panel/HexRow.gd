@@ -41,9 +41,8 @@ func get_line() -> String:
 
 func add_letter(letter: String) -> void:
 	var l = hex_node.instance()
-	l.text = letter.substr(0, 1)
-#	l.current_state = HexType.State.BLOCKED
 	add_child(l)
+	l.text = letter.substr(0, 1)
 
 
 func reveal_letter(letter: String):

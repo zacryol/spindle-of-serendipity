@@ -34,8 +34,8 @@ func set_text(new_text: String):
 	
 	for s in split_lines(new_text):
 		var h := HexRow.new()
-		h.line_text = s
 		add_child(h)
+		h.line_text = s
 
 
 func reveal_letter(letter: String):
