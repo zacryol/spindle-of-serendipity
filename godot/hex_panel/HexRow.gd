@@ -53,22 +53,13 @@ func reveal_letter(letter: String):
 	pass
 
 
-func add_solve(stack: PoolStringArray, from: int) -> int:
-	var used := 0
-	if from == stack.size():
-		return used
-	
+func add_solve(letter: String) -> bool:
 	for c in get_children():
-		if not c.current_state == HexType.State.BLOCKED:
-			continue
-		
-		c.temp(stack[from + used])
-		used += 1
-		if from + used == stack.size():
-			return used
+		if c.current_state == HexType.State.BLOCKED:
+			c.temp(letter)
+			return true
 		pass
-	
-	return used
+	return false
 
 
 func clear_solve():
@@ -76,6 +67,16 @@ func clear_solve():
 		if c.current_state == HexType.State.TEMP:
 			c.current_state = HexType.State.BLOCKED
 	pass
+
+
+func pop_solve() -> bool:
+	var i := get_child_count() - 1
+	while i >= 0:
+		if get_child(i).current_state == HexType.State.TEMP:
+			get_child(i).current_state = HexType.State.BLOCKED
+			return true
+		i -= 1
+	return false
 
 
 func reveal_all():
