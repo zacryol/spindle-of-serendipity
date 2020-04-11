@@ -118,6 +118,8 @@ func add_solve(letter: String):
 
 
 func check_solve() -> bool:
+	return hex.verify()
+	
 	var stack_index := 0
 	for c in entry_text.length():
 		var l := CharSet.get_char(get_char_at(c))
