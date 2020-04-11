@@ -54,11 +54,7 @@ func set_display(entry: Entry):
 
 
 func is_solved() -> bool:
-	var letters := get_letters_in_entry()
-	for l in letters:
-		if !bool_mask[l]:
-			return false
-	return true
+	return hex.verify()
 
 
 func get_letters_in_entry() -> PoolStringArray:
@@ -118,21 +114,7 @@ func add_solve(letter: String):
 
 
 func check_solve() -> bool:
-	var stack_index := 0
-	for c in entry_text.length():
-		var l := CharSet.get_char(get_char_at(c))
-		if not bool_mask.has(l):
-			continue
-		elif bool_mask[l]:
-			continue
-		else:
-			if not solve_stack.size() > stack_index:
-				return false
-			elif not CharSet.compare(l, solve_stack[stack_index]):
-				return false
-			else:
-				stack_index += 1
-	return true
+	return hex.verify()
 
 
 func init_solve():
