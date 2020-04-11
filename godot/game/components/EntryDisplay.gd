@@ -55,12 +55,6 @@ func set_display(entry: Entry):
 
 func is_solved() -> bool:
 	return hex.verify()
-	
-	var letters := get_letters_in_entry()
-	for l in letters:
-		if !bool_mask[l]:
-			return false
-	return true
 
 
 func get_letters_in_entry() -> PoolStringArray:
