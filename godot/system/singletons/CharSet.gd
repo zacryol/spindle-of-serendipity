@@ -95,4 +95,4 @@ func get_char(c: String) -> String:
 
 
 func compare(c1: String, c2: String) -> bool:
-	return get_char(c1) == get_char(c2)	
+	return get_char(c1) == get_char(c2)

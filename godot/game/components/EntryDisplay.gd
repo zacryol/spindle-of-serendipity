@@ -32,7 +32,7 @@ func _input(event):
 				event.scancode == KEY_BACKSPACE:
 			if solve_stack.size():
 				solve_stack.remove(solve_stack.size() - 1)
-				hex.add_solve(solve_stack)
+				hex.pop_solve()
 
 
 func set_display(entry: Entry):
@@ -54,11 +54,7 @@ func set_display(entry: Entry):
 
 
 func is_solved() -> bool:
-	var letters := get_letters_in_entry()
-	for l in letters:
-		if !bool_mask[l]:
-			return false
-	return true
+	return hex.verify()
 
 
 func get_letters_in_entry() -> PoolStringArray:
@@ -114,25 +110,11 @@ func count_char(c: String) -> int:
 func add_solve(letter: String):
 	if bool_mask.has(letter) and not bool_mask[letter]:
 		solve_stack.append(letter)
-		hex.add_solve(solve_stack)
+		hex.add_solve(letter)
 
 
 func check_solve() -> bool:
-	var stack_index := 0
-	for c in entry_text.length():
-		var l := CharSet.get_char(get_char_at(c))
-		if not bool_mask.has(l):
-			continue
-		elif bool_mask[l]:
-			continue
-		else:
-			if not solve_stack.size() > stack_index:
-				return false
-			elif not CharSet.compare(l, solve_stack[stack_index]):
-				return false
-			else:
-				stack_index += 1
-	return true
+	return hex.verify()
 
 
 func init_solve():
@@ -162,4 +144,4 @@ func _on_SolveButton_pressed():
 
 func _on_BSpace_pressed():
 	solve_stack.remove(solve_stack.size() - 1)
-	hex.add_solve(solve_stack)
+	hex.pop_solve()

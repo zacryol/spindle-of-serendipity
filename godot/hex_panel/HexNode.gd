@@ -15,6 +15,8 @@ const COLOR_NONE = Color.transparent
 var text: String = "" setget set_text, get_text
 var current_state: int = State.BLOCKED setget set_state, get_state
 
+onready var view: Label = $Label
+
 func _ready():
 	pass
 
@@ -22,7 +24,7 @@ func _ready():
 func set_text(new_text: String):
 	text = new_text.substr(0, 1)
 	if current_state == State.REVEALED:
-		$Label.text = text
+		view.text = text
 	
 	if text == " ":
 		set_state(State.EMPTY)
@@ -37,21 +39,22 @@ func get_text() -> String:
 
 
 func set_state(new: int):
-	current_state = new
-	match new:
+	if text == " ":
+		current_state = State.EMPTY
+	else:
+		current_state = new
+	
+	match current_state:
 		State.BLOCKED:
 			self_modulate = COLOR_BLOCKED
-			$Label.text = ""
+			view.text = ""
 		State.REVEALED:
-			if text == " ":
-				set_state(State.EMPTY)
-			else:
-				self_modulate = COLOR_REVEALED
-				$Label.text = text
+			self_modulate = COLOR_REVEALED
+			view.text = text
 		State.TEMP:
 			self_modulate = COLOR_TEMP
 		State.EMPTY:
-			$Label.text = ""
+			view.text = ""
 			self_modulate = COLOR_NONE
 
 
@@ -61,4 +64,18 @@ func get_state() -> int:
 
 func temp(guess: String) -> void:
 	set_state(State.TEMP)
-	$Label.text = guess.substr(0, 1)
+	view.text = guess.substr(0, 1)
+
+
+func verify() -> bool:
+	match current_state:
+		State.REVEALED:
+			return true
+		State.EMPTY:
+			return true
+		State.BLOCKED:
+			return false
+		State.TEMP:
+			return CharSet.compare(view.text, text)
+	
+	return false
