@@ -144,4 +144,4 @@ func _on_SolveButton_pressed():
 
 func _on_BSpace_pressed():
 	solve_stack.remove(solve_stack.size() - 1)
-	hex.add_solve(solve_stack)
+	hex.pop_solve()
