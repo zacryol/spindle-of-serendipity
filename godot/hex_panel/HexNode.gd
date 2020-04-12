@@ -46,16 +46,16 @@ func set_state(new: int):
 	
 	match current_state:
 		State.BLOCKED:
-			self_modulate = COLOR_BLOCKED
+			modulate = COLOR_BLOCKED
 			view.text = ""
 		State.REVEALED:
-			self_modulate = COLOR_REVEALED
+			modulate = COLOR_REVEALED
 			view.text = text
 		State.TEMP:
-			self_modulate = COLOR_TEMP
+			modulate = COLOR_TEMP
 		State.EMPTY:
 			view.text = ""
-			self_modulate = COLOR_NONE
+			modulate = COLOR_NONE
 
 
 func get_state() -> int:
