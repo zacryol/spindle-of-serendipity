@@ -14,7 +14,6 @@ var entry_text: String
 var source_text: String
 var bool_mask: Dictionary
 var source_hide := "???"
-var solve_stack: PoolStringArray = []
 
 onready var hex := $PanelContainer/ScrollContainer/HexWrapper/HexContainer
 
@@ -30,9 +29,7 @@ func _input(event):
 		if event.is_pressed() and \
 				not event.is_echo() and \
 				event.scancode == KEY_BACKSPACE:
-			if solve_stack.size():
-				solve_stack.remove(solve_stack.size() - 1)
-				hex.pop_solve()
+			hex.pop_solve()
 
 
 func set_display(entry: Entry):
@@ -109,7 +106,6 @@ func count_char(c: String) -> int:
 
 func add_solve(letter: String):
 	if bool_mask.has(letter) and not bool_mask[letter]:
-		solve_stack.append(letter)
 		hex.add_solve(letter)
 
 
@@ -118,7 +114,6 @@ func check_solve() -> bool:
 
 
 func init_solve():
-	solve_stack = []
 	current_mode = MODE_SOLVE
 	$SolveUI.show()
 
@@ -131,7 +126,6 @@ func _on_SolveButton_pressed():
 	var solved := check_solve()
 	$SolveUI.hide()
 	emit_signal("guess_checked", solved)
-	solve_stack = []
 	hex.clear_solve()
 	current_mode = MODE_DISABLED
 	if solved:
@@ -143,5 +137,4 @@ func _on_SolveButton_pressed():
 
 
 func _on_BSpace_pressed():
-	solve_stack.remove(solve_stack.size() - 1)
 	hex.pop_solve()
