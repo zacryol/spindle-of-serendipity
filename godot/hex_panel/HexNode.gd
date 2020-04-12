@@ -39,6 +39,8 @@ func get_text() -> String:
 
 
 func set_state(new: int):
+	var changed := new != current_state
+	
 	if text == " ":
 		current_state = State.EMPTY
 	else:
@@ -56,7 +58,8 @@ func set_state(new: int):
 		State.EMPTY:
 			view.text = ""
 			modulate = COLOR_NONE
-
+	if changed:
+		$AnimationPlayer.play("change")
 
 func get_state() -> int:
 	return current_state
