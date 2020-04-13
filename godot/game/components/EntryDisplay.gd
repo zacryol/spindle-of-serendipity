@@ -109,10 +109,6 @@ func add_solve(letter: String):
 		hex.add_solve(letter)
 
 
-func check_solve() -> bool:
-	return hex.verify()
-
-
 func init_solve():
 	current_mode = MODE_SOLVE
 	$SolveUI.show()
@@ -123,7 +119,7 @@ func _on_Spindle_spun():
 
 
 func _on_SolveButton_pressed():
-	var solved := check_solve()
+	var solved := is_solved()
 	$SolveUI.hide()
 	emit_signal("guess_checked", solved)
 	hex.clear_solve()
