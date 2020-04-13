@@ -82,9 +82,8 @@ func single_letter_guessed(letter: String):
 	if bool_mask[guess] == false:
 		bool_mask[guess] = true
 		
-		hex.reveal_letter(guess)
+		var num: int = hex.reveal_letter(guess)
 		
-		var num := count_char(guess)
 		emit_signal("game_log", str(num) + " revealed")
 		emit_signal("letters_revealed", num, is_solved())
 		current_mode = MODE_DISABLED
@@ -93,15 +92,6 @@ func single_letter_guessed(letter: String):
 		emit_signal("game_log", guess + " has already been guessed")
 	if is_solved() && GlobalVars.show_source == GlobalVars.SOURCE_SOLVE:
 		$SourceLabel.text = source_text
-
-
-func count_char(c: String) -> int:
-	c = c.substr(0, 1)
-	var count := 0
-	for i in entry_text.length():
-		if CharSet.compare(c, get_char_at(i)):
-			count += 1
-	return count
 
 
 func add_solve(letter: String):

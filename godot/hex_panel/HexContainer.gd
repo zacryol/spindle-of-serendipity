@@ -38,11 +38,12 @@ func set_text(new_text: String):
 		h.line_text = s
 
 
-func reveal_letter(letter: String):
+func reveal_letter(letter: String) -> int:
+	var count := 0
 	letter = letter.substr(0, 1)
 	for i in range(1, get_child_count()):
-		get_child(i).reveal_letter(letter)
-	pass
+		count += get_child(i).reveal_letter(letter)
+	return count
 
 
 func add_solve(letter: String):

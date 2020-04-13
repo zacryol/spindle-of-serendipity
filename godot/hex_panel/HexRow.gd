@@ -45,11 +45,13 @@ func add_letter(letter: String) -> void:
 	l.text = letter.substr(0, 1)
 
 
-func reveal_letter(letter: String):
+func reveal_letter(letter: String) -> int:
+	var count := 0
 	for c in get_children():
 		if CharSet.compare(c.text, letter):
 			c.current_state = HexType.State.REVEALED
-	pass
+			count += 1
+	return count
 
 
 func add_solve(letter: String) -> bool:
