@@ -45,15 +45,6 @@ func add_letter(letter: String) -> void:
 	l.text = letter.substr(0, 1)
 
 
-func add_solve(letter: String) -> bool:
-	for c in get_children():
-		if c.current_state == HexType.State.BLOCKED:
-			c.temp(letter)
-			return true
-		pass
-	return false
-
-
 func clear_solve():
 	for c in get_children():
 		if c.current_state == HexType.State.TEMP:
