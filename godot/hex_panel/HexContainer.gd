@@ -58,8 +58,13 @@ func reveal_letter(letter: String) -> int:
 
 
 func add_solve(letter: String):
-	for i in range(1, get_child_count()):
-		if get_child(i).add_solve(letter):
+#	for i in range(1, get_child_count()):
+#		if get_child(i).add_solve(letter):
+#			return
+	
+	for c in get_hex_nodes():
+		if c.current_state == HexType.State.BLOCKED:
+			c.temp(letter)
 			return
 
 
