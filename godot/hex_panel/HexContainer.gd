@@ -50,8 +50,6 @@ func get_hex_nodes() -> Array:
 func reveal_letter(letter: String) -> int:
 	var count := 0
 	letter = letter.substr(0, 1)
-#	for i in range(1, get_child_count()):
-#		count += get_child(i).reveal_letter(letter)
 	for c in get_hex_nodes():
 		if CharSet.compare(c.text, letter):
 			c.current_state = HexType.State.REVEALED
