@@ -86,8 +86,5 @@ func verify() -> bool:
 
 
 func reveal_all():
-#	for i in range(1, get_child_count()):
-#		get_child(i).reveal_all()
-#	pass
 	for c in get_hex_nodes():
 		c.current_state = HexType.State.REVEALED

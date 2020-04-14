@@ -43,8 +43,3 @@ func add_letter(letter: String) -> void:
 	var l = hex_node.instance()
 	add_child(l)
 	l.text = letter.substr(0, 1)
-
-
-func reveal_all():
-	for c in get_children():
-		c.current_state = HexType.State.REVEALED
