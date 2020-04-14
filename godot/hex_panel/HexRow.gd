@@ -45,13 +45,6 @@ func add_letter(letter: String) -> void:
 	l.text = letter.substr(0, 1)
 
 
-func verify() -> bool:
-	for c in get_children():
-		if not c.verify():
-			return false
-	return true
-
-
 func reveal_all():
 	for c in get_children():
 		c.current_state = HexType.State.REVEALED

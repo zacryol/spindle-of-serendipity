@@ -79,13 +79,6 @@ func pop_solve() -> void:
 
 
 func verify() -> bool:
-#	for c in get_children():
-#		if not c is HexRow:
-#			continue
-#		else:
-#			if not c.verify():
-#				return false
-#	return true
 	for c in get_hex_nodes():
 		if not c.verify():
 			return false
