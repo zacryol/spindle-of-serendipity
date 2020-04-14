@@ -71,11 +71,16 @@ func clear_solve():
 
 
 func pop_solve() -> void:
-	var i := get_child_count() - 1
-	while i > 0:
-		if get_child(i).pop_solve():
+#	var i := get_child_count() - 1
+#	while i > 0:
+#		if get_child(i).pop_solve():
+#			return
+#		i -= 1
+	var nodes := get_hex_nodes()
+	for i in range(nodes.size() - 1, -1, -1):
+		if nodes[i].current_state == HexType.State.TEMP:
+			nodes[i].current_state = HexType.State.BLOCKED
 			return
-		i -= 1
 
 
 func verify() -> bool:
