@@ -3,6 +3,8 @@ extends Container
 const Y_CHANGE := 51
 const X_OFFSET := 29.5
 
+var HexType := preload("res://hex_panel/HexNode.gd")
+
 export var text: String setget set_text
 
 func _notification(what):
@@ -48,8 +50,12 @@ func get_hex_nodes() -> Array:
 func reveal_letter(letter: String) -> int:
 	var count := 0
 	letter = letter.substr(0, 1)
-	for i in range(1, get_child_count()):
-		count += get_child(i).reveal_letter(letter)
+#	for i in range(1, get_child_count()):
+#		count += get_child(i).reveal_letter(letter)
+	for c in get_hex_nodes():
+		if CharSet.compare(c.text, letter):
+			c.current_state = HexType.State.REVEALED
+			count += 1
 	return count
 
 
