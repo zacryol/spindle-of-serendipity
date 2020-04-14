@@ -45,16 +45,6 @@ func add_letter(letter: String) -> void:
 	l.text = letter.substr(0, 1)
 
 
-func pop_solve() -> bool:
-	var i := get_child_count() - 1
-	while i >= 0:
-		if get_child(i).current_state == HexType.State.TEMP:
-			get_child(i).current_state = HexType.State.BLOCKED
-			return true
-		i -= 1
-	return false
-
-
 func verify() -> bool:
 	for c in get_children():
 		if not c.verify():
