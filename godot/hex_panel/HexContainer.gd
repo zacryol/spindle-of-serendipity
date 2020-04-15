@@ -3,6 +3,8 @@ extends Container
 const Y_CHANGE := 51
 const X_OFFSET := 29.5
 
+var HexType := preload("res://hex_panel/HexNode.gd")
+
 export var text: String setget set_text
 
 func _notification(what):
@@ -38,43 +40,51 @@ func set_text(new_text: String):
 		h.line_text = s
 
 
-func reveal_letter(letter: String):
-	letter = letter.substr(0, 1)
+func get_hex_nodes() -> Array:
+	var nodes := []
 	for i in range(1, get_child_count()):
-		get_child(i).reveal_letter(letter)
-	pass
+		nodes += get_child(i).get_children()
+	return nodes
+
+
+func reveal_letter(letter: String) -> int:
+	var count := 0
+	letter = letter.substr(0, 1)
+	for c in get_hex_nodes():
+		if CharSet.compare(c.text, letter):
+			c.current_state = HexType.State.REVEALED
+			count += 1
+	return count
 
 
 func add_solve(letter: String):
-	for i in range(1, get_child_count()):
-		if get_child(i).add_solve(letter):
+	for c in get_hex_nodes():
+		if c.current_state == HexType.State.BLOCKED:
+			c.temp(letter)
 			return
 
 
 func clear_solve():
-	for i in range(1, get_child_count()):
-		get_child(i).clear_solve()
+	for c in get_hex_nodes():
+		if c.current_state == HexType.State.TEMP:
+			c.current_state = HexType.State.BLOCKED
 
 
 func pop_solve() -> void:
-	var i := get_child_count() - 1
-	while i > 0:
-		if get_child(i).pop_solve():
+	var nodes := get_hex_nodes()
+	for i in range(nodes.size() - 1, -1, -1):
+		if nodes[i].current_state == HexType.State.TEMP:
+			nodes[i].current_state = HexType.State.BLOCKED
 			return
-		i -= 1
 
 
 func verify() -> bool:
-	for c in get_children():
-		if not c is HexRow:
-			continue
-		else:
-			if not c.verify():
-				return false
+	for c in get_hex_nodes():
+		if not c.verify():
+			return false
 	return true
 
 
 func reveal_all():
-	for i in range(1, get_child_count()):
-		get_child(i).reveal_all()
-	pass
+	for c in get_hex_nodes():
+		c.current_state = HexType.State.REVEALED

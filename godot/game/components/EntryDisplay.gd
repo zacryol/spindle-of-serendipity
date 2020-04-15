@@ -14,7 +14,6 @@ var entry_text: String
 var source_text: String
 var bool_mask: Dictionary
 var source_hide := "???"
-var solve_stack: PoolStringArray = []
 
 onready var hex := $PanelContainer/ScrollContainer/HexWrapper/HexContainer
 
@@ -30,9 +29,7 @@ func _input(event):
 		if event.is_pressed() and \
 				not event.is_echo() and \
 				event.scancode == KEY_BACKSPACE:
-			if solve_stack.size():
-				solve_stack.remove(solve_stack.size() - 1)
-				hex.pop_solve()
+			hex.pop_solve()
 
 
 func set_display(entry: Entry):
@@ -85,9 +82,8 @@ func single_letter_guessed(letter: String):
 	if bool_mask[guess] == false:
 		bool_mask[guess] = true
 		
-		hex.reveal_letter(guess)
+		var num: int = hex.reveal_letter(guess)
 		
-		var num := count_char(guess)
 		emit_signal("game_log", str(num) + " revealed")
 		emit_signal("letters_revealed", num, is_solved())
 		current_mode = MODE_DISABLED
@@ -98,27 +94,12 @@ func single_letter_guessed(letter: String):
 		$SourceLabel.text = source_text
 
 
-func count_char(c: String) -> int:
-	c = c.substr(0, 1)
-	var count := 0
-	for i in entry_text.length():
-		if CharSet.compare(c, get_char_at(i)):
-			count += 1
-	return count
-
-
 func add_solve(letter: String):
 	if bool_mask.has(letter) and not bool_mask[letter]:
-		solve_stack.append(letter)
 		hex.add_solve(letter)
 
 
-func check_solve() -> bool:
-	return hex.verify()
-
-
 func init_solve():
-	solve_stack = []
 	current_mode = MODE_SOLVE
 	$SolveUI.show()
 
@@ -128,10 +109,9 @@ func _on_Spindle_spun():
 
 
 func _on_SolveButton_pressed():
-	var solved := check_solve()
+	var solved := is_solved()
 	$SolveUI.hide()
 	emit_signal("guess_checked", solved)
-	solve_stack = []
 	hex.clear_solve()
 	current_mode = MODE_DISABLED
 	if solved:
@@ -143,5 +123,4 @@ func _on_SolveButton_pressed():
 
 
 func _on_BSpace_pressed():
-	solve_stack.remove(solve_stack.size() - 1)
 	hex.pop_solve()
