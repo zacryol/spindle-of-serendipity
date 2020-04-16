@@ -1,5 +1,7 @@
 extends TextureRect
 
+signal anim
+
 enum State {
 	BLOCKED,
 	REVEALED,
@@ -82,3 +84,7 @@ func verify() -> bool:
 			return CharSet.compare(view.text, text)
 	
 	return false
+
+
+func enough() -> void:
+	emit_signal("anim")
