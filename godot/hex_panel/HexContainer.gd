@@ -40,10 +40,14 @@ func set_text(new_text: String):
 		h.line_text = s
 
 
-func get_hex_nodes() -> Array:
+func get_hex_nodes(randomized := false) -> Array:
 	var nodes := []
 	for i in range(1, get_child_count()):
 		nodes += get_child(i).get_children()
+	
+	if randomized:
+		nodes.shuffle()
+	
 	return nodes
 
 
