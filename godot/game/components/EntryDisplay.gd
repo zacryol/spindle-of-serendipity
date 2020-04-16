@@ -82,12 +82,13 @@ func single_letter_guessed(letter: String):
 	if bool_mask[guess] == false:
 		bool_mask[guess] = true
 		
-		var num: int = hex.reveal_letter(guess)
+		current_mode = MODE_DISABLED
+		emit_signal("one_letter", letter)
+		
+		var num: int = yield(hex.reveal_letter(guess), "completed")
 		
 		emit_signal("game_log", str(num) + " revealed")
 		emit_signal("letters_revealed", num, is_solved())
-		current_mode = MODE_DISABLED
-		emit_signal("one_letter", letter)
 	else:
 		emit_signal("game_log", guess + " has already been guessed")
 	if is_solved() && GlobalVars.show_source == GlobalVars.SOURCE_SOLVE:

@@ -40,19 +40,25 @@ func set_text(new_text: String):
 		h.line_text = s
 
 
-func get_hex_nodes() -> Array:
+func get_hex_nodes(randomized := false) -> Array:
 	var nodes := []
 	for i in range(1, get_child_count()):
 		nodes += get_child(i).get_children()
+	
+	if randomized:
+		nodes.shuffle()
+	
 	return nodes
 
 
 func reveal_letter(letter: String) -> int:
 	var count := 0
 	letter = letter.substr(0, 1)
-	for c in get_hex_nodes():
+	yield(get_tree().create_timer(0), "timeout")
+	for c in get_hex_nodes(true):
 		if CharSet.compare(c.text, letter):
 			c.current_state = HexType.State.REVEALED
+			yield(c, "anim")
 			count += 1
 	return count
 
