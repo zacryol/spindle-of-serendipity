@@ -82,7 +82,7 @@ func single_letter_guessed(letter: String):
 	if bool_mask[guess] == false:
 		bool_mask[guess] = true
 		
-		var num: int = hex.reveal_letter(guess)
+		var num: int = yield(hex.reveal_letter(guess), "completed")
 		
 		emit_signal("game_log", str(num) + " revealed")
 		emit_signal("letters_revealed", num, is_solved())
