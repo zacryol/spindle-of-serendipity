@@ -54,6 +54,7 @@ func get_hex_nodes(randomized := false) -> Array:
 func reveal_letter(letter: String) -> int:
 	var count := 0
 	letter = letter.substr(0, 1)
+	yield(get_tree().create_timer(0), "timeout")
 	for c in get_hex_nodes(true):
 		if CharSet.compare(c.text, letter):
 			c.current_state = HexType.State.REVEALED
