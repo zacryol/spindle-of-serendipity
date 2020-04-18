@@ -15,7 +15,7 @@ var source_text: String
 var bool_mask: Dictionary
 var source_hide := "???"
 
-onready var hex := $PanelContainer/ScrollContainer/HexWrapper/HexContainer
+onready var hex := $PanelContainer/ScrollContainer/CenterContainer/HexContainer
 
 func _ready():
 	bool_mask.clear()
