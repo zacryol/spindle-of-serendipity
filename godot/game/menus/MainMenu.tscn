@@ -66,8 +66,8 @@ resizable = true
 mode = 1
 access = 2
 filters = PoolStringArray( "*.json" )
-current_dir = "/home/zach/Documents/godot/spindle-of-serendipity"
-current_path = "/home/zach/Documents/godot/spindle-of-serendipity/"
+current_dir = "/home/zach/Documents/godot/spindle-of-serendipity/godot"
+current_path = "/home/zach/Documents/godot/spindle-of-serendipity/godot/"
 
 [node name="AcceptDialog" type="AcceptDialog" parent="."]
 margin_left = 430.586
