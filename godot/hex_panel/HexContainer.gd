@@ -3,7 +3,7 @@ extends Container
 const Y_CHANGE := 51
 const X_OFFSET := 29.5
 
-var HexType := preload("res://hex_panel/HexNode.gd")
+const HexType := preload("res://hex_panel/HexNode.gd")
 
 export var text: String setget set_text
 
