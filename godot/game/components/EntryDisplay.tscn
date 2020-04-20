@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://game/components/EntryDisplay.gd" type="Script" id=1]
-[ext_resource path="res://hex_panel/HexWrapper.tscn" type="PackedScene" id=2]
+[ext_resource path="res://hex_panel/HexContainer.tscn" type="PackedScene" id=2]
 
 [node name="EntryDisplay" type="Control"]
 anchor_right = 1.0
@@ -24,7 +24,23 @@ margin_top = 7.0
 margin_right = 1273.0
 margin_bottom = 713.0
 
-[node name="HexWrapper" parent="PanelContainer/ScrollContainer" instance=ExtResource( 2 )]
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/ScrollContainer"]
+margin_right = 1266.0
+margin_bottom = 706.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HexContainer" parent="PanelContainer/ScrollContainer/CenterContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 633.0
+margin_top = 353.0
+margin_right = 633.0
+margin_bottom = 353.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="CategoryLabel" type="Label" parent="."]
 anchor_top = 1.0
@@ -70,6 +86,5 @@ margin_top = 24.0
 margin_right = 101.0
 margin_bottom = 44.0
 text = "<- Backspace"
-[connection signal="resized" from="PanelContainer/ScrollContainer" to="PanelContainer/ScrollContainer/HexWrapper" method="_on_ScrollContainer_resized"]
 [connection signal="pressed" from="SolveUI/SolveButton" to="." method="_on_SolveButton_pressed"]
 [connection signal="pressed" from="SolveUI/BSpace" to="." method="_on_BSpace_pressed"]

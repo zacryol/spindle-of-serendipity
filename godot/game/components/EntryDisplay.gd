@@ -15,7 +15,7 @@ var source_text: String
 var bool_mask: Dictionary
 var source_hide := "???"
 
-onready var hex := $PanelContainer/ScrollContainer/HexWrapper/HexContainer
+onready var hex := $PanelContainer/ScrollContainer/CenterContainer/HexContainer
 
 func _ready():
 	bool_mask.clear()
@@ -54,16 +54,6 @@ func is_solved() -> bool:
 	return hex.verify()
 
 
-func get_letters_in_entry() -> PoolStringArray:
-	var letters: PoolStringArray = []
-	for i in entry_text.length():
-		var current_char := get_char_at(i)
-		if bool_mask.has(current_char):
-			if not current_char in letters:
-				letters.append(current_char)
-	return letters
-
-
 func get_char_at(index: int) -> String:
 	return entry_text.substr(index, 1)
 
@@ -82,12 +72,13 @@ func single_letter_guessed(letter: String):
 	if bool_mask[guess] == false:
 		bool_mask[guess] = true
 		
-		var num: int = hex.reveal_letter(guess)
+		current_mode = MODE_DISABLED
+		emit_signal("one_letter", letter)
+		
+		var num: int = yield(hex.reveal_letter(guess), "completed")
 		
 		emit_signal("game_log", str(num) + " revealed")
 		emit_signal("letters_revealed", num, is_solved())
-		current_mode = MODE_DISABLED
-		emit_signal("one_letter", letter)
 	else:
 		emit_signal("game_log", guess + " has already been guessed")
 	if is_solved() && GlobalVars.show_source == GlobalVars.SOURCE_SOLVE:
