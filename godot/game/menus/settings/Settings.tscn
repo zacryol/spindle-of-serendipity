@@ -24,10 +24,10 @@ __meta__ = {
 }
 
 [node name="TabContainer" type="TabContainer" parent="PanelContainer"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 1273.0
-margin_bottom = 713.0
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 1278.0
+margin_bottom = 718.0
 
 [node name="Back" type="Button" parent="PanelContainer/TabContainer"]
 anchor_right = 1.0
@@ -58,7 +58,7 @@ __meta__ = {
 }
 
 [node name="List" type="VBoxContainer" parent="PanelContainer/TabContainer/General/Scroll"]
-margin_right = 808.0
+margin_right = 817.0
 margin_bottom = 187.0
 size_flags_horizontal = 3
 custom_constants/separation = 25
