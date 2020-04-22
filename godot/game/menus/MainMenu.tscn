@@ -30,6 +30,8 @@ margin_left = -66.0
 margin_top = -250.0
 margin_right = 66.0
 margin_bottom = -161.0
+grow_horizontal = 2
+grow_vertical = 2
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
