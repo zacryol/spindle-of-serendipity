@@ -53,4 +53,3 @@ window/stretch/aspect="keep"
 [rendering]
 
 quality/driver/driver_name="GLES2"
-environment/default_clear_color=Color( 0.141176, 0.137255, 0.160784, 1 )
