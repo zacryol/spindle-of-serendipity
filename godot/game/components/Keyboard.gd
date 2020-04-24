@@ -41,6 +41,7 @@ func _ready():
 	var keys := key_container.get_children()
 	for key in keys:
 		if key is Button:
+			key.rect_min_size = Vector2(30, 31)
 			key.connect("pressed", self, "_on_Key_pressed", [key.text])
 
 
