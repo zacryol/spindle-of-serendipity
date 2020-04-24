@@ -64,8 +64,11 @@ func set_state(new: int):
 		State.EMPTY:
 			view.text = ""
 			modulate = COLOR_NONE
-	if changed:
+	if changed and not current_state == State.EMPTY:
 		$AnimationPlayer.play("change")
+	else:
+		enough()
+
 
 func get_state() -> int:
 	return current_state
