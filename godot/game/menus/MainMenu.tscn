@@ -30,6 +30,8 @@ margin_left = -66.0
 margin_top = -250.0
 margin_right = 66.0
 margin_bottom = -161.0
+grow_horizontal = 2
+grow_vertical = 2
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
@@ -37,19 +39,19 @@ __meta__ = {
 
 [node name="ImportButton" type="Button" parent="VBoxContainer"]
 margin_right = 132.0
-margin_bottom = 27.0
+margin_bottom = 31.0
 text = "Import JSON"
 
 [node name="StartButton" type="Button" parent="VBoxContainer"]
-margin_top = 31.0
+margin_top = 35.0
 margin_right = 132.0
-margin_bottom = 58.0
+margin_bottom = 66.0
 text = "Start Game"
 
 [node name="Settings" type="Button" parent="VBoxContainer"]
-margin_top = 62.0
+margin_top = 70.0
 margin_right = 132.0
-margin_bottom = 89.0
+margin_bottom = 101.0
 text = "Settings"
 
 [node name="FileDialog" type="FileDialog" parent="."]
