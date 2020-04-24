@@ -38,6 +38,9 @@ func set_text(new_text: String):
 		var h := HexRow.new()
 		add_child(h)
 		h.line_text = s
+	
+	for h in get_hex_nodes():
+		h.start()
 
 
 func get_hex_nodes(randomized := false) -> Array:
