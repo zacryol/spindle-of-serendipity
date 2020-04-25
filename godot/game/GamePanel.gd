@@ -35,7 +35,6 @@ func _on_NewG_pressed():
 	new_button.hide()
 	quit_button.hide()
 	keyboard.enable()
-	spindle.enabled = true
 
 
 func _pre_reset():

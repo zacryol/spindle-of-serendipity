@@ -39,8 +39,6 @@ margin_left = 633.0
 margin_top = 353.0
 margin_right = 633.0
 margin_bottom = 353.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="CategoryLabel" type="Label" parent="."]
 anchor_top = 1.0
@@ -86,5 +84,6 @@ margin_top = 24.0
 margin_right = 101.0
 margin_bottom = 44.0
 text = "<- Backspace"
+[connection signal="setup" from="PanelContainer/ScrollContainer/CenterContainer/HexContainer" to="." method="_on_HexContainer_setup"]
 [connection signal="pressed" from="SolveUI/SolveButton" to="." method="_on_SolveButton_pressed"]
 [connection signal="pressed" from="SolveUI/BSpace" to="." method="_on_BSpace_pressed"]

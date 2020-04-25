@@ -26,7 +26,11 @@ margin_left = -43.0
 margin_top = -20.0
 grow_horizontal = 0
 grow_vertical = 0
+disabled = true
 text = "Spin!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label" type="Label" parent="."]
 margin_right = 40.0
