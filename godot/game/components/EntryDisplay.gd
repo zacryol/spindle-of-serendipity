@@ -120,4 +120,3 @@ func _on_BSpace_pressed():
 
 func _on_HexContainer_setup():
 	emit_signal("text_ready")
-	pass # Replace with function body.

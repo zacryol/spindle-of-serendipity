@@ -4,7 +4,7 @@ func _ready():
 	grab_saved_files()
 
 
-func import_entries_from_file(path : String):
+func import_entries_from_file(path: String):
 	var f := File.new()
 	var err := f.open(path, File.READ)
 	if err:
@@ -20,6 +20,7 @@ func import_entries_from_file(path : String):
 		elif line:
 			print("ERROR: Entry \"" + line + "\" in file " +
 					path.get_file() + " is invalid")
+	f.close()
 
 
 func grab_saved_files():

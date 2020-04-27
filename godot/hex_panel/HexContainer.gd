@@ -40,7 +40,6 @@ func set_text(new_text: String):
 		add_child(h)
 		h.line_text = s
 	
-#	yield(get_tree().create_timer(5), "timeout")
 	for h in get_hex_nodes(true):
 		h.call_deferred("start")
 		yield(h, "anim")
