@@ -3,6 +3,7 @@ extends "res://game/components/GameComponent.gd"
 signal letters_revealed(number, final)
 signal one_letter(letter)
 signal guess_checked(solved)
+signal text_ready
 
 enum {
 	MODE_DISABLED,
@@ -115,3 +116,7 @@ func _on_SolveButton_pressed():
 
 func _on_BSpace_pressed():
 	hex.pop_solve()
+
+
+func _on_HexContainer_setup():
+	emit_signal("text_ready")

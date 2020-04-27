@@ -59,84 +59,84 @@ __meta__ = {
 
 [node name="List" type="VBoxContainer" parent="PanelContainer/TabContainer/General/Scroll"]
 margin_right = 817.0
-margin_bottom = 187.0
+margin_bottom = 199.0
 size_flags_horizontal = 3
 custom_constants/separation = 25
 
 [node name="RevealSource" type="HBoxContainer" parent="PanelContainer/TabContainer/General/Scroll/List"]
-margin_right = 552.0
-margin_bottom = 20.0
+margin_right = 817.0
+margin_bottom = 31.0
 size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="PanelContainer/TabContainer/General/Scroll/List/RevealSource"]
-margin_top = 3.0
-margin_right = 274.0
-margin_bottom = 17.0
+margin_top = 5.0
+margin_right = 406.0
+margin_bottom = 26.0
 mouse_filter = 1
 size_flags_horizontal = 3
 text = "Reveal Source: "
 align = 2
 
 [node name="OptionButton" type="OptionButton" parent="PanelContainer/TabContainer/General/Scroll/List/RevealSource"]
-margin_left = 278.0
-margin_right = 552.0
-margin_bottom = 20.0
+margin_left = 410.0
+margin_right = 817.0
+margin_bottom = 31.0
 size_flags_horizontal = 3
 text = "Never"
 items = [ "Never", null, false, 0, null, "When Solved", null, false, 1, null, "Always", null, false, 2, null ]
 selected = 0
 
 [node name="RandMode" type="HBoxContainer" parent="PanelContainer/TabContainer/General/Scroll/List"]
-margin_top = 45.0
-margin_right = 552.0
-margin_bottom = 65.0
+margin_top = 56.0
+margin_right = 817.0
+margin_bottom = 87.0
 size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="PanelContainer/TabContainer/General/Scroll/List/RandMode"]
-margin_top = 3.0
-margin_right = 274.0
-margin_bottom = 17.0
+margin_top = 5.0
+margin_right = 406.0
+margin_bottom = 26.0
 mouse_filter = 1
 size_flags_horizontal = 3
 text = "Randomize Mode: "
 align = 2
 
 [node name="OptionButton" type="OptionButton" parent="PanelContainer/TabContainer/General/Scroll/List/RandMode"]
-margin_left = 278.0
-margin_right = 552.0
-margin_bottom = 20.0
+margin_left = 410.0
+margin_right = 817.0
+margin_bottom = 31.0
 size_flags_horizontal = 3
 text = "Random"
 items = [ "Random", null, false, 0, null, "By Category", null, false, 1, null, "By Source", null, false, 2, null ]
 selected = 0
 
 [node name="Refresh" type="HBoxContainer" parent="PanelContainer/TabContainer/General/Scroll/List"]
-margin_top = 90.0
-margin_right = 552.0
-margin_bottom = 114.0
+margin_top = 112.0
+margin_right = 817.0
+margin_bottom = 143.0
 size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="PanelContainer/TabContainer/General/Scroll/List/Refresh"]
 margin_top = 5.0
-margin_right = 274.0
-margin_bottom = 19.0
+margin_right = 406.0
+margin_bottom = 26.0
 mouse_filter = 1
 size_flags_horizontal = 3
 text = "Refresh Entries at: "
 align = 2
 
 [node name="SpinBox" type="SpinBox" parent="PanelContainer/TabContainer/General/Scroll/List/Refresh"]
-margin_left = 278.0
-margin_right = 552.0
-margin_bottom = 24.0
+margin_left = 410.0
+margin_right = 817.0
+margin_bottom = 31.0
 size_flags_horizontal = 3
 min_value = 5.0
 value = 5.0
 
 [node name="Save" type="Button" parent="PanelContainer/TabContainer/General/Scroll/List"]
-margin_top = 139.0
-margin_right = 552.0
-margin_bottom = 159.0
+margin_top = 168.0
+margin_right = 817.0
+margin_bottom = 199.0
 text = "Save"
 
 [node name="Alias" type="TabContainer" parent="PanelContainer/TabContainer"]
@@ -170,19 +170,19 @@ __meta__ = {
 }
 
 [node name="Import" type="ScrollContainer" parent="PanelContainer/TabContainer/Alias/Categories/H"]
-margin_right = 600.0
-margin_bottom = 514.0
+margin_right = 763.0
+margin_bottom = 629.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.57
 
 [node name="VBox" type="VBoxContainer" parent="PanelContainer/TabContainer/Alias/Categories/H/Import"]
-margin_right = 600.0
+margin_right = 763.0
 size_flags_horizontal = 3
 
 [node name="View" type="ScrollContainer" parent="PanelContainer/TabContainer/Alias/Categories/H"]
-margin_left = 612.0
-margin_right = 994.0
-margin_bottom = 514.0
+margin_left = 775.0
+margin_right = 1259.0
+margin_bottom = 629.0
 size_flags_horizontal = 3
 
 [node name="VBox" type="VBoxContainer" parent="PanelContainer/TabContainer/Alias/Categories/H/View"]
@@ -239,11 +239,11 @@ __meta__ = {
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/TabContainer/Legal"]
 margin_right = 702.0
-margin_bottom = 1295.0
+margin_bottom = 983.0
 
 [node name="GPLLabel" type="Label" parent="PanelContainer/TabContainer/Legal/VBoxContainer"]
-margin_right = 462.0
-margin_bottom = 218.0
+margin_right = 702.0
+margin_bottom = 309.0
 text = "Copyright (C) 2020 \"zacryol\" (https://gitlab.com/zacryol)
 This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -259,9 +259,9 @@ This program is free software: you can redistribute it and/or modify
     along with this program.  If not, see <https://www.gnu.org/licenses/>."
 
 [node name="MITLabel" type="Label" parent="PanelContainer/TabContainer/Legal/VBoxContainer"]
-margin_top = 222.0
-margin_right = 462.0
-margin_bottom = 678.0
+margin_top = 313.0
+margin_right = 702.0
+margin_bottom = 934.0
 text = "
 
     This game uses Godot Engine, available under the following license:
@@ -277,9 +277,9 @@ text = "
 autowrap = true
 
 [node name="FreeType" type="Label" parent="PanelContainer/TabContainer/Legal/VBoxContainer"]
-margin_top = 682.0
-margin_right = 462.0
-margin_bottom = 713.0
+margin_top = 938.0
+margin_right = 702.0
+margin_bottom = 983.0
 text = "Portions of this software are copyright © 2020 The FreeType Project (www.freetype.org). All rights reserved."
 autowrap = true
 [connection signal="pressed" from="PanelContainer/TabContainer/Back" to="." method="_on_Back_pressed"]

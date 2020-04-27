@@ -28,6 +28,10 @@ func set_text(new_text: String):
 	if current_state == State.REVEALED:
 		view.text = text
 	
+	self.current_state = State.EMPTY
+
+
+func start() -> void:
 	if text == " ":
 		set_state(State.EMPTY)
 	elif not CharSet.has(text):
@@ -60,8 +64,11 @@ func set_state(new: int):
 		State.EMPTY:
 			view.text = ""
 			modulate = COLOR_NONE
-	if changed:
+	if changed and not current_state == State.EMPTY:
 		$AnimationPlayer.play("change")
+	else:
+		enough()
+
 
 func get_state() -> int:
 	return current_state

@@ -5,8 +5,7 @@ func _ready():
 
 
 func _on_ImportButton_pressed():
-	$FileDialog.current_dir = "res://"
-	$FileDialog.current_path = "res://"
+	$FileDialog.current_dir = OS.get_executable_path().get_base_dir()
 	$FileDialog.show()
 
 

@@ -1,4 +1,5 @@
 extends Container
+signal setup
 
 const Y_CHANGE := 51
 const X_OFFSET := 29.5
@@ -38,6 +39,11 @@ func set_text(new_text: String):
 		var h := HexRow.new()
 		add_child(h)
 		h.line_text = s
+	
+	for h in get_hex_nodes(true):
+		h.call_deferred("start")
+		yield(h, "anim")
+	emit_signal("setup")
 
 
 func get_hex_nodes(randomized := false) -> Array:
