@@ -12,6 +12,7 @@ func _ready() -> void:
 
 
 func _on_Button_pressed():
+	# Set Player names
 	if p1_enter.text:
 		GlobalVars.p1_name = p1_enter.text
 	else:
@@ -25,6 +26,7 @@ func _on_Button_pressed():
 	else:
 		GlobalVars.p3_name = GlobalVars.p3_name_default
 	
+	# Limit name length
 	if GlobalVars.p1_name.length() > GlobalVars.PLAYER_NAME_MAX:
 		GlobalVars.p1_name = GlobalVars.p1_name.substr(0, GlobalVars.PLAYER_NAME_MAX)
 	if GlobalVars.p2_name.length() > GlobalVars.PLAYER_NAME_MAX:
@@ -32,6 +34,9 @@ func _on_Button_pressed():
 	if GlobalVars.p3_name.length() > GlobalVars.PLAYER_NAME_MAX:
 		GlobalVars.p3_name = GlobalVars.p3_name.substr(0, GlobalVars.PLAYER_NAME_MAX)
 	
+	# Set win conditions
+	
+	# Check Profile
 	var pid: String = selector.get_item_text(selector.get_selected_id())
 	
 	if selector.get_selected_id() == 0:
