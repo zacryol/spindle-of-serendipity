@@ -1,8 +1,8 @@
 extends Control
 
-onready var p1_enter: LineEdit = $VBoxContainer/LineEdit
-onready var p2_enter: LineEdit = $VBoxContainer/LineEdit2
-onready var p3_enter: LineEdit = $VBoxContainer/LineEdit3
+onready var p1_enter: LineEdit = $VBoxContainer/NameSetting/LineEdit
+onready var p2_enter: LineEdit = $VBoxContainer/NameSetting/LineEdit2
+onready var p3_enter: LineEdit = $VBoxContainer/NameSetting/LineEdit3
 onready var selector: OptionButton = $VBoxContainer/OptionButton
 
 func _ready() -> void:

@@ -32,34 +32,38 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="NameSetting" type="VBoxContainer" parent="VBoxContainer"]
+margin_right = 242.0
+margin_bottom = 176.0
+
+[node name="Label" type="Label" parent="VBoxContainer/NameSetting"]
 margin_right = 242.0
 margin_bottom = 21.0
 text = "Player 1 Name:"
 
-[node name="LineEdit" type="LineEdit" parent="VBoxContainer"]
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/NameSetting"]
 margin_top = 25.0
 margin_right = 242.0
 margin_bottom = 56.0
 
-[node name="Label2" type="Label" parent="VBoxContainer"]
+[node name="Label2" type="Label" parent="VBoxContainer/NameSetting"]
 margin_top = 60.0
 margin_right = 242.0
 margin_bottom = 81.0
 text = "Player 2 Name:"
 
-[node name="LineEdit2" type="LineEdit" parent="VBoxContainer"]
+[node name="LineEdit2" type="LineEdit" parent="VBoxContainer/NameSetting"]
 margin_top = 85.0
 margin_right = 242.0
 margin_bottom = 116.0
 
-[node name="Label3" type="Label" parent="VBoxContainer"]
+[node name="Label3" type="Label" parent="VBoxContainer/NameSetting"]
 margin_top = 120.0
 margin_right = 242.0
 margin_bottom = 141.0
 text = "Player 3 Name:"
 
-[node name="LineEdit3" type="LineEdit" parent="VBoxContainer"]
+[node name="LineEdit3" type="LineEdit" parent="VBoxContainer/NameSetting"]
 margin_top = 145.0
 margin_right = 242.0
 margin_bottom = 176.0
@@ -72,18 +76,18 @@ margin_bottom = 184.0
 [node name="OptionButton" type="OptionButton" parent="VBoxContainer"]
 margin_top = 188.0
 margin_right = 242.0
-margin_bottom = 215.0
+margin_bottom = 219.0
 text = "Select Entry Profile . . ."
 
 [node name="VSeparator2" type="HSeparator" parent="VBoxContainer"]
-margin_top = 219.0
+margin_top = 223.0
 margin_right = 242.0
-margin_bottom = 223.0
+margin_bottom = 227.0
 
 [node name="Button" type="Button" parent="VBoxContainer"]
-margin_top = 227.0
+margin_top = 231.0
 margin_right = 242.0
-margin_bottom = 254.0
+margin_bottom = 262.0
 text = "Start"
 
 [node name="AcceptDialog" type="AcceptDialog" parent="."]
