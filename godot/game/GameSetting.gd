@@ -48,3 +48,7 @@ func _on_Button_pressed():
 		$AcceptDialog.show()
 	else:
 		get_tree().change_scene("res://game/GamePanel.tscn")
+
+
+func _on_Type_item_selected(id):
+	pass # Replace with function body.

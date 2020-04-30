@@ -156,4 +156,5 @@ margin_bottom = 64.5
 window_title = "Error!"
 dialog_text = "Selected Profile is empty. Please edit the profile or choose a different one."
 dialog_autowrap = true
+[connection signal="item_selected" from="Controls/Top/Vict/Type" to="." method="_on_Type_item_selected"]
 [connection signal="pressed" from="Controls/Button" to="." method="_on_Button_pressed"]
