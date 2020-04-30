@@ -56,3 +56,11 @@ func _on_Type_item_selected(id: int):
 	rounds_box.editable = id == 1
 	score_box.editable = id == 2
 	GlobalVars.game_type = id
+
+
+func _on_Rounds_value_changed(value: float):
+	pass # Replace with function body.
+
+
+func _on_Score_value_changed(value: float):
+	pass # Replace with function body.
