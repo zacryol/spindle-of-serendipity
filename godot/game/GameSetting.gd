@@ -55,4 +55,4 @@ func _on_Button_pressed():
 func _on_Type_item_selected(id: int):
 	rounds_box.editable = id == 1
 	score_box.editable = id == 2
-	pass # Replace with function body.
+	GlobalVars.game_type = id
