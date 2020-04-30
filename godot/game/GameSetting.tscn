@@ -99,6 +99,29 @@ text = "Free Play"
 items = [ "Free Play", null, false, 0, null, "Best of [X] Rounds", null, false, 1, null, "First to [X] Score", null, false, 2, null ]
 selected = 0
 
+[node name="Rounds" type="SpinBox" parent="Controls/Top/Vict"]
+margin_top = 60.0
+margin_right = 219.0
+margin_bottom = 91.0
+size_flags_horizontal = 3
+min_value = 1.0
+value = 1.0
+rounded = true
+prefix = "Best of"
+suffix = "round(s)"
+
+[node name="Score" type="SpinBox" parent="Controls/Top/Vict"]
+margin_top = 95.0
+margin_right = 219.0
+margin_bottom = 126.0
+size_flags_horizontal = 3
+min_value = 1.0
+max_value = 20000.0
+step = 5.0
+value = 1.0
+prefix = "First to"
+suffix = "points"
+
 [node name="VSeparator" type="HSeparator" parent="Controls"]
 margin_top = 180.0
 margin_right = 450.0
