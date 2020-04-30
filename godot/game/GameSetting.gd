@@ -59,8 +59,8 @@ func _on_Type_item_selected(id: int):
 
 
 func _on_Rounds_value_changed(value: float):
-	pass # Replace with function body.
+	GlobalVars.rounds = floor(value)
 
 
 func _on_Score_value_changed(value: float):
-	pass # Replace with function body.
+	GlobalVars.win_score = floor(value)
