@@ -1,9 +1,9 @@
 extends Control
 
-onready var p1_enter: LineEdit = $VBoxContainer/NameSetting/LineEdit
-onready var p2_enter: LineEdit = $VBoxContainer/NameSetting/LineEdit2
-onready var p3_enter: LineEdit = $VBoxContainer/NameSetting/LineEdit3
-onready var selector: OptionButton = $VBoxContainer/OptionButton
+onready var p1_enter: LineEdit = $Controls/Top/NameSetting/LineEdit
+onready var p2_enter: LineEdit = $Controls/Top/NameSetting/LineEdit2
+onready var p3_enter: LineEdit = $Controls/Top/NameSetting/LineEdit3
+onready var selector: OptionButton = $Controls/OptionButton
 
 func _ready() -> void:
 	selector.add_item(Profiles.RESERVED)
