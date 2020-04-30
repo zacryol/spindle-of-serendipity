@@ -4,6 +4,8 @@ onready var p1_enter: LineEdit = $Controls/Top/NameSetting/LineEdit
 onready var p2_enter: LineEdit = $Controls/Top/NameSetting/LineEdit2
 onready var p3_enter: LineEdit = $Controls/Top/NameSetting/LineEdit3
 onready var selector: OptionButton = $Controls/OptionButton
+onready var rounds_box: SpinBox = $Controls/Top/Vict/Rounds
+onready var score_box: SpinBox = $Controls/Top/Vict/Score
 
 func _ready() -> void:
 	selector.add_item(Profiles.RESERVED)
@@ -50,5 +52,7 @@ func _on_Button_pressed():
 		get_tree().change_scene("res://game/GamePanel.tscn")
 
 
-func _on_Type_item_selected(id):
+func _on_Type_item_selected(id: int):
+	rounds_box.editable = id == 1
+	score_box.editable = id == 2
 	pass # Replace with function body.
