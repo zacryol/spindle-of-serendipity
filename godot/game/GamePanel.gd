@@ -10,12 +10,17 @@ onready var players := $GP/VB/Game/HSplit/SP/PlayersPanel
 onready var keyboard := $GP/VB/Game/HSplit/EDKB/Keyboard
 
 func _ready():
-	EntryManager.reset_picked()
-	
+	EntryManager.reset_picked()	
+	start()
+
+
+func start() -> void:
 	entry_display.set_display(EntryManager.get_random_entry())
 	log_label.text = ""
-	
 	players.start()
+	new_button.hide()
+	quit_button.hide()
+	keyboard.enable()
 
 
 func _log(text: String = ""):
@@ -29,12 +34,7 @@ func _log(text: String = ""):
 
 
 func _on_NewG_pressed():
-	entry_display.set_display(EntryManager.get_random_entry())
-	log_label.text = ""
-	players.start()
-	new_button.hide()
-	quit_button.hide()
-	keyboard.enable()
+	start()
 
 
 func _pre_reset():
