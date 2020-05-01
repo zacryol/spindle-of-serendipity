@@ -52,7 +52,7 @@ visible = false
 margin_left = 1199.0
 margin_right = 1252.0
 margin_bottom = 27.0
-text = "New"
+text = "Next"
 
 [node name="Quit" type="Button" parent="GP/VB/Top/HB"]
 visible = false
