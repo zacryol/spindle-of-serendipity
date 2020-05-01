@@ -1,6 +1,9 @@
 extends Control
 
 const MAX_LOG_CHAR := 120
+
+var round_num := 0
+
 onready var entry_display := $GP/VB/Game/HSplit/EDKB/EntryDisplay
 onready var log_label := $GP/VB/Top/HB/Label
 onready var new_button := $GP/VB/Top/HB/NewG
@@ -16,6 +19,7 @@ func _ready():
 
 func start() -> void:
 	entry_display.set_display(EntryManager.get_random_entry())
+	round_num += 1
 	log_label.text = ""
 	players.start()
 	new_button.hide()
