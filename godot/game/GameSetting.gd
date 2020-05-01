@@ -56,6 +56,8 @@ func _on_Type_item_selected(id: int):
 	rounds_box.editable = id == 1
 	score_box.editable = id == 2
 	GlobalVars.game_type = id
+	GlobalVars.rounds = rounds_box.value
+	GlobalVars.win_score = score_box.value
 
 
 func _on_Rounds_value_changed(value: float):
