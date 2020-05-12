@@ -28,6 +28,16 @@ func start() -> void:
 
 
 func total_win() -> bool:
+	match GlobalVars.game_type:
+		GlobalVars.Type.ROUNDS:
+			# check round num
+			pass
+		GlobalVars.Type.SCORE:
+			# check player scores
+			pass
+		GlobalVars.Type.FREE:
+			# keep going anyway
+			return false
 	return false
 
 
