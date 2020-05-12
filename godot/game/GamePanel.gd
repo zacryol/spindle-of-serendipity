@@ -56,7 +56,7 @@ func _log(text: String = ""):
 
 func _on_NewG_pressed():
 	if total_win():
-		pass
+		victory.show()
 	else:
 		start()
 
