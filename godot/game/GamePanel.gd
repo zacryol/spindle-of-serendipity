@@ -27,7 +27,7 @@ func start() -> void:
 	keyboard.enable()
 
 
-func check_win() -> bool:
+func total_win() -> bool:
 	return false
 
 
