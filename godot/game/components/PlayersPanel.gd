@@ -33,6 +33,13 @@ func start():
 	set_label()
 
 
+func highest_score() -> int:
+	var score := 0
+	for p in players_array:
+		score = max(score, p.total)
+	return score
+
+
 func _score_gained(number: int, final: bool):
 	get_current_player().add_to_score(number)
 	emit_signal("game_log", str(number) + " points gained")
