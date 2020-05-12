@@ -46,8 +46,11 @@ func _on_NewG_pressed():
 
 
 func _pre_reset():
-	new_button.show()
-	quit_button.show()
+	if total_win():
+		pass
+	else:
+		new_button.show()
+		quit_button.show()
 
 
 func _on_Quit_pressed():
