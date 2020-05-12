@@ -54,15 +54,15 @@ func _log(text: String = ""):
 
 
 func _on_NewG_pressed():
-	start()
-
-
-func _pre_reset():
 	if total_win():
 		pass
 	else:
-		new_button.show()
-		quit_button.show()
+		start()
+
+
+func _pre_reset():
+	new_button.show()
+	quit_button.show()
 
 
 func _on_Quit_pressed():
