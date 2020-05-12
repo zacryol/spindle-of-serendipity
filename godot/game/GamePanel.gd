@@ -27,6 +27,10 @@ func start() -> void:
 	keyboard.enable()
 
 
+func check_win() -> bool:
+	return false
+
+
 func _log(text: String = ""):
 	if text == "":
 		log_label.text = text
