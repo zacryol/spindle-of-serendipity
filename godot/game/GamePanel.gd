@@ -31,6 +31,7 @@ func total_win() -> bool:
 	match GlobalVars.game_type:
 		GlobalVars.Type.ROUNDS:
 			# check round num
+			return round_num >= GlobalVars.rounds
 			pass
 		GlobalVars.Type.SCORE:
 			# check player scores
