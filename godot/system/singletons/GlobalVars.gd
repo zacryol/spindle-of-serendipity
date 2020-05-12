@@ -43,7 +43,7 @@ enum Type{
 	SCORE,
 }
 
-var game_type: int
+var game_type: int = Type.FREE
 var win_score := 1000
 var rounds := 7
 # End Type
