@@ -35,6 +35,7 @@ func total_win() -> bool:
 			pass
 		GlobalVars.Type.SCORE:
 			# check player scores
+			return players.highest_score() >= GlobalVars.win_score
 			pass
 		GlobalVars.Type.FREE:
 			# keep going anyway
