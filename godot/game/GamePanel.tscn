@@ -129,9 +129,14 @@ layer = 2
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="PanelContainer" type="PanelContainer" parent="VScreen/Main"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 [connection signal="pressed" from="GP/VB/Top/HB/NewG" to="." method="_on_NewG_pressed"]
 [connection signal="pressed" from="GP/VB/Top/HB/Quit" to="." method="_on_Quit_pressed"]
 [connection signal="game_log" from="GP/VB/Game/HSplit/EDKB/EntryDisplay" to="." method="_log"]
