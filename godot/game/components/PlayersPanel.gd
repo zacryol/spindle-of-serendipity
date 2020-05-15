@@ -84,8 +84,20 @@ func clear_label():
 
 
 func get_final_results() -> Array:
+	cache_scores()
 	
 	return []
+
+
+func get_scores_ordered() -> PoolIntArray:
+	var scores := [
+		p1.score,
+		p2.score,
+		p3.score,
+	]
+	scores.sort()
+	scores.invert()
+	return PoolIntArray(scores)
 
 
 func _on_Player_game_log(text: String):
