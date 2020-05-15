@@ -87,7 +87,14 @@ func get_final_results() -> Array:
 	cache_scores()
 	var result_arr := players_array.duplicate()
 	result_arr.sort_custom(PlayerSort.new(), "sort_by_score")
-	return result_arr
+	var results := []
+	for p in result_arr:
+		var result_dict := {
+			"name" : p.player_name,
+			"score" : p.total,
+		}
+		results.append(result_dict)
+	return results
 
 
 func get_scores_ordered() -> PoolIntArray:
