@@ -83,6 +83,11 @@ func clear_label():
 	p_label.text = ""
 
 
+func get_final_results() -> Array:
+	
+	return []
+
+
 func _on_Player_game_log(text: String):
 	emit_signal("game_log", text)
 
