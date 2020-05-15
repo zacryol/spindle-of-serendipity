@@ -85,8 +85,9 @@ func clear_label():
 
 func get_final_results() -> Array:
 	cache_scores()
-	
-	return []
+	var result_arr := players_array.duplicate()
+	result_arr.sort_custom(PlayerSort.new(), "sort_by_score")
+	return result_arr
 
 
 func get_scores_ordered() -> PoolIntArray:
@@ -123,3 +124,8 @@ func _on_EntryDisplay_guess_checked(solved: bool):
 	else:
 		emit_signal("game_log", "Incorrect")
 		pass_turn()
+
+
+class PlayerSort:
+	static func sort_by_score(a, b):
+		return a.total > b.total
