@@ -62,6 +62,10 @@ func _log(text: String = ""):
 func _on_NewG_pressed():
 	if total_win():
 		victory.show()
+		var res: Array = players.get_final_results()
+		for i in place_labels.size():
+			place_labels[i].text = str(res[i])
+			pass
 	else:
 		start()
 
