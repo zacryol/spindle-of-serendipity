@@ -21,3 +21,11 @@ func set_results(res: Array):
 			place_labels[i].text = disp % [res[i]["name"], res[i]["score"]]
 			pass
 	pass
+
+
+func _on_NewButton_pressed():
+	get_tree().change_scene("res://game/GameSetting.tscn")
+
+
+func _on_QuitButton_pressed():
+	get_tree().change_scene("res://game/menus/MainMenu.tscn")

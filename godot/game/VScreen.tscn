@@ -170,13 +170,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="Main/HBoxContainer"]
+[node name="NewButton" type="Button" parent="Main/HBoxContainer"]
 margin_right = 160.0
 margin_bottom = 40.0
 text = "Start New Game"
 
-[node name="Button2" type="Button" parent="Main/HBoxContainer"]
+[node name="QuitButton" type="Button" parent="Main/HBoxContainer"]
 margin_left = 310.0
 margin_right = 466.0
 margin_bottom = 40.0
 text = "Return to Menu"
+[connection signal="pressed" from="Main/HBoxContainer/NewButton" to="." method="_on_NewButton_pressed"]
+[connection signal="pressed" from="Main/HBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
