@@ -180,5 +180,18 @@ margin_left = 310.0
 margin_right = 466.0
 margin_bottom = 40.0
 text = "Return to Menu"
+
+[node name="Label" type="Label" parent="Main"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -52.5
+margin_top = 50.0
+margin_right = 52.5
+margin_bottom = 71.0
+grow_horizontal = 2
+rect_scale = Vector2( 4, 4 )
+rect_pivot_offset = Vector2( 59, 0 )
+text = "GAME OVER"
+align = 1
 [connection signal="pressed" from="Main/HBoxContainer/NewButton" to="." method="_on_NewButton_pressed"]
 [connection signal="pressed" from="Main/HBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
