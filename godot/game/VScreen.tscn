@@ -153,3 +153,30 @@ margin_bottom = 10.5
 grow_horizontal = 2
 grow_vertical = 2
 align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Main"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -160.0
+margin_top = -120.0
+margin_right = 160.0
+margin_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 0
+custom_constants/separation = 150
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Main/HBoxContainer"]
+margin_right = 160.0
+margin_bottom = 40.0
+text = "Start New Game"
+
+[node name="Button2" type="Button" parent="Main/HBoxContainer"]
+margin_left = 310.0
+margin_right = 466.0
+margin_bottom = 40.0
+text = "Return to Menu"
