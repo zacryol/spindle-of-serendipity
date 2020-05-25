@@ -12,11 +12,7 @@ onready var spindle := $GP/VB/Game/HSplit/SP/Spindle
 onready var players := $GP/VB/Game/HSplit/SP/PlayersPanel
 onready var keyboard := $GP/VB/Game/HSplit/EDKB/Keyboard
 onready var victory := $VScreen/Main
-onready var place_labels := [
-	$VScreen/Main/Place1/Label,
-	$VScreen/Main/Place2/Label,
-	$VScreen/Main/Place3/Label,
-]
+
 
 func _ready():
 	EntryManager.reset_picked()	
