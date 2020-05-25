@@ -11,7 +11,7 @@ onready var quit_button: Button = $GP/VB/Top/HB/Quit
 onready var spindle := $GP/VB/Game/HSplit/SP/Spindle
 onready var players := $GP/VB/Game/HSplit/SP/PlayersPanel
 onready var keyboard := $GP/VB/Game/HSplit/EDKB/Keyboard
-onready var victory := $VScreen/Main
+onready var victory := $VScreen
 
 
 func _ready():
@@ -57,8 +57,8 @@ func _log(text: String = ""):
 
 func _on_NewG_pressed():
 	if total_win():
-		$VScreen.show()
-		$VScreen.set_results(players.get_final_results())
+		victory.show()
+		victory.set_results(players.get_final_results())
 	else:
 		start()
 
