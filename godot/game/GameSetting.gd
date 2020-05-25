@@ -4,6 +4,8 @@ onready var p1_enter: LineEdit = $Controls/Top/NameSetting/LineEdit
 onready var p2_enter: LineEdit = $Controls/Top/NameSetting/LineEdit2
 onready var p3_enter: LineEdit = $Controls/Top/NameSetting/LineEdit3
 onready var selector: OptionButton = $Controls/OptionButton
+
+onready var type_selector: OptionButton = $Controls/Top/Vict/Type
 onready var rounds_box: SpinBox = $Controls/Top/Vict/Rounds
 onready var score_box: SpinBox = $Controls/Top/Vict/Score
 
@@ -11,7 +13,12 @@ func _ready() -> void:
 	selector.add_item(Profiles.RESERVED)
 	for k in Profiles.get_keys():
 		selector.add_item(k)
-
+	
+	type_selector.selected = GlobalVars.game_type
+	rounds_box.value = GlobalVars.rounds
+	score_box.value = GlobalVars.win_score
+	rounds_box.editable = GlobalVars.game_type == GlobalVars.Type.ROUNDS
+	score_box.editable = GlobalVars.game_type == GlobalVars.Type.SCORE
 
 func _on_Button_pressed():
 	# Set Player names
