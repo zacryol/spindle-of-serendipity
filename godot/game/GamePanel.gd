@@ -58,8 +58,6 @@ func _log(text: String = ""):
 func _on_NewG_pressed():
 	if total_win():
 		$VScreen.show()
-#		var disp: String = "%s : %s points"
-#		var res: Array = players.get_final_results()
 		$VScreen.set_results(players.get_final_results())
 	else:
 		start()
