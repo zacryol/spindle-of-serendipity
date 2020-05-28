@@ -1,0 +1,197 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://GameTheme.theme" type="Theme" id=1]
+[ext_resource path="res://game/VScreen.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.909804, 0.878431, 0.0901961, 1 )
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color( 0, 0, 0, 1 )
+border_blend = true
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.619608, 0.619608, 0.619608, 1 )
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color( 0, 0, 0, 1 )
+border_blend = true
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.54902, 0.470588, 0.32549, 1 )
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color( 0, 0, 0, 1 )
+border_blend = true
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+corner_detail = 1
+
+[node name="VScreen" type="CanvasLayer"]
+layer = 2
+script = ExtResource( 2 )
+
+[node name="Main" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="Main"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Place1" type="Panel" parent="Main"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -140.0
+margin_top = -130.0
+margin_right = 140.0
+margin_bottom = -55.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_scale = Vector2( 1.15, 1.15 )
+rect_pivot_offset = Vector2( 140, 37 )
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Main/Place1"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -10.5
+margin_right = 20.0
+margin_bottom = 10.5
+grow_horizontal = 2
+grow_vertical = 2
+align = 1
+
+[node name="Place2" type="Panel" parent="Main"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -140.0
+margin_top = -20.0
+margin_right = 140.0
+margin_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_scale = Vector2( 1.1, 1.1 )
+rect_pivot_offset = Vector2( 140, 37 )
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Main/Place2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -10.5
+margin_right = 20.0
+margin_bottom = 10.5
+grow_horizontal = 2
+grow_vertical = 2
+align = 1
+
+[node name="Place3" type="Panel" parent="Main"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -140.0
+margin_top = 100.0
+margin_right = 140.0
+margin_bottom = 175.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_pivot_offset = Vector2( 140, 37 )
+custom_styles/panel = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Main/Place3"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -10.5
+margin_right = 20.0
+margin_bottom = 10.5
+grow_horizontal = 2
+grow_vertical = 2
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Main"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -160.0
+margin_top = -120.0
+margin_right = 160.0
+margin_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 0
+custom_constants/separation = 150
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NewButton" type="Button" parent="Main/HBoxContainer"]
+margin_right = 160.0
+margin_bottom = 40.0
+text = "Start New Game"
+
+[node name="QuitButton" type="Button" parent="Main/HBoxContainer"]
+margin_left = 310.0
+margin_right = 466.0
+margin_bottom = 40.0
+text = "Return to Menu"
+
+[node name="Label" type="Label" parent="Main"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -52.5
+margin_top = 50.0
+margin_right = 52.5
+margin_bottom = 71.0
+grow_horizontal = 2
+rect_scale = Vector2( 4, 4 )
+rect_pivot_offset = Vector2( 59, 0 )
+text = "GAME OVER"
+align = 1
+[connection signal="pressed" from="Main/HBoxContainer/NewButton" to="." method="_on_NewButton_pressed"]
+[connection signal="pressed" from="Main/HBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
