@@ -1,21 +1,48 @@
 extends Control
 
 const MAX_LOG_CHAR := 120
+
+var round_num := 0
+
 onready var entry_display := $GP/VB/Game/HSplit/EDKB/EntryDisplay
-onready var log_label := $GP/VB/Top/HB/Label
-onready var new_button := $GP/VB/Top/HB/NewG
-onready var quit_button := $GP/VB/Top/HB/Quit
+onready var log_label: Label = $GP/VB/Top/HB/Label
+onready var new_button: Button = $GP/VB/Top/HB/NewG
+onready var quit_button: Button = $GP/VB/Top/HB/Quit
 onready var spindle := $GP/VB/Game/HSplit/SP/Spindle
 onready var players := $GP/VB/Game/HSplit/SP/PlayersPanel
 onready var keyboard := $GP/VB/Game/HSplit/EDKB/Keyboard
+onready var victory := $VScreen
+
 
 func _ready():
-	EntryManager.reset_picked()
-	
+	EntryManager.reset_picked()	
+	start()
+
+
+func start() -> void:
 	entry_display.set_display(EntryManager.get_random_entry())
+	round_num += 1
 	log_label.text = ""
-	
 	players.start()
+	new_button.hide()
+	quit_button.hide()
+	keyboard.enable()
+
+
+func total_win() -> bool:
+	match GlobalVars.game_type:
+		GlobalVars.Type.ROUNDS:
+			# check round num
+			return round_num >= GlobalVars.rounds
+			pass
+		GlobalVars.Type.SCORE:
+			# check player scores
+			return players.highest_score() >= GlobalVars.win_score
+			pass
+		GlobalVars.Type.FREE:
+			# keep going anyway
+			return false
+	return false
 
 
 func _log(text: String = ""):
@@ -29,12 +56,11 @@ func _log(text: String = ""):
 
 
 func _on_NewG_pressed():
-	entry_display.set_display(EntryManager.get_random_entry())
-	log_label.text = ""
-	players.start()
-	new_button.hide()
-	quit_button.hide()
-	keyboard.enable()
+	if total_win():
+		victory.show()
+		victory.set_results(players.get_final_results())
+	else:
+		start()
 
 
 func _pre_reset():

@@ -33,6 +33,13 @@ func start():
 	set_label()
 
 
+func highest_score() -> int:
+	var score := 0
+	for p in players_array:
+		score = max(score, p.get_all_score())
+	return score
+
+
 func _score_gained(number: int, final: bool):
 	get_current_player().add_to_score(number)
 	emit_signal("game_log", str(number) + " points gained")
@@ -76,6 +83,31 @@ func clear_label():
 	p_label.text = ""
 
 
+func get_final_results() -> Array:
+	cache_scores()
+	var result_arr := players_array.duplicate()
+	result_arr.sort_custom(PlayerSort.new(), "sort_by_score")
+	var results := []
+	for p in result_arr:
+		var result_dict := {
+			"name" : p.player_name,
+			"score" : p.total,
+		}
+		results.append(result_dict)
+	return results
+
+
+func get_scores_ordered() -> PoolIntArray:
+	var scores := [
+		p1.score,
+		p2.score,
+		p3.score,
+	]
+	scores.sort()
+	scores.invert()
+	return PoolIntArray(scores)
+
+
 func _on_Player_game_log(text: String):
 	emit_signal("game_log", text)
 
@@ -99,3 +131,8 @@ func _on_EntryDisplay_guess_checked(solved: bool):
 	else:
 		emit_signal("game_log", "Incorrect")
 		pass_turn()
+
+
+class PlayerSort:
+	static func sort_by_score(a, b):
+		return a.total > b.total
