@@ -14,21 +14,18 @@ enum {
 	SOURCE_SOLVE
 	SOURCE_ALWAYS
 }
-var show_source := SOURCE_SOLVE
 
 enum {
 	RAND_NON
 	RAND_CAT
 	RAND_SOU
 }
-var rand_mode := RAND_NON
 
 var settings: Dictionary = {
 	"source" : SOURCE_SOLVE,
 	"rand" : RAND_NON,
-	"refresh" : 15
+	"refresh" : 15,
 }
-var refresh_entries_at := 15
 # End of Settings
 
 const PLAYER_NAME_MAX := 19
@@ -88,15 +85,4 @@ func load_settings_from_file():
 		var d = f.get_var()
 		if typeof(d) == TYPE_DICTIONARY:
 			settings = d
-#		var settings_string := f.get_as_text()
-#		var v := validate_json(settings_string)
-#		if not v:
-#			var settings_dict = parse_json(settings_string)
-#			if typeof(settings_dict) == TYPE_DICTIONARY:
-#				if settings_dict.has("show_source"):
-#					show_source = settings_dict["show_source"]
-#				if settings_dict.has("rand_mode"):
-#					rand_mode = settings_dict["rand_mode"]
-#				if settings_dict.has("refresh"):
-#					refresh_entries_at = settings_dict["refresh"]
 		f.close()
