@@ -14,16 +14,18 @@ enum {
 	SOURCE_SOLVE
 	SOURCE_ALWAYS
 }
-var show_source := SOURCE_SOLVE
 
 enum {
 	RAND_NON
 	RAND_CAT
 	RAND_SOU
 }
-var rand_mode := RAND_NON
 
-var refresh_entries_at := 15
+var settings: Dictionary = {
+	"source" : SOURCE_SOLVE,
+	"rand" : RAND_NON,
+	"refresh" : 15,
+}
 # End of Settings
 
 const PLAYER_NAME_MAX := 19
@@ -67,32 +69,20 @@ func _timer():
 
 func save_settings_to_file():
 	var f := File.new()
-	var err := f.open_compressed(SETTINGS_SAVE, File.WRITE)
+	var err := f.open(SETTINGS_SAVE, File.WRITE)
 	if err:
 		return
-	var settings_dict := {
-		"show_source" : show_source,
-		"rand_mode" : rand_mode,
-		"refresh" : refresh_entries_at,
-	}
-	f.store_string(to_json(settings_dict))
+	f.store_var(settings)
 	f.close()
 
 
 func load_settings_from_file():
 	var f := File.new()
 	if f.file_exists(SETTINGS_SAVE):
-		var err := f.open_compressed(SETTINGS_SAVE, File.READ)
+		var err := f.open(SETTINGS_SAVE, File.READ)
 		if err:
 			return
-		var settings_string := f.get_as_text()
-		var v := validate_json(settings_string)
-		if not v:
-			var settings_dict = parse_json(settings_string)
-			if typeof(settings_dict) == TYPE_DICTIONARY:
-				if settings_dict.has("show_source"):
-					show_source = settings_dict["show_source"]
-				if settings_dict.has("rand_mode"):
-					rand_mode = settings_dict["rand_mode"]
-				if settings_dict.has("refresh"):
-					refresh_entries_at = settings_dict["refresh"]
+		var d = f.get_var()
+		if typeof(d) == TYPE_DICTIONARY:
+			settings = d
+		f.close()
