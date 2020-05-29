@@ -5,17 +5,17 @@ onready var rand_options: OptionButton= $Scroll/List/RandMode/OptionButton
 onready var refr_options: SpinBox = $Scroll/List/Refresh/SpinBox
 
 func _ready():
-	source_options.select(GlobalVars.show_source)
-	rand_options.select(GlobalVars.rand_mode)
-	refr_options.value = GlobalVars.refresh_entries_at
+	source_options.select(GlobalVars.settings["source"])
+	rand_options.select(GlobalVars.settings["rand"])
+	refr_options.value = GlobalVars.settings["refresh"]
 
 
 func _on_source_option_selected(id):
-	GlobalVars.show_source = id
+	GlobalVars.settings["source"] = id
 
 
 func _on_rand_option_selected(id):
-	GlobalVars.rand_mode = id
+	GlobalVars.settings["rand"] = id
 
 
 func _on_Save_pressed():
@@ -23,4 +23,4 @@ func _on_Save_pressed():
 
 
 func _on_Refresh_value_changed(value):
-	GlobalVars.refresh_entries_at = value
+	GlobalVars.settings["refresh"] = value
