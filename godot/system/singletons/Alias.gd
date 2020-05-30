@@ -51,20 +51,26 @@ func source(import: String) -> String:
 func load_from_file():
 	var f := File.new()
 	if f.file_exists(GlobalVars.ALIAS_SAVE):
-		var err := f.open_compressed(GlobalVars.ALIAS_SAVE, File.READ)
+		var err := f.open(GlobalVars.ALIAS_SAVE, File.READ)
 		if err:
 			return
-		var s := f.get_as_text()
-		var v := validate_json(s)
-		if not v:
-			var a = parse_json(s)
-			if typeof(a) == TYPE_DICTIONARY:
-				var d := a as Dictionary
-				if d.has("cat"):
-					aliases_cat = d["cat"]
-				if d.has("sou"):
-					aliases_sou = d["sou"]
-	f.close()
+		var s = f.get_var()
+		if typeof(s) == TYPE_DICTIONARY:
+			if s.has("cat"):
+				aliases_cat = s["cat"]
+			if s.has("sou"):
+				aliases_sou = s["sou"]
+		f.close()
+#		var v := validate_json(s)
+#		if not v:
+#			var a = parse_json(s)
+#			if typeof(a) == TYPE_DICTIONARY:
+#				var d := a as Dictionary
+#				if d.has("cat"):
+#					aliases_cat = d["cat"]
+#				if d.has("sou"):
+#					aliases_sou = d["sou"]
+#	f.close()
 
 
 func save_to_file():
@@ -73,8 +79,8 @@ func save_to_file():
 		"sou" : aliases_sou,
 	}
 	var f := File.new()
-	var err := f.open_compressed(GlobalVars.ALIAS_SAVE, File.WRITE)
+	var err := f.open(GlobalVars.ALIAS_SAVE, File.WRITE)
 	if err:
 		return
-	f.store_string(to_json(save_dict))
+	f.store_var(save_dict)
 	f.close()

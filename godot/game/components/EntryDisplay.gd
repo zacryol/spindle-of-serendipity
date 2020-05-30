@@ -41,9 +41,9 @@ func set_display(entry: Entry):
 		bool_mask[k] = false
 	
 	$CategoryLabel.text = entry.get_game_category()
-	if GlobalVars.show_source == GlobalVars.SOURCE_ALWAYS:
+	if GlobalVars.settings["source"] == GlobalVars.SOURCE_ALWAYS:
 		$SourceLabel.text = source_text
-	elif GlobalVars.show_source == GlobalVars.SOURCE_NEVER:
+	elif GlobalVars.settings["source"] == GlobalVars.SOURCE_NEVER:
 		$SourceLabel.text = ""
 	else:
 		$SourceLabel.text = source_hide
@@ -82,7 +82,7 @@ func single_letter_guessed(letter: String):
 		emit_signal("letters_revealed", num, is_solved())
 	else:
 		emit_signal("game_log", guess + " has already been guessed")
-	if is_solved() && GlobalVars.show_source == GlobalVars.SOURCE_SOLVE:
+	if is_solved() && GlobalVars.settings["source"] == GlobalVars.SOURCE_SOLVE:
 		$SourceLabel.text = source_text
 
 
@@ -110,7 +110,7 @@ func _on_SolveButton_pressed():
 		hex.reveal_all()
 		for k in bool_mask.keys():
 			bool_mask[k] = true
-		if GlobalVars.show_source == GlobalVars.SOURCE_SOLVE:
+		if GlobalVars.settings["source"] == GlobalVars.SOURCE_SOLVE:
 			$SourceLabel.text = source_text
 
 

@@ -59,10 +59,10 @@ func get_available_entries() -> Array:
 
 
 func get_random_entry() -> Entry:
-	if get_available_entries().size() < GlobalVars.refresh_entries_at:
+	if get_available_entries().size() < GlobalVars.settings["refresh"]:
 		reset_picked()
 	
-	match GlobalVars.rand_mode:
+	match GlobalVars.settings["rand"]:
 		GlobalVars.RAND_CAT:
 			return pick(randomize_by_category())
 		GlobalVars.RAND_SOU:

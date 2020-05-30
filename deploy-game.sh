@@ -7,7 +7,7 @@ rm export/mac/*
 echo Old builds removed . . . 
 
 echo Exporting Linux build . . . 
-godot-3.2.1-headless --path godot --export "Linux/X11" ../export/lin/spindle-of-serendipity
+godot-3.2.1-headless --path godot --export "Linux/X11" ../export/lin/spindle-of-serendipity.x86_64
 
 echo Exporting Windows build
 godot-3.2.1-headless --path godot --export "Windows Desktop" ../export/win/spindle-of-serendipity.exe

@@ -15,7 +15,7 @@ onready var victory := $VScreen
 
 
 func _ready():
-	EntryManager.reset_picked()	
+	EntryManager.reset_picked()
 	start()
 
 
