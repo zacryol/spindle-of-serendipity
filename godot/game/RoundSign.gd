@@ -12,5 +12,5 @@ func _ready():
 func new_round(num: int) -> void:
 	var show := message % str(num)
 	if GlobalVars.game_type == GlobalVars.Type.ROUNDS:
-		show += suffix % str(num)
+		show += suffix % str(GlobalVars.rounds)
 	label.text = show

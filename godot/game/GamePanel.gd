@@ -23,6 +23,7 @@ func _ready():
 func start() -> void:
 	entry_display.set_display(EntryManager.get_random_entry())
 	round_num += 1
+	round_sign.new_round(round_num)
 	log_label.text = ""
 	players.start()
 	new_button.hide()
