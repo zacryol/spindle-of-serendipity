@@ -15,8 +15,13 @@ func new_round(num: int) -> void:
 		show += suffix % str(GlobalVars.rounds)
 	label.text = show
 	$AnimationPlayer.play("In")
+	$Timer.start()
 
 
 func _on_EntryDisplay_text_ready():
-	$AnimationPlayer.play("Out")
+	if not $Timer.time_left:
+		$AnimationPlayer.play("Out")
+	else:
+		yield($Timer, "timeout")
+		$AnimationPlayer.play("Out")
 	pass # Replace with function body.
