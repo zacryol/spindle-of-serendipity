@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://game/components/PlayersPanel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://game/components/Keyboard.tscn" type="PackedScene" id=2]
@@ -26,6 +26,36 @@ outline_color = Color( 0, 0, 0, 1 )
 use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 8 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "In"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Main:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1280, 0 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Out"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Main:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -1280, 0 ) ]
+}
 
 [node name="GamePanel" type="Control"]
 anchor_right = 1.0
@@ -150,6 +180,8 @@ script = ExtResource( 9 )
 [node name="Main" type="Control" parent="RoundSign"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = -1280.0
+margin_right = -1280.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -171,9 +203,8 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="RoundSign/Main/PanelContainer"]
-margin_top = 7.0
-margin_right = 1017.0
-margin_bottom = 127.0
+margin_right = 1003.0
+margin_bottom = 120.0
 grow_horizontal = 2
 grow_vertical = 2
 custom_fonts/font = SubResource( 1 )
@@ -181,12 +212,15 @@ text = "Round 100 of 100"
 align = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="RoundSign"]
+anims/In = SubResource( 3 )
+anims/Out = SubResource( 4 )
 [connection signal="pressed" from="GP/VB/Top/HB/NewG" to="." method="_on_NewG_pressed"]
 [connection signal="pressed" from="GP/VB/Top/HB/Quit" to="." method="_on_Quit_pressed"]
 [connection signal="game_log" from="GP/VB/Game/HSplit/EDKB/EntryDisplay" to="." method="_log"]
 [connection signal="guess_checked" from="GP/VB/Game/HSplit/EDKB/EntryDisplay" to="GP/VB/Game/HSplit/SP/PlayersPanel" method="_on_EntryDisplay_guess_checked"]
 [connection signal="letters_revealed" from="GP/VB/Game/HSplit/EDKB/EntryDisplay" to="GP/VB/Game/HSplit/SP/Spindle" method="_letters_guessed"]
 [connection signal="one_letter" from="GP/VB/Game/HSplit/EDKB/EntryDisplay" to="GP/VB/Game/HSplit/EDKB/Keyboard" method="_on_EntryDisplay_one_letter"]
+[connection signal="text_ready" from="GP/VB/Game/HSplit/EDKB/EntryDisplay" to="RoundSign" method="_on_EntryDisplay_text_ready"]
 [connection signal="text_ready" from="GP/VB/Game/HSplit/EDKB/EntryDisplay" to="GP/VB/Game/HSplit/SP/Spindle" method="_on_EntryDisplay_text_ready"]
 [connection signal="game_log" from="GP/VB/Game/HSplit/EDKB/Keyboard" to="." method="_log"]
 [connection signal="key_pressed" from="GP/VB/Game/HSplit/EDKB/Keyboard" to="GP/VB/Game/HSplit/EDKB/EntryDisplay" method="_on_letter_guessed"]

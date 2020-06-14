@@ -14,3 +14,9 @@ func new_round(num: int) -> void:
 	if GlobalVars.game_type == GlobalVars.Type.ROUNDS:
 		show += suffix % str(GlobalVars.rounds)
 	label.text = show
+	$AnimationPlayer.play("In")
+
+
+func _on_EntryDisplay_text_ready():
+	$AnimationPlayer.play("Out")
+	pass # Replace with function body.
