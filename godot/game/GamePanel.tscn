@@ -124,6 +124,8 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 4.28
 
 [node name="VScreen" parent="." instance=ExtResource( 7 )]
+
+[node name="RoundSign" type="CanvasLayer" parent="."]
 [connection signal="pressed" from="GP/VB/Top/HB/NewG" to="." method="_on_NewG_pressed"]
 [connection signal="pressed" from="GP/VB/Top/HB/Quit" to="." method="_on_Quit_pressed"]
 [connection signal="game_log" from="GP/VB/Game/HSplit/EDKB/EntryDisplay" to="." method="_log"]
