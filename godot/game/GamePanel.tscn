@@ -179,6 +179,8 @@ grow_vertical = 2
 custom_fonts/font = SubResource( 1 )
 text = "Round 100 of 100"
 align = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RoundSign"]
 [connection signal="pressed" from="GP/VB/Top/HB/NewG" to="." method="_on_NewG_pressed"]
 [connection signal="pressed" from="GP/VB/Top/HB/Quit" to="." method="_on_Quit_pressed"]
 [connection signal="game_log" from="GP/VB/Game/HSplit/EDKB/EntryDisplay" to="." method="_log"]
