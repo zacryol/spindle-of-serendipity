@@ -19,9 +19,7 @@ func new_round(num: int) -> void:
 
 
 func _on_EntryDisplay_text_ready():
-	if not $Timer.time_left:
-		$AnimationPlayer.play("Out")
-	else:
+	if $Timer.time_left:
 		yield($Timer, "timeout")
-		$AnimationPlayer.play("Out")
-	pass # Replace with function body.
+	
+	$AnimationPlayer.play("Out")
