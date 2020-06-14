@@ -12,7 +12,11 @@ func _ready():
 func new_round(num: int) -> void:
 	var show := message % str(num)
 	if GlobalVars.game_type == GlobalVars.Type.ROUNDS:
-		show += suffix % str(GlobalVars.rounds)
+		if GlobalVars.rounds == num:
+			show = "Final Round"
+			label.modulate = Color(1, 0, 0, 1)
+		else:
+			show += suffix % str(GlobalVars.rounds)
 	label.text = show
 	$AnimationPlayer.play("In")
 	$Timer.start()
