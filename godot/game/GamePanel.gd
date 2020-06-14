@@ -12,6 +12,7 @@ onready var spindle := $GP/VB/Game/HSplit/SP/Spindle
 onready var players := $GP/VB/Game/HSplit/SP/PlayersPanel
 onready var keyboard := $GP/VB/Game/HSplit/EDKB/Keyboard
 onready var victory := $VScreen
+onready var round_sign := $RoundSign
 
 
 func _ready():
