@@ -10,7 +10,7 @@
 [ext_resource path="res://Xolonium-Bold.otf" type="DynamicFontData" id=8]
 [ext_resource path="res://game/RoundSign.gd" type="Script" id=9]
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.0862745, 0.0862745, 0.101961, 0.631373 )
 corner_radius_top_left = 25
 corner_radius_top_right = 25
@@ -19,7 +19,7 @@ corner_radius_bottom_left = 25
 shadow_color = Color( 0.0862745, 0.0862745, 0.101961, 0.74902 )
 shadow_size = 50
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 100
 outline_size = 5
 outline_color = Color( 0, 0, 0, 1 )
@@ -198,7 +198,7 @@ margin_right = -50.0
 margin_bottom = 60.0
 grow_horizontal = 2
 grow_vertical = 2
-custom_styles/panel = SubResource( 2 )
+custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -208,7 +208,7 @@ margin_right = 1180.0
 margin_bottom = 120.0
 grow_horizontal = 2
 grow_vertical = 2
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Round 100 of 100"
 align = 1
 
