@@ -11,6 +11,10 @@ onready var total_label := $PanelContainer/CenterContainer/VBoxContainer/TotalLa
 func add_to_score(points: int) -> void:
 	score += points
 	score_label.text = "Score: " + str(score)
+	
+	if GlobalVars.game_type == GlobalVars.Type.SCORE:
+		if get_all_score() >= GlobalVars.win_score:
+			$PanelContainer/CenterContainer/VBoxContainer.modulate = Color.yellow
 
 
 func set_name(new_name: String) -> void:
