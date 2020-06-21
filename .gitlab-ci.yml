@@ -1,10 +1,5 @@
 image: barichello/godot-ci:3.2.1
 
-# Cache imported assets between runs
-cache:
-  key: import-assets
-  paths:
-    - .import/
 
 stages:
   - export
