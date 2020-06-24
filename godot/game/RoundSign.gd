@@ -11,7 +11,7 @@ func _ready():
 
 func new_round(num: int) -> void:
 	var show := message % str(num)
-	if GlobalVars.game_type == GlobalVars.Type.ROUNDS:
+	if GlobalVars.win_by_rounds():
 		if GlobalVars.rounds == num:
 			show = "Final Round"
 			label.modulate = Color(1, 0, 0, 1)

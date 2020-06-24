@@ -5,7 +5,7 @@ onready var p2_enter: LineEdit = $Controls/Top/NameSetting/LineEdit2
 onready var p3_enter: LineEdit = $Controls/Top/NameSetting/LineEdit3
 onready var selector: OptionButton = $Controls/OptionButton
 
-onready var type_selector: OptionButton = $Controls/Top/Vict/Type
+#onready var type_selector: OptionButton = $Controls/Top/Vict/Type
 onready var rounds_box: SpinBox = $Controls/Top/Vict/Rounds/SpinBox
 onready var score_box: SpinBox = $Controls/Top/Vict/Score/SpinBox
 
@@ -14,7 +14,7 @@ func _ready() -> void:
 	for k in Profiles.get_keys():
 		selector.add_item(k)
 	
-	type_selector.selected = GlobalVars.game_type
+#	type_selector.selected = GlobalVars.game_type
 	rounds_box.value = GlobalVars.rounds
 	score_box.value = GlobalVars.win_score
 	rounds_box.editable = GlobalVars.win_by_rounds()
@@ -63,7 +63,7 @@ func _on_Button_pressed():
 func _on_Type_item_selected(id: int):
 	rounds_box.editable = id == 1
 	score_box.editable = id == 2
-	GlobalVars.game_type = id
+#	GlobalVars.game_type = id
 	GlobalVars.rounds = rounds_box.value
 	GlobalVars.win_score = score_box.value
 
@@ -77,8 +77,12 @@ func _on_Score_value_changed(value: float):
 
 
 func _on_Rounds_toggled(button_pressed: bool):
+	GlobalVars.win_by_rounds = button_pressed
+	rounds_box.editable = button_pressed
 	pass # Replace with function body.
 
 
 func _on_Score_toggled(button_pressed: bool):
+	GlobalVars.win_by_score = button_pressed
+	score_box.editable = button_pressed
 	pass # Replace with function body.

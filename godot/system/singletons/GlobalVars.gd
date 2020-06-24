@@ -48,12 +48,14 @@ enum Type{
 var game_type: int = Type.FREE
 var win_score := 1000
 var rounds := 7
+var win_by_score := false
+var win_by_rounds := false
 
 func win_by_score() -> bool:
-	return game_type == Type.SCORE
+	return win_by_score
 
 func win_by_rounds() -> bool:
-	return game_type == Type.ROUNDS
+	return win_by_rounds
 
 # End Type
 

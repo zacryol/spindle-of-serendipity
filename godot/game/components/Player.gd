@@ -27,7 +27,7 @@ func cache_score() -> void:
 	add_to_score(-score)
 	total_label.text = "Total: " + str(total)
 	
-	if GlobalVars.game_type == GlobalVars.Type.SCORE:
+	if GlobalVars.win_by_score():
 		total_label.text += " / " + str(GlobalVars.win_score)
 
 
