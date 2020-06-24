@@ -6,8 +6,8 @@ onready var p3_enter: LineEdit = $Controls/Top/NameSetting/LineEdit3
 onready var selector: OptionButton = $Controls/OptionButton
 
 onready var type_selector: OptionButton = $Controls/Top/Vict/Type
-onready var rounds_box: SpinBox = $Controls/Top/Vict/Rounds
-onready var score_box: SpinBox = $Controls/Top/Vict/Score
+onready var rounds_box: SpinBox = $Controls/Top/Vict/Rounds/SpinBox
+onready var score_box: SpinBox = $Controls/Top/Vict/Score/SpinBox
 
 func _ready() -> void:
 	selector.add_item(Profiles.RESERVED)
