@@ -174,6 +174,8 @@ window_title = "Error!"
 dialog_text = "Selected Profile is empty. Please edit the profile or choose a different one."
 dialog_autowrap = true
 [connection signal="item_selected" from="Controls/Top/Vict/Type" to="." method="_on_Type_item_selected"]
+[connection signal="toggled" from="Controls/Top/Vict/Rounds/CheckBox" to="." method="_on_Rounds_toggled"]
 [connection signal="value_changed" from="Controls/Top/Vict/Rounds/SpinBox" to="." method="_on_Rounds_value_changed"]
+[connection signal="toggled" from="Controls/Top/Vict/Score/CheckBox" to="." method="_on_Score_toggled"]
 [connection signal="value_changed" from="Controls/Top/Vict/Score/SpinBox" to="." method="_on_Score_value_changed"]
 [connection signal="pressed" from="Controls/Button" to="." method="_on_Button_pressed"]

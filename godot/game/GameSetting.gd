@@ -74,3 +74,11 @@ func _on_Rounds_value_changed(value: float):
 
 func _on_Score_value_changed(value: float):
 	GlobalVars.win_score = floor(value)
+
+
+func _on_Rounds_toggled(button_pressed: bool):
+	pass # Replace with function body.
+
+
+func _on_Score_toggled(button_pressed: bool):
+	pass # Replace with function body.
