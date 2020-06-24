@@ -39,13 +39,6 @@ var p2_name_default := "Player 2"
 var p3_name_default := "Player 3"
 
 # Game Type, condition
-enum Type{
-	FREE,
-	ROUNDS,
-	SCORE,
-}
-
-var game_type: int = Type.FREE
 var win_score := 1000
 var rounds := 7
 var win_by_score := false
