@@ -8,6 +8,9 @@ onready var selector: OptionButton = $Controls/OptionButton
 #onready var type_selector: OptionButton = $Controls/Top/Vict/Type
 onready var rounds_box: SpinBox = $Controls/Top/Vict/Rounds/SpinBox
 onready var score_box: SpinBox = $Controls/Top/Vict/Score/SpinBox
+onready var rounds_check: CheckBox = $Controls/Top/Vict/Rounds/CheckBox
+onready var score_check: CheckBox = $Controls/Top/Vict/Score/CheckBox
+
 
 func _ready() -> void:
 	selector.add_item(Profiles.RESERVED)
@@ -17,6 +20,8 @@ func _ready() -> void:
 #	type_selector.selected = GlobalVars.game_type
 	rounds_box.value = GlobalVars.rounds
 	score_box.value = GlobalVars.win_score
+	rounds_check.pressed = GlobalVars.win_by_rounds()
+	score_check.pressed = GlobalVars.win_by_score()
 	rounds_box.editable = GlobalVars.win_by_rounds()
 	score_box.editable = GlobalVars.win_by_score()
 
