@@ -17,8 +17,9 @@ func _ready() -> void:
 	type_selector.selected = GlobalVars.game_type
 	rounds_box.value = GlobalVars.rounds
 	score_box.value = GlobalVars.win_score
-	rounds_box.editable = GlobalVars.game_type == GlobalVars.Type.ROUNDS
-	score_box.editable = GlobalVars.game_type == GlobalVars.Type.SCORE
+	rounds_box.editable = GlobalVars.win_by_rounds()
+	score_box.editable = GlobalVars.win_by_score()
+
 
 func _on_Button_pressed():
 	# Set Player names
