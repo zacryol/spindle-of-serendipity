@@ -91,18 +91,10 @@ margin_right = 260.0
 margin_bottom = 21.0
 text = "Game Type:"
 
-[node name="Type" type="OptionButton" parent="Controls/Top/Vict"]
+[node name="Rounds" type="HBoxContainer" parent="Controls/Top/Vict"]
 margin_top = 25.0
 margin_right = 260.0
 margin_bottom = 56.0
-text = "Free Play"
-items = [ "Free Play", null, false, 0, null, "Best of [X] Rounds", null, false, 1, null, "First to [X] Score", null, false, 2, null ]
-selected = 0
-
-[node name="Rounds" type="HBoxContainer" parent="Controls/Top/Vict"]
-margin_top = 60.0
-margin_right = 260.0
-margin_bottom = 91.0
 
 [node name="CheckBox" type="CheckBox" parent="Controls/Top/Vict/Rounds"]
 margin_right = 170.0
@@ -120,9 +112,9 @@ rounded = true
 editable = false
 
 [node name="Score" type="HBoxContainer" parent="Controls/Top/Vict"]
-margin_top = 95.0
+margin_top = 60.0
 margin_right = 260.0
-margin_bottom = 126.0
+margin_bottom = 91.0
 
 [node name="CheckBox" type="CheckBox" parent="Controls/Top/Vict/Score"]
 margin_right = 152.0
@@ -175,7 +167,6 @@ margin_bottom = 64.5
 window_title = "Error!"
 dialog_text = "Selected Profile is empty. Please edit the profile or choose a different one."
 dialog_autowrap = true
-[connection signal="item_selected" from="Controls/Top/Vict/Type" to="." method="_on_Type_item_selected"]
 [connection signal="toggled" from="Controls/Top/Vict/Rounds/CheckBox" to="." method="_on_Rounds_toggled"]
 [connection signal="value_changed" from="Controls/Top/Vict/Rounds/SpinBox" to="." method="_on_Rounds_value_changed"]
 [connection signal="toggled" from="Controls/Top/Vict/Score/CheckBox" to="." method="_on_Score_toggled"]
