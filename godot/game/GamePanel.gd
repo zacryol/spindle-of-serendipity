@@ -41,20 +41,6 @@ func total_win() -> bool:
 			return true
 	
 	return false
-	
-#	match GlobalVars.game_type:
-#		GlobalVars.Type.ROUNDS:
-#			# check round num
-#			return round_num >= GlobalVars.rounds
-#			pass
-#		GlobalVars.Type.SCORE:
-#			# check player scores
-#			return players.highest_score() >= GlobalVars.win_score
-#			pass
-#		GlobalVars.Type.FREE:
-#			# keep going anyway
-#			return false
-#	return false
 
 
 func _log(text: String = ""):
