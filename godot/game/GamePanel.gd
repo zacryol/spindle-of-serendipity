@@ -32,18 +32,14 @@ func start() -> void:
 
 
 func total_win() -> bool:
-	match GlobalVars.game_type:
-		GlobalVars.Type.ROUNDS:
-			# check round num
-			return round_num >= GlobalVars.rounds
-			pass
-		GlobalVars.Type.SCORE:
-			# check player scores
-			return players.highest_score() >= GlobalVars.win_score
-			pass
-		GlobalVars.Type.FREE:
-			# keep going anyway
-			return false
+	if GlobalVars.win_by_score():
+		if players.highest_score() >= GlobalVars.win_score:
+			return true
+	
+	if GlobalVars.win_by_rounds():
+		if round_num >= GlobalVars.rounds:
+			return true
+	
 	return false
 
 
