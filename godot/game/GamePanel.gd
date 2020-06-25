@@ -7,18 +7,19 @@ var round_num := 0
 onready var entry_display := $GP/VB/Game/HSplit/EDKB/EntryDisplay
 onready var log_label: Label = $GP/VB/Top/HB/Label
 onready var new_button: Button = $GP/VB/Top/HB/NewG
-onready var quit_button: Button = $GP/VB/Top/HB/Quit
 onready var spindle := $GP/VB/Game/HSplit/SP/Spindle
 onready var players := $GP/VB/Game/HSplit/SP/PlayersPanel
 onready var keyboard := $GP/VB/Game/HSplit/EDKB/Keyboard
 onready var victory := $VScreen
 onready var round_sign := $RoundSign
+onready var quit_confirm: ConfirmationDialog = $QuitConfirm/Main/ConfirmationDialog
 
 
 func _ready():
 	EntryManager.reset_picked()
 	start()
-
+	quit_confirm.get_cancel().connect("pressed", self, "_on_QuitConfirm_exit")
+	quit_confirm.get_close_button().hide()
 
 func start() -> void:
 	entry_display.set_display(EntryManager.get_random_entry())
@@ -27,7 +28,6 @@ func start() -> void:
 	log_label.text = ""
 	players.start()
 	new_button.hide()
-	quit_button.hide()
 	keyboard.enable()
 
 
@@ -63,8 +63,16 @@ func _on_NewG_pressed():
 
 func _pre_reset():
 	new_button.show()
-	quit_button.show()
 
 
 func _on_Quit_pressed():
+	$QuitConfirm/Main.show()
+	quit_confirm.show()
+
+
+func _on_QuitConfirm_confirmed():
 	get_tree().change_scene("res://game/menus/MainMenu.tscn")
+
+
+func _on_QuitConfirm_exit():
+	$QuitConfirm/Main.hide()
