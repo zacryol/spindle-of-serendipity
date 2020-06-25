@@ -254,7 +254,7 @@ margin_right = 154.0
 margin_bottom = 38.0
 theme = ExtResource( 6 )
 window_title = "Quit?"
-dialog_text = "Are You sure you want to quit?"
+dialog_text = "Are you sure you want to quit?"
 __meta__ = {
 "_edit_use_anchors_": false
 }
