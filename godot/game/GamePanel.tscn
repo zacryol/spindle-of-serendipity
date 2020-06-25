@@ -98,7 +98,7 @@ margin_bottom = 39.0
 
 [node name="Label" type="Label" parent="GP/VB/Top/HB"]
 margin_top = 7.0
-margin_right = 1270.0
+margin_right = 1217.0
 margin_bottom = 28.0
 size_flags_horizontal = 3
 text = "Game Status Bar"
@@ -111,10 +111,9 @@ margin_bottom = 27.0
 text = "Next"
 
 [node name="Quit" type="Button" parent="GP/VB/Top/HB"]
-visible = false
-margin_left = 956.0
-margin_right = 996.0
-margin_bottom = 20.0
+margin_left = 1221.0
+margin_right = 1270.0
+margin_bottom = 36.0
 text = "Quit"
 
 [node name="Game" type="PanelContainer" parent="GP/VB"]
@@ -227,7 +226,15 @@ one_shot = true
 [node name="QuitConfirm" type="CanvasLayer" parent="."]
 layer = 2
 
-[node name="Panel" type="Panel" parent="QuitConfirm"]
+[node name="Main" type="Control" parent="QuitConfirm"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="QuitConfirm/Main"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_styles/panel = SubResource( 5 )
@@ -235,7 +242,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ConfirmationDialog" type="ConfirmationDialog" parent="QuitConfirm"]
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="QuitConfirm/Main"]
 visible = true
 anchor_left = 0.5
 anchor_top = 0.5
@@ -248,6 +255,9 @@ margin_bottom = 38.0
 theme = ExtResource( 6 )
 window_title = "Quit?"
 dialog_text = "Are You sure you want to quit?"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="GP/VB/Top/HB/NewG" to="." method="_on_NewG_pressed"]
 [connection signal="pressed" from="GP/VB/Top/HB/Quit" to="." method="_on_Quit_pressed"]
 [connection signal="game_log" from="GP/VB/Game/HSplit/EDKB/EntryDisplay" to="." method="_log"]

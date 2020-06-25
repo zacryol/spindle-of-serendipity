@@ -7,7 +7,6 @@ var round_num := 0
 onready var entry_display := $GP/VB/Game/HSplit/EDKB/EntryDisplay
 onready var log_label: Label = $GP/VB/Top/HB/Label
 onready var new_button: Button = $GP/VB/Top/HB/NewG
-onready var quit_button: Button = $GP/VB/Top/HB/Quit
 onready var spindle := $GP/VB/Game/HSplit/SP/Spindle
 onready var players := $GP/VB/Game/HSplit/SP/PlayersPanel
 onready var keyboard := $GP/VB/Game/HSplit/EDKB/Keyboard
@@ -27,7 +26,6 @@ func start() -> void:
 	log_label.text = ""
 	players.start()
 	new_button.hide()
-	quit_button.hide()
 	keyboard.enable()
 
 
@@ -63,7 +61,6 @@ func _on_NewG_pressed():
 
 func _pre_reset():
 	new_button.show()
-	quit_button.show()
 
 
 func _on_Quit_pressed():
