@@ -10,6 +10,8 @@ variables:
 
 linux:
   stage: export
+  only:
+    - master
   script:
     - mkdir -v -p build/linux
     - cd $EXPORT_NAME
@@ -21,6 +23,8 @@ linux:
 
 windows:
   stage: export
+  only:
+    - master
   script:
     - mkdir -v -p build/windows
     - cd $EXPORT_NAME
@@ -32,6 +36,8 @@ windows:
 
 mac:
   stage: export
+  only:
+    - master
   script:
     - mkdir -v -p build/mac
     - cd $EXPORT_NAME
@@ -44,6 +50,8 @@ mac:
 # Itch.io Deploy
 itchio:linux:
   stage: deploy
+  only:
+    - master
   script:
     - butler push ./build/linux $ITCHIO_USERNAME/$ITCHIO_GAME:linux --userversion-file version.txt
   dependencies:
@@ -51,6 +59,8 @@ itchio:linux:
 
 itchio:windows:
   stage: deploy
+  only:
+    - master
   script:
     - butler push ./build/windows $ITCHIO_USERNAME/$ITCHIO_GAME:windows --userversion-file version.txt
   dependencies:
@@ -58,6 +68,8 @@ itchio:windows:
 
 itchio:macosx:
   stage: deploy
+  only:
+    - master
   script:
     - butler push ./build/mac $ITCHIO_USERNAME/$ITCHIO_GAME:mac --userversion-file version.txt
   dependencies:
