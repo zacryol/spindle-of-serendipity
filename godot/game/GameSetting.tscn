@@ -39,90 +39,99 @@ margin_right = 450.0
 margin_bottom = 176.0
 
 [node name="NameSetting" type="VBoxContainer" parent="Controls/Top"]
-margin_right = 219.0
+margin_right = 178.0
 margin_bottom = 176.0
 size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="Controls/Top/NameSetting"]
-margin_right = 219.0
+margin_right = 178.0
 margin_bottom = 21.0
 text = "Player 1 Name:"
 
 [node name="LineEdit" type="LineEdit" parent="Controls/Top/NameSetting"]
 margin_top = 25.0
-margin_right = 219.0
+margin_right = 178.0
 margin_bottom = 56.0
 
 [node name="Label2" type="Label" parent="Controls/Top/NameSetting"]
 margin_top = 60.0
-margin_right = 219.0
+margin_right = 178.0
 margin_bottom = 81.0
 text = "Player 2 Name:"
 
 [node name="LineEdit2" type="LineEdit" parent="Controls/Top/NameSetting"]
 margin_top = 85.0
-margin_right = 219.0
+margin_right = 178.0
 margin_bottom = 116.0
 
 [node name="Label3" type="Label" parent="Controls/Top/NameSetting"]
 margin_top = 120.0
-margin_right = 219.0
+margin_right = 178.0
 margin_bottom = 141.0
 text = "Player 3 Name:"
 
 [node name="LineEdit3" type="LineEdit" parent="Controls/Top/NameSetting"]
 margin_top = 145.0
-margin_right = 219.0
+margin_right = 178.0
 margin_bottom = 176.0
 
 [node name="VSeparator" type="VSeparator" parent="Controls/Top"]
-margin_left = 223.0
-margin_right = 227.0
+margin_left = 182.0
+margin_right = 186.0
 margin_bottom = 176.0
 
 [node name="Vict" type="VBoxContainer" parent="Controls/Top"]
-margin_left = 231.0
+margin_left = 190.0
 margin_right = 450.0
 margin_bottom = 176.0
 size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="Controls/Top/Vict"]
-margin_right = 219.0
+margin_right = 260.0
 margin_bottom = 21.0
 text = "Game Type:"
 
-[node name="Type" type="OptionButton" parent="Controls/Top/Vict"]
+[node name="Rounds" type="HBoxContainer" parent="Controls/Top/Vict"]
 margin_top = 25.0
-margin_right = 219.0
+margin_right = 260.0
 margin_bottom = 56.0
-text = "Free Play"
-items = [ "Free Play", null, false, 0, null, "Best of [X] Rounds", null, false, 1, null, "First to [X] Score", null, false, 2, null ]
-selected = 0
 
-[node name="Rounds" type="SpinBox" parent="Controls/Top/Vict"]
-margin_top = 60.0
-margin_right = 219.0
-margin_bottom = 91.0
+[node name="CheckBox" type="CheckBox" parent="Controls/Top/Vict/Rounds"]
+margin_right = 170.0
+margin_bottom = 31.0
+text = "Rounds to Win:"
+
+[node name="SpinBox" type="SpinBox" parent="Controls/Top/Vict/Rounds"]
+margin_left = 174.0
+margin_right = 260.0
+margin_bottom = 31.0
 size_flags_horizontal = 3
 min_value = 1.0
-value = 1.0
+value = 7.0
 rounded = true
 editable = false
-prefix = "Best of"
-suffix = "round(s)"
 
-[node name="Score" type="SpinBox" parent="Controls/Top/Vict"]
-margin_top = 95.0
-margin_right = 219.0
-margin_bottom = 126.0
+[node name="Score" type="HBoxContainer" parent="Controls/Top/Vict"]
+margin_top = 60.0
+margin_right = 260.0
+margin_bottom = 91.0
+
+[node name="CheckBox" type="CheckBox" parent="Controls/Top/Vict/Score"]
+margin_right = 152.0
+margin_bottom = 31.0
+text = "Score to Win:"
+
+[node name="SpinBox" type="SpinBox" parent="Controls/Top/Vict/Score"]
+margin_left = 156.0
+margin_right = 260.0
+margin_bottom = 31.0
 size_flags_horizontal = 3
 min_value = 150.0
 max_value = 20000.0
 step = 50.0
 value = 150.0
+rounded = true
 editable = false
-prefix = "First to"
-suffix = "points"
 
 [node name="VSeparator" type="HSeparator" parent="Controls"]
 margin_top = 180.0
@@ -158,7 +167,8 @@ margin_bottom = 64.5
 window_title = "Error!"
 dialog_text = "Selected Profile is empty. Please edit the profile or choose a different one."
 dialog_autowrap = true
-[connection signal="item_selected" from="Controls/Top/Vict/Type" to="." method="_on_Type_item_selected"]
-[connection signal="value_changed" from="Controls/Top/Vict/Rounds" to="." method="_on_Rounds_value_changed"]
-[connection signal="value_changed" from="Controls/Top/Vict/Score" to="." method="_on_Score_value_changed"]
+[connection signal="toggled" from="Controls/Top/Vict/Rounds/CheckBox" to="." method="_on_Rounds_toggled"]
+[connection signal="value_changed" from="Controls/Top/Vict/Rounds/SpinBox" to="." method="_on_Rounds_value_changed"]
+[connection signal="toggled" from="Controls/Top/Vict/Score/CheckBox" to="." method="_on_Score_toggled"]
+[connection signal="value_changed" from="Controls/Top/Vict/Score/SpinBox" to="." method="_on_Score_value_changed"]
 [connection signal="pressed" from="Controls/Button" to="." method="_on_Button_pressed"]
