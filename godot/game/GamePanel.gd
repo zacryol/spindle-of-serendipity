@@ -12,12 +12,14 @@ onready var players := $GP/VB/Game/HSplit/SP/PlayersPanel
 onready var keyboard := $GP/VB/Game/HSplit/EDKB/Keyboard
 onready var victory := $VScreen
 onready var round_sign := $RoundSign
+onready var quit_confirm: ConfirmationDialog = $QuitConfirm/Main/ConfirmationDialog
 
 
 func _ready():
 	EntryManager.reset_picked()
 	start()
-
+	quit_confirm.get_cancel().connect("pressed", self, "_on_QuitConfirm_exit")
+	quit_confirm.get_close_button().hide()
 
 func start() -> void:
 	entry_display.set_display(EntryManager.get_random_entry())
@@ -64,4 +66,13 @@ func _pre_reset():
 
 
 func _on_Quit_pressed():
+	$QuitConfirm/Main.show()
+	quit_confirm.show()
+
+
+func _on_QuitConfirm_confirmed():
 	get_tree().change_scene("res://game/menus/MainMenu.tscn")
+
+
+func _on_QuitConfirm_exit():
+	$QuitConfirm/Main.hide()

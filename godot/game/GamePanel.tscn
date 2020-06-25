@@ -275,3 +275,4 @@ __meta__ = {
 [connection signal="init_solve" from="GP/VB/Game/HSplit/SP/PlayersPanel" to="GP/VB/Game/HSplit/EDKB/EntryDisplay" method="init_solve"]
 [connection signal="pre_reset" from="GP/VB/Game/HSplit/SP/PlayersPanel" to="." method="_pre_reset"]
 [connection signal="turn_done" from="GP/VB/Game/HSplit/SP/PlayersPanel" to="GP/VB/Game/HSplit/SP/Spindle" method="_on_PlayersPanel_turn_done"]
+[connection signal="confirmed" from="QuitConfirm/Main/ConfirmationDialog" to="." method="_on_QuitConfirm_confirmed"]
