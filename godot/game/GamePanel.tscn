@@ -175,6 +175,7 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 4.28
 
 [node name="VScreen" parent="." instance=ExtResource( 7 )]
+layer = 3
 
 [node name="RoundSign" type="CanvasLayer" parent="."]
 script = ExtResource( 9 )

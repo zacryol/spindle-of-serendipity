@@ -46,7 +46,6 @@ corner_radius_bottom_left = 25
 corner_detail = 1
 
 [node name="VScreen" type="CanvasLayer"]
-layer = 2
 script = ExtResource( 2 )
 
 [node name="Main" type="Control" parent="."]
