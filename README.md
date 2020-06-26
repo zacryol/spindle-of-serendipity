@@ -1,4 +1,4 @@
-# spindle of serendipity
+# spindle of serendipity ![Godot v3.2](https://img.shields.io/badge/godot-v3.2-%23478cbf)
 A "Wheel of Fortune"-styled game with customizable entries.
 
 # Installing
