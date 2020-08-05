@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://game/components/Spindle.gd" type="Script" id=1]
+[ext_resource path="res://tex/spindle.png" type="Texture" id=2]
 
 [node name="Spindle" type="Control"]
 anchor_right = 1.0
@@ -53,4 +54,13 @@ margin_top = -7.0
 margin_right = 20.0
 margin_bottom = 7.0
 text = "Score:"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 33.234
+margin_top = 46.3155
+margin_right = 202.234
+margin_bottom = 81.3155
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 5
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
