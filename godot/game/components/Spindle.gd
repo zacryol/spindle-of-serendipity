@@ -3,6 +3,11 @@ extends "res://game/components/GameComponent.gd"
 signal score(points, final)
 signal spun
 
+enum State {
+	INACTIVE, # Not enabled. Something else needs to be done.
+	ACTIVE, # Enabled. Player needs to click
+	RUNNING, # Spinning. Click to set score
+}
 var current_value: int
 var enabled := false setget set_enabled
 
