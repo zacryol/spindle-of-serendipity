@@ -19,6 +19,8 @@ func set_state(new_state: int) -> void:
 			$Button.disabled = true
 		State.ACTIVE:
 			$Button.disabled = false
+		State.RUNNING:
+			$Button.disabled = false
 
 
 func _letters_guessed(number: int, solves: bool):
@@ -29,6 +31,8 @@ func _letters_guessed(number: int, solves: bool):
 func _on_Button_pressed():
 	match current_state:
 		State.ACTIVE:
+			set_state(State.RUNNING)
+		State.RUNNING:
 			emit_signal("game_log", "")
 			current_value = (randi() % 10 + 1) * 5
 			$ScoringLabel.text = "Score: " + str(current_value)
