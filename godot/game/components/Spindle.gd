@@ -17,10 +17,13 @@ func set_state(new_state: int) -> void:
 	match new_state:
 		State.INACTIVE:
 			$Button.disabled = true
+			$Button.text = "Spin!"
 		State.ACTIVE:
 			$Button.disabled = false
+			$Button.text = "Spin!"
 		State.RUNNING:
 			$Button.disabled = false
+			$Button.text = "Strike!"
 
 
 func _letters_guessed(number: int, solves: bool):
