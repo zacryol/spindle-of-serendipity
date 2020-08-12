@@ -27,13 +27,14 @@ func _letters_guessed(number: int, solves: bool):
 
 
 func _on_Button_pressed():
-	if current_state == State.ACTIVE:
-		emit_signal("game_log", "")
-		current_value = (randi() % 10 + 1) * 5
-		$ScoringLabel.text = "Score: " + str(current_value)
-		set_state(State.INACTIVE)
-		emit_signal("game_log", str(current_value) + " points per letter")
-		emit_signal("spun")
+	match current_state:
+		State.ACTIVE:
+			emit_signal("game_log", "")
+			current_value = (randi() % 10 + 1) * 5
+			$ScoringLabel.text = "Score: " + str(current_value)
+			set_state(State.INACTIVE)
+			emit_signal("game_log", str(current_value) + " points per letter")
+			emit_signal("spun")
 
 
 func _on_PlayersPanel_turn_done():
