@@ -35,8 +35,10 @@ func _on_Button_pressed():
 	match current_state:
 		State.ACTIVE:
 			set_state(State.RUNNING)
+			$AnimationPlayer.play("Back")
 		State.RUNNING:
 			emit_signal("game_log", "")
+			$AnimationPlayer.play("Forward")
 			current_value = (randi() % 10 + 1) * 5
 			$ScoringLabel.text = "Score: " + str(current_value)
 			set_state(State.INACTIVE)
