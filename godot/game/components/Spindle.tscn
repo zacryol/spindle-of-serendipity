@@ -82,9 +82,9 @@ margin_bottom = 7.0
 text = "Score:"
 
 [node name="TextureRect" type="TextureRect" parent="."]
-margin_left = 33.0
+margin_left = 75.0
 margin_top = 46.0
-margin_right = 202.0
+margin_right = 244.0
 margin_bottom = 81.0
 texture = ExtResource( 2 )
 expand = true
