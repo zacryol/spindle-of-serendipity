@@ -12,6 +12,9 @@ enum State {
 var current_state: int = State.INACTIVE
 var current_value: int
 
+
+
+
 func set_state(new_state: int) -> void:
 	current_state = new_state
 	match new_state:
