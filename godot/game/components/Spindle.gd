@@ -35,6 +35,8 @@ func _letters_guessed(number: int, solves: bool):
 
 
 func _on_Button_pressed():
+	$SpindleScores.tick()
+	
 	match current_state:
 		State.ACTIVE:
 			set_state(State.RUNNING)
