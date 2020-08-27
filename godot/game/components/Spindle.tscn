@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://game/components/Spindle.gd" type="Script" id=1]
 [ext_resource path="res://tex/spindle.png" type="Texture" id=2]
@@ -34,6 +34,17 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( 33, 46 ), Vector2( 75, 46 ) ]
 }
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.0862745, 0.0705882, 0.14902, 1 )
+corner_radius_top_left = 9
+corner_radius_bottom_left = 9
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.235294, 0.227451, 0.266667, 1 )
+shadow_color = Color( 0.235294, 0.227451, 0.266667, 1 )
+shadow_size = 9
 
 [node name="Spindle" type="Control"]
 anchor_right = 1.0
@@ -96,4 +107,90 @@ __meta__ = {
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Back = SubResource( 1 )
 anims/Forward = SubResource( 2 )
+
+[node name="Control" type="Control" parent="."]
+margin_left = 224.0
+margin_top = 5.0
+margin_right = 299.0
+margin_bottom = 120.0
+rect_clip_content = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -20.0
+margin_bottom = 22.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="Control/VBoxContainer"]
+margin_right = 75.0
+margin_bottom = 19.0
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 3 )
+
+[node name="Panel2" type="Panel" parent="Control/VBoxContainer"]
+margin_top = 23.0
+margin_right = 75.0
+margin_bottom = 42.0
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 3 )
+
+[node name="Panel3" type="Panel" parent="Control/VBoxContainer"]
+margin_top = 46.0
+margin_right = 75.0
+margin_bottom = 65.0
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 3 )
+
+[node name="Panel4" type="Panel" parent="Control/VBoxContainer"]
+margin_top = 69.0
+margin_right = 75.0
+margin_bottom = 88.0
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 3 )
+
+[node name="Panel5" type="Panel" parent="Control/VBoxContainer"]
+margin_top = 92.0
+margin_right = 75.0
+margin_bottom = 111.0
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 3 )
+
+[node name="Panel6" type="Panel" parent="Control/VBoxContainer"]
+margin_top = 115.0
+margin_right = 75.0
+margin_bottom = 134.0
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 3 )
+
+[node name="Panel7" type="Panel" parent="Control/VBoxContainer"]
+margin_top = 138.0
+margin_right = 75.0
+margin_bottom = 157.0
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 3 )
+
+[node name="Panel" type="Panel" parent="Control"]
+margin_left = -29.0
+margin_top = -28.6818
+margin_right = 104.0
+margin_bottom = 7.31821
+custom_styles/panel = SubResource( 4 )
+
+[node name="Panel2" type="Panel" parent="Control"]
+margin_left = -25.6364
+margin_top = 102.078
+margin_right = 107.364
+margin_bottom = 138.078
+custom_styles/panel = SubResource( 4 )
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
