@@ -74,5 +74,5 @@ margin_bottom = 138.078
 custom_styles/panel = SubResource( 1 )
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.167
+wait_time = 0.05
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

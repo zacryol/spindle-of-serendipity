@@ -43,6 +43,7 @@ func _on_Button_pressed():
 		State.RUNNING:
 			emit_signal("game_log", "")
 			$AnimationPlayer.play("Forward")
+			yield($AnimationPlayer, "animation_finished")
 			current_value = $SpindleScores.stop()
 			#current_value = (randi() % 10 + 1) * 5
 			$ScoringLabel.text = "Score: " + str(current_value)
