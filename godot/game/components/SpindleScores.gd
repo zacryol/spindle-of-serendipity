@@ -37,6 +37,7 @@ func start():
 
 func stop():
 	$Timer.stop()
+	return center_item.value
 
 
 func tick():

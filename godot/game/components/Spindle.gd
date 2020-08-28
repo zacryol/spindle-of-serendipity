@@ -43,8 +43,8 @@ func _on_Button_pressed():
 		State.RUNNING:
 			emit_signal("game_log", "")
 			$AnimationPlayer.play("Forward")
-			$SpindleScores.stop()
-			current_value = (randi() % 10 + 1) * 5
+			current_value = $SpindleScores.stop()
+			#current_value = (randi() % 10 + 1) * 5
 			$ScoringLabel.text = "Score: " + str(current_value)
 			set_state(State.INACTIVE)
 			emit_signal("game_log", str(current_value) + " points per letter")
