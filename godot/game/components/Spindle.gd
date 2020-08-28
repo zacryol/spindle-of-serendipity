@@ -35,15 +35,15 @@ func _letters_guessed(number: int, solves: bool):
 
 
 func _on_Button_pressed():
-	$SpindleScores.tick()
-	
 	match current_state:
 		State.ACTIVE:
 			set_state(State.RUNNING)
 			$AnimationPlayer.play("Back")
+			$SpindleScores.start()
 		State.RUNNING:
 			emit_signal("game_log", "")
 			$AnimationPlayer.play("Forward")
+			$SpindleScores.stop()
 			current_value = (randi() % 10 + 1) * 5
 			$ScoringLabel.text = "Score: " + str(current_value)
 			set_state(State.INACTIVE)

@@ -31,7 +31,19 @@ func set_values():
 	
 
 
+func start():
+	$Timer.start()
+
+
+func stop():
+	$Timer.stop()
+
+
 func tick():
 	var shift = scores.pop_back()
 	scores.push_front(shift)
 	set_values()
+
+
+func _on_Timer_timeout():
+	tick()
