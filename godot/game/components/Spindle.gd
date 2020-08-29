@@ -25,6 +25,8 @@ func set_state(new_state: int) -> void:
 			$Button.disabled = false
 			$Button.text = "Spin!"
 		State.RUNNING:
+			$Button.disabled = true
+			yield(get_tree().create_timer(0.5), "timeout")
 			$Button.disabled = false
 			$Button.text = "Strike!"
 
