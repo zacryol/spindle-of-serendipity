@@ -29,7 +29,9 @@ func get_profile_data(id: String) -> Dictionary:
 
 func write_to_file() -> void:
 	var f := File.new()
-	f.open_compressed(GlobalVars.PROFILE_SAVE, File.WRITE)
+	var err := f.open_compressed(GlobalVars.PROFILE_SAVE, File.WRITE)
+	if err:
+		return
 	for k in profiles_dict.keys():
 		var store_dict := {
 			"id" : k,
