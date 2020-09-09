@@ -33,12 +33,12 @@ func set_state(new_state: int) -> void:
 			bt.text = "Strike!"
 
 
-func _letters_guessed(number: int, solves: bool):
+func _letters_guessed(number: int, solves: bool) -> void:
 	set_state(State.INACTIVE)
 	emit_signal("score", number * current_value, solves)
 
 
-func _on_Button_pressed():
+func _on_Button_pressed() -> void:
 	match current_state:
 		State.ACTIVE:
 			set_state(State.RUNNING)
@@ -54,9 +54,9 @@ func _on_Button_pressed():
 			emit_signal("spun")
 
 
-func _on_PlayersPanel_turn_done():
+func _on_PlayersPanel_turn_done() -> void:
 	set_state(State.ACTIVE)
 
 
-func _on_EntryDisplay_text_ready():
+func _on_EntryDisplay_text_ready() -> void:
 	set_state(State.ACTIVE)
