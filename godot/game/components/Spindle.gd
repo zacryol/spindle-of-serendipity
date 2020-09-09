@@ -11,6 +11,7 @@ enum State {
 
 onready var anim: AnimationPlayer = $AnimationPlayer
 onready var scores: Control = $SpindleScores
+onready var bt: Button = $Button
 
 var current_state: int = State.INACTIVE
 var current_value: int
@@ -20,16 +21,16 @@ func set_state(new_state: int) -> void:
 	current_state = new_state
 	match new_state:
 		State.INACTIVE:
-			$Button.disabled = true
-			$Button.text = "Spin!"
+			bt.disabled = true
+			bt.text = "Spin!"
 		State.ACTIVE:
-			$Button.disabled = false
-			$Button.text = "Spin!"
+			bt.disabled = false
+			bt.text = "Spin!"
 		State.RUNNING:
-			$Button.disabled = true
+			bt.disabled = true
 			yield(get_tree().create_timer(0.5), "timeout")
-			$Button.disabled = false
-			$Button.text = "Strike!"
+			bt.disabled = false
+			bt.text = "Strike!"
 
 
 func _letters_guessed(number: int, solves: bool):
