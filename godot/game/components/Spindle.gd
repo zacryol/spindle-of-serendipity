@@ -48,7 +48,6 @@ func _on_Button_pressed():
 			anim.play("Forward")
 			yield(anim, "animation_finished")
 			current_value = scores.stop()
-			$ScoringLabel.text = "Score: " + str(current_value)
 			set_state(State.INACTIVE)
 			emit_signal("game_log", str(current_value) + " points per letter")
 			emit_signal("spun")

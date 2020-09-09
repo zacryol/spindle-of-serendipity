@@ -19,7 +19,7 @@ var scores: Array = [
 	50,
 ]
 
-func _ready():
+func _ready() -> void:
 	scores.shuffle()
 	scores.append(-25)
 	scores.append(85)
@@ -27,26 +27,26 @@ func _ready():
 	set_values()
 
 
-func set_values():
+func set_values() -> void:
 	assert(score_items.size() <= scores.size())
 	for i in score_items.size():
 		score_items[i].value = scores[i]
 
 
-func start():
+func start() -> void:
 	$Timer.start()
 
 
-func stop():
+func stop() -> int:
 	$Timer.stop()
 	return center_item.value
 
 
-func tick():
+func tick() -> void:
 	var shift = scores.pop_back()
 	scores.push_front(shift)
 	set_values()
 
 
-func _on_Timer_timeout():
+func _on_Timer_timeout() -> void:
 	tick()
