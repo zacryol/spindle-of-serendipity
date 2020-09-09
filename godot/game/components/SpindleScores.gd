@@ -5,10 +5,12 @@ onready var score_items := $VBoxContainer.get_children()
 onready var center_item := $VBoxContainer/ScoreItem4
 
 var scores: Array = [
+	-15,
 	-5,
 	10,
 	15,
 	20,
+	25,
 	25,
 	30,
 	35,
@@ -19,6 +21,9 @@ var scores: Array = [
 
 func _ready():
 	scores.shuffle()
+	scores.append(-25)
+	scores.append(85)
+	scores.append(-25)
 	set_values()
 
 

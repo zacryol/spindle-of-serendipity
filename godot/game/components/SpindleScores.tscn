@@ -34,36 +34,29 @@ __meta__ = {
 }
 
 [node name="ScoreItem" parent="VBoxContainer" instance=ExtResource( 2 )]
-margin_right = 74.0
 
 [node name="ScoreItem2" parent="VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 23.0
-margin_right = 74.0
 margin_bottom = 42.0
 
 [node name="ScoreItem3" parent="VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 46.0
-margin_right = 74.0
 margin_bottom = 65.0
 
 [node name="ScoreItem4" parent="VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 69.0
-margin_right = 74.0
 margin_bottom = 88.0
 
 [node name="ScoreItem5" parent="VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 92.0
-margin_right = 74.0
 margin_bottom = 111.0
 
 [node name="ScoreItem6" parent="VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 115.0
-margin_right = 74.0
 margin_bottom = 134.0
 
 [node name="ScoreItem7" parent="VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 138.0
-margin_right = 74.0
 margin_bottom = 157.0
 
 [node name="Panel" type="Panel" parent="."]
@@ -81,5 +74,5 @@ margin_bottom = 138.078
 custom_styles/panel = SubResource( 1 )
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.05
+wait_time = 0.1
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
