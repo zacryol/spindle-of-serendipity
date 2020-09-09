@@ -14,6 +14,7 @@ margin_top = 5.0
 margin_right = 285.0
 margin_bottom = 120.0
 rect_clip_content = true
+mouse_filter = 2
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -34,6 +35,7 @@ __meta__ = {
 }
 
 [node name="ScoreItem" parent="VBoxContainer" instance=ExtResource( 2 )]
+mouse_filter = 2
 
 [node name="ScoreItem2" parent="VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 23.0
@@ -58,19 +60,25 @@ margin_bottom = 134.0
 [node name="ScoreItem7" parent="VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 138.0
 margin_bottom = 157.0
+mouse_filter = 2
 
 [node name="Panel" type="Panel" parent="."]
 margin_left = -29.0
 margin_top = -28.6818
 margin_right = 104.0
 margin_bottom = 7.31821
+mouse_filter = 2
 custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Panel2" type="Panel" parent="."]
 margin_left = -25.6364
 margin_top = 102.078
 margin_right = 107.364
 margin_bottom = 138.078
+mouse_filter = 2
 custom_styles/panel = SubResource( 1 )
 
 [node name="Timer" type="Timer" parent="."]
