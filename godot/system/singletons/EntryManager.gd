@@ -24,7 +24,6 @@ func add_entry(data: PoolStringArray):
 		entries.append(e)
 	else:
 		print("Entry: \"" + e.to_string() + "\" already present")
-		e.free()
 
 
 func contains_equivalent(e: Entry) -> bool:
