@@ -61,16 +61,6 @@ func load_from_file():
 			if s.has("sou"):
 				aliases_sou = s["sou"]
 		f.close()
-#		var v := validate_json(s)
-#		if not v:
-#			var a = parse_json(s)
-#			if typeof(a) == TYPE_DICTIONARY:
-#				var d := a as Dictionary
-#				if d.has("cat"):
-#					aliases_cat = d["cat"]
-#				if d.has("sou"):
-#					aliases_sou = d["sou"]
-#	f.close()
 
 
 func save_to_file():
