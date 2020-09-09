@@ -29,11 +29,8 @@ func _ready():
 
 func set_values():
 	assert(score_items.size() <= scores.size())
-	
 	for i in score_items.size():
 		score_items[i].value = scores[i]
-		pass
-	
 
 
 func start():

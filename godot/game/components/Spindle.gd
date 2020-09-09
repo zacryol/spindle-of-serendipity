@@ -9,10 +9,11 @@ enum State {
 	RUNNING, # Spinning. Click to set score
 }
 
+onready var anim: AnimationPlayer = $AnimationPlayer
+onready var scores: Control = $SpindleScores
+
 var current_state: int = State.INACTIVE
 var current_value: int
-
-
 
 
 func set_state(new_state: int) -> void:
@@ -40,14 +41,13 @@ func _on_Button_pressed():
 	match current_state:
 		State.ACTIVE:
 			set_state(State.RUNNING)
-			$AnimationPlayer.play("Back")
-			$SpindleScores.start()
+			anim.play("Back")
+			scores.start()
 		State.RUNNING:
 			emit_signal("game_log", "")
-			$AnimationPlayer.play("Forward")
-			yield($AnimationPlayer, "animation_finished")
-			current_value = $SpindleScores.stop()
-			#current_value = (randi() % 10 + 1) * 5
+			anim.play("Forward")
+			yield(anim, "animation_finished")
+			current_value = scores.stop()
 			$ScoringLabel.text = "Score: " + str(current_value)
 			set_state(State.INACTIVE)
 			emit_signal("game_log", str(current_value) + " points per letter")
