@@ -54,19 +54,8 @@ func win_by_rounds() -> bool:
 
 func _ready():
 	load_settings_from_file()
-	
-	var t := Timer.new()
-	add_child(t)
-	t.wait_time = 5
-	t.connect("timeout", self, "_timer")
-	t.start()
 	randomize()
-	
 	OS.min_window_size = Vector2(1024, 576)
-
-
-func _timer():
-	randomize()
 
 
 func save_settings_to_file():
