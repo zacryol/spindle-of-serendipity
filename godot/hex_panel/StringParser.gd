@@ -2,7 +2,7 @@ extends Node
 
 
 func parse(input: String) -> PoolStringArray:
-	var lines: PoolStringArray
+	var lines := PoolStringArray()
 	var max_line_length: int = floor(sqrt(2 * input.length()))
 	var current_line: String = ""
 	
