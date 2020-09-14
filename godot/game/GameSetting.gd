@@ -64,11 +64,11 @@ func _on_Button_pressed():
 
 
 func _on_Rounds_value_changed(value: float):
-	GlobalVars.rounds = floor(value)
+	GlobalVars.rounds = int(value)
 
 
 func _on_Score_value_changed(value: float):
-	GlobalVars.win_score = floor(value)
+	GlobalVars.win_score = int(value)
 
 
 func _on_Rounds_toggled(button_pressed: bool):

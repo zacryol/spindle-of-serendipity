@@ -28,7 +28,9 @@ func grab_saved_files():
 	var d := Directory.new()
 	if d.dir_exists(path) == false:
 		d.make_dir_recursive(path)
-	d.open(path)
+	var err := d.open(path)
+	if err:
+		return
 	d.list_dir_begin(true, true)
 	while true:
 		var f := d.get_next()

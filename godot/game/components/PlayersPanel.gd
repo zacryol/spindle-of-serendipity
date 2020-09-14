@@ -36,7 +36,7 @@ func start():
 func highest_score() -> int:
 	var score := 0
 	for p in players_array:
-		score = max(score, p.get_all_score())
+		score = int(max(score, p.get_all_score()))
 	return score
 
 

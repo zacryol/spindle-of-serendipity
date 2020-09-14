@@ -1,8 +1,8 @@
-# spindle of serendipity
+# spindle of serendipity ![Godot v3.2](https://img.shields.io/badge/godot-v3.2-%23478cbf)
 A "Wheel of Fortune"-styled game with customizable entries.
 
 # Installing
-*  Download Godot Engine version 3.2.1
+*  Download Godot Engine version 3.2.2
 *  Download files
 *  Open Godot, click "Import"
 *  Navigate to the project.godot file

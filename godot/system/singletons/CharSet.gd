@@ -74,7 +74,7 @@ const LINE_BREAKS := PoolIntArray([
 func get_row_length() -> int:
 	var length := 0
 	for i in LINE_BREAKS:
-		length = max(i, length)
+		length = int(max(i, length))
 	return length
 
 

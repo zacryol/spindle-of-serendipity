@@ -1,0 +1,81 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://game/components/SpindleScores.gd" type="Script" id=1]
+[ext_resource path="res://game/components/ScoreItem.tscn" type="PackedScene" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.235294, 0.227451, 0.266667, 1 )
+shadow_color = Color( 0.235294, 0.227451, 0.266667, 1 )
+shadow_size = 9
+
+[node name="SpindleScores" type="Control"]
+margin_left = 210.0
+margin_top = 5.0
+margin_right = 285.0
+margin_bottom = 120.0
+rect_clip_content = true
+mouse_filter = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -20.0
+margin_bottom = 22.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoreItem" parent="VBoxContainer" instance=ExtResource( 2 )]
+mouse_filter = 2
+
+[node name="ScoreItem2" parent="VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 23.0
+margin_bottom = 42.0
+
+[node name="ScoreItem3" parent="VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 46.0
+margin_bottom = 65.0
+
+[node name="ScoreItem4" parent="VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 69.0
+margin_bottom = 88.0
+
+[node name="ScoreItem5" parent="VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 92.0
+margin_bottom = 111.0
+
+[node name="ScoreItem6" parent="VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 115.0
+margin_bottom = 134.0
+
+[node name="ScoreItem7" parent="VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 138.0
+margin_bottom = 157.0
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = -29.0
+margin_top = -28.6818
+margin_right = 104.0
+margin_bottom = 7.31821
+mouse_filter = 2
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel2" type="Panel" parent="."]
+margin_left = -25.6364
+margin_top = 102.078
+margin_right = 107.364
+margin_bottom = 138.078
+mouse_filter = 2
+custom_styles/panel = SubResource( 1 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

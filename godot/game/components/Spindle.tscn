@@ -1,6 +1,40 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://game/components/Spindle.gd" type="Script" id=1]
+[ext_resource path="res://tex/spindle.png" type="Texture" id=2]
+[ext_resource path="res://game/components/SpindleScores.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Back"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 75, 46 ), Vector2( 33, 46 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Forward"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 33, 46 ), Vector2( 75, 46 ) ]
+}
 
 [node name="Spindle" type="Control"]
 anchor_right = 1.0
@@ -37,14 +71,21 @@ margin_right = 40.0
 margin_bottom = 14.0
 text = "Spindle"
 
-[node name="ScoringLabel" type="Label" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -20.0
-margin_top = -7.0
-margin_right = 20.0
-margin_bottom = 7.0
-text = "Score:"
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 75.0
+margin_top = 46.0
+margin_right = 244.0
+margin_bottom = 81.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Back = SubResource( 1 )
+anims/Forward = SubResource( 2 )
+
+[node name="SpindleScores" parent="." instance=ExtResource( 3 )]
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
