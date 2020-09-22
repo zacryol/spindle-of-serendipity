@@ -14,14 +14,7 @@ func _to_string() -> String:
 func add_entry(file: String, data: PoolStringArray):
 	while data.size() < 3:
 		data.append("")
-	
 	var e: Entry = Entry.new(file, data[0], data[1], data[2])
-#	if data.size() == 1:
-#		e = Entry.new(data[0])
-#	elif data.size() == 2:
-#		e = Entry.new(data[0], data[1])
-#	elif data.size() >= 3:
-#		e = Entry.new(data[0], data[1], data[2])
 	
 	if not contains_equivalent(e):
 		entries.append(e)
