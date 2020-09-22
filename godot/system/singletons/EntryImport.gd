@@ -16,7 +16,8 @@ func import_entries_from_file(path: String):
 			var j = parse_json(line)
 			if typeof(j) == TYPE_ARRAY:
 				var data := PoolStringArray(j)
-				EntryManager.add_entry(data)
+				EntryManager.add_entry(
+						path.get_file().get_basename(), data)
 		elif line:
 			print("ERROR: Entry \"" + line + "\" in file " +
 					path.get_file() + " is invalid")

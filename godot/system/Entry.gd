@@ -1,15 +1,18 @@
 class_name Entry
 extends Reference
 
+var archive: String = ""
 var text: String
 var category: String = GlobalVars.DEFAULT_CATEGORY
 var source: String = GlobalVars.DEFAULT_SOURCE
 
 var picked := false
 
-func _init(new_text: String,
+func _init(file: String, 
+		new_text: String,
 		new_category := "",
 		new_source := ""):
+	archive = file
 	text = new_text
 	if category:
 		category = new_category
