@@ -14,9 +14,9 @@ func _init(file: String,
 		new_source := ""):
 	archive = file
 	text = new_text
-	if category:
+	if new_category:
 		category = new_category
-	if source:
+	if new_source:
 		source = new_source
 
 
