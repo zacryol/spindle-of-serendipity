@@ -1,10 +1,10 @@
 extends Node
 
-func _ready():
+func _ready() -> void:
 	grab_saved_files()
 
 
-func import_entries_from_file(path: String):
+func import_entries_from_file(path: String) -> void:
 	var f := File.new()
 	var a := path.get_file()
 	var err := f.open(path, File.READ)
@@ -26,7 +26,7 @@ func import_entries_from_file(path: String):
 	f.close()
 
 
-func grab_saved_files():
+func grab_saved_files() -> void:
 	var path := GlobalVars.ENTRIES_SAVE
 	var d := Directory.new()
 	if d.dir_exists(path) == false:
