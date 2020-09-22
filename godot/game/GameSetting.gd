@@ -79,3 +79,7 @@ func _on_Rounds_toggled(button_pressed: bool):
 func _on_Score_toggled(button_pressed: bool):
 	GlobalVars.win_by_score = button_pressed
 	score_box.editable = button_pressed
+
+
+func _on_ReturnButton_pressed():
+	get_tree().change_scene("res://game/menus/MainMenu.tscn")
