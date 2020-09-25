@@ -79,6 +79,8 @@ resizable = true
 mode = 1
 access = 2
 filters = PoolStringArray( "*.json" )
+current_dir = "/"
+current_path = "/"
 
 [node name="AcceptDialog" type="AcceptDialog" parent="."]
 margin_left = 430.586

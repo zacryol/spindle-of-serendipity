@@ -1,29 +1,32 @@
 extends Node
 
-func _ready():
+func _ready() -> void:
 	grab_saved_files()
 
 
-func import_entries_from_file(path: String):
+func import_entries_from_file(path: String) -> void:
 	var f := File.new()
+	var a := path.get_file()
 	var err := f.open(path, File.READ)
 	if err:
 		return
 	while not f.eof_reached():
 		var line := f.get_line()
 		var v := validate_json(line)
-		if not v:
-			var j = parse_json(line)
-			if typeof(j) == TYPE_ARRAY:
-				var data := PoolStringArray(j)
-				EntryManager.add_entry(data)
-		elif line:
-			print("ERROR: Entry \"" + line + "\" in file " +
-					path.get_file() + " is invalid")
+		if v:
+			if line:
+				print("ERROR: Entry \"" + line + "\" in file " + a + " is invalid")
+			continue
+		
+		var j = parse_json(line)
+		if typeof(j) == TYPE_ARRAY:
+			var data := PoolStringArray(j)
+			EntryManager.add_entry(a.get_basename(), data)
+		
 	f.close()
 
 
-func grab_saved_files():
+func grab_saved_files() -> void:
 	var path := GlobalVars.ENTRIES_SAVE
 	var d := Directory.new()
 	if d.dir_exists(path) == false:
