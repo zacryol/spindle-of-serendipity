@@ -88,9 +88,13 @@ func load_from_file() -> void:
 
 func clear(id: String):
 	if profiles_dict.has(id):
-		profiles_dict[id].free()
+#		profiles_dict[id].free()
 		profiles_dict.erase(id)
 		write_to_file()
+
+
+func profile_has_entry(e: Entry, p: String) -> bool:
+	return true
 
 
 class Profile extends Object:
