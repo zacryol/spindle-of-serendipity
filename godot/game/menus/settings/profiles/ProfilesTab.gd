@@ -7,6 +7,7 @@ onready var sources := $VBoxContainer/Config/Sources/SC/List
 onready var save_name: LineEdit = $VBoxContainer/Top/LineEdit
 onready var alert := $SaveName
 onready var load_button: MenuButton = $VBoxContainer/Top/LoadButton
+onready var match_num: SpinBox = $VBoxContainer/MatchCount/SpinBox
 
 func _ready():
 	for cat in EntryManager.get_import_categories():
@@ -48,7 +49,8 @@ func get_incl_sources() -> PoolStringArray:
 
 
 func requires_both() -> bool:
-	return $VBoxContainer/CheckBox.pressed
+	#return $VBoxContainer/CheckBox.pressed
+	return true
 
 
 func update_load() -> void:
@@ -61,7 +63,8 @@ func _on_profile_loaded(idx: int) -> void:
 	var id: String = load_button.get_popup().get_item_text(idx)
 	var dict := Profiles.get_profile_data(id)
 	if dict.has("both"):
-		$VBoxContainer/CheckBox.pressed = dict["both"]
+#		$VBoxContainer/CheckBox.pressed = dict["both"]
+		pass
 	if dict.has("cat"):
 		for c in categories.get_children():
 			if c.get_core() in dict["cat"]:

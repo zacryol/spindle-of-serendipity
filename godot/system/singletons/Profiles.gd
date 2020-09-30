@@ -1,18 +1,24 @@
 extends Node
 
 const RESERVED := "Default (All Entries)"
-var profiles_dict: Dictionary # string for key, Profile object as value
+var profiles_dict: Dictionary
+
 
 func _ready() -> void:
 	load_from_file()
 
 
 func save_profile(id: String,
-		cat: PoolStringArray, sou: PoolStringArray, both: bool) -> void:
-	if profiles_dict.has(id):
-		profiles_dict[id].free()
-		profiles_dict.erase(id)
-	profiles_dict[id] = Profile.new(cat, sou, both)
+		cat: PoolStringArray, sou: PoolStringArray, count: int) -> void:
+	profiles_dict[id] = {
+		'cat' : cat,
+		'sou' : sou,
+		'match_count' : count,
+	}
+#	if profiles_dict.has(id):
+#		profiles_dict[id].free()
+#		profiles_dict.erase(id)
+#	profiles_dict[id] = Profile.new(cat, sou, both)
 	write_to_file()
 
 
@@ -22,22 +28,23 @@ func get_keys() -> PoolStringArray:
 
 func get_profile_data(id: String) -> Dictionary:
 	if profiles_dict.has(id):
-		return profiles_dict[id].get_data()
+		return profiles_dict[id]
 	else:
 		return {}
 
 
 func write_to_file() -> void:
 	var f := File.new()
-	var err := f.open_compressed(GlobalVars.PROFILE_SAVE, File.WRITE)
+	var err := f.open(GlobalVars.PROFILE_SAVE, File.WRITE)
 	if err:
 		return
-	for k in profiles_dict.keys():
-		var store_dict := {
-			"id" : k,
-			"data" : get_profile_data(k)
-		}
-		f.store_line(to_json(store_dict))
+	f.store_var(profiles_dict)
+#	for k in profiles_dict.keys():
+#		var store_dict := {
+#			"id" : k,
+#			"data" : get_profile_data(k)
+#		}
+#		f.store_line(to_json(store_dict))
 
 
 func load_from_file() -> void:
