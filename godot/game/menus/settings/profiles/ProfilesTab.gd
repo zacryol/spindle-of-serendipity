@@ -62,9 +62,8 @@ func update_load() -> void:
 func _on_profile_loaded(idx: int) -> void:
 	var id: String = load_button.get_popup().get_item_text(idx)
 	var dict := Profiles.get_profile_data(id)
-	if dict.has("both"):
-#		$VBoxContainer/CheckBox.pressed = dict["both"]
-		pass
+	if dict.has("match_count"):
+		match_num.value = dict['match_count']
 	if dict.has("cat"):
 		for c in categories.get_children():
 			if c.get_core() in dict["cat"]:
@@ -88,7 +87,7 @@ func _on_SaveAs_pressed():
 		alert.show()
 	else:
 		Profiles.save_profile(save_name.text, get_incl_categories(),
-				get_incl_sources(), requires_both())
+				get_incl_sources(), match_num.value)
 		update_load()
 
 
