@@ -39,6 +39,7 @@ func write_to_file() -> void:
 	if err:
 		return
 	f.store_var(profiles_dict)
+	f.close()
 #	for k in profiles_dict.keys():
 #		var store_dict := {
 #			"id" : k,
@@ -51,33 +52,38 @@ func load_from_file() -> void:
 	var f := File.new()
 	if not f.file_exists(GlobalVars.PROFILE_SAVE):
 		return
-	var err = f.open_compressed(GlobalVars.PROFILE_SAVE, File.READ)
+	var err = f.open(GlobalVars.PROFILE_SAVE, File.READ)
 	if err:
 		return
+	var p = f.get_var()
+	if not typeof(p) == TYPE_DICTIONARY:
+		return
 	
-	while not f.eof_reached():
-		var data := f.get_line()
-		if not data:
-			continue
-		
-		var v = validate_json(data)
-		if v:
-			continue
-		
-		var d = parse_json(data)
-		if typeof(d) == TYPE_DICTIONARY:
-			var dict := d as Dictionary
-			if dict.has_all(["id", "data"]):
-				var profile_data := dict["data"] as Dictionary
-				var id: String = dict["id"]
-				if profile_data.has_all(["both", "cat", "sou"]):
-					if profiles_dict.has(id):
-						profiles_dict[id].free()
-						profiles_dict.erase(id)
-					profiles_dict[id]\
-							= Profile.new(profile_data["cat"], 
-									profile_data["sou"],
-									profile_data["both"])
+	profiles_dict = p
+	
+#	while not f.eof_reached():
+#		var data := f.get_line()
+#		if not data:
+#			continue
+#
+#		var v = validate_json(data)
+#		if v:
+#			continue
+#
+#		var d = parse_json(data)
+#		if typeof(d) == TYPE_DICTIONARY:
+#			var dict := d as Dictionary
+#			if dict.has_all(["id", "data"]):
+#				var profile_data := dict["data"] as Dictionary
+#				var id: String = dict["id"]
+#				if profile_data.has_all(["both", "cat", "sou"]):
+#					if profiles_dict.has(id):
+#						profiles_dict[id].free()
+#						profiles_dict.erase(id)
+#					profiles_dict[id]\
+#							= Profile.new(profile_data["cat"], 
+#									profile_data["sou"],
+#									profile_data["both"])
 
 
 func clear(id: String):
