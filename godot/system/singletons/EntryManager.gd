@@ -1,7 +1,6 @@
 extends Node
 
 var entries: Array # Only add Entry objects
-#var filtering_profile: bool = false
 var current_profile := ""
 
 func _to_string() -> String:
@@ -55,7 +54,6 @@ func get_available_entries() -> Array:
 			if Profiles.profile_has_entry(e, current_profile):
 				available.append(e)
 	return available
-#	return available if filtering_profile else unpicked
 
 
 func get_random_entry() -> Entry:
@@ -141,13 +139,6 @@ func get_import_sources() -> PoolStringArray:
 			if not e.get_import_source() in sources:
 				sources.append(e.get_import_source())
 	return sources
-
-
-func is_profile_valid(p: Profiles.Profile) -> bool:
-	for e in entries:
-		if p.contains_entry(e):
-			return true
-	return false
 
 
 func set_profile(id: String = ""):
