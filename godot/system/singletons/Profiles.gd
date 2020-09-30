@@ -93,9 +93,24 @@ func clear(id: String):
 		write_to_file()
 
 
-func profile_has_entry(e: Entry, p: String) -> bool:
-	return true
+func profile_has_entry(e: Entry, pid: String) -> bool:
+	if not profiles_dict.has(pid):
+		return true
+	var p := profiles_dict[pid] as Dictionary
+	var c := get_profile_match_count(e, p)
+	assert(p.has('match_count'))
+	return p.match_count >= c
 
+
+func get_profile_match_count(e: Entry, p: Dictionary) -> int:
+	var count = 0
+	assert(p.has_all(['cat', 'sou']))
+	if e.get_import_category() == p['cat']:
+		count += 1
+	if e.get_import_source() == p['sou']:
+		count += 1
+	
+	return count
 
 class Profile extends Object:
 	var match_both: bool
