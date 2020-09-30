@@ -99,7 +99,7 @@ func profile_has_entry(e: Entry, pid: String) -> bool:
 	var p := profiles_dict[pid] as Dictionary
 	var c := get_profile_match_count(e, p)
 	assert(p.has('match_count'))
-	return p.match_count >= c
+	return c >= p.match_count
 
 
 func get_profile_match_count(e: Entry, p: Dictionary) -> int:
