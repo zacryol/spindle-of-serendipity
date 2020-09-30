@@ -80,19 +80,19 @@ text = "fields to be included."
 [node name="Config" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 56.0
 margin_right = 1280.0
-margin_bottom = 702.0
+margin_bottom = 720.0
 size_flags_vertical = 3
 
 [node name="Categories" type="PanelContainer" parent="VBoxContainer/Config"]
 margin_right = 638.0
-margin_bottom = 646.0
+margin_bottom = 664.0
 size_flags_horizontal = 3
 
 [node name="SC" type="ScrollContainer" parent="VBoxContainer/Config/Categories"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 631.0
-margin_bottom = 639.0
+margin_bottom = 657.0
 
 [node name="List" type="VBoxContainer" parent="VBoxContainer/Config/Categories/SC"]
 margin_right = 624.0
@@ -101,24 +101,18 @@ size_flags_horizontal = 3
 [node name="Sources" type="PanelContainer" parent="VBoxContainer/Config"]
 margin_left = 642.0
 margin_right = 1280.0
-margin_bottom = 646.0
+margin_bottom = 664.0
 size_flags_horizontal = 3
 
 [node name="SC" type="ScrollContainer" parent="VBoxContainer/Config/Sources"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 631.0
-margin_bottom = 639.0
+margin_bottom = 657.0
 
 [node name="List" type="VBoxContainer" parent="VBoxContainer/Config/Sources/SC"]
 margin_right = 624.0
 size_flags_horizontal = 3
-
-[node name="Label" type="Label" parent="VBoxContainer"]
-margin_top = 706.0
-margin_right = 1280.0
-margin_bottom = 720.0
-text = "*Note: Leave a whole column unchecked to include ALL items, even ones added in future imports"
 
 [node name="SaveName" type="AcceptDialog" parent="."]
 anchor_left = 0.5
