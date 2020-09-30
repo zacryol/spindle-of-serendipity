@@ -15,10 +15,6 @@ func save_profile(id: String,
 		'sou' : sou,
 		'match_count' : count,
 	}
-#	if profiles_dict.has(id):
-#		profiles_dict[id].free()
-#		profiles_dict.erase(id)
-#	profiles_dict[id] = Profile.new(cat, sou, both)
 	write_to_file()
 
 
@@ -40,12 +36,6 @@ func write_to_file() -> void:
 		return
 	f.store_var(profiles_dict)
 	f.close()
-#	for k in profiles_dict.keys():
-#		var store_dict := {
-#			"id" : k,
-#			"data" : get_profile_data(k)
-#		}
-#		f.store_line(to_json(store_dict))
 
 
 func load_from_file() -> void:
@@ -60,35 +50,11 @@ func load_from_file() -> void:
 		return
 	
 	profiles_dict = p
-	
-#	while not f.eof_reached():
-#		var data := f.get_line()
-#		if not data:
-#			continue
-#
-#		var v = validate_json(data)
-#		if v:
-#			continue
-#
-#		var d = parse_json(data)
-#		if typeof(d) == TYPE_DICTIONARY:
-#			var dict := d as Dictionary
-#			if dict.has_all(["id", "data"]):
-#				var profile_data := dict["data"] as Dictionary
-#				var id: String = dict["id"]
-#				if profile_data.has_all(["both", "cat", "sou"]):
-#					if profiles_dict.has(id):
-#						profiles_dict[id].free()
-#						profiles_dict.erase(id)
-#					profiles_dict[id]\
-#							= Profile.new(profile_data["cat"], 
-#									profile_data["sou"],
-#									profile_data["both"])
+	f.close()
 
 
 func clear(id: String):
 	if profiles_dict.has(id):
-#		profiles_dict[id].free()
 		profiles_dict.erase(id)
 		write_to_file()
 
