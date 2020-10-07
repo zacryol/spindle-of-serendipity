@@ -1,10 +1,11 @@
 extends PanelContainer
 
 var core_text: String
+onready var check: CheckBox = $CheckBox
 
 func set_text(main: String, alias: String = "") -> void:
 	core_text = main
-	$CheckBox.text = main + alias
+	check.text = main + alias
 
 
 func get_core() -> String:
@@ -12,8 +13,8 @@ func get_core() -> String:
 
 
 func checked() -> bool:
-	return $CheckBox.pressed
+	return check.pressed
 
 
 func set_checked(checked: bool = true) -> void:
-	$CheckBox.pressed = checked
+	check.pressed = checked
