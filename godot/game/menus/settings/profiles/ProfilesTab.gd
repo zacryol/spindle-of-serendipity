@@ -5,11 +5,11 @@ var single := preload("res://game/menus/settings/profiles/ProfileSingle.tscn")
 onready var categories := $VBoxContainer/Config/Categories/SC/List
 onready var sources := $VBoxContainer/Config/Sources/SC/List
 onready var save_name: LineEdit = $VBoxContainer/Top/LineEdit
-onready var alert := $SaveName
+onready var alert: AcceptDialog = $SaveName
 onready var load_button: MenuButton = $VBoxContainer/Top/LoadButton
 onready var match_num: SpinBox = $VBoxContainer/MatchCount/SpinBox
 
-func _ready():
+func _ready() -> void:
 	for cat in EntryManager.get_import_categories():
 		var l := single.instance()
 		var new_text: String = cat
@@ -74,7 +74,7 @@ func _on_profile_loaded(idx: int) -> void:
 	save_name.text = id
 
 
-func _on_SaveAs_pressed():
+func _on_SaveAs_pressed() -> void:
 	if not save_name.text:
 		alert.show()
 	elif save_name.text == Profiles.RESERVED:
@@ -85,7 +85,7 @@ func _on_SaveAs_pressed():
 		update_load()
 
 
-func _on_alias_created():
+func _on_alias_created() -> void:
 	for c in categories.get_children():
 		if Alias.has(c.get_core(), true):
 			c.set_text(c.get_core(),
@@ -100,7 +100,7 @@ func _on_alias_created():
 			s.set_text(s.get_core())
 
 
-func _on_Delete_pressed():
+func _on_Delete_pressed() -> void:
 	if save_name.text:
 		Profiles.clear(save_name.text)
 	update_load()
