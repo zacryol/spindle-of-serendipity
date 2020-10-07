@@ -9,10 +9,12 @@ func _ready() -> void:
 
 
 func save_profile(id: String,
-		cat: PoolStringArray, sou: PoolStringArray, count: int) -> void:
+		cat: PoolStringArray, sou: PoolStringArray, 
+		arc: PoolStringArray, count: int) -> void:
 	profiles_dict[id] = {
 		'cat' : cat,
 		'sou' : sou,
+		'arc' : arc,
 		'match_count' : count,
 	}
 	write_to_file()
@@ -70,10 +72,12 @@ func profile_has_entry(e: Entry, pid: String) -> bool:
 
 func get_profile_match_count(e: Entry, p: Dictionary) -> int:
 	var count = 0
-	assert(p.has_all(['cat', 'sou']))
+	assert(p.has_all(['cat', 'sou', 'arc']))
 	if e.get_import_category() in p['cat']:
 		count += 1
 	if e.get_import_source() in p['sou']:
+		count += 1
+	if e.archive in p['arc']:
 		count += 1
 	
 	return count

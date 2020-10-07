@@ -67,7 +67,7 @@ margin_left = 129.0
 margin_right = 203.0
 margin_bottom = 24.0
 min_value = 1.0
-max_value = 2.0
+max_value = 3.0
 value = 1.0
 
 [node name="Label2" type="Label" parent="VBoxContainer/MatchCount"]
@@ -84,34 +84,50 @@ margin_bottom = 720.0
 size_flags_vertical = 3
 
 [node name="Categories" type="PanelContainer" parent="VBoxContainer/Config"]
-margin_right = 638.0
+margin_right = 424.0
 margin_bottom = 664.0
 size_flags_horizontal = 3
 
 [node name="SC" type="ScrollContainer" parent="VBoxContainer/Config/Categories"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 631.0
+margin_right = 417.0
 margin_bottom = 657.0
 
 [node name="List" type="VBoxContainer" parent="VBoxContainer/Config/Categories/SC"]
-margin_right = 624.0
+margin_right = 410.0
 size_flags_horizontal = 3
 
 [node name="Sources" type="PanelContainer" parent="VBoxContainer/Config"]
-margin_left = 642.0
-margin_right = 1280.0
+margin_left = 428.0
+margin_right = 852.0
 margin_bottom = 664.0
 size_flags_horizontal = 3
 
 [node name="SC" type="ScrollContainer" parent="VBoxContainer/Config/Sources"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 631.0
+margin_right = 417.0
 margin_bottom = 657.0
 
 [node name="List" type="VBoxContainer" parent="VBoxContainer/Config/Sources/SC"]
-margin_right = 624.0
+margin_right = 410.0
+size_flags_horizontal = 3
+
+[node name="Files" type="PanelContainer" parent="VBoxContainer/Config"]
+margin_left = 856.0
+margin_right = 1280.0
+margin_bottom = 664.0
+size_flags_horizontal = 3
+
+[node name="SC" type="ScrollContainer" parent="VBoxContainer/Config/Files"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 417.0
+margin_bottom = 657.0
+
+[node name="List" type="VBoxContainer" parent="VBoxContainer/Config/Files/SC"]
+margin_right = 410.0
 size_flags_horizontal = 3
 
 [node name="SaveName" type="AcceptDialog" parent="."]

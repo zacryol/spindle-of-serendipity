@@ -4,6 +4,7 @@ var current_profile := ""
 var single := preload("res://game/menus/settings/profiles/ProfileSingle.tscn")
 onready var categories := $VBoxContainer/Config/Categories/SC/List
 onready var sources := $VBoxContainer/Config/Sources/SC/List
+onready var archives := $VBoxContainer/Config/Files/SC/List
 onready var save_name: LineEdit = $VBoxContainer/Top/LineEdit
 onready var alert: AcceptDialog = $SaveName
 onready var load_button: MenuButton = $VBoxContainer/Top/LoadButton
@@ -26,7 +27,11 @@ func _ready() -> void:
 			l.set_text(new_text, " -> " + Alias.source(sou))
 		else:
 			l.set_text(new_text)
-	
+	for arc in EntryManager.get_archives():
+		var l := single.instance()
+		var new_text: String = arc
+		archives.add_child(l)
+		l.set_text(arc)
 	update_load()
 	load_button.get_popup().connect("index_pressed", self, "_on_profile_loaded")
 
@@ -45,6 +50,14 @@ func get_incl_sources() -> PoolStringArray:
 		if line.checked():
 			sou.append(line.get_core())
 	return sou
+
+
+func get_incl_archives() -> PoolStringArray:
+	var arc: PoolStringArray = []
+	for line in archives.get_children():
+		if line.checked():
+			arc.append(line.get_core())
+	return arc
 
 
 func update_load() -> void:
@@ -70,7 +83,12 @@ func _on_profile_loaded(idx: int) -> void:
 				s.set_checked()
 			else:
 				s.set_checked(false)
-	
+	if dict.has("arc"):
+		for a in archives.get_children():
+			if a.get_core() in dict["arc"]:
+				a.set_checked()
+			else:
+				a.set_checked(false)
 	save_name.text = id
 
 
@@ -80,8 +98,12 @@ func _on_SaveAs_pressed() -> void:
 	elif save_name.text == Profiles.RESERVED:
 		alert.show()
 	else:
-		Profiles.save_profile(save_name.text, get_incl_categories(),
-				get_incl_sources(), match_num.value)
+		var t := save_name.text
+		var c := get_incl_categories()
+		var s := get_incl_sources()
+		var a := get_incl_archives()
+		var i := match_num.value
+		Profiles.save_profile(t, c, s, a, i)
 		update_load()
 
 

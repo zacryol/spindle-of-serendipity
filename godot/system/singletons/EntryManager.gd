@@ -141,5 +141,13 @@ func get_import_sources() -> PoolStringArray:
 	return sources
 
 
+func get_archives() -> PoolStringArray:
+	var archives: PoolStringArray = []
+	for e in entries:
+		if not e.archive in archives:
+			archives.append(e.archive)
+	return archives
+
+
 func set_profile(id: String = ""):
 	current_profile = id
