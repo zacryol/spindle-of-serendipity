@@ -13,20 +13,19 @@ func _ready():
 	for cat in EntryManager.get_import_categories():
 		var l := single.instance()
 		var new_text: String = cat
+		categories.add_child(l)
 		if Alias.has(cat, true):
 			l.set_text(new_text, " -> " + Alias.category(cat))
 		else:
 			l.set_text(new_text)
-		categories.add_child(l)
-	
 	for sou in EntryManager.get_import_sources():
 		var l := single.instance()
 		var new_text: String = sou
+		sources.add_child(l)
 		if Alias.has(sou, false):
 			l.set_text(new_text, " -> " + Alias.source(sou))
 		else:
 			l.set_text(new_text)
-		sources.add_child(l)
 	
 	update_load()
 	load_button.get_popup().connect("index_pressed", self, "_on_profile_loaded")
@@ -46,11 +45,6 @@ func get_incl_sources() -> PoolStringArray:
 		if line.checked():
 			sou.append(line.get_core())
 	return sou
-
-
-func requires_both() -> bool:
-	#return $VBoxContainer/CheckBox.pressed
-	return true
 
 
 func update_load() -> void:
