@@ -47,7 +47,7 @@ func set_display(entry: Entry):
 		$SourceLabel.text = ""
 	else:
 		$SourceLabel.text = source_hide
-	
+	print_debug(entry_text)
 	hex.text = entry_text
 
 
