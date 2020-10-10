@@ -17,12 +17,14 @@ var bool_mask: Dictionary
 var source_hide := "???"
 
 onready var hex := $PanelContainer/ScrollContainer/CenterContainer/HexContainer
+onready var source_label: Label = $SourceLabel
+onready var cat_label: Label = $CategoryLabel
+onready var solve_ui: VBoxContainer = $SolveUI
 
 func _ready():
 	bool_mask.clear()
 	for c in CharSet.CHAR_MAIN:
 		bool_mask[c] = false
-	pass
 
 
 func _input(event):
@@ -40,14 +42,14 @@ func set_display(entry: Entry):
 	for k in bool_mask.keys():
 		bool_mask[k] = false
 	
-	$CategoryLabel.text = entry.get_game_category()
+	cat_label.text = entry.get_game_category()
 	if GlobalVars.settings["source"] == GlobalVars.SOURCE_ALWAYS:
-		$SourceLabel.text = source_text
+		source_label.text = source_text
 	elif GlobalVars.settings["source"] == GlobalVars.SOURCE_NEVER:
-		$SourceLabel.text = ""
+		source_label.text = ""
 	else:
-		$SourceLabel.text = source_hide
-	
+		source_label.text = source_hide
+	print_debug(entry_text)
 	hex.text = entry_text
 
 
@@ -83,7 +85,7 @@ func single_letter_guessed(letter: String):
 	else:
 		emit_signal("game_log", guess + " has already been guessed")
 	if is_solved() && GlobalVars.settings["source"] == GlobalVars.SOURCE_SOLVE:
-		$SourceLabel.text = source_text
+		source_label.text = source_text
 
 
 func add_solve(letter: String):
@@ -93,7 +95,7 @@ func add_solve(letter: String):
 
 func init_solve():
 	current_mode = MODE_SOLVE
-	$SolveUI.show()
+	solve_ui.show()
 
 
 func _on_Spindle_spun():
@@ -102,7 +104,7 @@ func _on_Spindle_spun():
 
 func _on_SolveButton_pressed():
 	var solved := is_solved()
-	$SolveUI.hide()
+	solve_ui.hide()
 	emit_signal("guess_checked", solved)
 	hex.clear_solve()
 	current_mode = MODE_DISABLED
@@ -111,7 +113,7 @@ func _on_SolveButton_pressed():
 		for k in bool_mask.keys():
 			bool_mask[k] = true
 		if GlobalVars.settings["source"] == GlobalVars.SOURCE_SOLVE:
-			$SourceLabel.text = source_text
+			source_label.text = source_text
 
 
 func _on_BSpace_pressed():

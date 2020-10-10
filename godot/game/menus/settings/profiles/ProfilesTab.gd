@@ -4,29 +4,34 @@ var current_profile := ""
 var single := preload("res://game/menus/settings/profiles/ProfileSingle.tscn")
 onready var categories := $VBoxContainer/Config/Categories/SC/List
 onready var sources := $VBoxContainer/Config/Sources/SC/List
+onready var archives := $VBoxContainer/Config/Files/SC/List
 onready var save_name: LineEdit = $VBoxContainer/Top/LineEdit
-onready var alert := $SaveName
+onready var alert: AcceptDialog = $SaveName
 onready var load_button: MenuButton = $VBoxContainer/Top/LoadButton
+onready var match_num: SpinBox = $VBoxContainer/MatchCount/SpinBox
 
-func _ready():
+func _ready() -> void:
 	for cat in EntryManager.get_import_categories():
 		var l := single.instance()
 		var new_text: String = cat
+		categories.add_child(l)
 		if Alias.has(cat, true):
 			l.set_text(new_text, " -> " + Alias.category(cat))
 		else:
 			l.set_text(new_text)
-		categories.add_child(l)
-	
 	for sou in EntryManager.get_import_sources():
 		var l := single.instance()
 		var new_text: String = sou
+		sources.add_child(l)
 		if Alias.has(sou, false):
 			l.set_text(new_text, " -> " + Alias.source(sou))
 		else:
 			l.set_text(new_text)
-		sources.add_child(l)
-	
+	for arc in EntryManager.get_archives():
+		var l := single.instance()
+		var new_text: String = arc
+		archives.add_child(l)
+		l.set_text(arc)
 	update_load()
 	load_button.get_popup().connect("index_pressed", self, "_on_profile_loaded")
 
@@ -47,8 +52,12 @@ func get_incl_sources() -> PoolStringArray:
 	return sou
 
 
-func requires_both() -> bool:
-	return $VBoxContainer/CheckBox.pressed
+func get_incl_archives() -> PoolStringArray:
+	var arc: PoolStringArray = []
+	for line in archives.get_children():
+		if line.checked():
+			arc.append(line.get_core())
+	return arc
 
 
 func update_load() -> void:
@@ -60,8 +69,8 @@ func update_load() -> void:
 func _on_profile_loaded(idx: int) -> void:
 	var id: String = load_button.get_popup().get_item_text(idx)
 	var dict := Profiles.get_profile_data(id)
-	if dict.has("both"):
-		$VBoxContainer/CheckBox.pressed = dict["both"]
+	if dict.has("match_count"):
+		match_num.value = dict['match_count']
 	if dict.has("cat"):
 		for c in categories.get_children():
 			if c.get_core() in dict["cat"]:
@@ -74,22 +83,31 @@ func _on_profile_loaded(idx: int) -> void:
 				s.set_checked()
 			else:
 				s.set_checked(false)
-	
+	if dict.has("arc"):
+		for a in archives.get_children():
+			if a.get_core() in dict["arc"]:
+				a.set_checked()
+			else:
+				a.set_checked(false)
 	save_name.text = id
 
 
-func _on_SaveAs_pressed():
+func _on_SaveAs_pressed() -> void:
 	if not save_name.text:
 		alert.show()
 	elif save_name.text == Profiles.RESERVED:
 		alert.show()
 	else:
-		Profiles.save_profile(save_name.text, get_incl_categories(),
-				get_incl_sources(), requires_both())
+		var t := save_name.text
+		var c := get_incl_categories()
+		var s := get_incl_sources()
+		var a := get_incl_archives()
+		var i := match_num.value
+		Profiles.save_profile(t, c, s, a, i)
 		update_load()
 
 
-func _on_alias_created():
+func _on_alias_created() -> void:
 	for c in categories.get_children():
 		if Alias.has(c.get_core(), true):
 			c.set_text(c.get_core(),
@@ -104,7 +122,7 @@ func _on_alias_created():
 			s.set_text(s.get_core())
 
 
-func _on_Delete_pressed():
+func _on_Delete_pressed() -> void:
 	if save_name.text:
 		Profiles.clear(save_name.text)
 	update_load()

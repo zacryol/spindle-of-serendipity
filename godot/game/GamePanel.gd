@@ -14,12 +14,12 @@ onready var victory := $VScreen
 onready var round_sign := $RoundSign
 onready var quit_confirm: ConfirmationDialog = $QuitConfirm/Main/ConfirmationDialog
 
-
-func _ready():
+func _ready() -> void:
 	EntryManager.reset_picked()
 	start()
 	quit_confirm.get_cancel().connect("pressed", self, "_on_QuitConfirm_exit")
 	quit_confirm.get_close_button().hide()
+
 
 func start() -> void:
 	entry_display.set_display(EntryManager.get_random_entry())
