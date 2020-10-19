@@ -1,0 +1,56 @@
+[gd_scene format=2]
+
+[node name="ESSingle" type="PanelContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1273.0
+margin_bottom = 713.0
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+margin_top = 346.0
+margin_right = 36.0
+margin_bottom = 360.0
+text = "Entry:"
+
+[node name="E" type="LineEdit" parent="HBoxContainer"]
+margin_left = 40.0
+margin_right = 513.0
+margin_bottom = 706.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+
+[node name="Label2" type="Label" parent="HBoxContainer"]
+margin_left = 517.0
+margin_top = 346.0
+margin_right = 576.0
+margin_bottom = 360.0
+text = "Category:"
+
+[node name="C" type="LineEdit" parent="HBoxContainer"]
+margin_left = 580.0
+margin_right = 895.0
+margin_bottom = 706.0
+size_flags_horizontal = 3
+
+[node name="Label3" type="Label" parent="HBoxContainer"]
+margin_left = 899.0
+margin_top = 346.0
+margin_right = 946.0
+margin_bottom = 360.0
+text = "Source:"
+
+[node name="S" type="LineEdit" parent="HBoxContainer"]
+margin_left = 950.0
+margin_right = 1266.0
+margin_bottom = 706.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
