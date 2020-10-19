@@ -1,5 +1,6 @@
 extends Control
 
+var single := preload("res://game/menus/ESSingle.tscn")
 
 func _ready():
 	pass

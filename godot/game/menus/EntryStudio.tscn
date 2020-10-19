@@ -26,4 +26,7 @@ margin_top = -45.9999
 margin_right = -15.0
 margin_bottom = -14.9999
 text = "View Entry Data Folder"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="FolderButton" to="." method="_on_FolderButton_pressed"]
