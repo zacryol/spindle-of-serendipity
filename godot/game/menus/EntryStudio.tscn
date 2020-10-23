@@ -86,5 +86,6 @@ text = "View Entry Data Folder"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="pressed" from="PC/VBox/Control/MenuButton" to="." method="_on_MenuButton_pressed"]
 [connection signal="pressed" from="PC/VBox/Main/Scroll/VBox/AddButton" to="." method="_on_AddButton_pressed"]
 [connection signal="pressed" from="PC/VBox/Control2/FolderButton" to="." method="_on_FolderButton_pressed"]

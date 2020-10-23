@@ -21,3 +21,7 @@ func _on_FolderButton_pressed() -> void:
 
 func _on_AddButton_pressed() -> void:
 	add_item()
+
+
+func _on_MenuButton_pressed() -> void:
+	get_tree().change_scene("res://game/menus/MainMenu.tscn")
