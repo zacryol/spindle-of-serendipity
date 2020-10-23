@@ -2,8 +2,8 @@ extends Control
 
 var single := preload("res://game/menus/ESSingle.tscn")
 
-onready var vbox: VBoxContainer = $PanelContainer/HSplitContainer/ScrollContainer/VBoxContainer
-onready var add_button: Button = $PanelContainer/HSplitContainer/ScrollContainer/VBoxContainer/AddButton
+onready var vbox := $PC/HSplit/PContainer/Scroll/VBox as VBoxContainer
+onready var add_button := $PC/HSplit/PContainer/Scroll/VBox/AddButton as Button
 
 func _ready():
 	add_item()
