@@ -19,47 +19,61 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HSplit" type="HSplitContainer" parent="PC"]
+[node name="VBox" type="VBoxContainer" parent="PC"]
 margin_left = 3.0
 margin_top = 3.0
 margin_right = 1278.0
 margin_bottom = 718.0
-dragger_visibility = 1
 
-[node name="PContainer" type="PanelContainer" parent="PC/HSplit"]
-margin_right = 844.0
-margin_bottom = 715.0
+[node name="Control" type="Control" parent="PC/VBox"]
+margin_right = 1275.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 50 )
+
+[node name="MenuButton" type="Button" parent="PC/VBox/Control"]
+margin_right = 10.0
+margin_bottom = 31.0
+text = "Back To Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Main" type="PanelContainer" parent="PC/VBox"]
+margin_top = 54.0
+margin_right = 1275.0
+margin_bottom = 611.0
 size_flags_horizontal = 3
+size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
 
-[node name="Scroll" type="ScrollContainer" parent="PC/HSplit/PContainer"]
+[node name="Scroll" type="ScrollContainer" parent="PC/VBox/Main"]
 margin_left = 3.0
 margin_top = 3.0
-margin_right = 842.0
-margin_bottom = 713.0
+margin_right = 1273.0
+margin_bottom = 555.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 
-[node name="VBox" type="VBoxContainer" parent="PC/HSplit/PContainer/Scroll"]
-margin_right = 839.0
-margin_bottom = 710.0
+[node name="VBox" type="VBoxContainer" parent="PC/VBox/Main/Scroll"]
+margin_right = 1270.0
+margin_bottom = 552.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="AddButton" type="Button" parent="PC/HSplit/PContainer/Scroll/VBox"]
-margin_left = 773.0
-margin_right = 839.0
+[node name="AddButton" type="Button" parent="PC/VBox/Main/Scroll/VBox"]
+margin_left = 1204.0
+margin_right = 1270.0
 margin_bottom = 31.0
 size_flags_horizontal = 8
 text = "+ Add"
 
-[node name="Control" type="Control" parent="PC/HSplit"]
-margin_left = 856.0
+[node name="Control2" type="Control" parent="PC/VBox"]
+margin_top = 615.0
 margin_right = 1275.0
 margin_bottom = 715.0
-size_flags_horizontal = 3
+rect_min_size = Vector2( 0, 100 )
 
-[node name="FolderButton" type="Button" parent="PC/HSplit/Control"]
+[node name="FolderButton" type="Button" parent="PC/VBox/Control2"]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -72,13 +86,5 @@ text = "View Entry Data Folder"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Label" type="Label" parent="PC/HSplit/Control"]
-anchor_right = 1.0
-margin_bottom = 21.0
-text = "Add Entries to the game."
-__meta__ = {
-"_edit_use_anchors_": false
-}
-[connection signal="pressed" from="PC/HSplit/PContainer/Scroll/VBox/AddButton" to="." method="_on_AddButton_pressed"]
-[connection signal="pressed" from="PC/HSplit/Control/FolderButton" to="." method="_on_FolderButton_pressed"]
+[connection signal="pressed" from="PC/VBox/Main/Scroll/VBox/AddButton" to="." method="_on_AddButton_pressed"]
+[connection signal="pressed" from="PC/VBox/Control2/FolderButton" to="." method="_on_FolderButton_pressed"]
