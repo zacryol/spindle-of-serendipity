@@ -3,6 +3,7 @@ extends Control
 var single := preload("res://game/menus/ESSingle.tscn")
 
 onready var vbox := $PC/VBox/Main/Scroll/VBox as VBoxContainer
+onready var scroll := $PC/VBox/Main/Scroll as ScrollContainer
 onready var add_button := $PC/VBox/Main/Scroll/VBox/AddButton as Button
 
 func _ready() -> void:
@@ -13,6 +14,9 @@ func add_item() -> void:
 	var s := single.instance()
 	vbox.add_child(s)
 	vbox.move_child(add_button, vbox.get_child_count() - 1)
+	add_button.release_focus()
+	yield(get_tree(), "idle_frame")
+	scroll.get_v_scrollbar().ratio = 1
 
 
 func _on_FolderButton_pressed() -> void:
