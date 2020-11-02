@@ -1,20 +1,20 @@
 extends PanelContainer
 
-onready var entry_label := $HBoxContainer/Label as Label
-onready var cat_label := $HBoxContainer/Label2 as Label
-onready var sou_label := $HBoxContainer/Label3 as Label
+onready var entry_enter := $HBoxContainer/E as LineEdit
+onready var cat_enter := $HBoxContainer/C as LineEdit
+onready var sou_enter := $HBoxContainer/S as LineEdit
 
 func _ready() -> void:
 	pass
 
 
 func get_text() -> String:
-	return entry_label.text
+	return entry_enter.text
 
 
 func get_category() -> String:
-	return cat_label.text
+	return cat_enter.text
 
 
 func get_source() -> String:
-	return sou_label.text
+	return sou_enter.text
