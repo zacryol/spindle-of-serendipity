@@ -29,3 +29,12 @@ func _on_AddButton_pressed() -> void:
 
 func _on_MenuButton_pressed() -> void:
 	get_tree().change_scene("res://game/menus/MainMenu.tscn")
+
+
+func _on_SaveButton_pressed() -> void:
+	for line in vbox.get_children():
+		if line is Button:
+			continue
+		
+		assert(line is PanelContainer)
+		

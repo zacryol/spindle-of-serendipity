@@ -86,6 +86,35 @@ text = "View Entry Data Folder"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="SaveBit" type="HBoxContainer" parent="PC/VBox/Control2"]
+margin_left = 15.0
+margin_top = 9.0
+margin_right = 406.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="PC/VBox/Control2/SaveBit"]
+margin_top = 5.0
+margin_right = 119.0
+margin_bottom = 26.0
+text = "Save Set As:"
+
+[node name="LineEdit" type="LineEdit" parent="PC/VBox/Control2/SaveBit"]
+margin_left = 123.0
+margin_right = 330.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+
+[node name="SaveButton" type="Button" parent="PC/VBox/Control2/SaveBit"]
+margin_left = 334.0
+margin_right = 391.0
+margin_bottom = 31.0
+text = "Save"
 [connection signal="pressed" from="PC/VBox/Control/MenuButton" to="." method="_on_MenuButton_pressed"]
 [connection signal="pressed" from="PC/VBox/Main/Scroll/VBox/AddButton" to="." method="_on_AddButton_pressed"]
 [connection signal="pressed" from="PC/VBox/Control2/FolderButton" to="." method="_on_FolderButton_pressed"]
+[connection signal="pressed" from="PC/VBox/Control2/SaveBit/SaveButton" to="." method="_on_SaveButton_pressed"]
