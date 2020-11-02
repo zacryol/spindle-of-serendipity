@@ -5,6 +5,7 @@ var single := preload("res://game/menus/ESSingle.tscn")
 onready var vbox := $PC/VBox/Main/Scroll/VBox as VBoxContainer
 onready var scroll := $PC/VBox/Main/Scroll as ScrollContainer
 onready var add_button := $PC/VBox/Main/Scroll/VBox/AddButton as Button
+onready var save_name := $PC/VBox/Control2/SaveBit/LineEdit as LineEdit
 
 func _ready() -> void:
 	add_item()
@@ -32,9 +33,27 @@ func _on_MenuButton_pressed() -> void:
 
 
 func _on_SaveButton_pressed() -> void:
+	var path := save_name.text
+	if path.get_extension().to_lower() != "json":
+		path += ".json"
+	
+	var f = File.new()
+	if f.file_exists(GlobalVars.ENTRIES_SAVE + path):
+		# check with user - overwrite?
+		pass
+	
+	var lines_array := []
 	for line in vbox.get_children():
 		if line is Button:
 			continue
 		
 		assert(line is PanelContainer)
-		
+		var e := []
+		e.append(line.get_text())
+		e.append(line.get_category())
+		e.append(line.get_source())
+		lines_array.append(e)
+	print(lines_array)
+	# write file
+		# to_json() each line, store line
+	# EntryImport reimport()
