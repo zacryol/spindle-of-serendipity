@@ -6,9 +6,14 @@ onready var vbox := $PC/VBox/Main/Scroll/VBox as VBoxContainer
 onready var scroll := $PC/VBox/Main/Scroll as ScrollContainer
 onready var add_button := $PC/VBox/Main/Scroll/VBox/AddButton as Button
 onready var save_name := $PC/VBox/Control2/SaveBit/LineEdit as LineEdit
+onready var save_button := $PC/VBox/Control2/SaveBit/SaveButton as Button
+onready var save_confirm := $AcceptDialog as AcceptDialog
 
 func _ready() -> void:
 	add_item()
+	save_confirm.add_button("Overwrite", true, "over")
+	save_confirm.add_button("Append", true, "add")
+	save_confirm.get_ok().text = "Cancel"
 
 
 func add_item() -> void:
@@ -40,8 +45,12 @@ func _on_SaveButton_pressed() -> void:
 	var f = File.new()
 	if f.file_exists(GlobalVars.ENTRIES_SAVE + path):
 		# check with user - overwrite?
-		pass
+		save_button.disabled = true
+		save_confirm.dialog_text = "File %s already exists" % (GlobalVars.ENTRIES_SAVE + path)
+		save_confirm.show()
+		return
 	
+	# goes into other function after confirming action
 	var lines_array := []
 	for line in vbox.get_children():
 		if line is Button:
@@ -57,3 +66,8 @@ func _on_SaveButton_pressed() -> void:
 	# write file
 		# to_json() each line, store line
 	# EntryImport reimport()
+
+
+func _on_AcceptDialog_custom_action(action: String) -> void:
+	save_button.disabled = false
+	print(action)
