@@ -94,6 +94,7 @@ func _on_AcceptDialog_custom_action(action: String) -> void:
 			return
 	
 	save_entries_to_file(f)
+	save_confirm.hide()
 
 
 func _on_AcceptDialog_hide() -> void:
