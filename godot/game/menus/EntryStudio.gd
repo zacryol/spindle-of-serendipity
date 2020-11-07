@@ -26,6 +26,28 @@ func add_item() -> void:
 	scroll.get_v_scrollbar().ratio = 1
 
 
+func save_entries_to_file(f: File) -> void:
+	var lines_array := []
+	for line in vbox.get_children():
+		if line is Button:
+			continue
+		
+		assert(line is PanelContainer)
+		var e := []
+		e.append(line.get_text())
+		e.append(line.get_category())
+		e.append(line.get_source())
+		lines_array.append(e)
+	print(lines_array)
+	for line in lines_array:
+		var e := to_json(line)
+		f.store_line(e)
+	# write file
+		# to_json() each line, store line
+	# EntryImport reimport()
+	pass
+
+
 func _on_FolderButton_pressed() -> void:
 	OS.shell_open(OS.get_user_data_dir() + "/entries")
 
@@ -43,7 +65,7 @@ func _on_SaveButton_pressed() -> void:
 	if path.get_extension().to_lower() != "json":
 		path += ".json"
 	
-	var f = File.new()
+	var f := File.new()
 	if f.file_exists(GlobalVars.ENTRIES_SAVE + path):
 		# check with user - overwrite?
 		save_button.disabled = true
@@ -51,26 +73,27 @@ func _on_SaveButton_pressed() -> void:
 		save_confirm.show()
 		return
 	
-	# goes into other function after confirming action
-	var lines_array := []
-	for line in vbox.get_children():
-		if line is Button:
-			continue
-		
-		assert(line is PanelContainer)
-		var e := []
-		e.append(line.get_text())
-		e.append(line.get_category())
-		e.append(line.get_source())
-		lines_array.append(e)
-	print(lines_array)
-	# write file
-		# to_json() each line, store line
-	# EntryImport reimport()
+	f.open(GlobalVars.ENTRIES_SAVE + path, File.WRITE)
+	save_entries_to_file(f)
 
 
 func _on_AcceptDialog_custom_action(action: String) -> void:
-	print(action)
+	var path := save_name.text
+	if path.get_extension().to_lower() != "json":
+		path += ".json"
+	var save_path := GlobalVars.ENTRIES_SAVE + path
+	
+	var f := File.new()
+	match action:
+		"over":
+			f.open(save_path, File.WRITE)
+		"add":
+			f.open(save_path, File.READ_WRITE)
+			f.seek_end()
+		_:
+			return
+	
+	save_entries_to_file(f)
 
 
 func _on_AcceptDialog_hide() -> void:
