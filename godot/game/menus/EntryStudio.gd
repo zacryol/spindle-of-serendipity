@@ -14,6 +14,7 @@ func _ready() -> void:
 	save_confirm.add_button("Overwrite", true, "over")
 	save_confirm.add_button("Append", true, "add")
 	save_confirm.get_ok().text = "Cancel"
+	save_confirm.connect("confirmed", self, "_on_AcceptDialog_custom_action", [""])
 
 
 func add_item() -> void:
@@ -69,5 +70,8 @@ func _on_SaveButton_pressed() -> void:
 
 
 func _on_AcceptDialog_custom_action(action: String) -> void:
-	save_button.disabled = false
 	print(action)
+
+
+func _on_AcceptDialog_hide() -> void:
+	save_button.disabled = false
