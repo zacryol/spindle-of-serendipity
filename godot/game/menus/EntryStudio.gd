@@ -121,11 +121,17 @@ func _on_FileDialog_file_selected(path: String) -> void:
 	while not f.eof_reached():
 		var l := f.get_line()
 		var a = parse_json(l)
-		var e: Array
-		if typeof(a) == TYPE_ARRAY:
-			e = a as Array
-		else:
+		if not typeof(a) == TYPE_ARRAY:
 			continue
-		
-		
+		var e := a as Array
+		var s: Node = yield(add_item(), "completed")
+		match e.size():
+			0:
+				continue
+			1:
+				s.set_values(e[0])
+			2:
+				s.set_values(e[0], e[1])
+			_:
+				s.set_values(e[0], e[1], e[2])
 	pass # Replace with function body.

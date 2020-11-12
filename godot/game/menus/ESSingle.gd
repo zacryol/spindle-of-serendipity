@@ -18,3 +18,9 @@ func get_category() -> String:
 
 func get_source() -> String:
 	return sou_enter.text
+
+
+func set_values(e := "", c := "", s := "") -> void:
+	entry_enter.text = e
+	cat_enter.text = c
+	sou_enter.text = s
