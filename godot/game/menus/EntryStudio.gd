@@ -44,8 +44,6 @@ func save_entries_to_file(f: File) -> void:
 	for line in lines_array:
 		var e := to_json(line)
 		f.store_line(e)
-	# write file
-		# to_json() each line, store line
 	# EntryImport reimport()
 	pass
 
@@ -69,7 +67,6 @@ func _on_SaveButton_pressed() -> void:
 	
 	var f := File.new()
 	if f.file_exists(GlobalVars.ENTRIES_SAVE + path):
-		# check with user - overwrite?
 		save_button.disabled = true
 		save_confirm.dialog_text = "File %s already exists" % (GlobalVars.ENTRIES_SAVE + path)
 		save_confirm.show()
@@ -120,6 +117,8 @@ func _on_FileDialog_file_selected(path: String) -> void:
 	
 	while not f.eof_reached():
 		var l := f.get_line()
+		if not l and validate_json(l):
+			continue
 		var a = parse_json(l)
 		if not typeof(a) == TYPE_ARRAY:
 			continue
@@ -134,4 +133,3 @@ func _on_FileDialog_file_selected(path: String) -> void:
 				s.set_values(e[0], e[1])
 			_:
 				s.set_values(e[0], e[1], e[2])
-	pass # Replace with function body.
