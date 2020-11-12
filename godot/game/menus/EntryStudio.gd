@@ -8,6 +8,7 @@ onready var add_button := $PC/VBox/Main/Scroll/VBox/AddButton as Button
 onready var save_name := $PC/VBox/Control2/SaveBit/LineEdit as LineEdit
 onready var save_button := $PC/VBox/Control2/SaveBit/SaveButton as Button
 onready var save_confirm := $AcceptDialog as AcceptDialog
+onready var load_dialog := $FileDialog as FileDialog
 
 func _ready() -> void:
 	add_item()
@@ -99,3 +100,9 @@ func _on_AcceptDialog_custom_action(action: String) -> void:
 
 func _on_AcceptDialog_hide() -> void:
 	save_button.disabled = false
+
+
+func _on_LoadButton_pressed() -> void:
+	load_dialog.current_path = GlobalVars.ENTRIES_SAVE
+	load_dialog.current_dir = GlobalVars.ENTRIES_SAVE
+	load_dialog.show()
