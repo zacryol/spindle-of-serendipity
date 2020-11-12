@@ -166,3 +166,4 @@ __meta__ = {
 [connection signal="pressed" from="PC/VBox/Control2/LoadButton" to="." method="_on_LoadButton_pressed"]
 [connection signal="custom_action" from="AcceptDialog" to="." method="_on_AcceptDialog_custom_action"]
 [connection signal="hide" from="AcceptDialog" to="." method="_on_AcceptDialog_hide"]
+[connection signal="file_selected" from="FileDialog" to="." method="_on_FileDialog_file_selected"]

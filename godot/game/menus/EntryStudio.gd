@@ -18,13 +18,14 @@ func _ready() -> void:
 	save_confirm.connect("confirmed", self, "_on_AcceptDialog_custom_action", [""])
 
 
-func add_item() -> void:
+func add_item() -> Node:
 	var s := single.instance()
 	vbox.add_child(s)
 	vbox.move_child(add_button, vbox.get_child_count() - 1)
 	add_button.release_focus()
 	yield(get_tree(), "idle_frame")
 	scroll.get_v_scrollbar().ratio = 1
+	return s
 
 
 func save_entries_to_file(f: File) -> void:
@@ -106,3 +107,25 @@ func _on_LoadButton_pressed() -> void:
 	load_dialog.current_path = GlobalVars.ENTRIES_SAVE
 	load_dialog.current_dir = GlobalVars.ENTRIES_SAVE
 	load_dialog.show()
+
+
+func _on_FileDialog_file_selected(path: String) -> void:
+	var f := File.new()
+	f.open(path, File.READ)
+	for line in vbox.get_children():
+		if line is Button:
+			continue
+		
+		line.queue_free()
+	
+	while not f.eof_reached():
+		var l := f.get_line()
+		var a = parse_json(l)
+		var e: Array
+		if typeof(a) == TYPE_ARRAY:
+			e = a as Array
+		else:
+			continue
+		
+		
+	pass # Replace with function body.
