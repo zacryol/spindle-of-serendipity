@@ -149,7 +149,6 @@ margin_top = -266.0
 margin_right = 191.0
 margin_bottom = 221.0
 window_title = "Open a File"
-dialog_text = "For some reason, files aren't showing up right away. Click the refresh button to fix it."
 dialog_autowrap = true
 mode = 0
 access = 1

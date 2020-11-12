@@ -101,9 +101,9 @@ func _on_AcceptDialog_hide() -> void:
 
 
 func _on_LoadButton_pressed() -> void:
+	load_dialog.show()
 	load_dialog.current_path = GlobalVars.ENTRIES_SAVE
 	load_dialog.current_dir = GlobalVars.ENTRIES_SAVE
-	load_dialog.show()
 
 
 func _on_FileDialog_file_selected(path: String) -> void:
