@@ -44,7 +44,8 @@ func save_entries_to_file(f: File) -> void:
 	for line in lines_array:
 		var e := to_json(line)
 		f.store_line(e)
-	# EntryImport reimport()
+	f.close()
+	EntryImport.reimport()
 	pass
 
 
