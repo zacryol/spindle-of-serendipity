@@ -24,36 +24,67 @@ text = "Entry:"
 
 [node name="E" type="LineEdit" parent="HBoxContainer"]
 margin_left = 40.0
-margin_right = 513.0
+margin_right = 484.0
 margin_bottom = 706.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.5
 
 [node name="Label2" type="Label" parent="HBoxContainer"]
-margin_left = 517.0
+margin_left = 488.0
 margin_top = 346.0
-margin_right = 576.0
+margin_right = 547.0
 margin_bottom = 360.0
 text = "Category:"
 
 [node name="C" type="LineEdit" parent="HBoxContainer"]
-margin_left = 580.0
-margin_right = 895.0
+margin_left = 551.0
+margin_right = 847.0
 margin_bottom = 706.0
 size_flags_horizontal = 3
 
 [node name="Label3" type="Label" parent="HBoxContainer"]
-margin_left = 899.0
+margin_left = 851.0
 margin_top = 346.0
-margin_right = 946.0
+margin_right = 898.0
 margin_bottom = 360.0
 text = "Source:"
 
 [node name="S" type="LineEdit" parent="HBoxContainer"]
-margin_left = 950.0
-margin_right = 1266.0
+margin_left = 902.0
+margin_right = 1198.0
 margin_bottom = 706.0
 size_flags_horizontal = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="DeleteButton" type="Button" parent="HBoxContainer"]
+margin_left = 1202.0
+margin_right = 1266.0
+margin_bottom = 706.0
+text = "Remove"
+
+[node name="DelConf" type="HBoxContainer" parent="HBoxContainer"]
+visible = false
+margin_left = 1106.0
+margin_right = 1265.0
+margin_bottom = 706.0
+
+[node name="Label" type="Label" parent="HBoxContainer/DelConf"]
+margin_top = 346.0
+margin_right = 87.0
+margin_bottom = 360.0
+text = "Are you sure?"
+
+[node name="Yes" type="Button" parent="HBoxContainer/DelConf"]
+margin_left = 91.0
+margin_right = 125.0
+margin_bottom = 706.0
+text = "Yes"
+
+[node name="No" type="Button" parent="HBoxContainer/DelConf"]
+margin_left = 129.0
+margin_right = 159.0
+margin_bottom = 706.0
+text = "No"
+[connection signal="pressed" from="HBoxContainer/DeleteButton" to="." method="_on_DeleteButton_pressed"]
