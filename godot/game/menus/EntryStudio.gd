@@ -115,7 +115,7 @@ func _on_FileDialog_file_selected(path: String) -> void:
 			continue
 		
 		line.queue_free()
-	
+	save_name.text = path.get_file().get_basename()
 	while not f.eof_reached():
 		var l := f.get_line()
 		if not l and validate_json(l):
