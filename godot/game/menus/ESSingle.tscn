@@ -88,3 +88,5 @@ margin_right = 159.0
 margin_bottom = 706.0
 text = "No"
 [connection signal="pressed" from="HBoxContainer/DeleteButton" to="." method="_on_DeleteButton_pressed"]
+[connection signal="pressed" from="HBoxContainer/DelConf/Yes" to="." method="_on_Yes_pressed"]
+[connection signal="pressed" from="HBoxContainer/DelConf/No" to="." method="_on_No_pressed"]
