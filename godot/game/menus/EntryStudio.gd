@@ -9,6 +9,7 @@ onready var save_name := $PC/VBox/Control2/SaveBit/LineEdit as LineEdit
 onready var save_button := $PC/VBox/Control2/SaveBit/SaveButton as Button
 onready var save_confirm := $AcceptDialog as AcceptDialog
 onready var load_dialog := $FileDialog as FileDialog
+onready var go_to_main := $MainConfirm as ConfirmationDialog
 
 func _ready() -> void:
 	add_item()
@@ -58,7 +59,7 @@ func _on_AddButton_pressed() -> void:
 
 
 func _on_MenuButton_pressed() -> void:
-	get_tree().change_scene("res://game/menus/MainMenu.tscn")
+	go_to_main.show()
 
 
 func _on_SaveButton_pressed() -> void:
@@ -69,7 +70,9 @@ func _on_SaveButton_pressed() -> void:
 	var f := File.new()
 	if f.file_exists(GlobalVars.ENTRIES_SAVE + path):
 		save_button.disabled = true
-		save_confirm.dialog_text = "File %s already exists" % (GlobalVars.ENTRIES_SAVE + path)
+		save_confirm.dialog_text = """File %s already exists.
+		(If saving to a file you loaded and edited, please select \"Overwrite\")"""\
+		 % (GlobalVars.ENTRIES_SAVE + path)
 		save_confirm.show()
 		return
 	
@@ -134,3 +137,7 @@ func _on_FileDialog_file_selected(path: String) -> void:
 				s.set_values(e[0], e[1])
 			_:
 				s.set_values(e[0], e[1], e[2])
+
+
+func _on_MainConfirm_confirmed() -> void:
+	get_tree().change_scene("res://game/menus/MainMenu.tscn")

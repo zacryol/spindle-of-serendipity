@@ -158,6 +158,18 @@ current_path = "user://entries/"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="MainConfirm" type="ConfirmationDialog" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -102.0
+margin_top = -50.0
+margin_right = 102.0
+margin_bottom = 95.0
+dialog_text = "Return to Main Menu? (Unsaved entries will be lost)"
+dialog_autowrap = true
 [connection signal="pressed" from="PC/VBox/Control/MenuButton" to="." method="_on_MenuButton_pressed"]
 [connection signal="pressed" from="PC/VBox/Main/Scroll/VBox/AddButton" to="." method="_on_AddButton_pressed"]
 [connection signal="pressed" from="PC/VBox/Control2/FolderButton" to="." method="_on_FolderButton_pressed"]
@@ -166,3 +178,4 @@ __meta__ = {
 [connection signal="custom_action" from="AcceptDialog" to="." method="_on_AcceptDialog_custom_action"]
 [connection signal="hide" from="AcceptDialog" to="." method="_on_AcceptDialog_hide"]
 [connection signal="file_selected" from="FileDialog" to="." method="_on_FileDialog_file_selected"]
+[connection signal="confirmed" from="MainConfirm" to="." method="_on_MainConfirm_confirmed"]
