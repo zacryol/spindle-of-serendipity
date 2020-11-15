@@ -10,6 +10,10 @@ func _to_string() -> String:
 	return out
 
 
+func clear() -> void:
+	entries.clear()
+
+
 func add_entry(file: String, data: PoolStringArray):
 	while data.size() < 3:
 		data.append("")
