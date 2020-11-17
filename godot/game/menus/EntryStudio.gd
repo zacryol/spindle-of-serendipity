@@ -10,6 +10,8 @@ onready var save_button := $PC/VBox/Control2/SaveBit/SaveButton as Button
 onready var save_confirm := $AcceptDialog as AcceptDialog
 onready var load_dialog := $FileDialog as FileDialog
 onready var go_to_main := $MainConfirm as ConfirmationDialog
+onready var saved_label := $PC/VBox/Control2/SaveBit/Saved as Label
+onready var saved_tween := $PC/VBox/Control2/SaveBit/Saved/Tween as Tween
 
 func _ready() -> void:
 	add_item()
@@ -47,7 +49,12 @@ func save_entries_to_file(f: File) -> void:
 		f.store_line(e)
 	f.close()
 	EntryImport.reimport()
-	pass
+	show_fade_label()
+
+
+func show_fade_label() -> void:
+	saved_tween.interpolate_property(saved_label, "self_modulate:a", 1, 0, 1.0)
+	saved_tween.start()
 
 
 func _on_FolderButton_pressed() -> void:
