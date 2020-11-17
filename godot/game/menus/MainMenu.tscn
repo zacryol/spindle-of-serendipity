@@ -94,13 +94,20 @@ current_dir = "/"
 current_path = "/"
 
 [node name="AcceptDialog" type="AcceptDialog" parent="."]
-margin_left = 430.586
-margin_top = 251.797
-margin_right = 590.586
-margin_bottom = 363.797
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -158.5
+margin_top = -62.0
+margin_right = 158.5
+margin_bottom = 62.0
 dialog_text = "No Entry files found.
-Please import a .json entry file before attempting to play"
+Click \"Entry Studio\" to create entry files, or import from files you have."
 dialog_autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Title" type="Control" parent="."]
 anchor_left = 0.5

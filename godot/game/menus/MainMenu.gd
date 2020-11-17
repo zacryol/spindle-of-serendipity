@@ -1,7 +1,8 @@
 extends Control
 
 func _ready():
-	$AcceptDialog.add_button("What?", true, "files")
+	#$AcceptDialog.add_button("What?", true, "files")
+	pass
 
 
 func _on_ImportButton_pressed():
