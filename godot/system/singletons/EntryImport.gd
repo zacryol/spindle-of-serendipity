@@ -4,6 +4,11 @@ func _ready() -> void:
 	grab_saved_files()
 
 
+func reimport() -> void:
+	EntryManager.clear()
+	grab_saved_files()
+
+
 func import_entries_from_file(path: String) -> void:
 	var f := File.new()
 	var a := path.get_file()

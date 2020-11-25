@@ -1,7 +1,8 @@
 extends Control
 
 func _ready():
-	$AcceptDialog.add_button("What?", true, "files")
+	#$AcceptDialog.add_button("What?", true, "files")
+	pass
 
 
 func _on_ImportButton_pressed():
@@ -40,3 +41,7 @@ func _on_Settings_pressed():
 func _on_AcceptDialog_custom_action(action):
 	if action == "files":
 		OS.shell_open("https://gitlab.com/zacryol/spindle-of-serendipity/-/wikis/entries")
+
+
+func _on_EButton_pressed():
+	get_tree().change_scene("res://game/menus/EntryStudio.tscn")

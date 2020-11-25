@@ -48,21 +48,32 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ImportButton" type="Button" parent="VBoxContainer"]
+[node name="StartButton" type="Button" parent="VBoxContainer"]
 margin_right = 132.0
 margin_bottom = 31.0
-text = "Import JSON"
-
-[node name="StartButton" type="Button" parent="VBoxContainer"]
-margin_top = 35.0
-margin_right = 132.0
-margin_bottom = 66.0
 text = "Start Game"
 
-[node name="Settings" type="Button" parent="VBoxContainer"]
-margin_top = 70.0
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+margin_top = 35.0
 margin_right = 132.0
-margin_bottom = 101.0
+margin_bottom = 39.0
+
+[node name="ImportButton" type="Button" parent="VBoxContainer"]
+margin_top = 43.0
+margin_right = 132.0
+margin_bottom = 74.0
+text = "Import JSON"
+
+[node name="EButton" type="Button" parent="VBoxContainer"]
+margin_top = 78.0
+margin_right = 132.0
+margin_bottom = 109.0
+text = "Entry Studio"
+
+[node name="Settings" type="Button" parent="VBoxContainer"]
+margin_top = 113.0
+margin_right = 132.0
+margin_bottom = 144.0
 text = "Settings"
 
 [node name="FileDialog" type="FileDialog" parent="."]
@@ -83,13 +94,20 @@ current_dir = "/"
 current_path = "/"
 
 [node name="AcceptDialog" type="AcceptDialog" parent="."]
-margin_left = 430.586
-margin_top = 251.797
-margin_right = 590.586
-margin_bottom = 363.797
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -158.5
+margin_top = -62.0
+margin_right = 158.5
+margin_bottom = 62.0
 dialog_text = "No Entry files found.
-Please import a .json entry file before attempting to play"
+Click \"Entry Studio\" to create entry files, or import from files you have."
 dialog_autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Title" type="Control" parent="."]
 anchor_left = 0.5
@@ -220,8 +238,9 @@ text = "t"
 margin_left = 590.0
 margin_right = 645.0
 text = "y"
-[connection signal="pressed" from="VBoxContainer/ImportButton" to="." method="_on_ImportButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/ImportButton" to="." method="_on_ImportButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/EButton" to="." method="_on_EButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_Settings_pressed"]
 [connection signal="files_selected" from="FileDialog" to="." method="_on_FileDialog_files_selected"]
 [connection signal="custom_action" from="AcceptDialog" to="." method="_on_AcceptDialog_custom_action"]
