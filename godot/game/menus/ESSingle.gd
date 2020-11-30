@@ -7,6 +7,8 @@ onready var cat_enter := $HBoxContainer/C as LineEdit
 onready var sou_enter := $HBoxContainer/S as LineEdit
 onready var try_delete := $HBoxContainer/DeleteButton as Button
 onready var del_conf := $HBoxContainer/DelConf as HBoxContainer
+onready var up := $HBoxContainer/UpButton as Button
+onready var down := $HBoxContainer/DownButton as Button
 
 func _ready() -> void:
 	pass
@@ -46,7 +48,9 @@ func _on_No_pressed() -> void:
 
 func _on_UpButton_pressed() -> void:
 	emit_signal("move_request", -1)
+	up.release_focus()
 
 
 func _on_DownButton_pressed() -> void:
 	emit_signal("move_request", 1)
+	down.release_focus()

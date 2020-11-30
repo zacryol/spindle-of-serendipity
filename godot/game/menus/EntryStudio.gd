@@ -148,12 +148,10 @@ func _on_FileDialog_file_selected(path: String) -> void:
 				s.set_values(e[0], e[1], e[2])
 
 
-func _on_ESSingle_move_request(dir: int, item: Node):
-	var target = item.get_index() + dir
-	if target < 0 or target == add_button.get_index():
-		return
-	
-	vbox.move_child(item, target)
+func _on_ESSingle_move_request(dir: int, item: Node) -> void:
+	var target := item.get_index() + dir
+	if target >= 0 and target < add_button.get_index():
+		vbox.move_child(item, target)
 
 
 func _on_MainConfirm_confirmed() -> void:
