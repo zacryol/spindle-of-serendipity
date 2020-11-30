@@ -1,5 +1,7 @@
 extends PanelContainer
 
+signal move_request(direction)
+
 onready var entry_enter := $HBoxContainer/E as LineEdit
 onready var cat_enter := $HBoxContainer/C as LineEdit
 onready var sou_enter := $HBoxContainer/S as LineEdit
@@ -43,8 +45,8 @@ func _on_No_pressed() -> void:
 
 
 func _on_UpButton_pressed() -> void:
-	pass # Replace with function body.
+	emit_signal("move_request", -1)
 
 
 func _on_DownButton_pressed() -> void:
-	pass # Replace with function body.
+	emit_signal("move_request", 1)
