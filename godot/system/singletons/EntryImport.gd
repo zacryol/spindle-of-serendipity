@@ -4,9 +4,12 @@ func _ready() -> void:
 	grab_saved_files()
 
 
-func reimport() -> void:
-	EntryManager.clear()
-	grab_saved_files()
+func reimport(which: String = "") -> void:
+	EntryManager.clear(which)
+	if not which:
+		grab_saved_files()
+	else:
+		import_entries_from_file(GlobalVars.ENTRIES_SAVE + which + ".json")
 
 
 func import_entries_from_file(path: String) -> void:
