@@ -10,8 +10,17 @@ func _to_string() -> String:
 	return out
 
 
-func clear() -> void:
-	entries.clear()
+func clear(which: String = "") -> void:
+	if not which:
+		entries.clear()
+	else:
+		clear_from_file(which)
+
+
+func clear_from_file(which: String) -> void:
+	for e in entries:
+		if e.archive == which:
+			entries.erase(e)
 
 
 func add_entry(file: String, data: PoolStringArray):
