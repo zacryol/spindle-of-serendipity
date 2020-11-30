@@ -43,7 +43,7 @@ func save_entries_to_file(f: File) -> void:
 		e.append(line.get_category())
 		e.append(line.get_source())
 		lines_array.append(e)
-	print(lines_array)
+	
 	for line in lines_array:
 		var e := to_json(line)
 		f.store_line(e)
