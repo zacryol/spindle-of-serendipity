@@ -40,3 +40,11 @@ func _on_Yes_pressed() -> void:
 func _on_No_pressed() -> void:
 	try_delete.show()
 	del_conf.hide()
+
+
+func _on_UpButton_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_DownButton_pressed() -> void:
+	pass # Replace with function body.
