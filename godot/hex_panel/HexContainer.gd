@@ -32,8 +32,11 @@ func split_lines(lines: String) -> PoolStringArray:
 func set_text(new_text: String):
 	text = new_text
 	
-	while get_child_count() > 1:
-		remove_child(get_child(1))
+	for c in get_children():
+		if c.get_index() == 0:
+			continue
+		c.queue_free()
+	yield(get_tree(), "idle_frame")
 	
 	for s in split_lines(new_text):
 		var h := HexRow.new()
