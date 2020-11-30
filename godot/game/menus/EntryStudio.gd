@@ -47,8 +47,9 @@ func save_entries_to_file(f: File) -> void:
 	for line in lines_array:
 		var e := to_json(line)
 		f.store_line(e)
+	var path := f.get_path().get_file().get_basename()
 	f.close()
-	EntryImport.reimport(f.get_path().get_file().get_basename())
+	EntryImport.reimport(path)
 	show_fade_label()
 
 
