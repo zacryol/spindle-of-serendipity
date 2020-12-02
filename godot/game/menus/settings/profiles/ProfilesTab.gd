@@ -5,10 +5,10 @@ var single := preload("res://game/menus/settings/profiles/ProfileSingle.tscn")
 onready var categories := $VBoxContainer/Config/Categories/SC/List
 onready var sources := $VBoxContainer/Config/Sources/SC/List
 onready var archives := $VBoxContainer/Config/Files/SC/List
-onready var save_name: LineEdit = $VBoxContainer/Top/LineEdit
-onready var alert: AcceptDialog = $SaveName
-onready var load_button: MenuButton = $VBoxContainer/Top/LoadButton
-onready var match_num: SpinBox = $VBoxContainer/MatchCount/SpinBox
+onready var save_name := $VBoxContainer/Top/LineEdit as LineEdit
+onready var alert := $SaveName as AcceptDialog
+onready var load_button := $VBoxContainer/Top/LoadButton as MenuButton
+onready var match_num := $VBoxContainer/MatchCount/SpinBox as SpinBox
 
 func _ready() -> void:
 	for cat in EntryManager.get_import_categories():
