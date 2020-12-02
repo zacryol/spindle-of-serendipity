@@ -16,42 +16,54 @@ margin_top = 7.0
 margin_right = 1273.0
 margin_bottom = 713.0
 
+[node name="UpButton" type="Button" parent="HBoxContainer"]
+margin_right = 19.0
+margin_bottom = 706.0
+text = "^"
+
+[node name="DownButton" type="Button" parent="HBoxContainer"]
+margin_left = 23.0
+margin_right = 42.0
+margin_bottom = 706.0
+text = "v"
+
 [node name="Label" type="Label" parent="HBoxContainer"]
+margin_left = 46.0
 margin_top = 346.0
-margin_right = 36.0
+margin_right = 82.0
 margin_bottom = 360.0
 text = "Entry:"
 
 [node name="E" type="LineEdit" parent="HBoxContainer"]
-margin_left = 40.0
-margin_right = 484.0
+margin_left = 86.0
+margin_right = 510.0
 margin_bottom = 706.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.5
 
 [node name="Label2" type="Label" parent="HBoxContainer"]
-margin_left = 488.0
+margin_left = 514.0
 margin_top = 346.0
-margin_right = 547.0
+margin_right = 573.0
 margin_bottom = 360.0
 text = "Category:"
 
 [node name="C" type="LineEdit" parent="HBoxContainer"]
-margin_left = 551.0
-margin_right = 847.0
+margin_left = 577.0
+margin_right = 859.0
 margin_bottom = 706.0
 size_flags_horizontal = 3
 
 [node name="Label3" type="Label" parent="HBoxContainer"]
-margin_left = 851.0
+margin_left = 863.0
 margin_top = 346.0
-margin_right = 898.0
+margin_right = 910.0
 margin_bottom = 360.0
 text = "Source:"
 
 [node name="S" type="LineEdit" parent="HBoxContainer"]
-margin_left = 902.0
-margin_right = 1198.0
+margin_left = 914.0
+margin_right = 1196.0
 margin_bottom = 706.0
 size_flags_horizontal = 3
 __meta__ = {
@@ -59,8 +71,8 @@ __meta__ = {
 }
 
 [node name="DeleteButton" type="Button" parent="HBoxContainer"]
-margin_left = 1202.0
-margin_right = 1266.0
+margin_left = 1200.0
+margin_right = 1264.0
 margin_bottom = 706.0
 text = "Remove"
 
@@ -87,6 +99,8 @@ margin_left = 129.0
 margin_right = 159.0
 margin_bottom = 706.0
 text = "No"
+[connection signal="pressed" from="HBoxContainer/UpButton" to="." method="_on_UpButton_pressed"]
+[connection signal="pressed" from="HBoxContainer/DownButton" to="." method="_on_DownButton_pressed"]
 [connection signal="pressed" from="HBoxContainer/DeleteButton" to="." method="_on_DeleteButton_pressed"]
 [connection signal="pressed" from="HBoxContainer/DelConf/Yes" to="." method="_on_Yes_pressed"]
 [connection signal="pressed" from="HBoxContainer/DelConf/No" to="." method="_on_No_pressed"]

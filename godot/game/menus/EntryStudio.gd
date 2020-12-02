@@ -28,6 +28,7 @@ func add_item() -> Node:
 	add_button.release_focus()
 	yield(get_tree(), "idle_frame")
 	scroll.get_v_scrollbar().ratio = 1
+	s.connect("move_request", self, "_on_ESSingle_move_request", [s])
 	return s
 
 
@@ -145,6 +146,12 @@ func _on_FileDialog_file_selected(path: String) -> void:
 				s.set_values(e[0], e[1])
 			_:
 				s.set_values(e[0], e[1], e[2])
+
+
+func _on_ESSingle_move_request(dir: int, item: Node) -> void:
+	var target := item.get_index() + dir
+	if target >= 0 and target < add_button.get_index():
+		vbox.move_child(item, target)
 
 
 func _on_MainConfirm_confirmed() -> void:
