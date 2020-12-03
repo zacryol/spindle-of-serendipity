@@ -21,8 +21,6 @@ func _notification(what):
 			rect_min_size.x = max(rect_min_size.x, c.rect_size.x + X_OFFSET * (count % 2))
 			rect_min_size.y = max(rect_min_size.y, c.rect_size.y + Y_CHANGE * count)
 			count += 1
-		# sort
-		pass
 
 
 func split_lines(lines: String) -> PoolStringArray:
@@ -32,8 +30,11 @@ func split_lines(lines: String) -> PoolStringArray:
 func set_text(new_text: String):
 	text = new_text
 	
-	while get_child_count() > 1:
-		remove_child(get_child(1))
+	for c in get_children():
+		if c.get_index() == 0:
+			continue
+		c.queue_free()
+	yield(get_tree(), "idle_frame")
 	
 	for s in split_lines(new_text):
 		var h := HexRow.new()
@@ -60,7 +61,7 @@ func get_hex_nodes(randomized := false) -> Array:
 func reveal_letter(letter: String) -> int:
 	var count := 0
 	letter = letter.substr(0, 1)
-	yield(get_tree().create_timer(0), "timeout")
+	yield(get_tree(), "idle_frame")
 	for c in get_hex_nodes(true):
 		if CharSet.compare(c.text, letter):
 			c.current_state = HexType.State.REVEALED

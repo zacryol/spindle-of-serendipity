@@ -70,7 +70,7 @@ func _on_letter_guessed(letter: String):
 
 func single_letter_guessed(letter: String):
 	var guess := letter.substr(0, 1)
-	if !bool_mask.has(guess):
+	if not bool_mask.has(guess):
 		return 
 	if bool_mask[guess] == false:
 		bool_mask[guess] = true
