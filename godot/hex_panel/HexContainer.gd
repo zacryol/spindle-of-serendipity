@@ -33,8 +33,7 @@ func set_text(new_text: String):
 	for c in get_children():
 		if c.get_index() == 0:
 			continue
-		c.queue_free()
-	yield(get_tree(), "idle_frame")
+		c.free()
 	
 	for s in split_lines(new_text):
 		var h := HexRow.new()
