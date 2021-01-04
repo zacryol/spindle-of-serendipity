@@ -141,18 +141,9 @@ custom_constants/separation = 12
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 895.0
-margin_bottom = 431.0
-size_flags_vertical = 3
+margin_bottom = 480.0
+rect_min_size = Vector2( 0, 480 )
 size_flags_stretch_ratio = 1.93
-
-[node name="Keyboard" parent="GP/VB/Game/HSplit/EDKB" instance=ExtResource( 2 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 443.0
-margin_right = 895.0
-margin_bottom = 665.0
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.99
 
 [node name="SP" type="VBoxContainer" parent="GP/VB/Game/HSplit"]
 margin_left = 907.0
@@ -182,6 +173,15 @@ margin_left = -363.0
 margin_top = -224.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 4.28
+
+[node name="Keyboard" parent="GP/VB/Game/Arrange" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 504.0
+margin_right = 434.0
+margin_bottom = 665.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.99
 
 [node name="VScreen" parent="." instance=ExtResource( 7 )]
 layer = 3
@@ -270,11 +270,9 @@ __meta__ = {
 [connection signal="game_log" from="GP/VB/Game/HSplit/EDKB/EntryDisplay" to="." method="_log"]
 [connection signal="guess_checked" from="GP/VB/Game/HSplit/EDKB/EntryDisplay" to="GP/VB/Game/Arrange/PlayersPanel" method="_on_EntryDisplay_guess_checked"]
 [connection signal="letters_revealed" from="GP/VB/Game/HSplit/EDKB/EntryDisplay" to="GP/VB/Game/HSplit/SP/Spindle" method="_letters_guessed"]
-[connection signal="one_letter" from="GP/VB/Game/HSplit/EDKB/EntryDisplay" to="GP/VB/Game/HSplit/EDKB/Keyboard" method="_on_EntryDisplay_one_letter"]
+[connection signal="one_letter" from="GP/VB/Game/HSplit/EDKB/EntryDisplay" to="GP/VB/Game/Arrange/Keyboard" method="_on_EntryDisplay_one_letter"]
 [connection signal="text_ready" from="GP/VB/Game/HSplit/EDKB/EntryDisplay" to="RoundSign" method="_on_EntryDisplay_text_ready"]
 [connection signal="text_ready" from="GP/VB/Game/HSplit/EDKB/EntryDisplay" to="GP/VB/Game/HSplit/SP/Spindle" method="_on_EntryDisplay_text_ready"]
-[connection signal="game_log" from="GP/VB/Game/HSplit/EDKB/Keyboard" to="." method="_log"]
-[connection signal="key_pressed" from="GP/VB/Game/HSplit/EDKB/Keyboard" to="GP/VB/Game/HSplit/EDKB/EntryDisplay" method="_on_letter_guessed"]
 [connection signal="game_log" from="GP/VB/Game/HSplit/SP/Spindle" to="." method="_log"]
 [connection signal="score" from="GP/VB/Game/HSplit/SP/Spindle" to="GP/VB/Game/Arrange/PlayersPanel" method="_score_gained"]
 [connection signal="spun" from="GP/VB/Game/HSplit/SP/Spindle" to="GP/VB/Game/HSplit/EDKB/EntryDisplay" method="_on_Spindle_spun"]
@@ -282,4 +280,6 @@ __meta__ = {
 [connection signal="init_solve" from="GP/VB/Game/Arrange/PlayersPanel" to="GP/VB/Game/HSplit/EDKB/EntryDisplay" method="init_solve"]
 [connection signal="pre_reset" from="GP/VB/Game/Arrange/PlayersPanel" to="." method="_pre_reset"]
 [connection signal="turn_done" from="GP/VB/Game/Arrange/PlayersPanel" to="GP/VB/Game/HSplit/SP/Spindle" method="_on_PlayersPanel_turn_done"]
+[connection signal="game_log" from="GP/VB/Game/Arrange/Keyboard" to="." method="_log"]
+[connection signal="key_pressed" from="GP/VB/Game/Arrange/Keyboard" to="GP/VB/Game/HSplit/EDKB/EntryDisplay" method="_on_letter_guessed"]
 [connection signal="confirmed" from="QuitConfirm/Main/ConfirmationDialog" to="." method="_on_QuitConfirm_confirmed"]
