@@ -24,6 +24,7 @@ margin_right = 1273.0
 margin_bottom = 713.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/CenterContainer"]
+visible = false
 margin_left = 566.0
 margin_top = 328.0
 margin_right = 700.0
@@ -48,3 +49,11 @@ margin_right = 134.0
 margin_bottom = 50.0
 text = "Total Score"
 align = 1
+
+[node name="InfoLabel" type="Label" parent="PanelContainer/CenterContainer"]
+margin_left = 633.0
+margin_top = 346.0
+margin_right = 633.0
+margin_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
