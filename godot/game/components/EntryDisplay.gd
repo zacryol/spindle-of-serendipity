@@ -16,10 +16,10 @@ var source_text: String
 var bool_mask: Dictionary
 var source_hide := "???"
 
-onready var hex := $PanelContainer/ScrollContainer/CenterContainer/HexContainer
+onready var hex := $HSplitContainer/PanelContainer/ScrollContainer/CenterContainer/HexContainer
 onready var source_label: Label = $SourceLabel
 onready var cat_label: Label = $CategoryLabel
-onready var solve_ui: VBoxContainer = $SolveUI
+onready var solve_ui: VBoxContainer = $HSplitContainer/PanelContainer/Control/SolveUI
 
 func _ready():
 	bool_mask.clear()

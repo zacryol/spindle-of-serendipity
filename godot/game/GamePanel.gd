@@ -4,7 +4,7 @@ const MAX_LOG_CHAR := 120
 
 var round_num := 0
 
-onready var entry_display := $GP/VB/Game/HSplit/EDKB/EntryDisplay
+onready var entry_display := $GP/VB/Game/Arrange/EntryDisplay
 onready var log_label: Label = $GP/VB/Top/HB/Label
 onready var new_button: Button = $GP/VB/Top/HB/NewG
 onready var spindle := $GP/VB/Game/Arrange/Spindle
