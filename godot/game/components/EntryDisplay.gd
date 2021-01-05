@@ -14,11 +14,11 @@ var current_mode := MODE_DISABLED
 var entry_text: String
 var source_text: String
 var bool_mask: Dictionary
-var source_hide := "???"
+var source_hide := "??? (Hidden until solved)"
 
 onready var hex := $HSplitContainer/PanelContainer/ScrollContainer/CenterContainer/HexContainer
-onready var source_label: Label = $SourceLabel
-onready var cat_label: Label = $CategoryLabel
+onready var source_label: Label = $HSplitContainer/Info/VBoxContainer/Label4
+onready var cat_label: Label = $HSplitContainer/Info/VBoxContainer/Label2
 onready var solve_ui: VBoxContainer = $HSplitContainer/PanelContainer/Control/SolveUI
 
 func _ready():
