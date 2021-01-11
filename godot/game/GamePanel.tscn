@@ -281,6 +281,6 @@ __meta__ = {
 [connection signal="guess_checked" from="GP/VB/Game/Arrange/EntryDisplay" to="GP/VB/Game/Arrange/PlayersPanel" method="_on_EntryDisplay_guess_checked"]
 [connection signal="letters_revealed" from="GP/VB/Game/Arrange/EntryDisplay" to="GP/VB/Game/Arrange/Spindle" method="_letters_guessed"]
 [connection signal="one_letter" from="GP/VB/Game/Arrange/EntryDisplay" to="GP/VB/Game/Arrange/Keyboard" method="_on_EntryDisplay_one_letter"]
-[connection signal="text_ready" from="GP/VB/Game/Arrange/EntryDisplay" to="GP/VB/Game/Arrange/Spindle" method="_on_EntryDisplay_text_ready"]
 [connection signal="text_ready" from="GP/VB/Game/Arrange/EntryDisplay" to="RoundSign" method="_on_EntryDisplay_text_ready"]
+[connection signal="text_ready" from="GP/VB/Game/Arrange/EntryDisplay" to="GP/VB/Game/Arrange/Spindle" method="_on_EntryDisplay_text_ready"]
 [connection signal="confirmed" from="QuitConfirm/Main/ConfirmationDialog" to="." method="_on_QuitConfirm_confirmed"]
