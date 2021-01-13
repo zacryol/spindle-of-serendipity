@@ -123,27 +123,6 @@ margin_bottom = 715.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 16.0
 
-[node name="HSplit" type="HBoxContainer" parent="GP/VB/Game"]
-margin_left = 3.0
-margin_top = 3.0
-margin_right = 1273.0
-margin_bottom = 668.0
-custom_constants/separation = 12
-
-[node name="EDKB" type="VBoxContainer" parent="GP/VB/Game/HSplit"]
-margin_right = 895.0
-margin_bottom = 665.0
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.47
-custom_constants/separation = 12
-
-[node name="SP" type="VBoxContainer" parent="GP/VB/Game/HSplit"]
-margin_left = 907.0
-margin_right = 1270.0
-margin_bottom = 665.0
-size_flags_horizontal = 3
-custom_constants/separation = 12
-
 [node name="Arrange" type="Control" parent="GP/VB/Game"]
 margin_left = 3.0
 margin_top = 3.0
