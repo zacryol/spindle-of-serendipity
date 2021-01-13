@@ -4,12 +4,12 @@ const MAX_LOG_CHAR := 120
 
 var round_num := 0
 
-onready var entry_display := $GP/VB/Game/HSplit/EDKB/EntryDisplay
+onready var entry_display := $GP/VB/Game/Arrange/EntryDisplay
 onready var log_label: Label = $GP/VB/Top/HB/Label
 onready var new_button: Button = $GP/VB/Top/HB/NewG
-onready var spindle := $GP/VB/Game/HSplit/SP/Spindle
-onready var players := $GP/VB/Game/HSplit/SP/PlayersPanel
-onready var keyboard := $GP/VB/Game/HSplit/EDKB/Keyboard
+onready var spindle := $GP/VB/Game/Arrange/Spindle
+onready var players := $GP/VB/Game/Arrange/PlayersPanel
+onready var keyboard := $GP/VB/Game/Arrange/Keyboard
 onready var victory := $VScreen
 onready var round_sign := $RoundSign
 onready var quit_confirm: ConfirmationDialog = $QuitConfirm/Main/ConfirmationDialog
