@@ -51,3 +51,7 @@ window/size/test_width=1280
 window/size/test_height=720
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
+
+[rendering]
+
+environment/default_clear_color=Color( 0.2, 0.2, 0.2, 1 )
