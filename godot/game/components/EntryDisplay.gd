@@ -38,9 +38,7 @@ var bool_mask: Dictionary
 var source_hide := "??? (Hidden until solved)"
 
 onready var hex := $PanelContainer/ScrollContainer/CenterContainer/HexContainer
-#onready var source_label: Label = $HSplitContainer/Info/VBoxContainer/Label4
 onready var source_label := $SourceLabel as Label
-#onready var cat_label: Label = $HSplitContainer/Info/VBoxContainer/Label2
 onready var cat_label := $CategoryLabel as Label
 onready var solve_ui: VBoxContainer = $PanelContainer/Control/SolveUI
 
