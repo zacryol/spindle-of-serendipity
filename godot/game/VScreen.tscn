@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://GameTheme.theme" type="Theme" id=1]
 [ext_resource path="res://game/VScreen.gd" type="Script" id=2]
+[ext_resource path="res://Xolonium-Bold.otf" type="DynamicFontData" id=3]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.909804, 0.878431, 0.0901961, 1 )
@@ -44,6 +45,12 @@ corner_radius_top_right = 25
 corner_radius_bottom_right = 25
 corner_radius_bottom_left = 25
 corner_detail = 1
+
+[sub_resource type="DynamicFont" id=4]
+size = 64
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
 
 [node name="VScreen" type="CanvasLayer"]
 script = ExtResource( 2 )
@@ -188,8 +195,8 @@ margin_top = 50.0
 margin_right = 52.5
 margin_bottom = 71.0
 grow_horizontal = 2
-rect_scale = Vector2( 4, 4 )
 rect_pivot_offset = Vector2( 59, 0 )
+custom_fonts/font = SubResource( 4 )
 text = "GAME OVER"
 align = 1
 [connection signal="pressed" from="Main/HBoxContainer/NewButton" to="." method="_on_NewButton_pressed"]
