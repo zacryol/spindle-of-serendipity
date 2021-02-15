@@ -44,10 +44,9 @@ onready var p1 := $PlayersArrange/Player
 onready var p2 := $PlayersArrange/Player2
 onready var p3 := $PlayersArrange/Player3
 onready var p_label: Label = $PanelContainer/VBoxContainer/PanelContainer/Label as Label
-onready var solve_box := $ConfirmationDialog
+onready var solve_box := $ConfirmationDialog as ConfirmationDialog
 onready var tween := $Tween as Tween
 
-#var players_array: Array setget ,get_players_array
 
 func get_players_array() -> Array:
 	return $PlayersArrange.get_children()
@@ -59,7 +58,9 @@ func _ready():
 	p1.set_name(GlobalVars.p1_name)
 	p2.set_name(GlobalVars.p2_name)
 	p3.set_name(GlobalVars.p3_name)
-#	current_player = randi() % NUM_PLAYER
+	
+	for x in randi() % NUM_PLAYER:
+		advance_player()
 	
 	set_label()
 
@@ -105,11 +106,9 @@ func cache_scores() -> void:
 
 func get_current_player() -> Node:
 	return $PlayersArrange.get_child(0)
-#	return get_players_array()[current_player]
 
 
 func advance_player():
-#	current_player = wrapi(current_player + 1, 0, NUM_PLAYER)
 	$PlayersArrange.move_child(get_current_player(), NUM_PLAYER - 1)
 	set_label()
 	
@@ -118,12 +117,6 @@ func advance_player():
 		var p := get_players_array()[i] as Control
 		tween.interpolate_property(p, "rect_size", p.rect_size, Sizes[i], TWEEN_TIME)
 		tween.interpolate_property(p, "rect_position", p.rect_position, Positions[i], TWEEN_TIME)
-#	tween.interpolate_property($PlayersArrange.get_child(0), "rect_size", $PlayersArrange.get_child(0).rect_size, MAIN_SIZE, 0.1)
-#	tween.interpolate_property($PlayersArrange.get_child(1), "rect_size", $PlayersArrange.get_child(1).rect_size, OTHER_SIZE, 0.1)
-#	tween.interpolate_property($PlayersArrange.get_child(2), "rect_size", $PlayersArrange.get_child(2).rect_size, OTHER_SIZE, 0.1)
-#	tween.interpolate_property($PlayersArrange.get_child(0), "rect_position", $PlayersArrange.get_child(0).rect_position, MAIN_POSITION, 0.1)
-#	tween.interpolate_property($PlayersArrange.get_child(1), "rect_position", $PlayersArrange.get_child(1).rect_position, POS_2, 0.1)
-#	tween.interpolate_property($PlayersArrange.get_child(2), "rect_position", $PlayersArrange.get_child(2).rect_position, POS_3, 0.1)
 	tween.start()
 
 
