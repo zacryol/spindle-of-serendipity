@@ -33,6 +33,9 @@ const OTHER_SIZE := Vector2(275, 50)
 const MAIN_POSITION := Vector2(-345, -165)
 const POS_2 := Vector2(-275, -100)
 const POS_3 := Vector2(-275, -50)
+const Sizes := PoolVector2Array([MAIN_SIZE, OTHER_SIZE, OTHER_SIZE])
+const Positions := PoolVector2Array([MAIN_POSITION, POS_2, POS_3])
+const TWEEN_TIME := 0.15
 
 var current_player := 0
 var solve_reward := 150
@@ -111,12 +114,16 @@ func advance_player():
 	set_label()
 	
 	tween.remove_all()
-	tween.interpolate_property($PlayersArrange.get_child(0), "rect_size", $PlayersArrange.get_child(0).rect_size, MAIN_SIZE, 0.1)
-	tween.interpolate_property($PlayersArrange.get_child(1), "rect_size", $PlayersArrange.get_child(1).rect_size, OTHER_SIZE, 0.1)
-	tween.interpolate_property($PlayersArrange.get_child(2), "rect_size", $PlayersArrange.get_child(2).rect_size, OTHER_SIZE, 0.1)
-	tween.interpolate_property($PlayersArrange.get_child(0), "rect_position", $PlayersArrange.get_child(0).rect_position, MAIN_POSITION, 0.1)
-	tween.interpolate_property($PlayersArrange.get_child(1), "rect_position", $PlayersArrange.get_child(1).rect_position, POS_2, 0.1)
-	tween.interpolate_property($PlayersArrange.get_child(2), "rect_position", $PlayersArrange.get_child(2).rect_position, POS_3, 0.1)
+	for i in NUM_PLAYER:
+		var p := get_players_array()[i] as Control
+		tween.interpolate_property(p, "rect_size", p.rect_size, Sizes[i], TWEEN_TIME)
+		tween.interpolate_property(p, "rect_position", p.rect_position, Positions[i], TWEEN_TIME)
+#	tween.interpolate_property($PlayersArrange.get_child(0), "rect_size", $PlayersArrange.get_child(0).rect_size, MAIN_SIZE, 0.1)
+#	tween.interpolate_property($PlayersArrange.get_child(1), "rect_size", $PlayersArrange.get_child(1).rect_size, OTHER_SIZE, 0.1)
+#	tween.interpolate_property($PlayersArrange.get_child(2), "rect_size", $PlayersArrange.get_child(2).rect_size, OTHER_SIZE, 0.1)
+#	tween.interpolate_property($PlayersArrange.get_child(0), "rect_position", $PlayersArrange.get_child(0).rect_position, MAIN_POSITION, 0.1)
+#	tween.interpolate_property($PlayersArrange.get_child(1), "rect_position", $PlayersArrange.get_child(1).rect_position, POS_2, 0.1)
+#	tween.interpolate_property($PlayersArrange.get_child(2), "rect_position", $PlayersArrange.get_child(2).rect_position, POS_3, 0.1)
 	tween.start()
 
 
