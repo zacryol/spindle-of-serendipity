@@ -52,7 +52,16 @@ dialog_autowrap = true
 
 [node name="Tween" type="Tween" parent="."]
 
-[node name="Player" parent="." instance=ExtResource( 1 )]
+[node name="PlayersArrange" type="Control" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player" parent="PlayersArrange" instance=ExtResource( 1 )]
 anchor_left = 1.0
 anchor_top = 1.0
 margin_left = -345.517
@@ -61,7 +70,7 @@ margin_right = -1.76721
 margin_bottom = -104.283
 size_flags_vertical = 3
 
-[node name="Player2" parent="." instance=ExtResource( 1 )]
+[node name="Player2" parent="PlayersArrange" instance=ExtResource( 1 )]
 anchor_left = 1.0
 anchor_top = 1.0
 margin_left = -275.656
@@ -70,7 +79,7 @@ margin_right = -0.65564
 margin_bottom = -52.4744
 size_flags_vertical = 3
 
-[node name="Player3" parent="." instance=ExtResource( 1 )]
+[node name="Player3" parent="PlayersArrange" instance=ExtResource( 1 )]
 anchor_left = 1.0
 anchor_top = 1.0
 margin_left = -274.995
@@ -79,6 +88,6 @@ margin_right = 0.00537109
 margin_bottom = -1.83154
 size_flags_vertical = 3
 [connection signal="confirmed" from="ConfirmationDialog" to="." method="_on_ConfirmationDialog_confirmed"]
-[connection signal="game_log" from="Player" to="." method="_on_Player_game_log"]
-[connection signal="game_log" from="Player2" to="." method="_on_Player_game_log"]
-[connection signal="game_log" from="Player3" to="." method="_on_Player_game_log"]
+[connection signal="game_log" from="PlayersArrange/Player" to="." method="_on_Player_game_log"]
+[connection signal="game_log" from="PlayersArrange/Player2" to="." method="_on_Player_game_log"]
+[connection signal="game_log" from="PlayersArrange/Player3" to="." method="_on_Player_game_log"]

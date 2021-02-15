@@ -29,13 +29,18 @@ const NUM_PLAYER := 3
 var current_player := 0
 var solve_reward := 150
 
-onready var p1 := $Player
-onready var p2 := $Player2
-onready var p3 := $Player3
-onready var players_array := [p1, p2, p3]
-onready var p_label: Label = $PanelContainer/VBoxContainer/PanelContainer/Label
+onready var p1 := $PlayersArrange/Player
+onready var p2 := $PlayersArrange/Player2
+onready var p3 := $PlayersArrange/Player3
+onready var p_label: Label = $PanelContainer/VBoxContainer/PanelContainer/Label as Label
 onready var solve_box := $ConfirmationDialog
 onready var tween := $Tween as Tween
+
+#var players_array: Array setget ,get_players_array
+
+func get_players_array() -> Array:
+	return $PlayersArrange.get_children()
+
 
 func _ready():
 	solve_box.get_cancel().connect("pressed", self, "_on_ConfirmationDialog_canceled")
@@ -56,7 +61,7 @@ func start():
 
 func highest_score() -> int:
 	var score := 0
-	for p in players_array:
+	for p in get_players_array():
 		score = int(max(score, p.get_all_score()))
 	return score
 
@@ -88,11 +93,13 @@ func cache_scores() -> void:
 
 
 func get_current_player():
-	return players_array[current_player]
+	return $PlayersArrange.get_child(0)
+#	return get_players_array()[current_player]
 
 
 func advance_player():
-	current_player = wrapi(current_player + 1, 0, NUM_PLAYER)
+#	current_player = wrapi(current_player + 1, 0, NUM_PLAYER)
+	$PlayersArrange.move_child(get_current_player(), 2)
 	set_label()
 
 
@@ -106,7 +113,7 @@ func clear_label():
 
 func get_final_results() -> Array:
 	cache_scores()
-	var result_arr := players_array.duplicate()
+	var result_arr := get_players_array()
 	result_arr.sort_custom(PlayerSort.new(), "sort_by_score")
 	var results := []
 	for p in result_arr:
