@@ -26,6 +26,14 @@ signal turn_done
 signal init_solve
 
 const NUM_PLAYER := 3
+
+# position data for moving each player
+const MAIN_SIZE := Vector2(275 * 1.25, 50 * 1.25)
+const OTHER_SIZE := Vector2(275, 50)
+const MAIN_POSITION := Vector2(-345, -165)
+const POS_2 := Vector2(-275, -100)
+const POS_3 := Vector2(-275, -50)
+
 var current_player := 0
 var solve_reward := 150
 
@@ -48,7 +56,7 @@ func _ready():
 	p1.set_name(GlobalVars.p1_name)
 	p2.set_name(GlobalVars.p2_name)
 	p3.set_name(GlobalVars.p3_name)
-	current_player = randi() % NUM_PLAYER
+#	current_player = randi() % NUM_PLAYER
 	
 	set_label()
 
@@ -92,15 +100,24 @@ func cache_scores() -> void:
 	p3.cache_score()
 
 
-func get_current_player():
+func get_current_player() -> Node:
 	return $PlayersArrange.get_child(0)
 #	return get_players_array()[current_player]
 
 
 func advance_player():
 #	current_player = wrapi(current_player + 1, 0, NUM_PLAYER)
-	$PlayersArrange.move_child(get_current_player(), 2)
+	$PlayersArrange.move_child(get_current_player(), NUM_PLAYER - 1)
 	set_label()
+	
+	tween.remove_all()
+	tween.interpolate_property($PlayersArrange.get_child(0), "rect_size", $PlayersArrange.get_child(0).rect_size, MAIN_SIZE, 0.1)
+	tween.interpolate_property($PlayersArrange.get_child(1), "rect_size", $PlayersArrange.get_child(1).rect_size, OTHER_SIZE, 0.1)
+	tween.interpolate_property($PlayersArrange.get_child(2), "rect_size", $PlayersArrange.get_child(2).rect_size, OTHER_SIZE, 0.1)
+	tween.interpolate_property($PlayersArrange.get_child(0), "rect_position", $PlayersArrange.get_child(0).rect_position, MAIN_POSITION, 0.1)
+	tween.interpolate_property($PlayersArrange.get_child(1), "rect_position", $PlayersArrange.get_child(1).rect_position, POS_2, 0.1)
+	tween.interpolate_property($PlayersArrange.get_child(2), "rect_position", $PlayersArrange.get_child(2).rect_position, POS_3, 0.1)
+	tween.start()
 
 
 func set_label():
