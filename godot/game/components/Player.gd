@@ -42,7 +42,7 @@ func add_to_score(points: int) -> void:
 	
 	if GlobalVars.win_by_score():
 		if get_all_score() >= GlobalVars.win_score:
-			$PanelContainer/CenterContainer.modulate = Color.yellow
+			($PanelContainer/CenterContainer as CanvasItem).modulate = Color.yellow
 
 
 func set_name(new_name: String) -> void:

@@ -26,15 +26,30 @@ signal turn_done
 signal init_solve
 
 const NUM_PLAYER := 3
+
+# position data for moving each player
+const MAIN_SIZE := Vector2(275 * 1.25, 50 * 1.25)
+const OTHER_SIZE := Vector2(275, 50)
+const MAIN_POSITION := Vector2(-345, -165)
+const POS_2 := Vector2(-275, -100)
+const POS_3 := Vector2(-275, -50)
+const Sizes := PoolVector2Array([MAIN_SIZE, OTHER_SIZE, OTHER_SIZE])
+const Positions := PoolVector2Array([MAIN_POSITION, POS_2, POS_3])
+const TWEEN_TIME := 0.15
+
 var current_player := 0
 var solve_reward := 150
 
-onready var p1 := $PanelContainer/VBoxContainer/Player
-onready var p2 := $PanelContainer/VBoxContainer/Player2
-onready var p3 := $PanelContainer/VBoxContainer/Player3
-onready var players_array := [p1, p2, p3]
-onready var p_label: Label = $PanelContainer/VBoxContainer/PanelContainer/Label
-onready var solve_box := $ConfirmationDialog
+onready var p1 := $PlayersArrange/Player
+onready var p2 := $PlayersArrange/Player2
+onready var p3 := $PlayersArrange/Player3
+onready var p_label: Label = $PanelContainer/VBoxContainer/PanelContainer/Label as Label
+onready var solve_box := $ConfirmationDialog as ConfirmationDialog
+onready var tween := $Tween as Tween
+
+
+func get_players_array() -> Array:
+	return $PlayersArrange.get_children()
 
 
 func _ready():
@@ -43,7 +58,9 @@ func _ready():
 	p1.set_name(GlobalVars.p1_name)
 	p2.set_name(GlobalVars.p2_name)
 	p3.set_name(GlobalVars.p3_name)
-	current_player = randi() % NUM_PLAYER
+	
+	for x in randi() % NUM_PLAYER:
+		advance_player()
 	
 	set_label()
 
@@ -56,7 +73,7 @@ func start():
 
 func highest_score() -> int:
 	var score := 0
-	for p in players_array:
+	for p in get_players_array():
 		score = int(max(score, p.get_all_score()))
 	return score
 
@@ -87,13 +104,20 @@ func cache_scores() -> void:
 	p3.cache_score()
 
 
-func get_current_player():
-	return players_array[current_player]
+func get_current_player() -> Node:
+	return $PlayersArrange.get_child(0)
 
 
 func advance_player():
-	current_player = wrapi(current_player + 1, 0, NUM_PLAYER)
+	$PlayersArrange.move_child(get_current_player(), NUM_PLAYER - 1)
 	set_label()
+	
+	tween.remove_all()
+	for i in NUM_PLAYER:
+		var p := get_players_array()[i] as Control
+		tween.interpolate_property(p, "rect_size", p.rect_size, Sizes[i], TWEEN_TIME)
+		tween.interpolate_property(p, "rect_position", p.rect_position, Positions[i], TWEEN_TIME)
+	tween.start()
 
 
 func set_label():
@@ -106,7 +130,7 @@ func clear_label():
 
 func get_final_results() -> Array:
 	cache_scores()
-	var result_arr := players_array.duplicate()
+	var result_arr := get_players_array()
 	result_arr.sort_custom(PlayerSort.new(), "sort_by_score")
 	var results := []
 	for p in result_arr:
