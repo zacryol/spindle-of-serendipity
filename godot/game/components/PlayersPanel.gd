@@ -29,13 +29,13 @@ const NUM_PLAYER := 3
 var current_player := 0
 var solve_reward := 150
 
-onready var p1 := $PanelContainer/VBoxContainer/Player
-onready var p2 := $PanelContainer/VBoxContainer/Player2
-onready var p3 := $PanelContainer/VBoxContainer/Player3
+onready var p1 := $Player
+onready var p2 := $Player2
+onready var p3 := $Player3
 onready var players_array := [p1, p2, p3]
 onready var p_label: Label = $PanelContainer/VBoxContainer/PanelContainer/Label
 onready var solve_box := $ConfirmationDialog
-
+onready var tween := $Tween as Tween
 
 func _ready():
 	solve_box.get_cancel().connect("pressed", self, "_on_ConfirmationDialog_canceled")
