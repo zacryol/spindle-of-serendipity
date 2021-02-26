@@ -79,6 +79,11 @@ func _ready():
 	OS.min_window_size = Vector2(1024, 576)
 
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("fullscreen"):
+		OS.window_fullscreen = not OS.window_fullscreen
+
+
 func save_settings_to_file():
 	var f := File.new()
 	var err := f.open(SETTINGS_SAVE, File.WRITE)
