@@ -65,6 +65,7 @@ bg_color = Color( 0, 0, 0, 0.278431 )
 shadow_size = 1
 
 [sub_resource type="Gradient" id=6]
+colors = PoolColorArray( 0, 0, 0, 1, 0.25098, 0.14902, 0.14902, 1 )
 
 [sub_resource type="GradientTexture" id=7]
 gradient = SubResource( 6 )
@@ -80,7 +81,7 @@ angular_velocity_random = 1.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 0.5
-color = Color( 1, 0, 0, 1 )
+color = Color( 0, 1, 0.737255, 0.427451 )
 
 [node name="GamePanel" type="Control"]
 anchor_right = 1.0
@@ -169,9 +170,10 @@ size_flags_stretch_ratio = 0.99
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
-margin_left = -181.5
-margin_top = -125.0
-margin_right = 181.5
+margin_left = -160.0
+margin_top = -145.0
+margin_right = 203.0
+margin_bottom = -20.0
 rect_min_size = Vector2( 0, 125 )
 
 [node name="EntryDisplay" parent="GP/VB/Game/Arrange" instance=ExtResource( 3 )]
@@ -280,7 +282,6 @@ __meta__ = {
 
 [node name="Particles2D" type="Particles2D" parent="CanvasLayer"]
 position = Vector2( 640, 0 )
-emitting = false
 lifetime = 4.0
 preprocess = 4.0
 process_material = SubResource( 8 )
