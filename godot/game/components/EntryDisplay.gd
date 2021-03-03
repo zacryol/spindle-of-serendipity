@@ -1,3 +1,24 @@
+###############################################################################
+# spindle of serendipity                                                      #
+# Copyright (C) 2020-2021 zacryol (https://gitlab.com/zacryol)                #
+#-----------------------------------------------------------------------------#
+# This file is part of spindle of serendipity.                                #
+#                                                                             #
+# spindle of serendipity is free software: you can redistribute it and/or     #
+# modify it under the terms of the GNU General Public License as published by #
+# the Free Software Foundation, either version 3 of the License, or           #
+# (at your option) any later version.                                         #
+#                                                                             #
+# spindle of serendipity is distributed in the hope that it will be useful,   #
+# but WITHOUT ANY WARRANTY; without even the implied warranty of              #
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the               #
+# GNU General Public License for more details.                                #
+#                                                                             #
+# You should have received a copy of the GNU General Public License           #
+# along with spindle of serendipity.                                          #
+# If not, see <http://www.gnu.org/licenses/>.                                 #
+###############################################################################
+
 extends "res://game/components/GameComponent.gd"
 
 signal letters_revealed(number, final)
@@ -14,12 +35,12 @@ var current_mode := MODE_DISABLED
 var entry_text: String
 var source_text: String
 var bool_mask: Dictionary
-var source_hide := "???"
+var source_hide := "??? (Hidden until solved)"
 
 onready var hex := $PanelContainer/ScrollContainer/CenterContainer/HexContainer
-onready var source_label: Label = $SourceLabel
-onready var cat_label: Label = $CategoryLabel
-onready var solve_ui: VBoxContainer = $SolveUI
+onready var source_label := $SourceLabel as Label
+onready var cat_label := $CategoryLabel as Label
+onready var solve_ui: VBoxContainer = $PanelContainer/Control/SolveUI
 
 func _ready():
 	bool_mask.clear()

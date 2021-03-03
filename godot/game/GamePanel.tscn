@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://game/components/PlayersPanel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://game/components/Keyboard.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://game/VScreen.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Xolonium-Bold.otf" type="DynamicFontData" id=8]
 [ext_resource path="res://game/RoundSign.gd" type="Script" id=9]
+[ext_resource path="res://tex/star_04.png" type="Texture" id=10]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.0862745, 0.0862745, 0.101961, 0.631373 )
@@ -63,6 +64,25 @@ tracks/0/keys = {
 bg_color = Color( 0, 0, 0, 0.278431 )
 shadow_size = 1
 
+[sub_resource type="Gradient" id=6]
+colors = PoolColorArray( 0, 0, 0, 1, 0.25, 0.1475, 0.1475, 1 )
+
+[sub_resource type="GradientTexture" id=7]
+gradient = SubResource( 6 )
+
+[sub_resource type="ParticlesMaterial" id=8]
+emission_shape = 2
+emission_box_extents = Vector3( 640, 1, 1 )
+flag_disable_z = true
+gravity = Vector3( 0, 98, 0 )
+initial_velocity = 32.0
+angular_velocity = 25.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.5
+color = Color( 0, 1, 0.737255, 0.427451 )
+
 [node name="GamePanel" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -73,6 +93,7 @@ __meta__ = {
 }
 
 [node name="GP" type="PanelContainer" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -117,65 +138,51 @@ margin_bottom = 36.0
 text = "Quit"
 
 [node name="Game" type="PanelContainer" parent="GP/VB"]
+self_modulate = Color( 1, 1, 1, 0.784314 )
 margin_top = 45.0
 margin_right = 1275.0
 margin_bottom = 715.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 16.0
 
-[node name="HSplit" type="HBoxContainer" parent="GP/VB/Game"]
+[node name="Arrange" type="Control" parent="GP/VB/Game"]
 margin_left = 3.0
 margin_top = 3.0
 margin_right = 1273.0
 margin_bottom = 668.0
-custom_constants/separation = 12
+mouse_filter = 2
 
-[node name="EDKB" type="VBoxContainer" parent="GP/VB/Game/HSplit"]
-margin_right = 895.0
-margin_bottom = 665.0
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.47
-custom_constants/separation = 12
-
-[node name="EntryDisplay" parent="GP/VB/Game/HSplit/EDKB" instance=ExtResource( 3 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 895.0
-margin_bottom = 431.0
+[node name="PlayersPanel" parent="GP/VB/Game/Arrange" instance=ExtResource( 1 )]
+margin_left = -363.0
+margin_top = -178.0
 size_flags_vertical = 3
-size_flags_stretch_ratio = 1.93
+size_flags_stretch_ratio = 4.28
 
-[node name="Keyboard" parent="GP/VB/Game/HSplit/EDKB" instance=ExtResource( 2 )]
+[node name="Keyboard" parent="GP/VB/Game/Arrange" instance=ExtResource( 2 )]
+anchor_top = 1.0
 anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 443.0
-margin_right = 895.0
-margin_bottom = 665.0
+margin_top = -161.0
+margin_right = 434.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.99
 
-[node name="SP" type="VBoxContainer" parent="GP/VB/Game/HSplit"]
-margin_left = 907.0
-margin_right = 1270.0
-margin_bottom = 665.0
-size_flags_horizontal = 3
-custom_constants/separation = 12
+[node name="Spindle" parent="GP/VB/Game/Arrange" instance=ExtResource( 4 )]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+margin_left = -160.0
+margin_top = -145.0
+margin_right = 203.0
+margin_bottom = -20.0
+rect_min_size = Vector2( 0, 125 )
 
-[node name="Spindle" parent="GP/VB/Game/HSplit/SP" instance=ExtResource( 4 )]
+[node name="EntryDisplay" parent="GP/VB/Game/Arrange" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 363.0
-margin_bottom = 123.0
-size_flags_vertical = 3
-
-[node name="PlayersPanel" parent="GP/VB/Game/HSplit/SP" instance=ExtResource( 1 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 135.0
-margin_right = 363.0
-margin_bottom = 665.0
-size_flags_vertical = 3
-size_flags_stretch_ratio = 4.28
+margin_right = 1268.0
+margin_bottom = 480.0
+rect_min_size = Vector2( 0, 480 )
+size_flags_stretch_ratio = 1.93
 
 [node name="VScreen" parent="." instance=ExtResource( 7 )]
 layer = 3
@@ -184,10 +191,13 @@ layer = 3
 script = ExtResource( 9 )
 
 [node name="Main" type="Control" parent="RoundSign"]
+anchor_top = -0.002081
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.997919
 margin_left = 1280.0
+margin_top = 1.49832
 margin_right = 1280.0
+margin_bottom = 1.49829
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -258,21 +268,41 @@ dialog_text = "Are you sure you want to quit?"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+self_modulate = Color( 1, 1, 1, 0.784314 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = SubResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Particles2D" type="Particles2D" parent="CanvasLayer"]
+position = Vector2( 640, 0 )
+lifetime = 4.0
+preprocess = 4.0
+process_material = SubResource( 8 )
+texture = ExtResource( 10 )
 [connection signal="pressed" from="GP/VB/Top/HB/NewG" to="." method="_on_NewG_pressed"]
 [connection signal="pressed" from="GP/VB/Top/HB/Quit" to="." method="_on_Quit_pressed"]
-[connection signal="game_log" from="GP/VB/Game/HSplit/EDKB/EntryDisplay" to="." method="_log"]
-[connection signal="guess_checked" from="GP/VB/Game/HSplit/EDKB/EntryDisplay" to="GP/VB/Game/HSplit/SP/PlayersPanel" method="_on_EntryDisplay_guess_checked"]
-[connection signal="letters_revealed" from="GP/VB/Game/HSplit/EDKB/EntryDisplay" to="GP/VB/Game/HSplit/SP/Spindle" method="_letters_guessed"]
-[connection signal="one_letter" from="GP/VB/Game/HSplit/EDKB/EntryDisplay" to="GP/VB/Game/HSplit/EDKB/Keyboard" method="_on_EntryDisplay_one_letter"]
-[connection signal="text_ready" from="GP/VB/Game/HSplit/EDKB/EntryDisplay" to="RoundSign" method="_on_EntryDisplay_text_ready"]
-[connection signal="text_ready" from="GP/VB/Game/HSplit/EDKB/EntryDisplay" to="GP/VB/Game/HSplit/SP/Spindle" method="_on_EntryDisplay_text_ready"]
-[connection signal="game_log" from="GP/VB/Game/HSplit/EDKB/Keyboard" to="." method="_log"]
-[connection signal="key_pressed" from="GP/VB/Game/HSplit/EDKB/Keyboard" to="GP/VB/Game/HSplit/EDKB/EntryDisplay" method="_on_letter_guessed"]
-[connection signal="game_log" from="GP/VB/Game/HSplit/SP/Spindle" to="." method="_log"]
-[connection signal="score" from="GP/VB/Game/HSplit/SP/Spindle" to="GP/VB/Game/HSplit/SP/PlayersPanel" method="_score_gained"]
-[connection signal="spun" from="GP/VB/Game/HSplit/SP/Spindle" to="GP/VB/Game/HSplit/EDKB/EntryDisplay" method="_on_Spindle_spun"]
-[connection signal="game_log" from="GP/VB/Game/HSplit/SP/PlayersPanel" to="." method="_log"]
-[connection signal="init_solve" from="GP/VB/Game/HSplit/SP/PlayersPanel" to="GP/VB/Game/HSplit/EDKB/EntryDisplay" method="init_solve"]
-[connection signal="pre_reset" from="GP/VB/Game/HSplit/SP/PlayersPanel" to="." method="_pre_reset"]
-[connection signal="turn_done" from="GP/VB/Game/HSplit/SP/PlayersPanel" to="GP/VB/Game/HSplit/SP/Spindle" method="_on_PlayersPanel_turn_done"]
+[connection signal="game_log" from="GP/VB/Game/Arrange/PlayersPanel" to="." method="_log"]
+[connection signal="init_solve" from="GP/VB/Game/Arrange/PlayersPanel" to="GP/VB/Game/Arrange/EntryDisplay" method="init_solve"]
+[connection signal="pre_reset" from="GP/VB/Game/Arrange/PlayersPanel" to="." method="_pre_reset"]
+[connection signal="turn_done" from="GP/VB/Game/Arrange/PlayersPanel" to="GP/VB/Game/Arrange/Spindle" method="_on_PlayersPanel_turn_done"]
+[connection signal="game_log" from="GP/VB/Game/Arrange/Keyboard" to="." method="_log"]
+[connection signal="key_pressed" from="GP/VB/Game/Arrange/Keyboard" to="GP/VB/Game/Arrange/EntryDisplay" method="_on_letter_guessed"]
+[connection signal="game_log" from="GP/VB/Game/Arrange/Spindle" to="." method="_log"]
+[connection signal="score" from="GP/VB/Game/Arrange/Spindle" to="GP/VB/Game/Arrange/PlayersPanel" method="_score_gained"]
+[connection signal="spun" from="GP/VB/Game/Arrange/Spindle" to="GP/VB/Game/Arrange/EntryDisplay" method="_on_Spindle_spun"]
+[connection signal="game_log" from="GP/VB/Game/Arrange/EntryDisplay" to="." method="_log"]
+[connection signal="guess_checked" from="GP/VB/Game/Arrange/EntryDisplay" to="GP/VB/Game/Arrange/PlayersPanel" method="_on_EntryDisplay_guess_checked"]
+[connection signal="letters_revealed" from="GP/VB/Game/Arrange/EntryDisplay" to="GP/VB/Game/Arrange/Spindle" method="_letters_guessed"]
+[connection signal="one_letter" from="GP/VB/Game/Arrange/EntryDisplay" to="GP/VB/Game/Arrange/Keyboard" method="_on_EntryDisplay_one_letter"]
+[connection signal="text_ready" from="GP/VB/Game/Arrange/EntryDisplay" to="RoundSign" method="_on_EntryDisplay_text_ready"]
+[connection signal="text_ready" from="GP/VB/Game/Arrange/EntryDisplay" to="GP/VB/Game/Arrange/Spindle" method="_on_EntryDisplay_text_ready"]
 [connection signal="confirmed" from="QuitConfirm/Main/ConfirmationDialog" to="." method="_on_QuitConfirm_confirmed"]

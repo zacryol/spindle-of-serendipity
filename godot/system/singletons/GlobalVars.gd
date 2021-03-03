@@ -1,3 +1,24 @@
+###############################################################################
+# spindle of serendipity                                                      #
+# Copyright (C) 2020-2021 zacryol (https://gitlab.com/zacryol)                #
+#-----------------------------------------------------------------------------#
+# This file is part of spindle of serendipity.                                #
+#                                                                             #
+# spindle of serendipity is free software: you can redistribute it and/or     #
+# modify it under the terms of the GNU General Public License as published by #
+# the Free Software Foundation, either version 3 of the License, or           #
+# (at your option) any later version.                                         #
+#                                                                             #
+# spindle of serendipity is distributed in the hope that it will be useful,   #
+# but WITHOUT ANY WARRANTY; without even the implied warranty of              #
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the               #
+# GNU General Public License for more details.                                #
+#                                                                             #
+# You should have received a copy of the GNU General Public License           #
+# along with spindle of serendipity.                                          #
+# If not, see <http://www.gnu.org/licenses/>.                                 #
+###############################################################################
+
 extends Node
 
 const DEFAULT_CATEGORY := "Miscellaneous"
@@ -56,6 +77,11 @@ func _ready():
 	load_settings_from_file()
 	randomize()
 	OS.min_window_size = Vector2(1024, 576)
+
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("fullscreen"):
+		OS.window_fullscreen = not OS.window_fullscreen
 
 
 func save_settings_to_file():

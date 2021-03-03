@@ -12,10 +12,13 @@ __meta__ = {
 }
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
+self_modulate = Color( 1, 1, 1, 0.72549 )
 anchor_right = 1.0
 anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.25
 __meta__ = {
-"_edit_lock_": true
+"_edit_use_anchors_": false
 }
 
 [node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer"]
@@ -23,12 +26,14 @@ margin_left = 7.0
 margin_top = 7.0
 margin_right = 1273.0
 margin_bottom = 713.0
+mouse_filter = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="PanelContainer/ScrollContainer"]
 margin_right = 1266.0
 margin_bottom = 706.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -39,6 +44,41 @@ margin_left = 633.0
 margin_top = 353.0
 margin_right = 633.0
 margin_bottom = 353.0
+mouse_filter = 2
+
+[node name="Control" type="Control" parent="PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1273.0
+margin_bottom = 713.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SolveUI" type="VBoxContainer" parent="PanelContainer/Control"]
+visible = false
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -101.0
+margin_bottom = 44.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SolveButton" type="Button" parent="PanelContainer/Control/SolveUI"]
+margin_right = 101.0
+margin_bottom = 20.0
+grow_horizontal = 0
+text = "Submit Guess"
+align = 2
+
+[node name="BSpace" type="Button" parent="PanelContainer/Control/SolveUI"]
+margin_top = 24.0
+margin_right = 101.0
+margin_bottom = 44.0
+text = "<- Backspace"
 
 [node name="CategoryLabel" type="Label" parent="."]
 anchor_top = 1.0
@@ -46,6 +86,9 @@ anchor_bottom = 1.0
 margin_top = -14.0
 margin_right = 40.0
 grow_vertical = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="SourceLabel" type="Label" parent="."]
 anchor_left = 1.0
@@ -60,30 +103,6 @@ align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="SolveUI" type="VBoxContainer" parent="."]
-visible = false
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -101.0
-margin_bottom = 40.0
-grow_horizontal = 0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SolveButton" type="Button" parent="SolveUI"]
-margin_right = 101.0
-margin_bottom = 20.0
-grow_horizontal = 0
-text = "Submit Guess"
-align = 2
-
-[node name="BSpace" type="Button" parent="SolveUI"]
-margin_top = 24.0
-margin_right = 101.0
-margin_bottom = 44.0
-text = "<- Backspace"
 [connection signal="setup" from="PanelContainer/ScrollContainer/CenterContainer/HexContainer" to="." method="_on_HexContainer_setup"]
-[connection signal="pressed" from="SolveUI/SolveButton" to="." method="_on_SolveButton_pressed"]
-[connection signal="pressed" from="SolveUI/BSpace" to="." method="_on_BSpace_pressed"]
+[connection signal="pressed" from="PanelContainer/Control/SolveUI/SolveButton" to="." method="_on_SolveButton_pressed"]
+[connection signal="pressed" from="PanelContainer/Control/SolveUI/BSpace" to="." method="_on_BSpace_pressed"]

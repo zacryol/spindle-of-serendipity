@@ -1,15 +1,36 @@
+###############################################################################
+# spindle of serendipity                                                      #
+# Copyright (C) 2020-2021 zacryol (https://gitlab.com/zacryol)                #
+#-----------------------------------------------------------------------------#
+# This file is part of spindle of serendipity.                                #
+#                                                                             #
+# spindle of serendipity is free software: you can redistribute it and/or     #
+# modify it under the terms of the GNU General Public License as published by #
+# the Free Software Foundation, either version 3 of the License, or           #
+# (at your option) any later version.                                         #
+#                                                                             #
+# spindle of serendipity is distributed in the hope that it will be useful,   #
+# but WITHOUT ANY WARRANTY; without even the implied warranty of              #
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the               #
+# GNU General Public License for more details.                                #
+#                                                                             #
+# You should have received a copy of the GNU General Public License           #
+# along with spindle of serendipity.                                          #
+# If not, see <http://www.gnu.org/licenses/>.                                 #
+###############################################################################
+
 extends Control
 
 const MAX_LOG_CHAR := 120
 
 var round_num := 0
 
-onready var entry_display := $GP/VB/Game/HSplit/EDKB/EntryDisplay
+onready var entry_display := $GP/VB/Game/Arrange/EntryDisplay
 onready var log_label: Label = $GP/VB/Top/HB/Label
 onready var new_button: Button = $GP/VB/Top/HB/NewG
-onready var spindle := $GP/VB/Game/HSplit/SP/Spindle
-onready var players := $GP/VB/Game/HSplit/SP/PlayersPanel
-onready var keyboard := $GP/VB/Game/HSplit/EDKB/Keyboard
+onready var spindle := $GP/VB/Game/Arrange/Spindle
+onready var players := $GP/VB/Game/Arrange/PlayersPanel
+onready var keyboard := $GP/VB/Game/Arrange/Keyboard
 onready var victory := $VScreen
 onready var round_sign := $RoundSign
 onready var quit_confirm: ConfirmationDialog = $QuitConfirm/Main/ConfirmationDialog
