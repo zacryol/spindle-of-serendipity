@@ -23,13 +23,23 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TabContainer" type="TabContainer" parent="PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
 margin_left = 3.0
 margin_top = 3.0
 margin_right = 1278.0
 margin_bottom = 718.0
+custom_constants/margin_right = 15
+custom_constants/margin_top = 15
+custom_constants/margin_left = 15
+custom_constants/margin_bottom = 15
 
-[node name="Back" type="Button" parent="PanelContainer/TabContainer"]
+[node name="TabContainer" type="TabContainer" parent="PanelContainer/MarginContainer"]
+margin_left = 15.0
+margin_top = 15.0
+margin_right = 1260.0
+margin_bottom = 700.0
+
+[node name="Back" type="Button" parent="PanelContainer/MarginContainer/TabContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -38,7 +48,7 @@ margin_right = -4.0
 margin_bottom = -4.0
 text = "Back to Main Menu"
 
-[node name="General" type="Control" parent="PanelContainer/TabContainer"]
+[node name="General" type="Control" parent="PanelContainer/MarginContainer/TabContainer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -48,7 +58,7 @@ margin_right = -4.0
 margin_bottom = -4.0
 script = ExtResource( 2 )
 
-[node name="Scroll" type="ScrollContainer" parent="PanelContainer/TabContainer/General"]
+[node name="Scroll" type="ScrollContainer" parent="PanelContainer/MarginContainer/TabContainer/General"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 225.0
@@ -57,18 +67,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="List" type="VBoxContainer" parent="PanelContainer/TabContainer/General/Scroll"]
-margin_right = 817.0
+[node name="List" type="VBoxContainer" parent="PanelContainer/MarginContainer/TabContainer/General/Scroll"]
+margin_right = 787.0
 margin_bottom = 199.0
 size_flags_horizontal = 3
 custom_constants/separation = 25
 
-[node name="RevealSource" type="HBoxContainer" parent="PanelContainer/TabContainer/General/Scroll/List"]
+[node name="RevealSource" type="HBoxContainer" parent="PanelContainer/MarginContainer/TabContainer/General/Scroll/List"]
 margin_right = 817.0
 margin_bottom = 31.0
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="PanelContainer/TabContainer/General/Scroll/List/RevealSource"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/TabContainer/General/Scroll/List/RevealSource"]
 margin_top = 5.0
 margin_right = 406.0
 margin_bottom = 26.0
@@ -77,7 +87,7 @@ size_flags_horizontal = 3
 text = "Reveal Source: "
 align = 2
 
-[node name="OptionButton" type="OptionButton" parent="PanelContainer/TabContainer/General/Scroll/List/RevealSource"]
+[node name="OptionButton" type="OptionButton" parent="PanelContainer/MarginContainer/TabContainer/General/Scroll/List/RevealSource"]
 margin_left = 410.0
 margin_right = 817.0
 margin_bottom = 31.0
@@ -86,13 +96,13 @@ text = "Never"
 items = [ "Never", null, false, 0, null, "When Solved", null, false, 1, null, "Always", null, false, 2, null ]
 selected = 0
 
-[node name="RandMode" type="HBoxContainer" parent="PanelContainer/TabContainer/General/Scroll/List"]
+[node name="RandMode" type="HBoxContainer" parent="PanelContainer/MarginContainer/TabContainer/General/Scroll/List"]
 margin_top = 56.0
 margin_right = 817.0
 margin_bottom = 87.0
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="PanelContainer/TabContainer/General/Scroll/List/RandMode"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/TabContainer/General/Scroll/List/RandMode"]
 margin_top = 5.0
 margin_right = 406.0
 margin_bottom = 26.0
@@ -101,7 +111,7 @@ size_flags_horizontal = 3
 text = "Randomize Mode: "
 align = 2
 
-[node name="OptionButton" type="OptionButton" parent="PanelContainer/TabContainer/General/Scroll/List/RandMode"]
+[node name="OptionButton" type="OptionButton" parent="PanelContainer/MarginContainer/TabContainer/General/Scroll/List/RandMode"]
 margin_left = 410.0
 margin_right = 817.0
 margin_bottom = 31.0
@@ -110,13 +120,13 @@ text = "Random"
 items = [ "Random", null, false, 0, null, "By Category", null, false, 1, null, "By Source", null, false, 2, null ]
 selected = 0
 
-[node name="Refresh" type="HBoxContainer" parent="PanelContainer/TabContainer/General/Scroll/List"]
+[node name="Refresh" type="HBoxContainer" parent="PanelContainer/MarginContainer/TabContainer/General/Scroll/List"]
 margin_top = 112.0
 margin_right = 817.0
 margin_bottom = 143.0
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="PanelContainer/TabContainer/General/Scroll/List/Refresh"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/TabContainer/General/Scroll/List/Refresh"]
 margin_top = 5.0
 margin_right = 406.0
 margin_bottom = 26.0
@@ -125,7 +135,7 @@ size_flags_horizontal = 3
 text = "Refresh Entries at: "
 align = 2
 
-[node name="SpinBox" type="SpinBox" parent="PanelContainer/TabContainer/General/Scroll/List/Refresh"]
+[node name="SpinBox" type="SpinBox" parent="PanelContainer/MarginContainer/TabContainer/General/Scroll/List/Refresh"]
 margin_left = 410.0
 margin_right = 817.0
 margin_bottom = 31.0
@@ -133,13 +143,13 @@ size_flags_horizontal = 3
 min_value = 5.0
 value = 5.0
 
-[node name="Save" type="Button" parent="PanelContainer/TabContainer/General/Scroll/List"]
+[node name="Save" type="Button" parent="PanelContainer/MarginContainer/TabContainer/General/Scroll/List"]
 margin_top = 168.0
 margin_right = 817.0
 margin_bottom = 199.0
 text = "Save"
 
-[node name="Alias" type="TabContainer" parent="PanelContainer/TabContainer"]
+[node name="Alias" type="TabContainer" parent="PanelContainer/MarginContainer/TabContainer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -153,7 +163,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Categories" type="Control" parent="PanelContainer/TabContainer/Alias"]
+[node name="Categories" type="Control" parent="PanelContainer/MarginContainer/TabContainer/Alias"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -162,32 +172,32 @@ margin_right = -4.0
 margin_bottom = -4.0
 script = ExtResource( 4 )
 
-[node name="H" type="HSplitContainer" parent="PanelContainer/TabContainer/Alias/Categories"]
+[node name="H" type="HSplitContainer" parent="PanelContainer/MarginContainer/TabContainer/Alias/Categories"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Import" type="ScrollContainer" parent="PanelContainer/TabContainer/Alias/Categories/H"]
+[node name="Import" type="ScrollContainer" parent="PanelContainer/MarginContainer/TabContainer/Alias/Categories/H"]
 margin_right = 763.0
 margin_bottom = 629.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.57
 
-[node name="VBox" type="VBoxContainer" parent="PanelContainer/TabContainer/Alias/Categories/H/Import"]
+[node name="VBox" type="VBoxContainer" parent="PanelContainer/MarginContainer/TabContainer/Alias/Categories/H/Import"]
 margin_right = 763.0
 size_flags_horizontal = 3
 
-[node name="View" type="ScrollContainer" parent="PanelContainer/TabContainer/Alias/Categories/H"]
+[node name="View" type="ScrollContainer" parent="PanelContainer/MarginContainer/TabContainer/Alias/Categories/H"]
 margin_left = 775.0
 margin_right = 1259.0
 margin_bottom = 629.0
 size_flags_horizontal = 3
 
-[node name="VBox" type="VBoxContainer" parent="PanelContainer/TabContainer/Alias/Categories/H/View"]
+[node name="VBox" type="VBoxContainer" parent="PanelContainer/MarginContainer/TabContainer/Alias/Categories/H/View"]
 
-[node name="Sources" type="Control" parent="PanelContainer/TabContainer/Alias"]
+[node name="Sources" type="Control" parent="PanelContainer/MarginContainer/TabContainer/Alias"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -197,35 +207,35 @@ margin_right = -4.0
 margin_bottom = -4.0
 script = ExtResource( 4 )
 
-[node name="H" type="HSplitContainer" parent="PanelContainer/TabContainer/Alias/Sources"]
+[node name="H" type="HSplitContainer" parent="PanelContainer/MarginContainer/TabContainer/Alias/Sources"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="Import" type="ScrollContainer" parent="PanelContainer/TabContainer/Alias/Sources/H"]
+[node name="Import" type="ScrollContainer" parent="PanelContainer/MarginContainer/TabContainer/Alias/Sources/H"]
 margin_right = 40.0
 margin_bottom = 40.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.57
 
-[node name="VBox" type="VBoxContainer" parent="PanelContainer/TabContainer/Alias/Sources/H/Import"]
+[node name="VBox" type="VBoxContainer" parent="PanelContainer/MarginContainer/TabContainer/Alias/Sources/H/Import"]
 margin_right = 40.0
 size_flags_horizontal = 3
 
-[node name="View" type="ScrollContainer" parent="PanelContainer/TabContainer/Alias/Sources/H"]
+[node name="View" type="ScrollContainer" parent="PanelContainer/MarginContainer/TabContainer/Alias/Sources/H"]
 margin_right = 40.0
 margin_bottom = 40.0
 size_flags_horizontal = 3
 
-[node name="VBox" type="VBoxContainer" parent="PanelContainer/TabContainer/Alias/Sources/H/View"]
+[node name="VBox" type="VBoxContainer" parent="PanelContainer/MarginContainer/TabContainer/Alias/Sources/H/View"]
 
-[node name="Profiles" parent="PanelContainer/TabContainer" instance=ExtResource( 5 )]
+[node name="Profiles" parent="PanelContainer/MarginContainer/TabContainer" instance=ExtResource( 5 )]
 visible = false
 margin_left = 4.0
 margin_top = 39.0
 margin_right = -4.0
 margin_bottom = -4.0
 
-[node name="Legal" type="ScrollContainer" parent="PanelContainer/TabContainer"]
+[node name="Legal" type="ScrollContainer" parent="PanelContainer/MarginContainer/TabContainer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -237,31 +247,35 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/TabContainer/Legal"]
-margin_right = 702.0
-margin_bottom = 983.0
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/TabContainer/Legal"]
+margin_left = 267.0
+margin_right = 969.0
+margin_bottom = 999.0
+rect_min_size = Vector2( 500, 0 )
+size_flags_horizontal = 6
+alignment = 1
 
-[node name="GPLLabel" type="Label" parent="PanelContainer/TabContainer/Legal/VBoxContainer"]
+[node name="GPLLabel" type="Label" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
 margin_right = 702.0
 margin_bottom = 309.0
-text = "Copyright (C) 2020 \"zacryol\" (https://gitlab.com/zacryol)
-This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
+text = "Copyright (C) 2020-2021 \"zacryol\" (https://gitlab.com/zacryol)
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or  (at your option) any later version.
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <https://www.gnu.org/licenses/>."
+You should have received a copy of the GNU General Public License along with this program.  If not, see <https://www.gnu.org/licenses/>."
+align = 1
+autowrap = true
 
-[node name="MITLabel" type="Label" parent="PanelContainer/TabContainer/Legal/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
 margin_top = 313.0
 margin_right = 702.0
-margin_bottom = 934.0
+margin_bottom = 317.0
+
+[node name="MITLabel" type="Label" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
+margin_top = 321.0
+margin_right = 702.0
+margin_bottom = 942.0
 text = "
 
     This game uses Godot Engine, available under the following license:
@@ -274,18 +288,59 @@ text = "
 
     THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 "
+align = 1
 autowrap = true
 
-[node name="FreeType" type="Label" parent="PanelContainer/TabContainer/Legal/VBoxContainer"]
-margin_top = 938.0
+[node name="HSeparator2" type="HSeparator" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
+margin_top = 946.0
 margin_right = 702.0
-margin_bottom = 983.0
+margin_bottom = 950.0
+
+[node name="FreeType" type="Label" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
+margin_top = 954.0
+margin_right = 702.0
+margin_bottom = 999.0
 text = "Portions of this software are copyright © 2020 The FreeType Project (www.freetype.org). All rights reserved."
+align = 1
 autowrap = true
-[connection signal="pressed" from="PanelContainer/TabContainer/Back" to="." method="_on_Back_pressed"]
-[connection signal="item_selected" from="PanelContainer/TabContainer/General/Scroll/List/RevealSource/OptionButton" to="PanelContainer/TabContainer/General" method="_on_source_option_selected"]
-[connection signal="item_selected" from="PanelContainer/TabContainer/General/Scroll/List/RandMode/OptionButton" to="PanelContainer/TabContainer/General" method="_on_rand_option_selected"]
-[connection signal="value_changed" from="PanelContainer/TabContainer/General/Scroll/List/Refresh/SpinBox" to="PanelContainer/TabContainer/General" method="_on_Refresh_value_changed"]
-[connection signal="pressed" from="PanelContainer/TabContainer/General/Scroll/List/Save" to="PanelContainer/TabContainer/General" method="_on_Save_pressed"]
-[connection signal="alias_created" from="PanelContainer/TabContainer/Alias/Categories" to="PanelContainer/TabContainer/Profiles" method="_on_alias_created"]
-[connection signal="alias_created" from="PanelContainer/TabContainer/Alias/Sources" to="PanelContainer/TabContainer/Profiles" method="_on_alias_created"]
+
+[node name="HSeparator3" type="HSeparator" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
+margin_top = 946.0
+margin_right = 702.0
+margin_bottom = 950.0
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
+margin_right = 40.0
+margin_bottom = 21.0
+text = "OpenDyslexic Font by Abbie Gonzalez (https://gumroad.com/l/OpenDyslexic)"
+align = 1
+autowrap = true
+
+[node name="HSeparator4" type="HSeparator" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
+margin_right = 40.0
+margin_bottom = 4.0
+
+[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
+margin_right = 40.0
+margin_bottom = 21.0
+text = "Xolonium Font by Severin Meyer (https://fontlibrary.org/en/font/xolonium)"
+align = 1
+autowrap = true
+
+[node name="HSeparator5" type="HSeparator" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
+margin_right = 40.0
+margin_bottom = 4.0
+
+[node name="Label3" type="Label" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
+margin_right = 40.0
+margin_bottom = 213.0
+text = "Particle Pack by Kenney (https://kenney.nl/assets/particle-pack)"
+align = 1
+autowrap = true
+[connection signal="pressed" from="PanelContainer/MarginContainer/TabContainer/Back" to="." method="_on_Back_pressed"]
+[connection signal="item_selected" from="PanelContainer/MarginContainer/TabContainer/General/Scroll/List/RevealSource/OptionButton" to="PanelContainer/MarginContainer/TabContainer/General" method="_on_source_option_selected"]
+[connection signal="item_selected" from="PanelContainer/MarginContainer/TabContainer/General/Scroll/List/RandMode/OptionButton" to="PanelContainer/MarginContainer/TabContainer/General" method="_on_rand_option_selected"]
+[connection signal="value_changed" from="PanelContainer/MarginContainer/TabContainer/General/Scroll/List/Refresh/SpinBox" to="PanelContainer/MarginContainer/TabContainer/General" method="_on_Refresh_value_changed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/TabContainer/General/Scroll/List/Save" to="PanelContainer/MarginContainer/TabContainer/General" method="_on_Save_pressed"]
+[connection signal="alias_created" from="PanelContainer/MarginContainer/TabContainer/Alias/Categories" to="PanelContainer/MarginContainer/TabContainer/Profiles" method="_on_alias_created"]
+[connection signal="alias_created" from="PanelContainer/MarginContainer/TabContainer/Alias/Sources" to="PanelContainer/MarginContainer/TabContainer/Profiles" method="_on_alias_created"]
