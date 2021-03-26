@@ -42,10 +42,10 @@ margin_bottom = 700.0
 [node name="Back" type="Button" parent="PanelContainer/MarginContainer/TabContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 39.0
-margin_right = -4.0
-margin_bottom = -4.0
+margin_left = 3.0
+margin_top = 34.0
+margin_right = -2.0
+margin_bottom = -2.0
 text = "Back to Main Menu"
 
 [node name="General" type="Control" parent="PanelContainer/MarginContainer/TabContainer"]
@@ -166,10 +166,10 @@ __meta__ = {
 [node name="Categories" type="Control" parent="PanelContainer/MarginContainer/TabContainer/Alias"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 39.0
-margin_right = -4.0
-margin_bottom = -4.0
+margin_left = 3.0
+margin_top = 34.0
+margin_right = -2.0
+margin_bottom = -2.0
 script = ExtResource( 4 )
 
 [node name="H" type="HSplitContainer" parent="PanelContainer/MarginContainer/TabContainer/Alias/Categories"]
@@ -248,9 +248,9 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/TabContainer/Legal"]
-margin_left = 267.0
-margin_right = 969.0
-margin_bottom = 999.0
+margin_left = 368.0
+margin_right = 868.0
+margin_bottom = 2442.0
 rect_min_size = Vector2( 500, 0 )
 size_flags_horizontal = 6
 alignment = 1
