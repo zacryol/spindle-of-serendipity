@@ -50,7 +50,6 @@ func _ready() -> void:
 			l.set_text(new_text)
 	for arc in EntryManager.get_archives():
 		var l := single.instance()
-		var new_text: String = arc
 		archives.add_child(l)
 		l.set_text(arc)
 	update_load()
