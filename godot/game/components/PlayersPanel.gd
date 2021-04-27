@@ -73,8 +73,7 @@ func start():
 
 
 func quick_score_update():
-	print(_spindle_score)
-	pass
+	get_current_player().add_to_score(_spindle_score)
 
 
 func highest_score() -> int:
@@ -85,7 +84,6 @@ func highest_score() -> int:
 
 
 func _score_gained(number: int, final: bool):
-	get_current_player().add_to_score(number)
 	emit_signal("game_log", str(number) + " points gained")
 	if final:
 		emit_signal("game_log", "You solved it!")
