@@ -20,7 +20,10 @@ shadow_size = 1
 [sub_resource type="Theme" id=2]
 PanelContainer/styles/panel = SubResource( 1 )
 
-[node name="PlayersPanel" type="Control"]
+[node name="PlayersPanel" type="Control" groups=[
+"quick_score_update",
+"tracks_spindle_score",
+]]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
