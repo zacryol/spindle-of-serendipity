@@ -72,6 +72,11 @@ func start():
 	set_label()
 
 
+func quick_score_update():
+	print(_spindle_score)
+	pass
+
+
 func highest_score() -> int:
 	var score := 0
 	for p in get_players_array():

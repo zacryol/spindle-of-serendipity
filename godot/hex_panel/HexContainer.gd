@@ -85,6 +85,7 @@ func reveal_letter(letter: String) -> int:
 	for c in get_hex_nodes(true):
 		if CharSet.compare(c.text, letter):
 			c.current_state = HexType.State.REVEALED
+			get_tree().call_group("quick_score_update", "quick_score_update")
 			yield(c, "anim")
 			count += 1
 	return count
