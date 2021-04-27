@@ -39,6 +39,7 @@ const TWEEN_TIME := 0.15
 
 var current_player := 0
 var solve_reward := 150
+var _spindle_score := 0
 
 onready var p1 := $PlayersArrange/Player
 onready var p2 := $PlayersArrange/Player2
