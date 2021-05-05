@@ -42,6 +42,7 @@ Alias="*res://system/singletons/Alias.gd"
 EntryManager="*res://system/singletons/EntryManager.gd"
 EntryImport="*res://system/singletons/EntryImport.gd"
 Profiles="*res://system/singletons/Profiles.gd"
+BgEffect="res://game/BGEffect.tscn"
 
 [display]
 
