@@ -11,6 +11,9 @@ func _ready() -> void:
 
 
 func play_song(song: AudioStream, fade := false) -> void:
+	if player.stream == song:
+		return
+	
 	if fade:
 		pass
 	else:
@@ -19,5 +22,8 @@ func play_song(song: AudioStream, fade := false) -> void:
 
 
 func play_song_id(id: String, fade := false) -> void:
+	match id:
+		"menu":
+			play_song(menu_music, fade)
 	pass
 
