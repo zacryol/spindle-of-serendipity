@@ -6,6 +6,7 @@ export (Array, AudioStream) var game_tracks := []
 onready var player := $AudioStreamPlayer as AudioStreamPlayer
 onready var tween := $FadeTween as Tween
 
+
 func _ready() -> void:
 	pass
 
@@ -13,7 +14,6 @@ func _ready() -> void:
 func play_song(song: AudioStream, fade := false) -> void:
 	if player.stream == song:
 		return
-	
 	if fade:
 		pass
 	else:
@@ -25,5 +25,7 @@ func play_song_id(id: String, fade := false) -> void:
 	match id:
 		"menu":
 			play_song(menu_music, fade)
-	pass
 
+
+func play_game_music() -> void:
+	play_song(game_tracks[randi() % game_tracks.size()])
