@@ -2,6 +2,7 @@ extends Node
 
 export var menu_music: AudioStream
 export var final_round_music: AudioStream
+export var end_game_music: AudioStream
 export (Array, AudioStream) var game_tracks := []
 
 onready var player := $AudioStreamPlayer as AudioStreamPlayer
@@ -28,6 +29,8 @@ func play_song_id(id: String, fade := false) -> void:
 			play_song(menu_music, fade)
 		"final":
 			play_song(final_round_music, fade)
+		"end":
+			play_song(end_game_music, fade)
 
 
 func play_game_music() -> void:
