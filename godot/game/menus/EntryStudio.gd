@@ -35,6 +35,7 @@ onready var saved_label := $PC/VBox/Control2/SaveBit/Saved as Label
 onready var saved_tween := $PC/VBox/Control2/SaveBit/Saved/Tween as Tween
 
 func _ready() -> void:
+	MusicManager.play_song_id("side")
 	add_item()
 	save_confirm.add_button("Overwrite", true, "over")
 	save_confirm.add_button("Append", true, "add")
