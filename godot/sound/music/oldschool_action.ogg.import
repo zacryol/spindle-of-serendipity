@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/oldschool_action.ogg-d3874fd6cb7dcf9ee6c7cf7c6b59eb52.oggstr"
+
+[deps]
+
+source_file="res://sound/music/oldschool_action.ogg"
+dest_files=[ "res://.import/oldschool_action.ogg-d3874fd6cb7dcf9ee6c7cf7c6b59eb52.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0.0
