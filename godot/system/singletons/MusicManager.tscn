@@ -1,0 +1,24 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://system/singletons/MusicManager.gd" type="Script" id=1]
+[ext_resource path="res://sound/music/mandatory_overtime.ogg" type="AudioStream" id=2]
+[ext_resource path="res://sound/music/funked_up.ogg" type="AudioStream" id=3]
+[ext_resource path="res://sound/music/black_diamond.ogg" type="AudioStream" id=4]
+[ext_resource path="res://sound/music/cyberpunk_moonlight_sonata.ogg" type="AudioStream" id=5]
+[ext_resource path="res://sound/music/dreaming_of_victory.ogg" type="AudioStream" id=6]
+[ext_resource path="res://sound/music/party_sector.ogg" type="AudioStream" id=7]
+[ext_resource path="res://sound/music/8bit_bossa.ogg" type="AudioStream" id=8]
+[ext_resource path="res://sound/music/speedier_than_photons.ogg" type="AudioStream" id=9]
+[ext_resource path="res://sound/music/oldschool_action.ogg" type="AudioStream" id=10]
+
+[node name="MusicManager" type="Node"]
+script = ExtResource( 1 )
+menu_music = ExtResource( 2 )
+final_round_music = ExtResource( 6 )
+end_game_music = ExtResource( 7 )
+side_menu_music = ExtResource( 8 )
+game_tracks = [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 10 ) ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="FadeTween" type="Tween" parent="."]

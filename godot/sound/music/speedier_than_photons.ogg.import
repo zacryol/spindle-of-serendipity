@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/speedier_than_photons.ogg-1c336c97946c264cdc117ac01bbc977f.oggstr"
+
+[deps]
+
+source_file="res://sound/music/speedier_than_photons.ogg"
+dest_files=[ "res://.import/speedier_than_photons.ogg-1c336c97946c264cdc117ac01bbc977f.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

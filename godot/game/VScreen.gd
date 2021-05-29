@@ -32,6 +32,7 @@ func _ready():
 
 
 func show():
+	MusicManager.play_song_id("end")
 	$Main.show()
 
 

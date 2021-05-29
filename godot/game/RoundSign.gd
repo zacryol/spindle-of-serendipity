@@ -36,6 +36,7 @@ func new_round(num: int) -> void:
 		if GlobalVars.rounds == num:
 			show = "Final Round"
 			label.modulate = Color(1, 0, 0, 1)
+			MusicManager.play_song_id("final")
 		else:
 			show += suffix % str(GlobalVars.rounds)
 	label.text = show

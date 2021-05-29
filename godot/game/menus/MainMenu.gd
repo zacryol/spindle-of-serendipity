@@ -22,7 +22,7 @@
 extends Control
 
 func _ready():
-	pass
+	MusicManager.play_song_id("menu")
 
 
 func _on_ImportButton_pressed():

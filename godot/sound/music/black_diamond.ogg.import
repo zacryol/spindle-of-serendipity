@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/black_diamond.ogg-6c1de7d53d1130ad0d6725be8d8ca286.oggstr"
+
+[deps]
+
+source_file="res://sound/music/black_diamond.ogg"
+dest_files=[ "res://.import/black_diamond.ogg-6c1de7d53d1130ad0d6725be8d8ca286.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

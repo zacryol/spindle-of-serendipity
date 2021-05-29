@@ -52,10 +52,10 @@ text = "Back to Main Menu"
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 39.0
-margin_right = -4.0
-margin_bottom = -4.0
+margin_left = 3.0
+margin_top = 34.0
+margin_right = -2.0
+margin_bottom = -2.0
 script = ExtResource( 2 )
 
 [node name="Scroll" type="ScrollContainer" parent="PanelContainer/MarginContainer/TabContainer/General"]
@@ -68,7 +68,7 @@ __meta__ = {
 }
 
 [node name="List" type="VBoxContainer" parent="PanelContainer/MarginContainer/TabContainer/General/Scroll"]
-margin_right = 787.0
+margin_right = 790.0
 margin_bottom = 199.0
 size_flags_horizontal = 3
 custom_constants/separation = 25
@@ -153,10 +153,10 @@ text = "Save"
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 39.0
-margin_right = -4.0
-margin_bottom = -4.0
+margin_left = 3.0
+margin_top = 34.0
+margin_right = -2.0
+margin_bottom = -2.0
 tab_align = 0
 script = ExtResource( 3 )
 __meta__ = {
@@ -201,10 +201,10 @@ size_flags_horizontal = 3
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 39.0
-margin_right = -4.0
-margin_bottom = -4.0
+margin_left = 3.0
+margin_top = 34.0
+margin_right = -2.0
+margin_bottom = -2.0
 script = ExtResource( 4 )
 
 [node name="H" type="HSplitContainer" parent="PanelContainer/MarginContainer/TabContainer/Alias/Sources"]
@@ -230,26 +230,26 @@ size_flags_horizontal = 3
 
 [node name="Profiles" parent="PanelContainer/MarginContainer/TabContainer" instance=ExtResource( 5 )]
 visible = false
-margin_left = 4.0
-margin_top = 39.0
-margin_right = -4.0
-margin_bottom = -4.0
+margin_left = 3.0
+margin_top = 34.0
+margin_right = -2.0
+margin_bottom = -2.0
 
 [node name="Legal" type="ScrollContainer" parent="PanelContainer/MarginContainer/TabContainer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 39.0
-margin_right = -4.0
-margin_bottom = -4.0
+margin_left = 3.0
+margin_top = 34.0
+margin_right = -2.0
+margin_bottom = -2.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/TabContainer/Legal"]
-margin_left = 368.0
-margin_right = 868.0
+margin_left = 370.0
+margin_right = 870.0
 margin_bottom = 2442.0
 rect_min_size = Vector2( 500, 0 )
 size_flags_horizontal = 6
@@ -337,6 +337,17 @@ margin_bottom = 213.0
 text = "Particle Pack by Kenney (https://kenney.nl/assets/particle-pack)"
 align = 1
 autowrap = true
+
+[node name="HSeparator6" type="HSeparator" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
+margin_right = 40.0
+margin_bottom = 4.0
+
+[node name="MusicLabel" type="Label" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
+margin_right = 40.0
+margin_bottom = 21.0
+text = "Various music by Joth
+(https://opengameart.org/users/joth)"
+align = 1
 [connection signal="pressed" from="PanelContainer/MarginContainer/TabContainer/Back" to="." method="_on_Back_pressed"]
 [connection signal="item_selected" from="PanelContainer/MarginContainer/TabContainer/General/Scroll/List/RevealSource/OptionButton" to="PanelContainer/MarginContainer/TabContainer/General" method="_on_source_option_selected"]
 [connection signal="item_selected" from="PanelContainer/MarginContainer/TabContainer/General/Scroll/List/RandMode/OptionButton" to="PanelContainer/MarginContainer/TabContainer/General" method="_on_rand_option_selected"]

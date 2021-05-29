@@ -23,6 +23,7 @@ extends Control
 
 
 func _ready():
+	MusicManager.play_song_id("side")
 	$PanelContainer/MarginContainer/TabContainer.current_tab = 1
 
 
