@@ -74,13 +74,13 @@ size_flags_horizontal = 3
 custom_constants/separation = 25
 
 [node name="RevealSource" type="HBoxContainer" parent="PanelContainer/MarginContainer/TabContainer/General/Scroll/List"]
-margin_right = 817.0
+margin_right = 790.0
 margin_bottom = 31.0
 size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/TabContainer/General/Scroll/List/RevealSource"]
 margin_top = 5.0
-margin_right = 406.0
+margin_right = 393.0
 margin_bottom = 26.0
 mouse_filter = 1
 size_flags_horizontal = 3
@@ -88,8 +88,8 @@ text = "Reveal Source: "
 align = 2
 
 [node name="OptionButton" type="OptionButton" parent="PanelContainer/MarginContainer/TabContainer/General/Scroll/List/RevealSource"]
-margin_left = 410.0
-margin_right = 817.0
+margin_left = 397.0
+margin_right = 790.0
 margin_bottom = 31.0
 size_flags_horizontal = 3
 text = "Never"
@@ -98,13 +98,13 @@ selected = 0
 
 [node name="RandMode" type="HBoxContainer" parent="PanelContainer/MarginContainer/TabContainer/General/Scroll/List"]
 margin_top = 56.0
-margin_right = 817.0
+margin_right = 790.0
 margin_bottom = 87.0
 size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/TabContainer/General/Scroll/List/RandMode"]
 margin_top = 5.0
-margin_right = 406.0
+margin_right = 393.0
 margin_bottom = 26.0
 mouse_filter = 1
 size_flags_horizontal = 3
@@ -112,8 +112,8 @@ text = "Randomize Mode: "
 align = 2
 
 [node name="OptionButton" type="OptionButton" parent="PanelContainer/MarginContainer/TabContainer/General/Scroll/List/RandMode"]
-margin_left = 410.0
-margin_right = 817.0
+margin_left = 397.0
+margin_right = 790.0
 margin_bottom = 31.0
 size_flags_horizontal = 3
 text = "Random"
@@ -122,13 +122,13 @@ selected = 0
 
 [node name="Refresh" type="HBoxContainer" parent="PanelContainer/MarginContainer/TabContainer/General/Scroll/List"]
 margin_top = 112.0
-margin_right = 817.0
+margin_right = 790.0
 margin_bottom = 143.0
 size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/TabContainer/General/Scroll/List/Refresh"]
 margin_top = 5.0
-margin_right = 406.0
+margin_right = 393.0
 margin_bottom = 26.0
 mouse_filter = 1
 size_flags_horizontal = 3
@@ -136,8 +136,8 @@ text = "Refresh Entries at: "
 align = 2
 
 [node name="SpinBox" type="SpinBox" parent="PanelContainer/MarginContainer/TabContainer/General/Scroll/List/Refresh"]
-margin_left = 410.0
-margin_right = 817.0
+margin_left = 397.0
+margin_right = 790.0
 margin_bottom = 31.0
 size_flags_horizontal = 3
 min_value = 5.0
@@ -145,7 +145,7 @@ value = 5.0
 
 [node name="Save" type="Button" parent="PanelContainer/MarginContainer/TabContainer/General/Scroll/List"]
 margin_top = 168.0
-margin_right = 817.0
+margin_right = 790.0
 margin_bottom = 199.0
 text = "Save"
 
@@ -180,19 +180,19 @@ __meta__ = {
 }
 
 [node name="Import" type="ScrollContainer" parent="PanelContainer/MarginContainer/TabContainer/Alias/Categories/H"]
-margin_right = 763.0
-margin_bottom = 629.0
+margin_right = 748.0
+margin_bottom = 613.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.57
 
 [node name="VBox" type="VBoxContainer" parent="PanelContainer/MarginContainer/TabContainer/Alias/Categories/H/Import"]
-margin_right = 763.0
+margin_right = 748.0
 size_flags_horizontal = 3
 
 [node name="View" type="ScrollContainer" parent="PanelContainer/MarginContainer/TabContainer/Alias/Categories/H"]
-margin_left = 775.0
-margin_right = 1259.0
-margin_bottom = 629.0
+margin_left = 760.0
+margin_right = 1235.0
+margin_bottom = 613.0
 size_flags_horizontal = 3
 
 [node name="VBox" type="VBoxContainer" parent="PanelContainer/MarginContainer/TabContainer/Alias/Categories/H/View"]
@@ -212,18 +212,19 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="Import" type="ScrollContainer" parent="PanelContainer/MarginContainer/TabContainer/Alias/Sources/H"]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_right = 748.0
+margin_bottom = 613.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.57
 
 [node name="VBox" type="VBoxContainer" parent="PanelContainer/MarginContainer/TabContainer/Alias/Sources/H/Import"]
-margin_right = 40.0
+margin_right = 748.0
 size_flags_horizontal = 3
 
 [node name="View" type="ScrollContainer" parent="PanelContainer/MarginContainer/TabContainer/Alias/Sources/H"]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 760.0
+margin_right = 1235.0
+margin_bottom = 613.0
 size_flags_horizontal = 3
 
 [node name="VBox" type="VBoxContainer" parent="PanelContainer/MarginContainer/TabContainer/Alias/Sources/H/View"]
@@ -250,14 +251,14 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/TabContainer/Legal"]
 margin_left = 370.0
 margin_right = 870.0
-margin_bottom = 2442.0
+margin_bottom = 1587.0
 rect_min_size = Vector2( 500, 0 )
 size_flags_horizontal = 6
 alignment = 1
 
 [node name="GPLLabel" type="Label" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
-margin_right = 702.0
-margin_bottom = 309.0
+margin_right = 500.0
+margin_bottom = 405.0
 text = "Copyright (C) 2020-2021 \"zacryol\" (https://gitlab.com/zacryol)
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or  (at your option) any later version.
 
@@ -268,14 +269,14 @@ align = 1
 autowrap = true
 
 [node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
-margin_top = 313.0
-margin_right = 702.0
-margin_bottom = 317.0
+margin_top = 409.0
+margin_right = 500.0
+margin_bottom = 413.0
 
 [node name="MITLabel" type="Label" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
-margin_top = 321.0
-margin_right = 702.0
-margin_bottom = 942.0
+margin_top = 417.0
+margin_right = 500.0
+margin_bottom = 1278.0
 text = "
 
     This game uses Godot Engine, available under the following license:
@@ -292,59 +293,66 @@ align = 1
 autowrap = true
 
 [node name="HSeparator2" type="HSeparator" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
-margin_top = 946.0
-margin_right = 702.0
-margin_bottom = 950.0
+margin_top = 1282.0
+margin_right = 500.0
+margin_bottom = 1286.0
 
 [node name="FreeType" type="Label" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
-margin_top = 954.0
-margin_right = 702.0
-margin_bottom = 999.0
+margin_top = 1290.0
+margin_right = 500.0
+margin_bottom = 1359.0
 text = "Portions of this software are copyright © 2020 The FreeType Project (www.freetype.org). All rights reserved."
 align = 1
 autowrap = true
 
 [node name="HSeparator3" type="HSeparator" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
-margin_top = 946.0
-margin_right = 702.0
-margin_bottom = 950.0
+margin_top = 1363.0
+margin_right = 500.0
+margin_bottom = 1367.0
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
-margin_right = 40.0
-margin_bottom = 21.0
+margin_top = 1371.0
+margin_right = 500.0
+margin_bottom = 1416.0
 text = "OpenDyslexic Font by Abbie Gonzalez (https://gumroad.com/l/OpenDyslexic)"
 align = 1
 autowrap = true
 
 [node name="HSeparator4" type="HSeparator" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
-margin_right = 40.0
-margin_bottom = 4.0
+margin_top = 1420.0
+margin_right = 500.0
+margin_bottom = 1424.0
 
 [node name="Label2" type="Label" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
-margin_right = 40.0
-margin_bottom = 21.0
+margin_top = 1428.0
+margin_right = 500.0
+margin_bottom = 1473.0
 text = "Xolonium Font by Severin Meyer (https://fontlibrary.org/en/font/xolonium)"
 align = 1
 autowrap = true
 
 [node name="HSeparator5" type="HSeparator" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
-margin_right = 40.0
-margin_bottom = 4.0
+margin_top = 1477.0
+margin_right = 500.0
+margin_bottom = 1481.0
 
 [node name="Label3" type="Label" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
-margin_right = 40.0
-margin_bottom = 213.0
+margin_top = 1485.0
+margin_right = 500.0
+margin_bottom = 1530.0
 text = "Particle Pack by Kenney (https://kenney.nl/assets/particle-pack)"
 align = 1
 autowrap = true
 
 [node name="HSeparator6" type="HSeparator" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
-margin_right = 40.0
-margin_bottom = 4.0
+margin_top = 1534.0
+margin_right = 500.0
+margin_bottom = 1538.0
 
 [node name="MusicLabel" type="Label" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
-margin_right = 40.0
-margin_bottom = 21.0
+margin_top = 1542.0
+margin_right = 500.0
+margin_bottom = 1587.0
 text = "Various music by Joth
 (https://opengameart.org/users/joth)"
 align = 1
