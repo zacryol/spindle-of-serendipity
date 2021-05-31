@@ -29,6 +29,8 @@ const HexType := preload("res://hex_panel/HexNode.gd")
 
 export var text: String setget set_text
 
+onready var audio_fail := $FailAudio as AudioStreamPlayer
+
 func _notification(what):
 	if what == NOTIFICATION_SORT_CHILDREN:
 		rect_min_size = Vector2(0, 0)
@@ -127,6 +129,7 @@ func add_solve(letter: String):
 
 
 func clear_solve():
+	audio_fail.play()
 	for c in get_hex_nodes():
 		if c.current_state == HexType.State.TEMP:
 			c.set_state(HexType.State.BLOCKED, true)
