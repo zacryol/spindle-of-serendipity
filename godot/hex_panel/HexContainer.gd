@@ -129,7 +129,7 @@ func add_solve(letter: String):
 func clear_solve():
 	for c in get_hex_nodes():
 		if c.current_state == HexType.State.TEMP:
-			c.current_state = HexType.State.BLOCKED
+			c.set_state(HexType.State.BLOCKED, true)
 
 
 func pop_solve() -> void:
@@ -149,4 +149,4 @@ func verify() -> bool:
 
 func reveal_all():
 	for c in get_hex_nodes():
-		c.current_state = HexType.State.REVEALED
+		c.set_state(HexType.State.REVEALED, true)

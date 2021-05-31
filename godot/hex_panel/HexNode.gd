@@ -66,7 +66,7 @@ func get_text() -> String:
 	return text
 
 
-func set_state(new: int):
+func set_state(new: int, mute := false):
 	var changed := new != current_state
 	
 	if text == " ":
@@ -88,7 +88,10 @@ func set_state(new: int):
 			modulate = COLOR_NONE
 	if changed and not current_state == State.EMPTY:
 		$AnimationPlayer.play("change")
-		audio.play()
+		if not mute:
+			audio.play()
+		else:
+			audio.stop()
 	else:
 		enough()
 
