@@ -81,9 +81,8 @@ func set_text(new_text: String):
 	text = new_text
 	
 	for c in get_children():
-		if c.get_index() == 0:
-			continue
-		c.free()
+		if c is Control:
+			c.free()
 	
 	for s in split_lines(new_text):
 		var h := HexRow.new()
@@ -98,7 +97,7 @@ func set_text(new_text: String):
 
 func get_hex_nodes(randomized := false) -> Array:
 	var nodes := []
-	for i in range(1, get_child_count()):
+	for i in get_child_count():
 		nodes += get_child(i).get_children()
 	
 	if randomized:
