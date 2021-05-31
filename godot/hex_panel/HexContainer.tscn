@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://hex_panel/HexContainer.gd" type="Script" id=1]
-[ext_resource path="res://sound/sfx/laser3.ogg" type="AudioStream" id=2]
 
 [node name="HexContainer" type="Container"]
 anchor_right = 1.0
@@ -14,5 +13,3 @@ __meta__ = {
 }
 
 [node name="FailAudio" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 2 )
-bus = "Sound"
