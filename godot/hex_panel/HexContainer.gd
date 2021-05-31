@@ -30,6 +30,7 @@ const HexType := preload("res://hex_panel/HexNode.gd")
 export var text: String setget set_text
 
 onready var audio_fail := $FailAudio as AudioStreamPlayer
+onready var audio_solve := $WinAudio as AudioStreamPlayer
 
 func _notification(what):
 	if what == NOTIFICATION_SORT_CHILDREN:
@@ -151,5 +152,6 @@ func verify() -> bool:
 
 
 func reveal_all():
+	audio_solve.play()
 	for c in get_hex_nodes():
 		c.set_state(HexType.State.REVEALED, true)
