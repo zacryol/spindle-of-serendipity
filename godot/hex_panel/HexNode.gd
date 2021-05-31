@@ -39,6 +39,7 @@ var text: String = "" setget set_text, get_text
 var current_state: int = State.BLOCKED setget set_state, get_state
 
 onready var view: Label = $Label
+onready var audio := $AudioStreamPlayer as AudioStreamPlayer
 
 func _ready():
 	pass
@@ -87,6 +88,7 @@ func set_state(new: int):
 			modulate = COLOR_NONE
 	if changed and not current_state == State.EMPTY:
 		$AnimationPlayer.play("change")
+		audio.play()
 	else:
 		enough()
 
