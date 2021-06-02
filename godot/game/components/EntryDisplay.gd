@@ -127,7 +127,6 @@ func _on_SolveButton_pressed():
 	var solved := is_solved()
 	solve_ui.hide()
 	emit_signal("guess_checked", solved)
-	hex.clear_solve()
 	current_mode = MODE_DISABLED
 	if solved:
 		hex.reveal_all()
@@ -135,6 +134,8 @@ func _on_SolveButton_pressed():
 			bool_mask[k] = true
 		if GlobalVars.settings["source"] == GlobalVars.SOURCE_SOLVE:
 			source_label.text = source_text
+	else:
+		hex.clear_solve()
 
 
 func _on_BSpace_pressed():
