@@ -29,6 +29,9 @@ const HexType := preload("res://hex_panel/HexNode.gd")
 
 export var text: String setget set_text
 
+onready var audio_fail := $FailAudio as AudioStreamPlayer
+onready var audio_solve := $WinAudio as AudioStreamPlayer
+
 func _notification(what):
 	if what == NOTIFICATION_SORT_CHILDREN:
 		rect_min_size = Vector2(0, 0)
@@ -44,17 +47,45 @@ func _notification(what):
 			count += 1
 
 
-func split_lines(lines: String) -> PoolStringArray:
-	return $StringParser.parse(lines)
+func split_lines(input: String) -> PoolStringArray:
+	var lines := PoolStringArray()
+	var max_line_length: int = int(sqrt(2 * input.length()))
+	var current_line: String = ""
+	
+	# Create lines
+	for s in input.split(" "):
+		if not s:
+			continue
+		
+		if s.length() >= max_line_length:
+			if current_line:
+				lines.append(current_line)
+				current_line = ""
+		
+		if current_line:
+			current_line = current_line + " " + s
+		else:
+			current_line = s
+		
+		if current_line.length() >= max_line_length:
+			lines.append(current_line)
+			current_line = ""
+	
+	# Append leftover
+	if current_line:
+		lines.append(current_line)
+	
+	# Adjust indentation
+	# Something goes here
+	return lines
 
 
 func set_text(new_text: String):
 	text = new_text
 	
 	for c in get_children():
-		if c.get_index() == 0:
-			continue
-		c.free()
+		if c is Control:
+			c.free()
 	
 	for s in split_lines(new_text):
 		var h := HexRow.new()
@@ -69,7 +100,7 @@ func set_text(new_text: String):
 
 func get_hex_nodes(randomized := false) -> Array:
 	var nodes := []
-	for i in range(1, get_child_count()):
+	for i in get_child_count():
 		nodes += get_child(i).get_children()
 	
 	if randomized:
@@ -85,6 +116,7 @@ func reveal_letter(letter: String) -> int:
 	for c in get_hex_nodes(true):
 		if CharSet.compare(c.text, letter):
 			c.current_state = HexType.State.REVEALED
+			get_tree().call_group("quick_score_update", "quick_score_update")
 			yield(c, "anim")
 			count += 1
 	return count
@@ -98,9 +130,10 @@ func add_solve(letter: String):
 
 
 func clear_solve():
+	audio_fail.play()
 	for c in get_hex_nodes():
 		if c.current_state == HexType.State.TEMP:
-			c.current_state = HexType.State.BLOCKED
+			c.set_state(HexType.State.BLOCKED, true)
 
 
 func pop_solve() -> void:
@@ -119,5 +152,6 @@ func verify() -> bool:
 
 
 func reveal_all():
+	audio_solve.play()
 	for c in get_hex_nodes():
-		c.current_state = HexType.State.REVEALED
+		c.set_state(HexType.State.REVEALED, true)

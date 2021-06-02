@@ -38,13 +38,10 @@ const COLOR_NONE = Color.transparent
 var text: String = "" setget set_text, get_text
 var current_state: int = State.BLOCKED setget set_state, get_state
 
-onready var view: Label = $Label
+onready var view := $Label as Label
+onready var audio := $AudioStreamPlayer as AudioStreamPlayer
 
-func _ready():
-	pass
-
-
-func set_text(new_text: String):
+func set_text(new_text: String) -> void:
 	text = new_text.substr(0, 1)
 	if current_state == State.REVEALED:
 		view.text = text
@@ -65,7 +62,7 @@ func get_text() -> String:
 	return text
 
 
-func set_state(new: int):
+func set_state(new: int, mute := false):
 	var changed := new != current_state
 	
 	if text == " ":
@@ -87,6 +84,10 @@ func set_state(new: int):
 			modulate = COLOR_NONE
 	if changed and not current_state == State.EMPTY:
 		$AnimationPlayer.play("change")
+		if not mute:
+			audio.play()
+		else:
+			audio.stop()
 	else:
 		enough()
 

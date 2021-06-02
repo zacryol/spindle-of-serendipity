@@ -73,6 +73,7 @@ func _on_Button_pressed() -> void:
 			set_state(State.INACTIVE)
 			emit_signal("game_log", str(current_value) + " points per letter")
 			emit_signal("spun")
+			get_tree().set_group_flags(SceneTree.GROUP_CALL_REALTIME, "tracks_spindle_score", "_spindle_score", current_value)
 
 
 func _on_PlayersPanel_turn_done() -> void:

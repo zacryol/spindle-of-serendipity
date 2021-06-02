@@ -39,6 +39,7 @@ const TWEEN_TIME := 0.15
 
 var current_player := 0
 var solve_reward := 150
+var _spindle_score := 0
 
 onready var p1 := $PlayersArrange/Player
 onready var p2 := $PlayersArrange/Player2
@@ -71,6 +72,10 @@ func start():
 	set_label()
 
 
+func quick_score_update():
+	get_current_player().add_to_score(_spindle_score)
+
+
 func highest_score() -> int:
 	var score := 0
 	for p in get_players_array():
@@ -79,7 +84,6 @@ func highest_score() -> int:
 
 
 func _score_gained(number: int, final: bool):
-	get_current_player().add_to_score(number)
 	emit_signal("game_log", str(number) + " points gained")
 	if final:
 		emit_signal("game_log", "You solved it!")

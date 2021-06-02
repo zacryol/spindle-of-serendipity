@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/party_sector.ogg-310c83a89790a3c3938c2510699a2d60.oggstr"
+
+[deps]
+
+source_file="res://sound/music/party_sector.ogg"
+dest_files=[ "res://.import/party_sector.ogg-310c83a89790a3c3938c2510699a2d60.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

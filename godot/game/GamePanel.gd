@@ -36,6 +36,7 @@ onready var round_sign := $RoundSign
 onready var quit_confirm: ConfirmationDialog = $QuitConfirm/Main/ConfirmationDialog
 
 func _ready() -> void:
+	MusicManager.play_game_music()
 	EntryManager.reset_picked()
 	start()
 	quit_confirm.get_cancel().connect("pressed", self, "_on_QuitConfirm_exit")

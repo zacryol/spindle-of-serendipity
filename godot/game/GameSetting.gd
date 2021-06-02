@@ -33,6 +33,7 @@ onready var score_check: CheckBox = $Controls/Top/Vict/Score/CheckBox
 
 
 func _ready() -> void:
+	MusicManager.play_song_id("menu")
 	selector.add_item(Profiles.RESERVED)
 	for k in Profiles.get_keys():
 		selector.add_item(k)

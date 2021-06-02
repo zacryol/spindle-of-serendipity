@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/dreaming_of_victory.ogg-5dc81b3fc5c719e2e752f0591888e1c8.oggstr"
+
+[deps]
+
+source_file="res://sound/music/dreaming_of_victory.ogg"
+dest_files=[ "res://.import/dreaming_of_victory.ogg-5dc81b3fc5c719e2e752f0591888e1c8.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

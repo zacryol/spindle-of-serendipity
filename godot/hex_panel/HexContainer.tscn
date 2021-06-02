@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://hex_panel/HexContainer.gd" type="Script" id=1]
-[ext_resource path="res://hex_panel/StringParser.gd" type="Script" id=2]
+[ext_resource path="res://sound/sfx/laser3.ogg" type="AudioStream" id=2]
+[ext_resource path="res://sound/sfx/zapThreeToneUp.ogg" type="AudioStream" id=3]
 
 [node name="HexContainer" type="Container"]
 anchor_right = 1.0
@@ -13,5 +14,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="StringParser" type="Node" parent="."]
-script = ExtResource( 2 )
+[node name="FailAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+
+[node name="WinAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = 6.0
