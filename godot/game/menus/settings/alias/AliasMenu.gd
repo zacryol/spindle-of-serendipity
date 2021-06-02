@@ -24,6 +24,6 @@ extends Control
 onready var cat := $Categories
 onready var sou := $Sources
 
-func _ready():
+func _ready() -> void:
 	cat.set_ui(true)
 	sou.set_ui(false)

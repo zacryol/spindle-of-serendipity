@@ -21,16 +21,16 @@
 
 extends Control
 
-func _ready():
+func _ready() -> void:
 	MusicManager.play_song_id("menu")
 
 
-func _on_ImportButton_pressed():
+func _on_ImportButton_pressed() -> void:
 	$FileDialog.current_dir = OS.get_executable_path().get_base_dir()
 	$FileDialog.show()
 
 
-func _on_FileDialog_files_selected(paths: PoolStringArray):
+func _on_FileDialog_files_selected(paths: PoolStringArray) -> void:
 	for path in paths:
 		EntryImport.import_entries_from_file(path)
 		
@@ -47,16 +47,16 @@ func _on_FileDialog_files_selected(paths: PoolStringArray):
 		Directory.new().copy(path, save_path)
 
 
-func _on_StartButton_pressed():
+func _on_StartButton_pressed() -> void:
 	if EntryManager.entries.size() == 0:
 		$AcceptDialog.show()
 	else:
 		get_tree().change_scene("res://game/GameSetting.tscn")
 
 
-func _on_Settings_pressed():
+func _on_Settings_pressed() -> void:
 	get_tree().change_scene("res://game/menus/settings/Settings.tscn")
 
 
-func _on_EButton_pressed():
+func _on_EButton_pressed() -> void:
 	get_tree().change_scene("res://game/menus/EntryStudio.tscn")

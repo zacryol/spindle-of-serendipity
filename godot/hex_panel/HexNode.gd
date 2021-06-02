@@ -38,14 +38,10 @@ const COLOR_NONE = Color.transparent
 var text: String = "" setget set_text, get_text
 var current_state: int = State.BLOCKED setget set_state, get_state
 
-onready var view: Label = $Label
+onready var view := $Label as Label
 onready var audio := $AudioStreamPlayer as AudioStreamPlayer
 
-func _ready():
-	pass
-
-
-func set_text(new_text: String):
+func set_text(new_text: String) -> void:
 	text = new_text.substr(0, 1)
 	if current_state == State.REVEALED:
 		view.text = text

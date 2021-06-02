@@ -93,10 +93,10 @@ func enable() -> void:
 			key.disabled = false
 
 
-func _on_Key_pressed(letter: String):
+func _on_Key_pressed(letter: String) -> void:
 	guess_letter(letter)
 
 
-func _on_EntryDisplay_one_letter(letter):
+func _on_EntryDisplay_one_letter(letter) -> void:
 	if get_button(letter):
 		get_button(letter).disabled = true

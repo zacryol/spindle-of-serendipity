@@ -24,7 +24,7 @@ extends Node
 var aliases_cat: Dictionary
 var aliases_sou: Dictionary
 
-func _ready():
+func _ready() -> void:
 	load_from_file()
 
 
@@ -35,22 +35,22 @@ func has(import: String, is_cat: bool) -> bool:
 		return aliases_sou.has(import)
 
 
-func add_category(old: String, new: String):
+func add_category(old: String, new: String) -> void:
 	aliases_cat[old] = new
 	save_to_file()
 
 
-func add_source(old: String, new: String):
+func add_source(old: String, new: String) -> void:
 	aliases_sou[old] = new
 	save_to_file()
 
 
-func erase_cat(old: String):
+func erase_cat(old: String) -> void:
 	aliases_cat.erase(old)
 	save_to_file()
 
 
-func erase_sou(old: String):
+func erase_sou(old: String) -> void:
 	aliases_sou.erase(old)
 	save_to_file()
 
@@ -69,7 +69,7 @@ func source(import: String) -> String:
 		return import
 
 
-func load_from_file():
+func load_from_file() -> void:
 	var f := File.new()
 	if f.file_exists(GlobalVars.ALIAS_SAVE):
 		var err := f.open(GlobalVars.ALIAS_SAVE, File.READ)
@@ -84,7 +84,7 @@ func load_from_file():
 		f.close()
 
 
-func save_to_file():
+func save_to_file() -> void:
 	var save_dict := {
 		"cat" : aliases_cat,
 		"sou" : aliases_sou,
