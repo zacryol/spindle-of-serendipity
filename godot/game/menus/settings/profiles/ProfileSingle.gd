@@ -22,7 +22,7 @@
 extends PanelContainer
 
 var core_text: String
-onready var check: CheckBox = $CheckBox
+onready var check := $CheckBox as CheckBox
 
 func set_text(main: String, alias: String = "") -> void:
 	core_text = main

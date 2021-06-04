@@ -76,7 +76,7 @@ func load_from_file() -> void:
 	f.close()
 
 
-func clear(id: String):
+func clear(id: String) -> void:
 	if profiles_dict.has(id):
 		profiles_dict.erase(id)
 		write_to_file()
