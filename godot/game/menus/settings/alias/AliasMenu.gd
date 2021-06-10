@@ -21,9 +21,15 @@
 
 extends Control
 
-onready var cat := $Categories
-onready var sou := $Sources
+onready var cat := $Tab/Categories
+onready var sou := $Tab/Sources
+
+onready var help := $HelpWindow as AcceptDialog
 
 func _ready() -> void:
 	cat.set_ui(true)
 	sou.set_ui(false)
+
+
+func _on_HelpButton_pressed() -> void:
+	help.show()

@@ -149,7 +149,7 @@ margin_right = 790.0
 margin_bottom = 199.0
 text = "Save"
 
-[node name="Alias" type="TabContainer" parent="PanelContainer/MarginContainer/TabContainer"]
+[node name="Alias" type="Control" parent="PanelContainer/MarginContainer/TabContainer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -157,13 +157,17 @@ margin_left = 3.0
 margin_top = 34.0
 margin_right = -2.0
 margin_bottom = -2.0
-tab_align = 0
 script = ExtResource( 3 )
+
+[node name="Tab" type="TabContainer" parent="PanelContainer/MarginContainer/TabContainer/Alias"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+tab_align = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Categories" type="Control" parent="PanelContainer/MarginContainer/TabContainer/Alias"]
+[node name="Categories" type="Control" parent="PanelContainer/MarginContainer/TabContainer/Alias/Tab"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 3.0
@@ -172,32 +176,32 @@ margin_right = -2.0
 margin_bottom = -2.0
 script = ExtResource( 4 )
 
-[node name="H" type="HSplitContainer" parent="PanelContainer/MarginContainer/TabContainer/Alias/Categories"]
+[node name="H" type="HSplitContainer" parent="PanelContainer/MarginContainer/TabContainer/Alias/Tab/Categories"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Import" type="ScrollContainer" parent="PanelContainer/MarginContainer/TabContainer/Alias/Categories/H"]
+[node name="Import" type="ScrollContainer" parent="PanelContainer/MarginContainer/TabContainer/Alias/Tab/Categories/H"]
 margin_right = 748.0
 margin_bottom = 613.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.57
 
-[node name="VBox" type="VBoxContainer" parent="PanelContainer/MarginContainer/TabContainer/Alias/Categories/H/Import"]
+[node name="VBox" type="VBoxContainer" parent="PanelContainer/MarginContainer/TabContainer/Alias/Tab/Categories/H/Import"]
 margin_right = 748.0
 size_flags_horizontal = 3
 
-[node name="View" type="ScrollContainer" parent="PanelContainer/MarginContainer/TabContainer/Alias/Categories/H"]
+[node name="View" type="ScrollContainer" parent="PanelContainer/MarginContainer/TabContainer/Alias/Tab/Categories/H"]
 margin_left = 760.0
 margin_right = 1235.0
 margin_bottom = 613.0
 size_flags_horizontal = 3
 
-[node name="VBox" type="VBoxContainer" parent="PanelContainer/MarginContainer/TabContainer/Alias/Categories/H/View"]
+[node name="VBox" type="VBoxContainer" parent="PanelContainer/MarginContainer/TabContainer/Alias/Tab/Categories/H/View"]
 
-[node name="Sources" type="Control" parent="PanelContainer/MarginContainer/TabContainer/Alias"]
+[node name="Sources" type="Control" parent="PanelContainer/MarginContainer/TabContainer/Alias/Tab"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -207,27 +211,52 @@ margin_right = -2.0
 margin_bottom = -2.0
 script = ExtResource( 4 )
 
-[node name="H" type="HSplitContainer" parent="PanelContainer/MarginContainer/TabContainer/Alias/Sources"]
+[node name="H" type="HSplitContainer" parent="PanelContainer/MarginContainer/TabContainer/Alias/Tab/Sources"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="Import" type="ScrollContainer" parent="PanelContainer/MarginContainer/TabContainer/Alias/Sources/H"]
+[node name="Import" type="ScrollContainer" parent="PanelContainer/MarginContainer/TabContainer/Alias/Tab/Sources/H"]
 margin_right = 748.0
 margin_bottom = 613.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.57
 
-[node name="VBox" type="VBoxContainer" parent="PanelContainer/MarginContainer/TabContainer/Alias/Sources/H/Import"]
+[node name="VBox" type="VBoxContainer" parent="PanelContainer/MarginContainer/TabContainer/Alias/Tab/Sources/H/Import"]
 margin_right = 748.0
 size_flags_horizontal = 3
 
-[node name="View" type="ScrollContainer" parent="PanelContainer/MarginContainer/TabContainer/Alias/Sources/H"]
+[node name="View" type="ScrollContainer" parent="PanelContainer/MarginContainer/TabContainer/Alias/Tab/Sources/H"]
 margin_left = 760.0
 margin_right = 1235.0
 margin_bottom = 613.0
 size_flags_horizontal = 3
 
-[node name="VBox" type="VBoxContainer" parent="PanelContainer/MarginContainer/TabContainer/Alias/Sources/H/View"]
+[node name="VBox" type="VBoxContainer" parent="PanelContainer/MarginContainer/TabContainer/Alias/Tab/Sources/H/View"]
+
+[node name="HelpButton" type="Button" parent="PanelContainer/MarginContainer/TabContainer/Alias"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -138.0
+margin_bottom = 31.0
+grow_horizontal = 0
+text = "What is This?"
+
+[node name="HelpWindow" type="AcceptDialog" parent="PanelContainer/MarginContainer/TabContainer/Alias"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 45.0
+margin_top = 45.0
+margin_right = -45.0
+margin_bottom = -45.0
+window_title = "Alias"
+dialog_text = "The Alias function allows you to edit how a given Category or Source is shown in the game.
+
+For example, if you have entry files from different places, and one uses a category called \"Song\" while another uses \"Music\" you can use an Alias to make both of them be treated as a single category!
+
+The left side shows the Categories/Sources that are read from the files, and has the option to set an Alias, or remove it.
+
+The right side shows which Categories/Sources will appear in game."
+dialog_autowrap = true
 
 [node name="Profiles" parent="PanelContainer/MarginContainer/TabContainer" instance=ExtResource( 5 )]
 visible = false
@@ -361,5 +390,6 @@ align = 1
 [connection signal="item_selected" from="PanelContainer/MarginContainer/TabContainer/General/Scroll/List/RandMode/OptionButton" to="PanelContainer/MarginContainer/TabContainer/General" method="_on_rand_option_selected"]
 [connection signal="value_changed" from="PanelContainer/MarginContainer/TabContainer/General/Scroll/List/Refresh/SpinBox" to="PanelContainer/MarginContainer/TabContainer/General" method="_on_Refresh_value_changed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/TabContainer/General/Scroll/List/Save" to="PanelContainer/MarginContainer/TabContainer/General" method="_on_Save_pressed"]
-[connection signal="alias_created" from="PanelContainer/MarginContainer/TabContainer/Alias/Categories" to="PanelContainer/MarginContainer/TabContainer/Profiles" method="_on_alias_created"]
-[connection signal="alias_created" from="PanelContainer/MarginContainer/TabContainer/Alias/Sources" to="PanelContainer/MarginContainer/TabContainer/Profiles" method="_on_alias_created"]
+[connection signal="alias_created" from="PanelContainer/MarginContainer/TabContainer/Alias/Tab/Categories" to="PanelContainer/MarginContainer/TabContainer/Profiles" method="_on_alias_created"]
+[connection signal="alias_created" from="PanelContainer/MarginContainer/TabContainer/Alias/Tab/Sources" to="PanelContainer/MarginContainer/TabContainer/Profiles" method="_on_alias_created"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/TabContainer/Alias/HelpButton" to="PanelContainer/MarginContainer/TabContainer/Alias" method="_on_HelpButton_pressed"]
