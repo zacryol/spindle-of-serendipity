@@ -45,3 +45,7 @@ func _on_Save_pressed():
 
 func _on_Refresh_value_changed(value):
 	GlobalVars.settings["refresh"] = value
+
+
+func _on_CheckButton_toggled(button_pressed: bool) -> void:
+	pass
