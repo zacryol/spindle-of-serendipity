@@ -46,6 +46,7 @@ var settings: Dictionary = {
 	"source" : SOURCE_SOLVE,
 	"rand" : RAND_NON,
 	"refresh" : 15,
+	"crt_on" : true,
 }
 # End of Settings
 
@@ -113,5 +114,6 @@ func load_settings_from_file():
 			return
 		var d = f.get_var()
 		if typeof(d) == TYPE_DICTIONARY:
-			settings = d
+			for key in d.keys():
+				settings[key] = d[key]
 		f.close()
