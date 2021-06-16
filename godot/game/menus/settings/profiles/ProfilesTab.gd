@@ -146,3 +146,7 @@ func _on_Delete_pressed() -> void:
 	if save_name.text:
 		Profiles.clear(save_name.text)
 	update_load()
+
+
+func _on_HelpButton_pressed() -> void:
+	$HelpWindow.show()
