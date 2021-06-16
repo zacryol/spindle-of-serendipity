@@ -39,8 +39,6 @@ func _notification(what):
 		for c in get_children():
 			if not c is HexRow:
 				continue
-			
-			c = c as HexRow
 			c.rect_position = Vector2(X_OFFSET * (count % 2), Y_CHANGE * count)
 			rect_min_size.x = max(rect_min_size.x, c.rect_size.x + X_OFFSET * (count % 2))
 			rect_min_size.y = max(rect_min_size.y, c.rect_size.y + Y_CHANGE * count)

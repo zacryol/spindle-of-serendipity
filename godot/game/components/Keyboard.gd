@@ -22,7 +22,7 @@
 extends "res://game/components/GameComponent.gd"
 
 signal key_pressed(letter)
-onready var key_container: GridContainer = $CenterContainer/GridContainer
+onready var key_container := $CenterContainer/GridContainer as GridContainer
 
 func _ready():
 	# Setup Keys
@@ -66,7 +66,7 @@ func _ready():
 			key.connect("pressed", self, "_on_Key_pressed", [key.text])
 
 
-func _input(event):
+func _input(event: InputEvent) -> void:
 	if event is InputEventKey \
 			&& event.scancode in range(KEY_A, KEY_Z + 1) \
 			&& not event.is_echo() \

@@ -40,15 +40,15 @@ var source_hide := "??? (Hidden until solved)"
 onready var hex := $PanelContainer/ScrollContainer/CenterContainer/HexContainer
 onready var source_label := $SourceLabel as Label
 onready var cat_label := $CategoryLabel as Label
-onready var solve_ui: VBoxContainer = $PanelContainer/Control/SolveUI
+onready var solve_ui := $PanelContainer/Control/SolveUI as VBoxContainer
 
-func _ready():
+func _ready() -> void:
 	bool_mask.clear()
 	for c in CharSet.CHAR_MAIN:
 		bool_mask[c] = false
 
 
-func _input(event):
+func _input(event: InputEvent) -> void:
 	if event is InputEventKey:
 		if event.is_pressed() and \
 				not event.is_echo() and \
@@ -56,7 +56,7 @@ func _input(event):
 			hex.pop_solve()
 
 
-func set_display(entry: Entry):
+func set_display(entry: Entry) -> void:
 	entry_text = entry.get_entry_text().to_upper()
 	source_text = entry.get_game_source()
 	
@@ -82,14 +82,14 @@ func get_char_at(index: int) -> String:
 	return entry_text.substr(index, 1)
 
 
-func _on_letter_guessed(letter: String):
+func _on_letter_guessed(letter: String) -> void:
 	if current_mode == MODE_LETTER:
 		single_letter_guessed(letter)
 	elif current_mode == MODE_SOLVE:
 		add_solve(letter)
 
 
-func single_letter_guessed(letter: String):
+func single_letter_guessed(letter: String) -> void:
 	var guess := letter.substr(0, 1)
 	if not bool_mask.has(guess):
 		return 
@@ -109,21 +109,21 @@ func single_letter_guessed(letter: String):
 		source_label.text = source_text
 
 
-func add_solve(letter: String):
+func add_solve(letter: String) -> void:
 	if bool_mask.has(letter) and not bool_mask[letter]:
 		hex.add_solve(letter)
 
 
-func init_solve():
+func init_solve() -> void:
 	current_mode = MODE_SOLVE
 	solve_ui.show()
 
 
-func _on_Spindle_spun():
+func _on_Spindle_spun() -> void:
 	current_mode = MODE_LETTER
 
 
-func _on_SolveButton_pressed():
+func _on_SolveButton_pressed() -> void:
 	var solved := is_solved()
 	solve_ui.hide()
 	emit_signal("guess_checked", solved)
@@ -138,9 +138,9 @@ func _on_SolveButton_pressed():
 		hex.clear_solve()
 
 
-func _on_BSpace_pressed():
+func _on_BSpace_pressed() -> void:
 	hex.pop_solve()
 
 
-func _on_HexContainer_setup():
+func _on_HexContainer_setup() -> void:
 	emit_signal("text_ready")

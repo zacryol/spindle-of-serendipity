@@ -73,9 +73,17 @@ value = 1.0
 [node name="Label2" type="Label" parent="VBoxContainer/MatchCount"]
 margin_left = 207.0
 margin_top = 5.0
-margin_right = 342.0
+margin_right = 1180.0
 margin_bottom = 19.0
+size_flags_horizontal = 3
 text = "fields to be included."
+
+[node name="HelpButton" type="Button" parent="VBoxContainer/MatchCount"]
+margin_left = 1184.0
+margin_right = 1280.0
+margin_bottom = 24.0
+size_flags_horizontal = 8
+text = "What is This?"
 
 [node name="Config" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 56.0
@@ -142,5 +150,27 @@ margin_bottom = 46.0
 resizable = true
 dialog_text = "Invalid Save Name"
 dialog_autowrap = true
+
+[node name="HelpWindow" type="AcceptDialog" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -275.0
+margin_top = -241.5
+margin_right = 275.0
+margin_bottom = 241.5
+window_title = "Profiles"
+dialog_text = "Profiles allow you to customize what entries can appear in a given game.
+
+The first column lists the Catgeories, the second lists the Sources, and the third lists the files the entries were read from.
+
+Select the checkboxes for each of the the three that you want to appear in the game when this profile is used, and select how many fields must be matched for an entry to appear.
+
+For example, if you want to only show entiries in the Category \"Character\" and in a certain Source, you check that catgory and source, and set the number to 2.
+
+If you only want to use the entries from a specific file, you can enable only that and set the number to 1"
+dialog_autowrap = true
 [connection signal="pressed" from="VBoxContainer/Top/SaveAs" to="." method="_on_SaveAs_pressed"]
 [connection signal="pressed" from="VBoxContainer/Top/Delete" to="." method="_on_Delete_pressed"]
+[connection signal="pressed" from="VBoxContainer/MatchCount/HelpButton" to="." method="_on_HelpButton_pressed"]
