@@ -60,3 +60,12 @@ func _on_Settings_pressed() -> void:
 
 func _on_EButton_pressed() -> void:
 	get_tree().change_scene("res://game/menus/EntryStudio.tscn")
+
+
+
+func _on_QuitButton_pressed() -> void:
+	$QuitConfirm.show()
+
+
+func _on_QuitConfirm_confirmed() -> void:
+	get_tree().quit()

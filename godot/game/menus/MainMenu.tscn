@@ -76,6 +76,17 @@ margin_right = 132.0
 margin_bottom = 144.0
 text = "Settings"
 
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+margin_top = 148.0
+margin_right = 132.0
+margin_bottom = 152.0
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+margin_top = 156.0
+margin_right = 132.0
+margin_bottom = 187.0
+text = "Quit Game"
+
 [node name="FileDialog" type="FileDialog" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
@@ -238,9 +249,23 @@ text = "t"
 margin_left = 590.0
 margin_right = 645.0
 text = "y"
+
+[node name="QuitConfirm" type="ConfirmationDialog" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -102.0
+margin_top = -38.0
+margin_right = 102.0
+margin_bottom = 38.0
+window_title = "Quit?"
+dialog_text = "Exit game?"
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/ImportButton" to="." method="_on_ImportButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/EButton" to="." method="_on_EButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_Settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
 [connection signal="files_selected" from="FileDialog" to="." method="_on_FileDialog_files_selected"]
 [connection signal="custom_action" from="AcceptDialog" to="." method="_on_AcceptDialog_custom_action"]
+[connection signal="confirmed" from="QuitConfirm" to="." method="_on_QuitConfirm_confirmed"]
