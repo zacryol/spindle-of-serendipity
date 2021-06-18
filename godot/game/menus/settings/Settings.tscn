@@ -5,7 +5,7 @@
 [ext_resource path="res://game/menus/settings/alias/AliasMenu.gd" type="Script" id=3]
 [ext_resource path="res://game/menus/settings/alias/AliasSubTab.gd" type="Script" id=4]
 [ext_resource path="res://game/menus/settings/profiles/Profiles.tscn" type="PackedScene" id=5]
-[ext_resource path="res://GameTheme.theme" type="Theme" id=6]
+[ext_resource path="res://GameTheme.tres" type="Theme" id=6]
 
 [node name="Settings" type="Control"]
 anchor_right = 1.0
@@ -69,7 +69,7 @@ __meta__ = {
 
 [node name="List" type="VBoxContainer" parent="PanelContainer/MarginContainer/TabContainer/General/Scroll"]
 margin_right = 790.0
-margin_bottom = 199.0
+margin_bottom = 266.0
 size_flags_horizontal = 3
 custom_constants/separation = 25
 
