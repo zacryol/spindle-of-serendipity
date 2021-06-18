@@ -40,12 +40,21 @@ var scores: Array = [
 	50,
 ]
 
-func _ready() -> void:
+func _ready() -> void:	
 	scores.shuffle()
 	scores.append(-25)
 	scores.append(85)
 	scores.append(-25)
 	set_values()
+	
+	yield(get_tree(), "idle_frame")
+	var center_y := rect_global_position.y + (rect_size.y / 2.0)
+	(material as ShaderMaterial).set_shader_param("base_y", center_y)
+	print(center_y)
+
+
+func _process(delta: float) -> void:
+	pass
 
 
 func set_values() -> void:
