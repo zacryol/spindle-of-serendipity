@@ -78,18 +78,6 @@ func _ready():
 	load_settings_from_file()
 	randomize()
 	OS.min_window_size = Vector2(1024, 576)
-	
-#	var layer := CanvasLayer.new()
-#	add_child(layer)
-#	var screen := TextureRect.new()
-#	screen.texture = NoiseTexture.new()
-#	screen.texture.width = 1280
-#	screen.texture.height = 720
-##	screen.texture = get_tree().root.get_texture()
-#	layer.add_child(screen)
-#	screen.mouse_filter = screen.MOUSE_FILTER_IGNORE
-#	layer.layer = 25
-#	screen.material = preload("res://crt_shadermaterial.tres")
 
 
 func _input(event: InputEvent) -> void:

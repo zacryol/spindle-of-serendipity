@@ -24,11 +24,13 @@ extends Control
 onready var source_options: OptionButton = $Scroll/List/RevealSource/OptionButton
 onready var rand_options: OptionButton= $Scroll/List/RandMode/OptionButton
 onready var refr_options: SpinBox = $Scroll/List/Refresh/SpinBox
+onready var crt_option := $Scroll/List/CRTShader/CheckButton as CheckButton
 
 func _ready():
 	source_options.select(GlobalVars.settings["source"])
 	rand_options.select(GlobalVars.settings["rand"])
 	refr_options.value = GlobalVars.settings["refresh"]
+	crt_option.pressed = GlobalVars.settings.crt_on
 
 
 func _on_source_option_selected(id):
@@ -48,4 +50,5 @@ func _on_Refresh_value_changed(value):
 
 
 func _on_CheckButton_toggled(button_pressed: bool) -> void:
-	pass
+	GlobalVars.settings.crt_on = button_pressed
+	FxManager.toggle_crt(button_pressed)
