@@ -1,14 +1,58 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://tex/star_04.png" type="Texture" id=1]
 
-[sub_resource type="Gradient" id=1]
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+float grid(vec2 uv, float velocity, float iTime)
+{
+    vec2 size = vec2(uv.y, uv.y * uv.y * 0.2) * 0.01;
+    uv += vec2(0.0, iTime * 4.0 * (velocity + 0.05));
+    uv = abs(fract(uv) - 0.5);
+ 	vec2 lines = smoothstep(size, vec2(0.0), uv);
+ 	lines += smoothstep(size * 5.0, vec2(0.0), uv) * 0.4 * velocity;
+    return clamp(lines.x + lines.y, 0.0, 3.0);
+}
+
+
+void fragment()
+{
+    vec2 uv = (2.0 * FRAGCOORD.xy.xy - (1.0 / SCREEN_PIXEL_SIZE).xy)/(1.0 / SCREEN_PIXEL_SIZE).y;
+    float velocity = 1.0;
+   
+    {
+        // Grid
+        vec3 col = vec3(0.0, 0.1, 0.2);
+        if (uv.y < -0.2)
+        {
+            uv.y = 3.0 / (abs(uv.y + 0.2) + 0.05);
+            uv.x *= uv.y * 1.0;
+            float gridVal = grid(uv, velocity, TIME);
+            col = mix(col, vec3(0.5, 0.5, 1.0), gridVal);
+        }
+        else
+        {
+            uv.y -= velocity * 1.1 - 0.51;
+        }
+
+        col = mix(vec3(col.r, col.r, col.r) * 0.5, col,  0.7);
+
+        COLOR = vec4(col,1.0);
+    }
+      
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+
+[sub_resource type="Gradient" id=3]
 colors = PoolColorArray( 0, 0, 0, 1, 0.25, 0.1475, 0.1475, 1 )
 
-[sub_resource type="GradientTexture" id=2]
-gradient = SubResource( 1 )
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
 
-[sub_resource type="ParticlesMaterial" id=3]
+[sub_resource type="ParticlesMaterial" id=5]
 emission_shape = 2
 emission_box_extents = Vector3( 640, 1, 1 )
 flag_disable_z = true
@@ -25,10 +69,10 @@ color = Color( 0, 1, 0.737255, 0.427451 )
 layer = -1
 
 [node name="TextureRect" type="TextureRect" parent="."]
-self_modulate = Color( 1, 1, 1, 0.784314 )
+material = SubResource( 2 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = SubResource( 2 )
+texture = SubResource( 4 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -38,5 +82,5 @@ __meta__ = {
 position = Vector2( 640, 0 )
 lifetime = 4.0
 preprocess = 4.0
-process_material = SubResource( 3 )
+process_material = SubResource( 5 )
 texture = ExtResource( 1 )

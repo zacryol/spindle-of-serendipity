@@ -5,14 +5,13 @@
 [ext_resource path="res://hex_panel/HexNode.gd" type="Script" id=3]
 [ext_resource path="res://sound/sfx/phaseJump3.ogg" type="AudioStream" id=4]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=3]
 size = 32
 use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 2 )
 
-[sub_resource type="Animation" id=2]
-resource_name = "change"
+[sub_resource type="Animation" id=4]
 length = 0.2
 step = 0.05
 tracks/0/type = "value"
@@ -73,7 +72,7 @@ margin_left = -20.0
 margin_top = -29.5
 margin_right = 20.0
 margin_bottom = 29.5
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 align = 1
 clip_text = true
 
@@ -87,7 +86,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/change = SubResource( 2 )
+anims/change = SubResource( 4 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )

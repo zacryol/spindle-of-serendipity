@@ -2,7 +2,7 @@
 
 [ext_resource path="res://game/menus/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://tex/title/TitleHex.tscn" type="PackedScene" id=2]
-[ext_resource path="res://GameTheme.theme" type="Theme" id=3]
+[ext_resource path="res://GameTheme.tres" type="Theme" id=3]
 [ext_resource path="res://tex/spindle.png" type="Texture" id=4]
 
 [node name="MainMenu" type="Control"]
@@ -15,6 +15,7 @@ __meta__ = {
 }
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
+self_modulate = Color( 1, 1, 1, 0.392157 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
