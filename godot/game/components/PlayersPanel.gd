@@ -53,7 +53,7 @@ func get_players_array() -> Array:
 	return $PlayersArrange.get_children()
 
 
-func _ready():
+func _ready() -> void:
 	solve_box.get_cancel().connect("pressed", self, "_on_ConfirmationDialog_canceled")
 	solve_box.get_close_button().hide()
 	p1.set_name(GlobalVars.p1_name)
@@ -66,13 +66,13 @@ func _ready():
 	set_label()
 
 
-func start():
+func start() -> void:
 	emit_signal("game_log", get_current_player().player_name + " go!")
 	cache_scores()
 	set_label()
 
 
-func quick_score_update():
+func quick_score_update() -> void:
 	get_current_player().add_to_score(_spindle_score)
 
 
@@ -83,7 +83,7 @@ func highest_score() -> int:
 	return score
 
 
-func _score_gained(number: int, final: bool):
+func _score_gained(number: int, final: bool) -> void:
 	emit_signal("game_log", str(number) + " points gained")
 	if final:
 		emit_signal("game_log", "You solved it!")
@@ -112,7 +112,7 @@ func get_current_player() -> Node:
 	return $PlayersArrange.get_child(0)
 
 
-func advance_player():
+func advance_player() -> void:
 	$PlayersArrange.move_child(get_current_player(), NUM_PLAYER - 1)
 	set_label()
 	
@@ -124,11 +124,11 @@ func advance_player():
 	tween.start()
 
 
-func set_label():
+func set_label() -> void:
 	p_label.text = get_current_player().player_name + "'s turn!"
 
 
-func clear_label():
+func clear_label() -> void:
 	p_label.text = ""
 
 
@@ -157,19 +157,19 @@ func get_scores_ordered() -> PoolIntArray:
 	return PoolIntArray(scores)
 
 
-func _on_Player_game_log(text: String):
+func _on_Player_game_log(text: String) -> void:
 	emit_signal("game_log", text)
 
 
-func _on_ConfirmationDialog_confirmed():
+func _on_ConfirmationDialog_confirmed() -> void:
 	emit_signal("init_solve")
 
 
-func _on_ConfirmationDialog_canceled():
+func _on_ConfirmationDialog_canceled() -> void:
 	pass_turn()
 
 
-func _on_EntryDisplay_guess_checked(solved: bool):
+func _on_EntryDisplay_guess_checked(solved: bool) -> void:
 	if solved:
 		emit_signal("game_log",
 				"Correct! " + str(solve_reward) + " points earned!")
@@ -183,5 +183,5 @@ func _on_EntryDisplay_guess_checked(solved: bool):
 
 
 class PlayerSort:
-	static func sort_by_score(a, b):
+	static func sort_by_score(a, b) -> bool:
 		return a.total > b.total

@@ -40,7 +40,7 @@ var scores: Array = [
 	50,
 ]
 
-func _ready() -> void:	
+func _ready() -> void:
 	scores.shuffle()
 	scores.append(-25)
 	scores.append(85)
