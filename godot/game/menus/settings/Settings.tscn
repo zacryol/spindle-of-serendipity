@@ -152,6 +152,7 @@ margin_right = 40.0
 margin_bottom = 21.0
 size_flags_horizontal = 3
 text = "CRT Shader Enabled:"
+align = 2
 
 [node name="CheckButton" type="CheckButton" parent="PanelContainer/MarginContainer/TabContainer/General/Scroll/List/CRTShader"]
 margin_right = 74.0
