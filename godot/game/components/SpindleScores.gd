@@ -50,11 +50,6 @@ func _ready() -> void:
 	yield(get_tree(), "idle_frame")
 	var center_y := rect_global_position.y + (rect_size.y / 2.0)
 	(material as ShaderMaterial).set_shader_param("base_y", center_y)
-	print(center_y)
-
-
-func _process(delta: float) -> void:
-	pass
 
 
 func set_values() -> void:
