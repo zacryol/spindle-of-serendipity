@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=17 format=2]
+[gd_resource type="Theme" load_steps=18 format=2]
 
 [ext_resource path="res://Xolonium-Bold.otf" type="DynamicFontData" id=1]
 
@@ -166,6 +166,18 @@ corner_radius_top_left = 3
 corner_radius_top_right = 3
 shadow_color = Color( 0, 0, 0, 0 )
 
+[sub_resource type="StyleBoxFlat" id=16]
+bg_color = Color( 0.0901961, 0.168627, 0.180392, 1 )
+border_width_left = 2
+border_width_top = 20
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_top = 20.0
+
 [sub_resource type="DynamicFont" id=13]
 size = 17
 outline_size = 1
@@ -257,3 +269,11 @@ TabContainer/styles/tab_bg = SubResource( 11 )
 TabContainer/styles/tab_disabled = null
 TabContainer/styles/tab_fg = SubResource( 12 )
 WindowDialog/colors/title_color = Color( 1, 1, 1, 1 )
+WindowDialog/constants/close_h_ofs = 18
+WindowDialog/constants/close_v_ofs = 18
+WindowDialog/constants/scaleborder_size = 4
+WindowDialog/constants/title_height = 20
+WindowDialog/fonts/title_font = null
+WindowDialog/icons/close = null
+WindowDialog/icons/close_highlight = null
+WindowDialog/styles/panel = SubResource( 16 )
