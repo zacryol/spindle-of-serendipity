@@ -33,12 +33,8 @@ const OTHER_SIZE := Vector2(315, 50)
 const MAIN_POSITION := Vector2(-345, -168)
 const POS_2 := Vector2(-315, -102)
 const POS_3 := Vector2(-315, -51)
-const MAIN_END := Vector2(-5, -115)
-const END_2 := Vector2(-5, -60)
-const END_3 := Vector2(-5, -5)
 const Sizes := PoolVector2Array([MAIN_SIZE, OTHER_SIZE, OTHER_SIZE])
 const Positions := PoolVector2Array([MAIN_POSITION, POS_2, POS_3])
-const Ends := PoolVector2Array([MAIN_END, END_2, END_3])
 const TWEEN_TIME := 0.15
 
 var current_player := 0
