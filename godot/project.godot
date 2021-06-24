@@ -42,13 +42,14 @@ Alias="*res://system/singletons/Alias.gd"
 EntryManager="*res://system/singletons/EntryManager.gd"
 EntryImport="*res://system/singletons/EntryImport.gd"
 Profiles="*res://system/singletons/Profiles.gd"
-BgEffect="res://game/BGEffect.tscn"
 MusicManager="*res://system/singletons/MusicManager.tscn"
+FxManager="*res://system/singletons/FXManager.tscn"
 
 [display]
 
 window/size/width=1280
 window/size/height=720
+window/size/fullscreen=true
 window/size/test_width=1280
 window/size/test_height=720
 window/stretch/mode="2d"

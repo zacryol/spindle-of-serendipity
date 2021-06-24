@@ -46,6 +46,10 @@ func _ready() -> void:
 	scores.append(85)
 	scores.append(-25)
 	set_values()
+	
+	yield(get_tree(), "idle_frame")
+	var center_y := rect_global_position.y + (rect_size.y / 2.0)
+	(material as ShaderMaterial).set_shader_param("base_y", center_y)
 
 
 func set_values() -> void:

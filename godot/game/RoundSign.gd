@@ -24,7 +24,9 @@ extends CanvasLayer
 var message := "Round %s"
 var suffix := " of %s"
 
-onready var label: Label = $Main/PanelContainer/Label
+onready var label := $Main/PanelContainer/Label as Label
+onready var timer := $Timer as Timer
+onready var anim := $AnimationPlayer as AnimationPlayer
 
 func _ready():
 	pass
@@ -40,12 +42,12 @@ func new_round(num: int) -> void:
 		else:
 			show += suffix % str(GlobalVars.rounds)
 	label.text = show
-	$AnimationPlayer.play("In")
-	$Timer.start()
+	anim.play("In")
+	timer.start()
 
 
 func _on_EntryDisplay_text_ready():
-	if $Timer.time_left:
-		yield($Timer, "timeout")
+	if timer.time_left:
+		yield(timer, "timeout")
 	
-	$AnimationPlayer.play("Out")
+	anim.play("Out")

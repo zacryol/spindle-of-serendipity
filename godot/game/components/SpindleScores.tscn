@@ -1,14 +1,37 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://game/components/SpindleScores.gd" type="Script" id=1]
 [ext_resource path="res://game/components/ScoreItem.tscn" type="PackedScene" id=2]
 
-[sub_resource type="StyleBoxFlat" id=1]
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform float base_y;
+uniform float fade_start_at = 30.0;
+uniform float fade_speed = 0.05;
+
+void fragment() {
+	float suv_y = SCREEN_UV.y;
+	
+	float true_y = 720.0 * (1.0 - suv_y);
+	float dist = abs(true_y - base_y);
+	
+	COLOR.a = max(0, 1.0 - (max(dist - fade_start_at, 0) * fade_speed));
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/base_y = 62.5
+shader_param/fade_start_at = 30.0
+shader_param/fade_speed = 0.05
+
+[sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.23258, 0.2262, 0.29, 1 )
 shadow_color = Color( 0.231373, 0.223529, 0.290196, 1 )
 shadow_size = 9
 
 [node name="SpindleScores" type="Control"]
+material = SubResource( 2 )
 margin_left = 210.0
 margin_top = 5.0
 margin_right = 285.0
@@ -21,6 +44,7 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+use_parent_material = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -20.0
@@ -58,23 +82,25 @@ margin_bottom = 157.0
 mouse_filter = 2
 
 [node name="Panel" type="Panel" parent="."]
+visible = false
 margin_left = -29.0
 margin_top = -28.6818
 margin_right = 104.0
 margin_bottom = 7.31821
 mouse_filter = 2
-custom_styles/panel = SubResource( 1 )
+custom_styles/panel = SubResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Panel2" type="Panel" parent="."]
+visible = false
 margin_left = -25.6364
 margin_top = 102.078
 margin_right = 107.364
 margin_bottom = 138.078
 mouse_filter = 2
-custom_styles/panel = SubResource( 1 )
+custom_styles/panel = SubResource( 3 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1
