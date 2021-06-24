@@ -69,7 +69,7 @@ __meta__ = {
 
 [node name="List" type="VBoxContainer" parent="PanelContainer/MarginContainer/TabContainer/General/Scroll"]
 margin_right = 790.0
-margin_bottom = 266.0
+margin_bottom = 262.0
 size_flags_horizontal = 3
 custom_constants/separation = 25
 
@@ -399,6 +399,28 @@ margin_bottom = 1587.0
 text = "Various music by Joth
 (https://opengameart.org/users/joth)"
 align = 1
+
+[node name="HSeparator7" type="HSeparator" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
+margin_right = 40.0
+margin_bottom = 4.0
+
+[node name="ShaderLabel1" type="Label" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
+margin_right = 40.0
+margin_bottom = 21.0
+text = "CRT Shader: https://godotshaders.com/shader/vhs-and-crt-monitor-effect/"
+align = 1
+autowrap = true
+
+[node name="HSeparator8" type="HSeparator" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
+margin_right = 40.0
+margin_bottom = 4.0
+
+[node name="ShaderLabel2" type="Label" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
+margin_right = 40.0
+margin_bottom = 477.0
+text = "Animated Grid Shader: https://godotshaders.com/shader/perspective-grid/"
+align = 1
+autowrap = true
 [connection signal="pressed" from="PanelContainer/MarginContainer/TabContainer/Back" to="." method="_on_Back_pressed"]
 [connection signal="item_selected" from="PanelContainer/MarginContainer/TabContainer/General/Scroll/List/RevealSource/OptionButton" to="PanelContainer/MarginContainer/TabContainer/General" method="_on_source_option_selected"]
 [connection signal="item_selected" from="PanelContainer/MarginContainer/TabContainer/General/Scroll/List/RandMode/OptionButton" to="PanelContainer/MarginContainer/TabContainer/General" method="_on_rand_option_selected"]
