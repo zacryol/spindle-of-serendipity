@@ -29,12 +29,16 @@ const NUM_PLAYER := 3
 
 # position data for moving each player
 const MAIN_SIZE := Vector2(275 * 1.25, 50 * 1.25)
-const OTHER_SIZE := Vector2(275, 50)
-const MAIN_POSITION := Vector2(-345, -165)
-const POS_2 := Vector2(-275, -100)
-const POS_3 := Vector2(-275, -50)
+const OTHER_SIZE := Vector2(315, 50)
+const MAIN_POSITION := Vector2(-345, -168)
+const POS_2 := Vector2(-315, -102)
+const POS_3 := Vector2(-315, -51)
+const MAIN_END := Vector2(-5, -115)
+const END_2 := Vector2(-5, -60)
+const END_3 := Vector2(-5, -5)
 const Sizes := PoolVector2Array([MAIN_SIZE, OTHER_SIZE, OTHER_SIZE])
 const Positions := PoolVector2Array([MAIN_POSITION, POS_2, POS_3])
+const Ends := PoolVector2Array([MAIN_END, END_2, END_3])
 const TWEEN_TIME := 0.15
 
 var current_player := 0
@@ -60,7 +64,7 @@ func _ready() -> void:
 	p2.set_name(GlobalVars.p2_name)
 	p3.set_name(GlobalVars.p3_name)
 	
-	for x in randi() % NUM_PLAYER:
+	for x in (randi() % NUM_PLAYER) + 1:
 		advance_player()
 	
 	set_label()
@@ -119,7 +123,7 @@ func advance_player() -> void:
 	tween.remove_all()
 	for i in NUM_PLAYER:
 		var p := get_players_array()[i] as Control
-		tween.interpolate_property(p, "rect_size", p.rect_size, Sizes[i], TWEEN_TIME)
+		tween.interpolate_property(p, "rect_size", p.rect_size, Sizes[i], TWEEN_TIME + 0.02)
 		tween.interpolate_property(p, "rect_position", p.rect_position, Positions[i], TWEEN_TIME)
 	tween.start()
 
