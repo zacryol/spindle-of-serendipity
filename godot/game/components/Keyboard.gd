@@ -79,6 +79,21 @@ func guess_letter(letter: String):
 	emit_signal("key_pressed", letter)
 
 
+func grab_focus() -> void:
+	for b in get_keys():
+		if not b.disabled:
+			b.grab_focus()
+			break
+
+
+func get_keys() -> Array:
+	var array := []
+	for c in key_container.get_children():
+		if c is Button:
+			array.append(c)
+	return array
+
+
 func get_button(letter: String) -> Button:
 	for key in key_container.get_children():
 		if key is Button:
@@ -100,3 +115,7 @@ func _on_Key_pressed(letter: String) -> void:
 func _on_EntryDisplay_one_letter(letter) -> void:
 	if get_button(letter):
 		get_button(letter).disabled = true
+
+
+func _on_Spindle_spun() -> void:
+	grab_focus()
