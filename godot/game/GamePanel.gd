@@ -85,6 +85,7 @@ func _on_NewG_pressed():
 
 func _pre_reset():
 	new_button.show()
+	new_button.grab_focus()
 
 
 func _on_Quit_pressed():

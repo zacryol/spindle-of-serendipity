@@ -117,6 +117,7 @@ func add_solve(letter: String) -> void:
 func init_solve() -> void:
 	current_mode = MODE_SOLVE
 	solve_ui.show()
+	get_tree().call_group("keyboard", "grab_focus")
 
 
 func _on_Spindle_spun() -> void:
