@@ -106,6 +106,7 @@ func enable() -> void:
 	for key in key_container.get_children():
 		if key is Button:
 			key.disabled = false
+			key.focus_mode = FOCUS_ALL
 
 
 func _on_Key_pressed(letter: String) -> void:
@@ -115,6 +116,7 @@ func _on_Key_pressed(letter: String) -> void:
 func _on_EntryDisplay_one_letter(letter) -> void:
 	if get_button(letter):
 		get_button(letter).disabled = true
+		get_button(letter).focus_mode = FOCUS_NONE
 
 
 func _on_Spindle_spun() -> void:
