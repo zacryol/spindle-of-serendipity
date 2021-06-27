@@ -54,6 +54,8 @@ func _input(event: InputEvent) -> void:
 				not event.is_echo() and \
 				event.scancode == KEY_BACKSPACE:
 			hex.pop_solve()
+	if event.is_action_pressed("submit_guess"):
+		_on_SolveButton_pressed()
 
 
 func set_display(entry: Entry) -> void:
