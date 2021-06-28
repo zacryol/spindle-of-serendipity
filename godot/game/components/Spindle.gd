@@ -49,14 +49,18 @@ func set_state(new_state: int) -> void:
 	match new_state:
 		State.INACTIVE:
 			bt.disabled = true
+			bt.focus_mode = FOCUS_NONE
 			bt.text = "Spin!"
 		State.ACTIVE:
 			bt.disabled = false
+			bt.focus_mode = FOCUS_ALL
 			bt.text = "Spin!"
 		State.RUNNING:
 			bt.disabled = true
+			bt.focus_mode = FOCUS_NONE
 			yield(get_tree().create_timer(0.5), "timeout")
 			bt.disabled = false
+			bt.focus_mode = FOCUS_ALL
 			bt.text = "Strike!"
 
 

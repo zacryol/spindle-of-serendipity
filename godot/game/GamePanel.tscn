@@ -109,6 +109,9 @@ visible = false
 margin_left = 1199.0
 margin_right = 1252.0
 margin_bottom = 27.0
+focus_neighbour_left = NodePath(".")
+focus_neighbour_top = NodePath(".")
+focus_neighbour_bottom = NodePath(".")
 text = "Next"
 
 [node name="Quit" type="Button" parent="GP/VB/Top/HB"]
@@ -258,8 +261,8 @@ __meta__ = {
 [connection signal="key_pressed" from="GP/VB/Game/Arrange/Keyboard" to="GP/VB/Game/Arrange/EntryDisplay" method="_on_letter_guessed"]
 [connection signal="game_log" from="GP/VB/Game/Arrange/Spindle" to="." method="_log"]
 [connection signal="score" from="GP/VB/Game/Arrange/Spindle" to="GP/VB/Game/Arrange/PlayersPanel" method="_score_gained"]
-[connection signal="spun" from="GP/VB/Game/Arrange/Spindle" to="GP/VB/Game/Arrange/EntryDisplay" method="_on_Spindle_spun"]
 [connection signal="spun" from="GP/VB/Game/Arrange/Spindle" to="GP/VB/Game/Arrange/Keyboard" method="_on_Spindle_spun"]
+[connection signal="spun" from="GP/VB/Game/Arrange/Spindle" to="GP/VB/Game/Arrange/EntryDisplay" method="_on_Spindle_spun"]
 [connection signal="game_log" from="GP/VB/Game/Arrange/EntryDisplay" to="." method="_log"]
 [connection signal="guess_checked" from="GP/VB/Game/Arrange/EntryDisplay" to="GP/VB/Game/Arrange/PlayersPanel" method="_on_EntryDisplay_guess_checked"]
 [connection signal="letters_revealed" from="GP/VB/Game/Arrange/EntryDisplay" to="GP/VB/Game/Arrange/Spindle" method="_letters_guessed"]

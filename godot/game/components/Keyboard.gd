@@ -32,17 +32,13 @@ func _ready():
 	for l in CharSet.LINE_BREAKS:
 		if l == key_container.columns:
 			for i in key_container.columns:
-				var b := Button.new()
-				b.text = CharSet.CHAR_MAIN[c]
-				key_container.add_child(b)
+				key_container.add_child(new_button(CharSet.CHAR_MAIN[c]))
 				
 				c += 1
 		else:
 			var n := 0
 			while n < l:
-				var b := Button.new()
-				b.text = CharSet.CHAR_MAIN[c]
-				key_container.add_child(b)
+				key_container.add_child(new_button(CharSet.CHAR_MAIN[c]))
 				
 				c += 1
 				n += 1
@@ -53,17 +49,13 @@ func _ready():
 				n += 1
 	
 	while c < CharSet.CHAR_MAIN.size():
-		var b := Button.new()
-		b.text = CharSet.CHAR_MAIN[c]
-		key_container.add_child(b)
+		key_container.add_child(new_button(CharSet.CHAR_MAIN[c]))
 		
 		c += 1
 	
-	var keys := key_container.get_children()
-	for key in keys:
-		if key is Button:
-			key.rect_min_size = Vector2(30, 31)
-			key.connect("pressed", self, "_on_Key_pressed", [key.text])
+	for key in get_keys():
+		key.rect_min_size = Vector2(30, 31)
+		key.connect("pressed", self, "_on_Key_pressed", [key.text])
 
 
 func _input(event: InputEvent) -> void:
@@ -107,6 +99,13 @@ func enable() -> void:
 		if key is Button:
 			key.disabled = false
 			key.focus_mode = FOCUS_ALL
+
+
+func new_button(text: String) -> Button:
+	var b := Button.new()
+	b.text = text
+	b.add_to_group("key")
+	return b
 
 
 func _on_Key_pressed(letter: String) -> void:
