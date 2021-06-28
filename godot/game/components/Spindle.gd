@@ -48,20 +48,21 @@ func set_state(new_state: int) -> void:
 	current_state = new_state
 	match new_state:
 		State.INACTIVE:
-			bt.disabled = true
-			bt.focus_mode = FOCUS_NONE
+			set_button_enabled(false)
 			bt.text = "Spin!"
 		State.ACTIVE:
-			bt.disabled = false
-			bt.focus_mode = FOCUS_ALL
+			set_button_enabled(true)
 			bt.text = "Spin!"
 		State.RUNNING:
-			bt.disabled = true
-			bt.focus_mode = FOCUS_NONE
+			set_button_enabled(false)
 			yield(get_tree().create_timer(0.5), "timeout")
-			bt.disabled = false
-			bt.focus_mode = FOCUS_ALL
+			set_button_enabled(true)
 			bt.text = "Strike!"
+
+
+func set_button_enabled(enabled: bool) -> void:
+	bt.disabled = not enabled
+	bt.focus_mode = Control.FOCUS_ALL if enabled else FOCUS_NONE
 
 
 func _letters_guessed(number: int, solves: bool) -> void:
