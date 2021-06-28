@@ -56,6 +56,8 @@ func _input(event: InputEvent) -> void:
 			hex.pop_solve()
 	if event.is_action_pressed("submit_guess"):
 		_on_SolveButton_pressed()
+	if event.is_action_pressed("ui_cancel"):
+		hex.pop_solve()
 
 
 func set_display(entry: Entry) -> void:
