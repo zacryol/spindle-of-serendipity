@@ -63,6 +63,8 @@ func set_state(new_state: int) -> void:
 func set_button_enabled(enabled: bool) -> void:
 	bt.disabled = not enabled
 	bt.focus_mode = Control.FOCUS_ALL if enabled else FOCUS_NONE
+	if enabled:
+		bt.grab_focus()
 
 
 func _letters_guessed(number: int, solves: bool) -> void:
