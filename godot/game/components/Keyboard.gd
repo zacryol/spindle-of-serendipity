@@ -72,6 +72,9 @@ func guess_letter(letter: String):
 
 
 func grab_focus() -> void:
+	if Input.get_connected_joypads().size() == 0:
+		return
+	
 	for b in get_keys():
 		if not b.disabled:
 			b.grab_focus()
