@@ -35,6 +35,8 @@ onready var victory := $VScreen
 onready var round_sign := $RoundSign
 onready var quit_confirm := $QuitConfirm/Main/ConfirmationDialog as ConfirmationDialog
 
+var quit_focus_cache: Control
+
 func _ready() -> void:
 	MusicManager.play_game_music()
 	EntryManager.reset_picked()
@@ -89,8 +91,10 @@ func _pre_reset():
 
 
 func _on_Quit_pressed():
+	quit_focus_cache = get_focus_owner()
 	$QuitConfirm/Main.show()
 	quit_confirm.show()
+	quit_confirm.get_cancel().grab_focus()
 
 
 func _on_QuitConfirm_confirmed():
@@ -98,4 +102,6 @@ func _on_QuitConfirm_confirmed():
 
 
 func _on_QuitConfirm_exit():
+	if quit_focus_cache:
+		quit_focus_cache.grab_focus()
 	$QuitConfirm/Main.hide()
