@@ -92,6 +92,7 @@ func _score_gained(number: int, final: bool) -> void:
 		clear_label()
 	elif number:
 		solve_box.show()
+		solve_box.get_ok().grab_focus()
 	else:
 		pass_turn()
 

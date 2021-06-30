@@ -32,26 +32,39 @@ enum State {
 
 onready var anim: AnimationPlayer = $AnimationPlayer
 onready var scores: Control = $SpindleScores
-onready var bt: Button = $Button
+onready var bt := $Button as Button
 
 var current_state: int = State.INACTIVE
 var current_value: int
+
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("spindle") and not bt.disabled:
+		if not bt.disabled:
+			_on_Button_pressed()
 
 
 func set_state(new_state: int) -> void:
 	current_state = new_state
 	match new_state:
 		State.INACTIVE:
-			bt.disabled = true
+			set_button_enabled(false)
 			bt.text = "Spin!"
 		State.ACTIVE:
-			bt.disabled = false
+			set_button_enabled(true)
 			bt.text = "Spin!"
 		State.RUNNING:
-			bt.disabled = true
+			set_button_enabled(false)
 			yield(get_tree().create_timer(0.5), "timeout")
-			bt.disabled = false
+			set_button_enabled(true)
 			bt.text = "Strike!"
+
+
+func set_button_enabled(enabled: bool) -> void:
+	bt.disabled = not enabled
+	bt.focus_mode = Control.FOCUS_ALL if enabled else FOCUS_NONE
+	if enabled:
+		bt.grab_focus()
 
 
 func _letters_guessed(number: int, solves: bool) -> void:
