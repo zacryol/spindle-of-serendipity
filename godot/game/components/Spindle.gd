@@ -30,8 +30,8 @@ enum State {
 	RUNNING, # Spinning. Click to set score
 }
 
-onready var anim: AnimationPlayer = $AnimationPlayer
-onready var scores: Control = $SpindleScores
+onready var anim := $AnimationPlayer as AnimationPlayer
+onready var scores := $SpindleScores as Control
 onready var bt := $Button as Button
 
 var current_state: int = State.INACTIVE

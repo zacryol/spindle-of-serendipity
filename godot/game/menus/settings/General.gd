@@ -21,31 +21,31 @@
 
 extends Control
 
-onready var source_options: OptionButton = $Scroll/List/RevealSource/OptionButton
-onready var rand_options: OptionButton= $Scroll/List/RandMode/OptionButton
-onready var refr_options: SpinBox = $Scroll/List/Refresh/SpinBox
+onready var source_options : = $Scroll/List/RevealSource/OptionButton as OptionButton
+onready var rand_options := $Scroll/List/RandMode/OptionButton as OptionButton
+onready var refr_options := $Scroll/List/Refresh/SpinBox as SpinBox
 onready var crt_option := $Scroll/List/CRTShader/CheckButton as CheckButton
 
-func _ready():
+func _ready() -> void:
 	source_options.select(GlobalVars.settings["source"])
 	rand_options.select(GlobalVars.settings["rand"])
 	refr_options.value = GlobalVars.settings["refresh"]
 	crt_option.pressed = GlobalVars.settings.crt_on
 
 
-func _on_source_option_selected(id):
+func _on_source_option_selected(id) -> void:
 	GlobalVars.settings["source"] = id
 
 
-func _on_rand_option_selected(id):
+func _on_rand_option_selected(id) -> void:
 	GlobalVars.settings["rand"] = id
 
 
-func _on_Save_pressed():
+func _on_Save_pressed() -> void:
 	GlobalVars.save_settings_to_file()
 
 
-func _on_Refresh_value_changed(value):
+func _on_Refresh_value_changed(value) -> void:
 	GlobalVars.settings["refresh"] = value
 
 

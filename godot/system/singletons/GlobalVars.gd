@@ -74,7 +74,7 @@ func win_by_rounds() -> bool:
 
 # End Type
 
-func _ready():
+func _ready() -> void:
 	load_settings_from_file()
 	randomize()
 	OS.min_window_size = Vector2(1024, 576)
@@ -85,7 +85,7 @@ func _input(event: InputEvent) -> void:
 		OS.window_fullscreen = not OS.window_fullscreen
 
 
-func save_settings_to_file():
+func save_settings_to_file() -> void:
 	var f := File.new()
 	var err := f.open(SETTINGS_SAVE, File.WRITE)
 	if err:
@@ -94,7 +94,7 @@ func save_settings_to_file():
 	f.close()
 
 
-func load_settings_from_file():
+func load_settings_from_file() -> void:
 	var f := File.new()
 	if f.file_exists(SETTINGS_SAVE):
 		var err := f.open(SETTINGS_SAVE, File.READ)

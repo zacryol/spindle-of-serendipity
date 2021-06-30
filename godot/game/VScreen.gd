@@ -32,7 +32,7 @@ func _ready():
 	pass
 
 
-func show():
+func show() -> void:
 	MusicManager.play_song_id("end")
 	$Main.show()
 	new_button.grab_focus()
