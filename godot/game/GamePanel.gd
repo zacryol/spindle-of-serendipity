@@ -35,6 +35,8 @@ onready var victory := $VScreen
 onready var round_sign := $RoundSign
 onready var quit_confirm := $QuitConfirm/Main/ConfirmationDialog as ConfirmationDialog
 
+var quit_focus_cache: Control
+
 func _ready() -> void:
 	MusicManager.play_game_music()
 	EntryManager.reset_picked()
@@ -65,7 +67,7 @@ func total_win() -> bool:
 	return false
 
 
-func _log(text: String = ""):
+func _log(text: String = "") -> void:
 	if text == "":
 		log_label.text = text
 	else:
@@ -75,7 +77,7 @@ func _log(text: String = ""):
 		log_label.text = new_text
 
 
-func _on_NewG_pressed():
+func _on_NewG_pressed() -> void:
 	if total_win():
 		victory.show()
 		victory.set_results(players.get_final_results())
@@ -83,18 +85,23 @@ func _on_NewG_pressed():
 		start()
 
 
-func _pre_reset():
+func _pre_reset() -> void:
 	new_button.show()
+	new_button.grab_focus()
 
 
-func _on_Quit_pressed():
+func _on_Quit_pressed() -> void:
+	quit_focus_cache = get_focus_owner()
 	$QuitConfirm/Main.show()
 	quit_confirm.show()
+	quit_confirm.get_cancel().grab_focus()
 
 
-func _on_QuitConfirm_confirmed():
+func _on_QuitConfirm_confirmed() -> void:
 	get_tree().change_scene("res://game/menus/MainMenu.tscn")
 
 
-func _on_QuitConfirm_exit():
+func _on_QuitConfirm_exit() -> void:
+	if quit_focus_cache:
+		quit_focus_cache.grab_focus()
 	$QuitConfirm/Main.hide()

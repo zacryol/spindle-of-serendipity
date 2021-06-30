@@ -54,6 +54,10 @@ func _input(event: InputEvent) -> void:
 				not event.is_echo() and \
 				event.scancode == KEY_BACKSPACE:
 			hex.pop_solve()
+	if event.is_action_pressed("submit_guess"):
+		_on_SolveButton_pressed()
+	if event.is_action_pressed("ui_cancel"):
+		hex.pop_solve()
 
 
 func set_display(entry: Entry) -> void:
@@ -117,6 +121,7 @@ func add_solve(letter: String) -> void:
 func init_solve() -> void:
 	current_mode = MODE_SOLVE
 	solve_ui.show()
+	get_tree().call_group("keyboard", "grab_focus")
 
 
 func _on_Spindle_spun() -> void:

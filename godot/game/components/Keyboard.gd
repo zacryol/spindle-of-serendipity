@@ -32,17 +32,13 @@ func _ready():
 	for l in CharSet.LINE_BREAKS:
 		if l == key_container.columns:
 			for i in key_container.columns:
-				var b := Button.new()
-				b.text = CharSet.CHAR_MAIN[c]
-				key_container.add_child(b)
+				key_container.add_child(new_button(CharSet.CHAR_MAIN[c]))
 				
 				c += 1
 		else:
 			var n := 0
 			while n < l:
-				var b := Button.new()
-				b.text = CharSet.CHAR_MAIN[c]
-				key_container.add_child(b)
+				key_container.add_child(new_button(CharSet.CHAR_MAIN[c]))
 				
 				c += 1
 				n += 1
@@ -53,17 +49,13 @@ func _ready():
 				n += 1
 	
 	while c < CharSet.CHAR_MAIN.size():
-		var b := Button.new()
-		b.text = CharSet.CHAR_MAIN[c]
-		key_container.add_child(b)
+		key_container.add_child(new_button(CharSet.CHAR_MAIN[c]))
 		
 		c += 1
 	
-	var keys := key_container.get_children()
-	for key in keys:
-		if key is Button:
-			key.rect_min_size = Vector2(30, 31)
-			key.connect("pressed", self, "_on_Key_pressed", [key.text])
+	for key in get_keys():
+		key.rect_min_size = Vector2(30, 31)
+		key.connect("pressed", self, "_on_Key_pressed", [key.text])
 
 
 func _input(event: InputEvent) -> void:
@@ -79,6 +71,24 @@ func guess_letter(letter: String):
 	emit_signal("key_pressed", letter)
 
 
+func grab_focus() -> void:
+	if Input.get_connected_joypads().size() == 0:
+		return
+	
+	for b in get_keys():
+		if not b.disabled:
+			b.grab_focus()
+			break
+
+
+func get_keys() -> Array:
+	var array := []
+	for c in key_container.get_children():
+		if c is Button:
+			array.append(c)
+	return array
+
+
 func get_button(letter: String) -> Button:
 	for key in key_container.get_children():
 		if key is Button:
@@ -91,6 +101,14 @@ func enable() -> void:
 	for key in key_container.get_children():
 		if key is Button:
 			key.disabled = false
+			key.focus_mode = FOCUS_ALL
+
+
+func new_button(text: String) -> Button:
+	var b := Button.new()
+	b.text = text
+	b.add_to_group("key")
+	return b
 
 
 func _on_Key_pressed(letter: String) -> void:
@@ -100,3 +118,8 @@ func _on_Key_pressed(letter: String) -> void:
 func _on_EntryDisplay_one_letter(letter) -> void:
 	if get_button(letter):
 		get_button(letter).disabled = true
+		get_button(letter).focus_mode = FOCUS_NONE
+
+
+func _on_Spindle_spun() -> void:
+	grab_focus()

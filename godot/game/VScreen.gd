@@ -26,14 +26,16 @@ onready var place_labels = [
 	$Main/Place2/Label,
 	$Main/Place3/Label,
 ]
+onready var new_button := $Main/HBoxContainer/NewButton as Button
 
 func _ready():
 	pass
 
 
-func show():
+func show() -> void:
 	MusicManager.play_song_id("end")
 	$Main.show()
+	new_button.grab_focus()
 
 
 # Array of dictionaries returned from PlayersPanel.get_final_results()
