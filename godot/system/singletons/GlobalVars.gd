@@ -46,7 +46,7 @@ var settings: Dictionary = {
 	"source" : SOURCE_SOLVE,
 	"rand" : RAND_NON,
 	"refresh" : 15,
-	"crt_on" : true,
+	"crt_on" : false,
 }
 # End of Settings
 
