@@ -26,11 +26,17 @@ onready var rand_options := $Scroll/List/RandMode/OptionButton as OptionButton
 onready var refr_options := $Scroll/List/Refresh/SpinBox as SpinBox
 onready var crt_option := $Scroll/List/CRTShader/CheckButton as CheckButton
 
+onready var mus_vol := $Scroll/List/MusicVolume/HSlider as HSlider
+onready var sfx_vol := $Scroll/List/SFXVolume/HSlider as HSlider
+
 func _ready() -> void:
 	source_options.select(GlobalVars.settings["source"])
 	rand_options.select(GlobalVars.settings["rand"])
 	refr_options.value = GlobalVars.settings["refresh"]
 	crt_option.pressed = GlobalVars.settings.crt_on
+	
+	mus_vol.value = GlobalVars.settings.music_vol
+	sfx_vol.value = GlobalVars.settings.sfx_vol
 
 
 func _on_source_option_selected(id) -> void:
