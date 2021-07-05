@@ -83,6 +83,8 @@ func _ready() -> void:
 	load_settings_from_file()
 	randomize()
 	OS.min_window_size = Vector2(1024, 576)
+	set_volume(settings.sfx_vol, "sfx")
+	set_volume(settings.music_vol, "music")
 
 
 func _input(event: InputEvent) -> void:
