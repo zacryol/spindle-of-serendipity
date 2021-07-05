@@ -47,6 +47,8 @@ var settings: Dictionary = {
 	"rand" : RAND_NON,
 	"refresh" : 15,
 	"crt_on" : false,
+	"music_vol" : 95,
+	"sfx_vol" : 95,
 }
 # End of Settings
 
@@ -83,6 +85,14 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("fullscreen"):
 		OS.window_fullscreen = not OS.window_fullscreen
+
+
+func set_volume(value: int, type: String):
+	match type:
+		"sfx":
+			pass
+		"music":
+			pass
 
 
 func save_settings_to_file() -> void:
