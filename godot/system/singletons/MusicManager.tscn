@@ -20,5 +20,6 @@ side_menu_music = ExtResource( 8 )
 game_tracks = [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 10 ) ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = "music"
 
 [node name="FadeTween" type="Tween" parent="."]

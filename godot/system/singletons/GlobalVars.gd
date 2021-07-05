@@ -29,6 +29,9 @@ const SETTINGS_SAVE := "user://settings.dat"
 const ALIAS_SAVE := "user://alias.dat"
 const PROFILE_SAVE := "user://profiles.dat"
 
+const MAX_VOLUME_DB := 0
+const MIN_VOLUME_DB := -30
+
 # Settings constants and vars
 enum {
 	SOURCE_NEVER
@@ -47,6 +50,8 @@ var settings: Dictionary = {
 	"rand" : RAND_NON,
 	"refresh" : 15,
 	"crt_on" : false,
+	"music_vol" : 95,
+	"sfx_vol" : 95,
 }
 # End of Settings
 
@@ -83,6 +88,16 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("fullscreen"):
 		OS.window_fullscreen = not OS.window_fullscreen
+
+
+func set_volume(value: int, type: String):
+	var bus_id := AudioServer.get_bus_index(type)
+	if bus_id == -1:
+		return
+	AudioServer.set_bus_mute(bus_id, value == 0)
+	var target_db := range_lerp(value, 0, 100, MIN_VOLUME_DB, MAX_VOLUME_DB)
+	AudioServer.set_bus_volume_db(bus_id, target_db)
+	settings["%s_vol" % type] = value
 
 
 func save_settings_to_file() -> void:
