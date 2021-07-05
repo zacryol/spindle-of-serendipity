@@ -85,6 +85,7 @@ func _ready() -> void:
 	OS.min_window_size = Vector2(1024, 576)
 	set_volume(settings.sfx_vol, "sfx")
 	set_volume(settings.music_vol, "music")
+	preload("res://GameTheme.tres").set_color("font_color", "TooltipLabel", Color.white)
 
 
 func _input(event: InputEvent) -> void:
