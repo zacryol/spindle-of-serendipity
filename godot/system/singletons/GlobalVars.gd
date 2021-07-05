@@ -94,7 +94,7 @@ func set_volume(value: int, type: String):
 	var bus_id := AudioServer.get_bus_index(type)
 	if bus_id == -1:
 		return
-	
+	AudioServer.set_bus_mute(bus_id, value == 0)
 	var target_db := range_lerp(value, 0, 100, MIN_VOLUME_DB, MAX_VOLUME_DB)
 	AudioServer.set_bus_volume_db(bus_id, target_db)
 	settings["%s_vol" % type] = value
