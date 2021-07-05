@@ -94,6 +94,10 @@ align = 2
 margin_right = 16.0
 margin_bottom = 16.0
 size_flags_horizontal = 3
+step = 5.0
+rounded = true
+tick_count = 21
+ticks_on_borders = true
 
 [node name="SFXVolume" type="HBoxContainer" parent="PanelContainer/MarginContainer/TabContainer/General/Scroll/List"]
 margin_right = 40.0
@@ -110,6 +114,10 @@ align = 2
 margin_right = 16.0
 margin_bottom = 16.0
 size_flags_horizontal = 3
+step = 5.0
+rounded = true
+tick_count = 21
+ticks_on_borders = true
 
 [node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/TabContainer/General/Scroll/List"]
 margin_right = 40.0
