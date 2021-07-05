@@ -26,11 +26,17 @@ onready var rand_options := $Scroll/List/RandMode/OptionButton as OptionButton
 onready var refr_options := $Scroll/List/Refresh/SpinBox as SpinBox
 onready var crt_option := $Scroll/List/CRTShader/CheckButton as CheckButton
 
+onready var mus_vol := $Scroll/List/MusicVolume/HSlider as HSlider
+onready var sfx_vol := $Scroll/List/SFXVolume/HSlider as HSlider
+
 func _ready() -> void:
 	source_options.select(GlobalVars.settings["source"])
 	rand_options.select(GlobalVars.settings["rand"])
 	refr_options.value = GlobalVars.settings["refresh"]
 	crt_option.pressed = GlobalVars.settings.crt_on
+	
+	mus_vol.value = GlobalVars.settings.music_vol
+	sfx_vol.value = GlobalVars.settings.sfx_vol
 
 
 func _on_source_option_selected(id) -> void:
@@ -52,3 +58,11 @@ func _on_Refresh_value_changed(value) -> void:
 func _on_CheckButton_toggled(button_pressed: bool) -> void:
 	GlobalVars.settings.crt_on = button_pressed
 	FxManager.toggle_crt(button_pressed)
+
+
+func _on_sfx_value_changed(value: float) -> void:
+	GlobalVars.set_volume(int(value), "sfx")
+
+
+func _on_music_value_changed(value: float) -> void:
+	GlobalVars.set_volume(int(value), "music")

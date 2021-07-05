@@ -19,7 +19,9 @@ float grid(vec2 uv, float velocity, float iTime)
 void fragment()
 {
     vec2 uv = (2.0 * FRAGCOORD.xy.xy - (1.0 / SCREEN_PIXEL_SIZE).xy)/(1.0 / SCREEN_PIXEL_SIZE).y;
-    float velocity = 1.0;
+	// uv.y -= 0.2;
+	// float velocity = 1.0
+    float velocity = 0.3;
    
     {
         // Grid
@@ -79,8 +81,9 @@ __meta__ = {
 }
 
 [node name="Particles2D" type="Particles2D" parent="."]
-position = Vector2( 640, 0 )
-lifetime = 4.0
+position = Vector2( 640, -45 )
+amount = 10
+lifetime = 4.5
 preprocess = 4.0
 process_material = SubResource( 5 )
 texture = ExtResource( 1 )

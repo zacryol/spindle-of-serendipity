@@ -72,6 +72,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -640.0
+margin_top = -746.0
+margin_right = 640.0
+color = Color( 0, 0, 0, 0.313726 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="GP" type="PanelContainer" parent="."]
 self_modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0

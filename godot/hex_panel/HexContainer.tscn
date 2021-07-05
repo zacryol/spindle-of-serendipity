@@ -16,7 +16,9 @@ __meta__ = {
 
 [node name="FailAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
+bus = "sfx"
 
 [node name="WinAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 volume_db = 6.0
+bus = "sfx"
