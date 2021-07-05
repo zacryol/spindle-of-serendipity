@@ -30,7 +30,7 @@ const ALIAS_SAVE := "user://alias.dat"
 const PROFILE_SAVE := "user://profiles.dat"
 
 const MAX_VOLUME_DB := 0
-const MIN_VOLUME_DB := -80
+const MIN_VOLUME_DB := -30
 
 # Settings constants and vars
 enum {
@@ -92,14 +92,12 @@ func _input(event: InputEvent) -> void:
 
 func set_volume(value: int, type: String):
 	var bus_id := AudioServer.get_bus_index(type)
+	if bus_id == -1:
+		return
+	
 	var target_db := range_lerp(value, 0, 100, MIN_VOLUME_DB, MAX_VOLUME_DB)
-	match type:
-		"sfx":
-			settings.sfx_vol = value
-			AudioServer.set_bus_volume_db(bus_id, target_db)
-		"music":
-			settings.music_vol = value
-			AudioServer.set_bus_volume_db(bus_id, target_db)
+	AudioServer.set_bus_volume_db(bus_id, target_db)
+	settings["%s_vol" % type] = value
 
 
 func save_settings_to_file() -> void:
