@@ -90,9 +90,11 @@ func _input(event: InputEvent) -> void:
 func set_volume(value: int, type: String):
 	match type:
 		"sfx":
-			pass
+			settings.sfx_vol = value
+			# set audioserver bus volume
 		"music":
-			pass
+			settings.music_vol = value
+			# set audioserver bus volume
 
 
 func save_settings_to_file() -> void:

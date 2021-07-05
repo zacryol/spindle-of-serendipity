@@ -472,6 +472,8 @@ text = "Animated Grid Shader: https://godotshaders.com/shader/perspective-grid/"
 align = 1
 autowrap = true
 [connection signal="pressed" from="PanelContainer/MarginContainer/TabContainer/Back" to="." method="_on_Back_pressed"]
+[connection signal="value_changed" from="PanelContainer/MarginContainer/TabContainer/General/Scroll/List/MusicVolume/HSlider" to="PanelContainer/MarginContainer/TabContainer/General" method="_on_music_value_changed"]
+[connection signal="value_changed" from="PanelContainer/MarginContainer/TabContainer/General/Scroll/List/SFXVolume/HSlider" to="PanelContainer/MarginContainer/TabContainer/General" method="_on_sfx_value_changed"]
 [connection signal="item_selected" from="PanelContainer/MarginContainer/TabContainer/General/Scroll/List/RevealSource/OptionButton" to="PanelContainer/MarginContainer/TabContainer/General" method="_on_source_option_selected"]
 [connection signal="item_selected" from="PanelContainer/MarginContainer/TabContainer/General/Scroll/List/RandMode/OptionButton" to="PanelContainer/MarginContainer/TabContainer/General" method="_on_rand_option_selected"]
 [connection signal="value_changed" from="PanelContainer/MarginContainer/TabContainer/General/Scroll/List/Refresh/SpinBox" to="PanelContainer/MarginContainer/TabContainer/General" method="_on_Refresh_value_changed"]

@@ -58,3 +58,11 @@ func _on_Refresh_value_changed(value) -> void:
 func _on_CheckButton_toggled(button_pressed: bool) -> void:
 	GlobalVars.settings.crt_on = button_pressed
 	FxManager.toggle_crt(button_pressed)
+
+
+func _on_sfx_value_changed(value: float) -> void:
+	GlobalVars.set_volume(int(value), "sfx")
+
+
+func _on_music_value_changed(value: float) -> void:
+	GlobalVars.set_volume(int(value), "music")
