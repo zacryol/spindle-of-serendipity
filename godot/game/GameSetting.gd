@@ -21,15 +21,15 @@
 
 extends Control
 
-onready var p1_enter: LineEdit = $Controls/Top/NameSetting/LineEdit
-onready var p2_enter: LineEdit = $Controls/Top/NameSetting/LineEdit2
-onready var p3_enter: LineEdit = $Controls/Top/NameSetting/LineEdit3
-onready var selector: OptionButton = $Controls/OptionButton
+onready var p1_enter := $Controls/Top/NameSetting/LineEdit as LineEdit
+onready var p2_enter := $Controls/Top/NameSetting/LineEdit2 as LineEdit
+onready var p3_enter := $Controls/Top/NameSetting/LineEdit3 as LineEdit
+onready var selector := $Controls/OptionButton as OptionButton
 
-onready var rounds_box: SpinBox = $Controls/Top/Vict/Rounds/SpinBox
-onready var score_box: SpinBox = $Controls/Top/Vict/Score/SpinBox
-onready var rounds_check: CheckBox = $Controls/Top/Vict/Rounds/CheckBox
-onready var score_check: CheckBox = $Controls/Top/Vict/Score/CheckBox
+onready var rounds_box := $Controls/Top/Vict/Rounds/SpinBox as SpinBox
+onready var score_box := $Controls/Top/Vict/Score/SpinBox as SpinBox
+onready var rounds_check := $Controls/Top/Vict/Rounds/CheckBox as CheckBox
+onready var score_check := $Controls/Top/Vict/Score/CheckBox as CheckBox
 
 
 func _ready() -> void:

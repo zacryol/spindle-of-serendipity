@@ -33,7 +33,7 @@ func set_line(text: String):
 	var length := text.length()
 	var i := 0
 	while i < length and i < get_child_count():
-		var c = get_child(i)
+		var c := get_child(i)
 		if not c is HexType:
 			remove_child(c)
 			c.queue_free()
@@ -50,7 +50,7 @@ func set_line(text: String):
 	
 	if i >= length:
 		while i < get_child_count():
-			var c = get_child(i)
+			var c := get_child(i)
 			remove_child(c)
 			c.queue_free()
 		# remove remaining children
@@ -62,6 +62,6 @@ func get_line() -> String:
 
 
 func add_letter(letter: String) -> void:
-	var l = hex_node.instance()
+	var l := hex_node.instance()
 	add_child(l)
 	l.text = letter.substr(0, 1)
