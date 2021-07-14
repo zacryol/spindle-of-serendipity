@@ -32,6 +32,8 @@ export var text: String setget set_text
 onready var audio_fail := $FailAudio as AudioStreamPlayer
 onready var audio_solve := $WinAudio as AudioStreamPlayer
 
+var scale_factor := 1.0
+
 func _notification(what):
 	if what == NOTIFICATION_SORT_CHILDREN:
 		rect_min_size = Vector2(0, 0)
@@ -39,10 +41,12 @@ func _notification(what):
 		for c in get_children():
 			if not c is HexRow:
 				continue
-			c.rect_position = Vector2(X_OFFSET * (count % 2), Y_CHANGE * count)
+			c.rect_position = Vector2(X_OFFSET * (count % 2), Y_CHANGE * count) * scale_factor
+			c.rect_scale = Vector2.ONE * scale_factor
 			rect_min_size.x = max(rect_min_size.x, c.rect_size.x + X_OFFSET * (count % 2))
 			rect_min_size.y = max(rect_min_size.y, c.rect_size.y + Y_CHANGE * count)
 			count += 1
+		rect_min_size *= scale_factor
 
 
 func split_lines(input: String) -> PoolStringArray:
