@@ -29,8 +29,3 @@ func _ready():
 
 func _on_Back_pressed():
 	get_tree().change_scene("res://game/menus/MainMenu.tscn")
-
-
-func _on_music_value_changed(value: float) -> void:
-	GlobalVars.set_volume(int(value), "music")
-	pass # Replace with function body.
