@@ -46,7 +46,7 @@ func _ready() -> void:
 func add_item() -> Node:
 	var s := single.instance()
 	vbox.add_child(s)
-	vbox.move_child(add_button, vbox.get_child_count() - 1)
+	add_button.raise()
 	add_button.release_focus()
 	yield(get_tree(), "idle_frame")
 	scroll.get_v_scrollbar().ratio = 1
