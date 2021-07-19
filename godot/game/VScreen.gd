@@ -28,10 +28,6 @@ onready var place_labels := [
 ]
 onready var new_button := $Main/HBoxContainer/NewButton as Button
 
-func _ready():
-	pass
-
-
 func show() -> void:
 	MusicManager.play_song_id("end")
 	$Main.show()

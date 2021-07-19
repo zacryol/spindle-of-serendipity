@@ -9,11 +9,6 @@ export (Array, AudioStream) var game_tracks := []
 onready var player := $AudioStreamPlayer as AudioStreamPlayer
 onready var tween := $FadeTween as Tween
 
-
-func _ready() -> void:
-	pass
-
-
 func play_song(song: AudioStream, fade := false, fade_out_duration := 1.0, fade_in_duration := 0.1) -> void:
 	if player.stream == song:
 		return
@@ -29,7 +24,6 @@ func play_song(song: AudioStream, fade := false, fade_out_duration := 1.0, fade_
 		tween.remove_all()
 		tween.interpolate_property(player, "volume_db", -90, 0, fade_in_duration)
 		tween.start()
-		pass
 	else:
 		player.stream = song
 		player.play()

@@ -46,7 +46,6 @@ func set_line(text: String):
 			add_letter(text.substr(i, 1))
 			i += 1
 		# add extra
-		pass
 	
 	if i >= length:
 		while i < get_child_count():
@@ -54,7 +53,6 @@ func set_line(text: String):
 			remove_child(c)
 			c.queue_free()
 		# remove remaining children
-		pass
 
 
 func get_line() -> String:
