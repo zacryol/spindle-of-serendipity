@@ -22,6 +22,7 @@
 extends Control
 
 var single := preload("res://game/menus/ESSingle.tscn")
+var scroll_down_queued := false
 
 onready var vbox := $PC/VBox/Main/Scroll/VBox as VBoxContainer
 onready var scroll := $PC/VBox/Main/Scroll as ScrollContainer
@@ -43,13 +44,18 @@ func _ready() -> void:
 	save_confirm.connect("confirmed", self, "_on_AcceptDialog_custom_action", [""])
 
 
+func _process(delta: float) -> void:
+	if scroll_down_queued:
+		scroll_down_queued = false
+		scroll.get_v_scrollbar().ratio = 1
+
+
 func add_item() -> Node:
 	var s := single.instance()
 	vbox.add_child(s)
 	add_button.raise()
 	add_button.release_focus()
-	yield(get_tree(), "idle_frame")
-	scroll.get_v_scrollbar().ratio = 1
+	scroll_down_queued = true
 	s.connect("move_request", self, "_on_ESSingle_move_request", [s])
 	return s
 
@@ -158,7 +164,7 @@ func _on_FileDialog_file_selected(path: String) -> void:
 		if not typeof(a) == TYPE_ARRAY:
 			continue
 		var e := a as Array
-		var s: Node = yield(add_item(), "completed")
+		var s := add_item()
 		match e.size():
 			0:
 				continue
