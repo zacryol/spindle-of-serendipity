@@ -24,26 +24,28 @@ extends HBoxContainer
 signal set_alias(import, out)
 signal clear_alias(old)
 
+onready var import_label := $Import as Label
+onready var input := $Input as LineEdit
+
 var text: String
 
-func set_text(new_text: String, is_cat: bool):
+func set_text(new_text: String, is_cat: bool) -> void:
 	text = new_text
-	$Import.text = new_text
+	import_label.text = new_text
 	if Alias.has(new_text, is_cat):
 		var out: String
 		if is_cat:
 			out = Alias.category(new_text)
 		else:
 			out = Alias.source(new_text)
-		$Input.text = out
-		pass
+		input.text = out
 
 
-func _on_Add_pressed():
-	if $Input.text != "":
+func _on_Add_pressed() -> void:
+	if input.text != "":
 		emit_signal("set_alias", text, $Input.text)
 
 
-func _on_Clear_pressed():
-	$Input.text = ""
+func _on_Clear_pressed() -> void:
+	input.text = ""
 	emit_signal("clear_alias", text)

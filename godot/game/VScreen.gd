@@ -21,7 +21,7 @@
 
 extends CanvasLayer
 
-onready var place_labels = [
+onready var place_labels := [
 	$Main/Place1/Label,
 	$Main/Place2/Label,
 	$Main/Place3/Label,
