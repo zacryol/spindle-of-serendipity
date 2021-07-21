@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://game/menus/settings/Settings.gd" type="Script" id=1]
 [ext_resource path="res://game/menus/settings/General.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://game/menus/settings/alias/AliasSubTab.gd" type="Script" id=4]
 [ext_resource path="res://game/menus/settings/profiles/Profiles.tscn" type="PackedScene" id=5]
 [ext_resource path="res://GameTheme.tres" type="Theme" id=6]
+[ext_resource path="res://sound/sfx/click1.ogg" type="AudioStream" id=7]
 
 [node name="Settings" type="Control"]
 anchor_right = 1.0
@@ -217,6 +218,7 @@ margin_bottom = 199.0
 text = "Save"
 
 [node name="SliderTickPlayer" type="AudioStreamPlayer" parent="PanelContainer/MarginContainer/TabContainer/General"]
+stream = ExtResource( 7 )
 bus = "sfx"
 
 [node name="Alias" type="Control" parent="PanelContainer/MarginContainer/TabContainer"]
