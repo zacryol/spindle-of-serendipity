@@ -28,10 +28,6 @@ onready var label := $Main/PanelContainer/Label as Label
 onready var timer := $Timer as Timer
 onready var anim := $AnimationPlayer as AnimationPlayer
 
-func _ready():
-	pass
-
-
 func new_round(num: int) -> void:
 	var show := message % str(num)
 	if GlobalVars.win_by_rounds():

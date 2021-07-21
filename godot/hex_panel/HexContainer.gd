@@ -32,6 +32,8 @@ export var text: String setget set_text
 onready var audio_fail := $FailAudio as AudioStreamPlayer
 onready var audio_solve := $WinAudio as AudioStreamPlayer
 
+var scale_factor := 1.0
+
 func _notification(what):
 	if what == NOTIFICATION_SORT_CHILDREN:
 		rect_min_size = Vector2(0, 0)
@@ -39,10 +41,12 @@ func _notification(what):
 		for c in get_children():
 			if not c is HexRow:
 				continue
-			c.rect_position = Vector2(X_OFFSET * (count % 2), Y_CHANGE * count)
+			c.rect_position = Vector2(X_OFFSET * (count % 2), Y_CHANGE * count) * scale_factor
+			c.rect_scale = Vector2.ONE * scale_factor
 			rect_min_size.x = max(rect_min_size.x, c.rect_size.x + X_OFFSET * (count % 2))
 			rect_min_size.y = max(rect_min_size.y, c.rect_size.y + Y_CHANGE * count)
 			count += 1
+		rect_min_size *= scale_factor
 
 
 func split_lines(input: String) -> PoolStringArray:
@@ -85,7 +89,15 @@ func set_text(new_text: String):
 		if c is Control:
 			c.free()
 	
-	for s in split_lines(new_text):
+	scale_factor = 1.0
+	var lines := split_lines(new_text)
+	var panels_size := Vector2(get_line_length(lines), lines.size())
+	var scale_amount := max(panels_size.length() - Vector2(23, 9).length(), 0)
+	if scale_amount:
+		scale_factor -= 0.065 * scale_amount
+	scale_factor = clamp(scale_factor, 0.5, 1.0)
+	
+	for s in lines:
 		var h := HexRow.new()
 		add_child(h)
 		h.line_text = s
@@ -153,3 +165,11 @@ func reveal_all():
 	audio_solve.play()
 	for c in get_hex_nodes():
 		c.set_state(HexType.State.REVEALED, true)
+
+
+static func get_line_length(lines: PoolStringArray) -> int:
+	var length := 0
+	for l in lines:
+		length = int(max(length, l.length()))
+	
+	return length

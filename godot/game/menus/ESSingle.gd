@@ -31,10 +31,6 @@ onready var del_conf := $HBoxContainer/DelConf as HBoxContainer
 onready var up := $HBoxContainer/UpButton as Button
 onready var down := $HBoxContainer/DownButton as Button
 
-func _ready() -> void:
-	pass
-
-
 func get_text() -> String:
 	return entry_enter.text
 

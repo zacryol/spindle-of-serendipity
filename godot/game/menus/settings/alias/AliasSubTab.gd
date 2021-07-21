@@ -30,13 +30,13 @@ var single := preload("res://game/menus/settings/alias/SingleAlias.tscn")
 onready var imports := $H/Import/VBox
 onready var outs := $H/View/VBox
 
-func set_ui(cat: bool):
+func set_ui(cat: bool) -> void:
 	is_categories = cat
 	initialize_imports()
 	update_game_list()
 
 
-func update_game_list():
+func update_game_list() -> void:
 	for node in outs.get_children():
 		node.queue_free()
 	
@@ -52,21 +52,21 @@ func update_game_list():
 		outs.add_child(l)
 
 
-func initialize_imports():
+func initialize_imports() -> void:
 	if is_categories:
 		import_values = EntryManager.get_import_categories()
 	else:
 		import_values = EntryManager.get_import_sources()
 	
 	for i in import_values:
-		var s = single.instance()
-		s.set_text(i, is_categories)
+		var s := single.instance()
 		s.connect("set_alias", self, "alias_set")
 		s.connect("clear_alias", self, "alias_cleared")
 		imports.add_child(s)
+		s.set_text(i, is_categories)
 
 
-func alias_set(old : String, new : String):
+func alias_set(old: String, new: String) -> void:
 	if is_categories:
 		Alias.add_category(old, new)
 	else:
@@ -75,7 +75,7 @@ func alias_set(old : String, new : String):
 	emit_signal("alias_created")
 
 
-func alias_cleared(old : String):
+func alias_cleared(old: String) -> void:
 	if is_categories:
 		Alias.erase_cat(old)
 	else:

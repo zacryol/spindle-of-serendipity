@@ -69,7 +69,7 @@ __meta__ = {
 
 [node name="List" type="VBoxContainer" parent="PanelContainer/MarginContainer/TabContainer/General/Scroll"]
 margin_right = 790.0
-margin_bottom = 262.0
+margin_bottom = 429.0
 size_flags_horizontal = 3
 custom_constants/separation = 25
 
@@ -94,8 +94,8 @@ align = 2
 margin_right = 16.0
 margin_bottom = 16.0
 size_flags_horizontal = 3
-step = 5.0
-rounded = true
+max_value = 1.0
+step = 0.05
 tick_count = 21
 ticks_on_borders = true
 
@@ -114,8 +114,8 @@ align = 2
 margin_right = 16.0
 margin_bottom = 16.0
 size_flags_horizontal = 3
-step = 5.0
-rounded = true
+max_value = 1.0
+step = 0.05
 tick_count = 21
 ticks_on_borders = true
 

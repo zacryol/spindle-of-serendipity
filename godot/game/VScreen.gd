@@ -21,16 +21,12 @@
 
 extends CanvasLayer
 
-onready var place_labels = [
+onready var place_labels := [
 	$Main/Place1/Label,
 	$Main/Place2/Label,
 	$Main/Place3/Label,
 ]
 onready var new_button := $Main/HBoxContainer/NewButton as Button
-
-func _ready():
-	pass
-
 
 func show() -> void:
 	MusicManager.play_song_id("end")
