@@ -216,6 +216,9 @@ margin_right = 790.0
 margin_bottom = 199.0
 text = "Save"
 
+[node name="SliderTickPlayer" type="AudioStreamPlayer" parent="PanelContainer/MarginContainer/TabContainer/General"]
+bus = "sfx"
+
 [node name="Alias" type="Control" parent="PanelContainer/MarginContainer/TabContainer"]
 visible = false
 anchor_right = 1.0

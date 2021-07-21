@@ -28,6 +28,7 @@ onready var crt_option := $Scroll/List/CRTShader/CheckButton as CheckButton
 
 onready var mus_vol := $Scroll/List/MusicVolume/HSlider as HSlider
 onready var sfx_vol := $Scroll/List/SFXVolume/HSlider as HSlider
+onready var tick_audio := $SliderTickPlayer as AudioStreamPlayer
 
 func _ready() -> void:
 	source_options.select(GlobalVars.settings["source"])
@@ -62,7 +63,9 @@ func _on_CheckButton_toggled(button_pressed: bool) -> void:
 
 func _on_sfx_value_changed(value: float) -> void:
 	GlobalVars.set_volume(value, "sfx")
+	tick_audio.play()
 
 
 func _on_music_value_changed(value: float) -> void:
 	GlobalVars.set_volume(value, "music")
+	tick_audio.play()
