@@ -148,4 +148,5 @@ func _on_BSpace_pressed() -> void:
 
 
 func _on_HexContainer_setup() -> void:
+	yield(get_tree(), "idle_frame")
 	emit_signal("text_ready")

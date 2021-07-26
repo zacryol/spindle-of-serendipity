@@ -27,6 +27,8 @@ const X_OFFSET := 29.5
 
 const HexType := preload("res://hex_panel/HexNode.gd")
 
+const MAX_LENGTH_TO_WAIT := 75
+
 export var text: String setget set_text
 
 onready var audio_fail := $FailAudio as AudioStreamPlayer
@@ -84,7 +86,7 @@ func split_lines(input: String) -> PoolStringArray:
 
 func set_text(new_text: String):
 	text = new_text
-	
+	var instant := text.length() > MAX_LENGTH_TO_WAIT
 	for c in get_children():
 		if c is Control:
 			c.free()
@@ -103,8 +105,9 @@ func set_text(new_text: String):
 		h.line_text = s
 	
 	for h in get_hex_nodes(true):
-		h.call_deferred("start")
-		yield(h, "anim")
+		h.call_deferred("start", instant)
+		if not instant:
+			yield(h, "anim")
 	emit_signal("setup")
 
 
