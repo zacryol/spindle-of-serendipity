@@ -49,13 +49,13 @@ func set_text(new_text: String) -> void:
 	self.current_state = State.EMPTY
 
 
-func start() -> void:
+func start(mute := false) -> void:
 	if text == " ":
-		set_state(State.EMPTY)
+		set_state(State.EMPTY, mute)
 	elif not CharSet.has(text):
-		set_state(State.REVEALED)
+		set_state(State.REVEALED, mute)
 	else:
-		set_state(State.BLOCKED)
+		set_state(State.BLOCKED, mute)
 
 
 func get_text() -> String:

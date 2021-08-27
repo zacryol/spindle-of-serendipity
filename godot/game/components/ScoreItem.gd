@@ -21,15 +21,16 @@
 
 extends Panel
 
+onready var label := $Label as Label
 var value: int = 5 setget set_value
 
 
-func set_value(new_value) -> void:
+func set_value(new_value: int) -> void:
 	value = new_value
-	$Label.text = str(new_value)
+	label.text = str(new_value)
 	if new_value < 0:
-		$Label.modulate = Color.red
+		label.modulate = Color.red
 	elif new_value >= 50:
-		$Label.modulate = Color.yellow
+		label.modulate = Color.yellow
 	else:
-		$Label.modulate = Color.white
+		label.modulate = Color.white
