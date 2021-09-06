@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/technovillain.ogg-f4bb6ea645d94e5b030f5d08006dab54.oggstr"
+
+[deps]
+
+source_file="res://sound/music/technovillain.ogg"
+dest_files=[ "res://.import/technovillain.ogg-f4bb6ea645d94e5b030f5d08006dab54.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
