@@ -21,11 +21,21 @@
 
 extends Control
 
+onready var legal_container := $PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer as VBoxContainer
 
 func _ready():
 	MusicManager.play_song_id("side")
 	$PanelContainer/MarginContainer/TabContainer.current_tab = 1
+	
+	for node in legal_container.get_children():
+		if node is RichTextLabel:
+			var label := node as RichTextLabel
+			label.connect("meta_clicked", self, "_meta_clicked")
 
 
 func _on_Back_pressed():
 	get_tree().change_scene("res://game/menus/MainMenu.tscn")
+
+
+func _meta_clicked(meta):
+	OS.shell_open(meta)

@@ -357,27 +357,45 @@ rect_min_size = Vector2( 500, 0 )
 size_flags_horizontal = 6
 alignment = 1
 
-[node name="GPLLabel" type="Label" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
+[node name="GPLLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
 margin_right = 500.0
 margin_bottom = 405.0
-text = "Copyright (C) 2020-2021 \"zacryol\" (https://gitlab.com/zacryol)
+bbcode_enabled = true
+bbcode_text = "[center]Copyright (C) 2020-2021 \"zacryol\" 
+([url]https://gitlab.com/zacryol[/url])
+spindle of serendipity is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or  (at your option) any later version.
+
+spindle of serendipity is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with spindle of serendipity.  If not, see <[url]https://www.gnu.org/licenses/[/url]>.[/center]"
+text = "Copyright (C) 2020-2021 \"zacryol\" 
+(https://gitlab.com/zacryol)
 spindle of serendipity is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or  (at your option) any later version.
 
 spindle of serendipity is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License along with spindle of serendipity.  If not, see <https://www.gnu.org/licenses/>."
-align = 1
-autowrap = true
+fit_content_height = true
 
 [node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
 margin_top = 409.0
 margin_right = 500.0
 margin_bottom = 413.0
 
-[node name="MITLabel" type="Label" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
+[node name="MITLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
 margin_top = 417.0
 margin_right = 500.0
 margin_bottom = 1278.0
+bbcode_enabled = true
+bbcode_text = "[center]This game uses [url=https://godotengine.org/]Godot Engine[/url], available under the following license:
+
+Copyright (c) 2007-2020 Juan Linietsky, Ariel Manzur. Copyright (c) 2014-2020 Godot Engine contributors.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.[/center]"
 text = "This game uses Godot Engine, available under the following license:
 
 Copyright (c) 2007-2020 Juan Linietsky, Ariel Manzur. Copyright (c) 2014-2020 Godot Engine contributors.
@@ -387,95 +405,107 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."
-align = 1
-autowrap = true
+fit_content_height = true
 
 [node name="HSeparator2" type="HSeparator" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
 margin_top = 1282.0
 margin_right = 500.0
 margin_bottom = 1286.0
 
-[node name="FreeType" type="Label" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
+[node name="FreeType" type="RichTextLabel" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
 margin_top = 1290.0
 margin_right = 500.0
 margin_bottom = 1359.0
+bbcode_enabled = true
+bbcode_text = "[center]Portions of this software are copyright © 2020 The FreeType Project ([url]www.freetype.org[/url]). All rights reserved.[/center]"
 text = "Portions of this software are copyright © 2020 The FreeType Project (www.freetype.org). All rights reserved."
-align = 1
-autowrap = true
+fit_content_height = true
 
 [node name="HSeparator3" type="HSeparator" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
 margin_top = 1363.0
 margin_right = 500.0
 margin_bottom = 1367.0
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
+[node name="FontLabel1" type="RichTextLabel" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
 margin_top = 1371.0
 margin_right = 500.0
 margin_bottom = 1416.0
-text = "OpenDyslexic Font by Abbie Gonzalez (https://gumroad.com/l/OpenDyslexic)"
-align = 1
-autowrap = true
+bbcode_enabled = true
+bbcode_text = "[center]OpenDyslexic Font by Abbie Gonzalez 
+([url]https://gumroad.com/l/OpenDyslexic[/url])[/center]"
+text = "OpenDyslexic Font by Abbie Gonzalez 
+(https://gumroad.com/l/OpenDyslexic)"
+fit_content_height = true
 
 [node name="HSeparator4" type="HSeparator" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
 margin_top = 1420.0
 margin_right = 500.0
 margin_bottom = 1424.0
 
-[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
+[node name="FontLabel2" type="RichTextLabel" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
 margin_top = 1428.0
 margin_right = 500.0
 margin_bottom = 1473.0
-text = "Xolonium Font by Severin Meyer (https://fontlibrary.org/en/font/xolonium)"
-align = 1
-autowrap = true
+bbcode_enabled = true
+bbcode_text = "[center]Xolonium Font by Severin Meyer 
+([url]https://fontlibrary.org/en/font/xolonium[/url])[/center]"
+text = "Xolonium Font by Severin Meyer 
+(https://fontlibrary.org/en/font/xolonium)"
+fit_content_height = true
 
 [node name="HSeparator5" type="HSeparator" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
 margin_top = 1477.0
 margin_right = 500.0
 margin_bottom = 1481.0
 
-[node name="Label3" type="Label" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
+[node name="KenneyLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
 margin_top = 1485.0
 margin_right = 500.0
 margin_bottom = 1530.0
+bbcode_enabled = true
+bbcode_text = "[center]Particle Pack, Sounds by Kenney ([url]https://kenney.nl/[/url])[/center]"
 text = "Particle Pack, Sounds by Kenney (https://kenney.nl/)"
-align = 1
-autowrap = true
+fit_content_height = true
 
 [node name="HSeparator6" type="HSeparator" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
 margin_top = 1534.0
 margin_right = 500.0
 margin_bottom = 1538.0
 
-[node name="MusicLabel" type="Label" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
+[node name="MusicLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
 margin_top = 1542.0
 margin_right = 500.0
 margin_bottom = 1587.0
+bbcode_enabled = true
+bbcode_text = "[center]Various music by Joth
+([url]https://opengameart.org/users/joth[/url])[/center]"
 text = "Various music by Joth
 (https://opengameart.org/users/joth)"
-align = 1
+fit_content_height = true
 
 [node name="HSeparator7" type="HSeparator" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
 margin_right = 40.0
 margin_bottom = 4.0
 
-[node name="ShaderLabel1" type="Label" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
+[node name="ShaderLabel1" type="RichTextLabel" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
 margin_right = 40.0
 margin_bottom = 21.0
+bbcode_enabled = true
+bbcode_text = "[center]CRT Shader: [url]https://godotshaders.com/shader/vhs-and-crt-monitor-effect/[/url][/center]"
 text = "CRT Shader: https://godotshaders.com/shader/vhs-and-crt-monitor-effect/"
-align = 1
-autowrap = true
+fit_content_height = true
 
 [node name="HSeparator8" type="HSeparator" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
 margin_right = 40.0
 margin_bottom = 4.0
 
-[node name="ShaderLabel2" type="Label" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
+[node name="ShaderLabel2" type="RichTextLabel" parent="PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer"]
 margin_right = 40.0
 margin_bottom = 477.0
+bbcode_enabled = true
+bbcode_text = "[center]Animated Grid Shader: [url]https://godotshaders.com/shader/perspective-grid/[/url][/center]"
 text = "Animated Grid Shader: https://godotshaders.com/shader/perspective-grid/"
-align = 1
-autowrap = true
+fit_content_height = true
 [connection signal="pressed" from="PanelContainer/MarginContainer/TabContainer/Back" to="." method="_on_Back_pressed"]
 [connection signal="value_changed" from="PanelContainer/MarginContainer/TabContainer/General/Scroll/List/MusicVolume/HSlider" to="PanelContainer/MarginContainer/TabContainer/General" method="_on_music_value_changed"]
 [connection signal="value_changed" from="PanelContainer/MarginContainer/TabContainer/General/Scroll/List/SFXVolume/HSlider" to="PanelContainer/MarginContainer/TabContainer/General" method="_on_sfx_value_changed"]
