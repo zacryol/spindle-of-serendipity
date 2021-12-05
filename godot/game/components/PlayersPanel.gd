@@ -70,6 +70,7 @@ func start() -> void:
 	emit_signal("game_log", get_current_player().player_name + " go!")
 	cache_scores()
 	set_label()
+	# Instruct player to take turn
 
 
 func quick_score_update() -> void:
@@ -183,10 +184,11 @@ func _on_EntryDisplay_guess_checked(solved: bool) -> void:
 		pass_turn()
 
 
+func _on_Tween_tween_all_completed() -> void:
+	# Instruct player to take turn
+	pass
+
+
 class PlayerSort:
 	static func sort_by_score(a, b) -> bool:
 		return a.total > b.total
-
-
-func _on_Tween_tween_all_completed() -> void:
-	pass

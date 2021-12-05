@@ -65,3 +65,11 @@ func spin_spindle() -> void:
 	action_event.pressed = true
 	action_event.action = "spindle"
 	Input.parse_input_event(action_event)
+
+
+func take_turn() -> void:
+	# spin spindle
+	# wait some time (1 second?)
+	# strike spindle
+	# guess letter
+	pass
