@@ -186,3 +186,7 @@ func _on_EntryDisplay_guess_checked(solved: bool) -> void:
 class PlayerSort:
 	static func sort_by_score(a, b) -> bool:
 		return a.total > b.total
+
+
+func _on_Tween_tween_all_completed() -> void:
+	pass
