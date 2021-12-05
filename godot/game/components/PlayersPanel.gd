@@ -70,7 +70,6 @@ func start() -> void:
 	emit_signal("game_log", get_current_player().player_name + " go!")
 	cache_scores()
 	set_label()
-	get_current_player().take_turn() # spindle is not ready yet, so this doesn't work
 
 
 func quick_score_update() -> void:
@@ -186,7 +185,11 @@ func _on_EntryDisplay_guess_checked(solved: bool) -> void:
 
 func _on_Tween_tween_all_completed() -> void:
 	get_current_player().take_turn()
-	pass
+
+
+func _on_EntryDisplay_text_ready() -> void:
+	yield(get_tree().create_timer(0.1), "timeout") # ensures that spindle is active
+	get_current_player().take_turn()
 
 
 class PlayerSort:
