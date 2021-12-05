@@ -26,6 +26,7 @@ var total := 0
 var player_name: String
 var template := "%s: %d (%d)"
 var template2 := "%s: %d (%d / %d)"
+var is_ai := false
 
 onready var info := $PanelContainer/CenterContainer/InfoLabel as Label
 
@@ -57,3 +58,10 @@ func cache_score() -> void:
 
 func get_all_score() -> int:
 	return score + total
+
+
+func spin_spindle() -> void:
+	var action_event := InputEventAction.new()
+	action_event.pressed = true
+	action_event.action = "spindle"
+	Input.parse_input_event(action_event)
