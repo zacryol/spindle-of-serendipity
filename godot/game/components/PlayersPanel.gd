@@ -70,7 +70,7 @@ func start() -> void:
 	emit_signal("game_log", get_current_player().player_name + " go!")
 	cache_scores()
 	set_label()
-	# Instruct player to take turn
+	get_current_player().take_turn() # spindle is not ready yet, so this doesn't work
 
 
 func quick_score_update() -> void:
@@ -185,7 +185,7 @@ func _on_EntryDisplay_guess_checked(solved: bool) -> void:
 
 
 func _on_Tween_tween_all_completed() -> void:
-	# Instruct player to take turn
+	get_current_player().take_turn()
 	pass
 
 

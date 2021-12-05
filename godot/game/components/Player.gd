@@ -68,8 +68,10 @@ func spin_spindle() -> void:
 
 
 func take_turn() -> void:
-	# spin spindle
-	# wait some time (1 second?)
-	# strike spindle
+#	if not is_ai:
+#		return
+	spin_spindle()
+	yield(get_tree().create_timer(1.0), "timeout")
+	spin_spindle()
 	# guess letter
 	pass
