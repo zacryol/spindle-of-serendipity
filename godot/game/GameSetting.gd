@@ -21,9 +21,9 @@
 
 extends Control
 
-onready var p1_enter := $Controls/Top/NameSetting/LineEdit as LineEdit
-onready var p2_enter := $Controls/Top/NameSetting/LineEdit2 as LineEdit
-onready var p3_enter := $Controls/Top/NameSetting/LineEdit3 as LineEdit
+onready var p1_enter := $Controls/Top/PlayersConf/RowP1/Name as LineEdit
+onready var p2_enter := $Controls/Top/PlayersConf/RowP2/Name as LineEdit
+onready var p3_enter := $Controls/Top/PlayersConf/RowP3/Name as LineEdit
 onready var selector := $Controls/OptionButton as OptionButton
 
 onready var rounds_box := $Controls/Top/Vict/Rounds/SpinBox as SpinBox
