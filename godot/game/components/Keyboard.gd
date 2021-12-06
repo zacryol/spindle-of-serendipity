@@ -67,8 +67,8 @@ func _input(event: InputEvent) -> void:
 		guess_letter(e)
 
 
-func guess_letter(letter: String):
-	emit_signal("key_pressed", letter)
+func guess_letter(letter: String, suppress_repeat_log = false):
+	emit_signal("key_pressed", letter, suppress_repeat_log)
 
 
 func grab_focus() -> void:

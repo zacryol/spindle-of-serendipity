@@ -82,4 +82,4 @@ func take_turn() -> void:
 	var guesses := Array(CharSet.CHAR_MAIN)
 	guesses.shuffle()
 	for guess in guesses:
-		get_tree().call_group("keyboard", "guess_letter", guess)
+		get_tree().call_group("keyboard", "guess_letter", guess, true)

@@ -86,14 +86,14 @@ func get_char_at(index: int) -> String:
 	return entry_text.substr(index, 1)
 
 
-func _on_letter_guessed(letter: String) -> void:
+func _on_letter_guessed(letter: String, suppress_repeat_log = false) -> void:
 	if current_mode == MODE_LETTER:
-		single_letter_guessed(letter)
+		single_letter_guessed(letter, suppress_repeat_log)
 	elif current_mode == MODE_SOLVE:
 		add_solve(letter)
 
 
-func single_letter_guessed(letter: String) -> void:
+func single_letter_guessed(letter: String, suppress_repeat_log = false) -> void:
 	var guess := letter.substr(0, 1)
 	if not bool_mask.has(guess):
 		return 
@@ -107,7 +107,7 @@ func single_letter_guessed(letter: String) -> void:
 		
 		emit_signal("game_log", str(num) + " revealed")
 		emit_signal("letters_revealed", num, is_solved())
-	else:
+	elif not suppress_repeat_log:
 		emit_signal("game_log", guess + " has already been guessed")
 	if is_solved() && GlobalVars.settings["source"] == GlobalVars.SOURCE_SOLVE:
 		source_label.text = source_text
