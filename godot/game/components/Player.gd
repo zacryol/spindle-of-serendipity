@@ -75,5 +75,7 @@ func take_turn() -> void:
 	spin_spindle()
 	yield(get_tree().create_timer(1.0), "timeout")
 	
-	var guess := CharSet.CHAR_MAIN[randi() % CharSet.CHAR_MAIN.size()]
-	get_tree().call_group("keyboard", "guess_letter", guess)
+	var guesses := Array(CharSet.CHAR_MAIN)
+	guesses.shuffle()
+	for guess in guesses:
+		get_tree().call_group("keyboard", "guess_letter", guess)
