@@ -56,6 +56,9 @@ func get_players_array() -> Array:
 func _ready() -> void:
 	solve_box.get_cancel().connect("pressed", self, "_on_ConfirmationDialog_canceled")
 	solve_box.get_close_button().hide()
+	p1.is_ai = GlobalVars.player_ai & 1 << 0
+	p2.is_ai = GlobalVars.player_ai & 1 << 1
+	p3.is_ai = GlobalVars.player_ai & 1 << 2
 	p1.set_name(GlobalVars.p1_name)
 	p2.set_name(GlobalVars.p2_name)
 	p3.set_name(GlobalVars.p3_name)

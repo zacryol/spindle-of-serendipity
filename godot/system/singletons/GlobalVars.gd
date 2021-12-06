@@ -62,6 +62,8 @@ var p1_name_default := "Player 1"
 var p2_name_default := "Player 2"
 var p3_name_default := "Player 3"
 
+var player_ai := 0b0000 # Bitmask: bits index 0, 1, and 2 represent players 1, 2, and 3
+
 # Game Type, condition
 var win_score := 1000
 var rounds := 7
