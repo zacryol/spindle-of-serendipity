@@ -32,9 +32,13 @@ onready var info := $PanelContainer/CenterContainer/InfoLabel as Label
 
 func set_label_text() -> void:
 	if GlobalVars.win_by_score():
-		info.text = template2 % [player_name, score, total, GlobalVars.win_score]
+		info.text = template2 % [get_display_name(), score, total, GlobalVars.win_score]
 	else:
-		info.text = template % [player_name, score, total]
+		info.text = template % [get_display_name(), score, total]
+
+
+func get_display_name() -> String:
+	return player_name + (" (BOT)" if is_ai else "")
 
 
 func add_to_score(points: int) -> void:

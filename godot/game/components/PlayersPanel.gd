@@ -143,7 +143,7 @@ func get_final_results() -> Array:
 	var results := []
 	for p in result_arr:
 		var result_dict := {
-			"name" : p.player_name,
+			"name" : p.get_display_name(),
 			"score" : p.total,
 		}
 		results.append(result_dict)
