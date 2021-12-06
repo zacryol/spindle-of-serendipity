@@ -90,7 +90,7 @@ func _score_gained(number: int, final: bool) -> void:
 		emit_signal("pre_reset")
 		advance_player()
 		clear_label()
-	elif number:
+	elif number and not get_current_player().is_ai:
 		solve_box.show()
 		solve_box.get_ok().grab_focus()
 	else:

@@ -68,10 +68,12 @@ func spin_spindle() -> void:
 
 
 func take_turn() -> void:
-#	if not is_ai:
-#		return
+	if not is_ai:
+		return
 	spin_spindle()
 	yield(get_tree().create_timer(1.0), "timeout")
 	spin_spindle()
-	# guess letter
-	pass
+	yield(get_tree().create_timer(1.0), "timeout")
+	
+	var guess := CharSet.CHAR_MAIN[randi() % CharSet.CHAR_MAIN.size()]
+	get_tree().call_group("keyboard", "guess_letter", guess)
