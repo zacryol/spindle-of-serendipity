@@ -37,75 +37,75 @@ __meta__ = {
 
 [node name="Top" type="HBoxContainer" parent="Controls"]
 margin_right = 450.0
-margin_bottom = 176.0
+margin_bottom = 164.0
 
 [node name="NameSetting" type="VBoxContainer" parent="Controls/Top"]
-margin_right = 178.0
-margin_bottom = 176.0
+margin_right = 182.0
+margin_bottom = 164.0
 size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="Controls/Top/NameSetting"]
-margin_right = 178.0
+margin_right = 182.0
 margin_bottom = 21.0
 text = "Player 1 Name:"
 
 [node name="LineEdit" type="LineEdit" parent="Controls/Top/NameSetting"]
 margin_top = 25.0
-margin_right = 178.0
-margin_bottom = 56.0
+margin_right = 182.0
+margin_bottom = 52.0
 
 [node name="Label2" type="Label" parent="Controls/Top/NameSetting"]
-margin_top = 60.0
-margin_right = 178.0
-margin_bottom = 81.0
+margin_top = 56.0
+margin_right = 182.0
+margin_bottom = 77.0
 text = "Player 2 Name:"
 
 [node name="LineEdit2" type="LineEdit" parent="Controls/Top/NameSetting"]
-margin_top = 85.0
-margin_right = 178.0
-margin_bottom = 116.0
+margin_top = 81.0
+margin_right = 182.0
+margin_bottom = 108.0
 
 [node name="Label3" type="Label" parent="Controls/Top/NameSetting"]
-margin_top = 120.0
-margin_right = 178.0
-margin_bottom = 141.0
+margin_top = 112.0
+margin_right = 182.0
+margin_bottom = 133.0
 text = "Player 3 Name:"
 
 [node name="LineEdit3" type="LineEdit" parent="Controls/Top/NameSetting"]
-margin_top = 145.0
-margin_right = 178.0
-margin_bottom = 176.0
+margin_top = 137.0
+margin_right = 182.0
+margin_bottom = 164.0
 
 [node name="VSeparator" type="VSeparator" parent="Controls/Top"]
-margin_left = 182.0
-margin_right = 186.0
-margin_bottom = 176.0
+margin_left = 186.0
+margin_right = 190.0
+margin_bottom = 164.0
 
 [node name="Vict" type="VBoxContainer" parent="Controls/Top"]
-margin_left = 190.0
+margin_left = 194.0
 margin_right = 450.0
-margin_bottom = 176.0
+margin_bottom = 164.0
 size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="Controls/Top/Vict"]
-margin_right = 260.0
+margin_right = 256.0
 margin_bottom = 21.0
 text = "Game Type:"
 
 [node name="Rounds" type="HBoxContainer" parent="Controls/Top/Vict"]
 margin_top = 25.0
-margin_right = 260.0
-margin_bottom = 56.0
+margin_right = 256.0
+margin_bottom = 52.0
 
 [node name="CheckBox" type="CheckBox" parent="Controls/Top/Vict/Rounds"]
 margin_right = 170.0
-margin_bottom = 31.0
+margin_bottom = 27.0
 text = "Rounds to Win:"
 
 [node name="SpinBox" type="SpinBox" parent="Controls/Top/Vict/Rounds"]
 margin_left = 174.0
-margin_right = 260.0
-margin_bottom = 31.0
+margin_right = 256.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 min_value = 1.0
 value = 7.0
@@ -113,19 +113,19 @@ rounded = true
 editable = false
 
 [node name="Score" type="HBoxContainer" parent="Controls/Top/Vict"]
-margin_top = 60.0
-margin_right = 260.0
-margin_bottom = 91.0
+margin_top = 56.0
+margin_right = 256.0
+margin_bottom = 83.0
 
 [node name="CheckBox" type="CheckBox" parent="Controls/Top/Vict/Score"]
 margin_right = 152.0
-margin_bottom = 31.0
+margin_bottom = 27.0
 text = "Score to Win:"
 
 [node name="SpinBox" type="SpinBox" parent="Controls/Top/Vict/Score"]
 margin_left = 156.0
-margin_right = 260.0
-margin_bottom = 31.0
+margin_right = 256.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 min_value = 150.0
 max_value = 20000.0
@@ -135,25 +135,25 @@ rounded = true
 editable = false
 
 [node name="VSeparator" type="HSeparator" parent="Controls"]
-margin_top = 180.0
+margin_top = 168.0
 margin_right = 450.0
-margin_bottom = 184.0
+margin_bottom = 172.0
 
 [node name="OptionButton" type="OptionButton" parent="Controls"]
-margin_top = 188.0
+margin_top = 176.0
 margin_right = 450.0
-margin_bottom = 219.0
+margin_bottom = 207.0
 text = "Select Entry Profile . . ."
 
 [node name="VSeparator2" type="HSeparator" parent="Controls"]
-margin_top = 223.0
+margin_top = 211.0
 margin_right = 450.0
-margin_bottom = 227.0
+margin_bottom = 215.0
 
 [node name="Button" type="Button" parent="Controls"]
-margin_top = 231.0
+margin_top = 219.0
 margin_right = 450.0
-margin_bottom = 262.0
+margin_bottom = 250.0
 text = "Start"
 
 [node name="AcceptDialog" type="AcceptDialog" parent="."]
