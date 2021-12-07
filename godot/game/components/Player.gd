@@ -75,9 +75,9 @@ func take_turn() -> void:
 	if not is_ai:
 		return
 	spin_spindle()
-	yield(get_tree().create_timer(1.0), "timeout")
+	yield(get_tree().create_timer(rand_range(1.0, 1.5)), "timeout")
 	spin_spindle()
-	yield(get_tree().create_timer(1.0), "timeout")
+	yield(get_tree().create_timer(rand_range(1.0, 1.5)), "timeout")
 	
 	var guesses := Array(CharSet.CHAR_MAIN)
 	guesses.shuffle()
