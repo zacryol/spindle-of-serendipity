@@ -44,7 +44,6 @@ var _spindle_score := 0
 onready var p1 := $PlayersArrange/Player
 onready var p2 := $PlayersArrange/Player2
 onready var p3 := $PlayersArrange/Player3
-onready var p_label: Label = $PanelContainer/VBoxContainer/PanelContainer/Label as Label
 onready var solve_box := $ConfirmationDialog as ConfirmationDialog
 onready var tween := $Tween as Tween
 
@@ -65,14 +64,11 @@ func _ready() -> void:
 	
 	for x in (randi() % NUM_PLAYER) + 1:
 		advance_player()
-	
-	set_label()
 
 
 func start() -> void:
 	emit_signal("game_log", get_current_player().player_name + " go!")
 	cache_scores()
-	set_label()
 
 
 func quick_score_update() -> void:
@@ -92,7 +88,6 @@ func _score_gained(number: int, final: bool) -> void:
 		emit_signal("game_log", "You solved it!")
 		emit_signal("pre_reset")
 		advance_player()
-		clear_label()
 	elif number and not get_current_player().is_ai:
 		solve_box.show()
 		solve_box.get_ok().grab_focus()
@@ -118,7 +113,6 @@ func get_current_player() -> Node:
 
 func advance_player() -> void:
 	$PlayersArrange.move_child(get_current_player(), NUM_PLAYER - 1)
-	set_label()
 	
 	tween.remove_all()
 	for i in NUM_PLAYER:
@@ -126,14 +120,6 @@ func advance_player() -> void:
 		tween.interpolate_property(p, "rect_size", p.rect_size, Sizes[i], TWEEN_TIME + 0.02)
 		tween.interpolate_property(p, "rect_position", p.rect_position, Positions[i], TWEEN_TIME)
 	tween.start()
-
-
-func set_label() -> void:
-	p_label.text = get_current_player().player_name + "'s turn!"
-
-
-func clear_label() -> void:
-	p_label.text = ""
 
 
 func get_final_results() -> Array:
@@ -180,7 +166,7 @@ func _on_EntryDisplay_guess_checked(solved: bool) -> void:
 		get_current_player().add_to_score(solve_reward)
 		emit_signal("pre_reset")
 		advance_player()
-		clear_label()
+#		clear_label()
 	else:
 		emit_signal("game_log", "Incorrect")
 		pass_turn()
