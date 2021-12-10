@@ -26,4 +26,4 @@ func _ready() -> void:
 
 
 func toggle_crt(on: bool) -> void:
-	$FrontShader/TextureRect.visible = on
+	$FrontShader/CRTEffect.visible = on
