@@ -86,7 +86,7 @@ func get_char_at(index: int) -> String:
 	return entry_text.substr(index, 1)
 
 
-func _on_letter_guessed(letter: String, suppress_repeat_log = false) -> void:
+func _on_letter_guessed(letter: String, suppress_repeat_log := false) -> void:
 	if current_mode == MODE_LETTER:
 		single_letter_guessed(letter, suppress_repeat_log)
 	elif current_mode == MODE_SOLVE:

@@ -68,7 +68,7 @@ func stop() -> int:
 
 
 func tick() -> void:
-	var shift = scores.pop_back()
+	var shift: int = scores.pop_back()
 	scores.push_front(shift)
 	set_values()
 

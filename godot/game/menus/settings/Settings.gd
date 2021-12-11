@@ -23,7 +23,7 @@ extends Control
 
 onready var legal_container := $PanelContainer/MarginContainer/TabContainer/Legal/VBoxContainer as VBoxContainer
 
-func _ready():
+func _ready() -> void:
 	MusicManager.play_song_id("side")
 	$PanelContainer/MarginContainer/TabContainer.current_tab = 1
 	
@@ -33,9 +33,9 @@ func _ready():
 			label.connect("meta_clicked", self, "_meta_clicked")
 
 
-func _on_Back_pressed():
+func _on_Back_pressed() -> void:
 	get_tree().change_scene("res://game/menus/MainMenu.tscn")
 
 
-func _meta_clicked(meta):
+func _meta_clicked(meta) -> void:
 	OS.shell_open(meta)

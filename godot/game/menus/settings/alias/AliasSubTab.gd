@@ -47,7 +47,7 @@ func update_game_list() -> void:
 		out = EntryManager.get_sources(true)
 	
 	for o in out:
-		var l = Label.new()
+		var l := Label.new()
 		l.text = o
 		outs.add_child(l)
 

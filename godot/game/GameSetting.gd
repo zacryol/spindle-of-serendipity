@@ -51,7 +51,7 @@ func _ready() -> void:
 	GlobalVars.player_ai = 0b0000
 
 
-func _on_Button_pressed():
+func _on_Button_pressed() -> void:
 	# Set Player names
 	if p1_enter.text:
 		GlobalVars.p1_name = p1_enter.text
@@ -98,23 +98,23 @@ func _on_Button_pressed():
 		get_tree().change_scene("res://game/GamePanel.tscn")
 
 
-func _on_Rounds_value_changed(value: float):
+func _on_Rounds_value_changed(value: float) -> void:
 	GlobalVars.rounds = int(value)
 
 
-func _on_Score_value_changed(value: float):
+func _on_Score_value_changed(value: float) -> void:
 	GlobalVars.win_score = int(value)
 
 
-func _on_Rounds_toggled(button_pressed: bool):
+func _on_Rounds_toggled(button_pressed: bool) -> void:
 	GlobalVars.win_by_rounds = button_pressed
 	rounds_box.editable = button_pressed
 
 
-func _on_Score_toggled(button_pressed: bool):
+func _on_Score_toggled(button_pressed: bool) -> void:
 	GlobalVars.win_by_score = button_pressed
 	score_box.editable = button_pressed
 
 
-func _on_ReturnButton_pressed():
+func _on_ReturnButton_pressed() -> void:
 	get_tree().change_scene("res://game/menus/MainMenu.tscn")

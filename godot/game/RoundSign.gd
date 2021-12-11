@@ -42,7 +42,7 @@ func new_round(num: int) -> void:
 	timer.start()
 
 
-func _on_EntryDisplay_text_ready():
+func _on_EntryDisplay_text_ready() -> void:
 	if timer.time_left:
 		yield(timer, "timeout")
 	

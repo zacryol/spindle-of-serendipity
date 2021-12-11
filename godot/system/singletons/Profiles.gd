@@ -65,7 +65,7 @@ func load_from_file() -> void:
 	var f := File.new()
 	if not f.file_exists(GlobalVars.PROFILE_SAVE):
 		return
-	var err = f.open(GlobalVars.PROFILE_SAVE, File.READ)
+	var err := f.open(GlobalVars.PROFILE_SAVE, File.READ)
 	if err:
 		return
 	var p = f.get_var()
@@ -92,7 +92,7 @@ func profile_has_entry(e: Entry, pid: String) -> bool:
 
 
 func get_profile_match_count(e: Entry, p: Dictionary) -> int:
-	var count = 0
+	var count := 0
 	assert(p.has_all(['cat', 'sou', 'arc']))
 	if e.get_import_category() in p['cat']:
 		count += 1

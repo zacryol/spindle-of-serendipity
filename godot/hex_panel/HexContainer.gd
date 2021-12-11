@@ -36,7 +36,7 @@ onready var audio_solve := $WinAudio as AudioStreamPlayer
 
 var scale_factor := 1.0
 
-func _notification(what):
+func _notification(what) -> void:
 	if what == NOTIFICATION_SORT_CHILDREN:
 		rect_min_size = Vector2(0, 0)
 		var count := 0
@@ -84,7 +84,7 @@ func split_lines(input: String) -> PoolStringArray:
 	return lines
 
 
-func set_text(new_text: String):
+func set_text(new_text: String) -> void:
 	text = new_text
 	var instant := text.length() > MAX_LENGTH_TO_WAIT
 	for c in get_children():
@@ -135,14 +135,14 @@ func reveal_letter(letter: String) -> int:
 	return count
 
 
-func add_solve(letter: String):
+func add_solve(letter: String) -> void:
 	for c in get_hex_nodes():
 		if c.current_state == HexType.State.BLOCKED:
 			c.temp(letter)
 			return
 
 
-func clear_solve():
+func clear_solve() -> void:
 	audio_fail.play()
 	for c in get_hex_nodes():
 		if c.current_state == HexType.State.TEMP:
@@ -164,7 +164,7 @@ func verify() -> bool:
 	return true
 
 
-func reveal_all():
+func reveal_all() -> void:
 	audio_solve.play()
 	for c in get_hex_nodes():
 		c.set_state(HexType.State.REVEALED, true)

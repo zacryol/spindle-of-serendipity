@@ -44,7 +44,7 @@ func clear_from_file(which: String) -> void:
 			entries.erase(e)
 
 
-func add_entry(file: String, data: PoolStringArray):
+func add_entry(file: String, data: PoolStringArray) -> void:
 	while data.size() < 3:
 		data.append("")
 	var e: Entry = Entry.new(file, data[0], data[1], data[2])
@@ -183,5 +183,5 @@ func get_archives() -> PoolStringArray:
 	return archives
 
 
-func set_profile(id: String = ""):
+func set_profile(id: String = "") -> void:
 	current_profile = id
