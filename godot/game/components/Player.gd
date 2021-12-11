@@ -26,14 +26,19 @@ var total := 0
 var player_name: String
 var template := "%s: %d (%d)"
 var template2 := "%s: %d (%d / %d)"
+var is_ai := false
 
 onready var info := $PanelContainer/CenterContainer/InfoLabel as Label
 
 func set_label_text() -> void:
 	if GlobalVars.win_by_score():
-		info.text = template2 % [player_name, score, total, GlobalVars.win_score]
+		info.text = template2 % [get_display_name(), score, total, GlobalVars.win_score]
 	else:
-		info.text = template % [player_name, score, total]
+		info.text = template % [get_display_name(), score, total]
+
+
+func get_display_name() -> String:
+	return player_name + (" (BOT)" if is_ai else "")
 
 
 func add_to_score(points: int) -> void:
@@ -57,3 +62,24 @@ func cache_score() -> void:
 
 func get_all_score() -> int:
 	return score + total
+
+
+func spin_spindle() -> void:
+	var action_event := InputEventAction.new()
+	action_event.pressed = true
+	action_event.action = "spindle"
+	Input.parse_input_event(action_event)
+
+
+func take_turn() -> void:
+	if not is_ai:
+		return
+	spin_spindle()
+	yield(get_tree().create_timer(rand_range(1.0, 1.5)), "timeout")
+	spin_spindle()
+	yield(get_tree().create_timer(rand_range(1.0, 1.5)), "timeout")
+	
+	var guesses := Array(CharSet.CHAR_MAIN)
+	guesses.shuffle()
+	for guess in guesses:
+		get_tree().call_group("keyboard", "guess_letter", guess, true)

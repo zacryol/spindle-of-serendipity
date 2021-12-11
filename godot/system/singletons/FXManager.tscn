@@ -1,10 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://game/BGEffect.tscn" type="PackedScene" id=1]
 [ext_resource path="res://system/singletons/FXManager.gd" type="Script" id=2]
 [ext_resource path="res://crt_shadermaterial.tres" type="Material" id=3]
-
-[sub_resource type="NoiseTexture" id=1]
 
 [node name="FXManager" type="Node"]
 script = ExtResource( 2 )
@@ -14,13 +12,8 @@ script = ExtResource( 2 )
 [node name="FrontShader" type="CanvasLayer" parent="."]
 layer = 25
 
-[node name="TextureRect" type="TextureRect" parent="FrontShader"]
+[node name="CRTEffect" type="ColorRect" parent="FrontShader"]
 material = ExtResource( 3 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-texture = SubResource( 1 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}

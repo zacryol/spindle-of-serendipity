@@ -37,28 +37,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 1273.0
-margin_bottom = 713.0
-
-[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/VBoxContainer"]
-visible = false
-margin_right = 1266.0
-margin_bottom = 28.0
-
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/PanelContainer"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 1259.0
-margin_bottom = 21.0
-
 [node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
@@ -109,6 +87,7 @@ margin_right = 0.00537109
 margin_bottom = -1.83154
 size_flags_vertical = 3
 [connection signal="confirmed" from="ConfirmationDialog" to="." method="_on_ConfirmationDialog_confirmed"]
+[connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]
 [connection signal="game_log" from="PlayersArrange/Player" to="." method="_on_Player_game_log"]
 [connection signal="game_log" from="PlayersArrange/Player2" to="." method="_on_Player_game_log"]
 [connection signal="game_log" from="PlayersArrange/Player3" to="." method="_on_Player_game_log"]

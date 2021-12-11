@@ -24,7 +24,7 @@ extends "res://game/components/GameComponent.gd"
 signal key_pressed(letter)
 onready var key_container := $CenterContainer/GridContainer as GridContainer
 
-func _ready():
+func _ready() -> void:
 	# Setup Keys
 	key_container.columns = CharSet.get_row_length()
 	
@@ -60,15 +60,15 @@ func _ready():
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey \
-			&& event.scancode in range(KEY_A, KEY_Z + 1) \
 			&& not event.is_echo() \
 			&& event.is_pressed():
-		var e := str(event.as_text().right(event.as_text().length() - 1))
-		guess_letter(e)
+		var e := char(event.unicode).to_upper()
+		if e in CharSet.CHAR_MAIN:
+			guess_letter(e)
 
 
-func guess_letter(letter: String):
-	emit_signal("key_pressed", letter)
+func guess_letter(letter: String, suppress_repeat_log := false) -> void:
+	emit_signal("key_pressed", letter, suppress_repeat_log)
 
 
 func grab_focus() -> void:

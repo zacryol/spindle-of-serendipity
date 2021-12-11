@@ -50,20 +50,20 @@ text = "Category:"
 
 [node name="C" type="LineEdit" parent="HBoxContainer"]
 margin_left = 577.0
-margin_right = 859.0
+margin_right = 860.0
 margin_bottom = 706.0
 size_flags_horizontal = 3
 
 [node name="Label3" type="Label" parent="HBoxContainer"]
-margin_left = 863.0
+margin_left = 864.0
 margin_top = 346.0
-margin_right = 910.0
+margin_right = 911.0
 margin_bottom = 360.0
 text = "Source:"
 
 [node name="S" type="LineEdit" parent="HBoxContainer"]
-margin_left = 914.0
-margin_right = 1196.0
+margin_left = 915.0
+margin_right = 1198.0
 margin_bottom = 706.0
 size_flags_horizontal = 3
 __meta__ = {
@@ -71,8 +71,8 @@ __meta__ = {
 }
 
 [node name="DeleteButton" type="Button" parent="HBoxContainer"]
-margin_left = 1200.0
-margin_right = 1264.0
+margin_left = 1202.0
+margin_right = 1266.0
 margin_bottom = 706.0
 text = "Remove"
 

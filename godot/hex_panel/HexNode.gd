@@ -62,7 +62,7 @@ func get_text() -> String:
 	return text
 
 
-func set_state(new: int, mute := false):
+func set_state(new: int, mute := false) -> void:
 	var changed := new != current_state
 	
 	if text == " ":

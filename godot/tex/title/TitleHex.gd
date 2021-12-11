@@ -24,10 +24,10 @@ extends TextureRect
 
 export var text: String setget set_text
 
-func _ready():
+func _ready() -> void:
 	$Label.text = text
 
 
-func set_text(tex: String):
+func set_text(tex: String) -> void:
 	text = tex.substr(0, 1)
 	$Label.text = text

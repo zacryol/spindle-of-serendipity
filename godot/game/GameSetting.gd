@@ -21,9 +21,12 @@
 
 extends Control
 
-onready var p1_enter := $Controls/Top/NameSetting/LineEdit as LineEdit
-onready var p2_enter := $Controls/Top/NameSetting/LineEdit2 as LineEdit
-onready var p3_enter := $Controls/Top/NameSetting/LineEdit3 as LineEdit
+onready var p1_enter := $Controls/Top/PlayersConf/RowP1/Name as LineEdit
+onready var p2_enter := $Controls/Top/PlayersConf/RowP2/Name as LineEdit
+onready var p3_enter := $Controls/Top/PlayersConf/RowP3/Name as LineEdit
+onready var p1_ai := $Controls/Top/PlayersConf/RowP1/IsAI as CheckBox
+onready var p2_ai := $Controls/Top/PlayersConf/RowP2/IsAI as CheckBox
+onready var p3_ai := $Controls/Top/PlayersConf/RowP3/IsAI as CheckBox
 onready var selector := $Controls/OptionButton as OptionButton
 
 onready var rounds_box := $Controls/Top/Vict/Rounds/SpinBox as SpinBox
@@ -44,9 +47,11 @@ func _ready() -> void:
 	score_check.pressed = GlobalVars.win_by_score()
 	rounds_box.editable = GlobalVars.win_by_rounds()
 	score_box.editable = GlobalVars.win_by_score()
+	
+	GlobalVars.player_ai = 0b0000
 
 
-func _on_Button_pressed():
+func _on_Button_pressed() -> void:
 	# Set Player names
 	if p1_enter.text:
 		GlobalVars.p1_name = p1_enter.text
@@ -69,6 +74,14 @@ func _on_Button_pressed():
 	if GlobalVars.p3_name.length() > GlobalVars.PLAYER_NAME_MAX:
 		GlobalVars.p3_name = GlobalVars.p3_name.substr(0, GlobalVars.PLAYER_NAME_MAX)
 	
+	# Set player AI status
+	if p1_ai.pressed:
+		GlobalVars.player_ai |= 1 << 0
+	if p2_ai.pressed:
+		GlobalVars.player_ai |= 1 << 1
+	if p3_ai.pressed:
+		GlobalVars.player_ai |= 1 << 2
+	
 	# Set win conditions
 	
 	# Check Profile
@@ -85,23 +98,23 @@ func _on_Button_pressed():
 		get_tree().change_scene("res://game/GamePanel.tscn")
 
 
-func _on_Rounds_value_changed(value: float):
+func _on_Rounds_value_changed(value: float) -> void:
 	GlobalVars.rounds = int(value)
 
 
-func _on_Score_value_changed(value: float):
+func _on_Score_value_changed(value: float) -> void:
 	GlobalVars.win_score = int(value)
 
 
-func _on_Rounds_toggled(button_pressed: bool):
+func _on_Rounds_toggled(button_pressed: bool) -> void:
 	GlobalVars.win_by_rounds = button_pressed
 	rounds_box.editable = button_pressed
 
 
-func _on_Score_toggled(button_pressed: bool):
+func _on_Score_toggled(button_pressed: bool) -> void:
 	GlobalVars.win_by_score = button_pressed
 	score_box.editable = button_pressed
 
 
-func _on_ReturnButton_pressed():
+func _on_ReturnButton_pressed() -> void:
 	get_tree().change_scene("res://game/menus/MainMenu.tscn")
