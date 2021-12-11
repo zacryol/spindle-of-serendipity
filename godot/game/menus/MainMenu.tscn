@@ -268,5 +268,4 @@ dialog_text = "Exit game?"
 [connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_Settings_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
 [connection signal="files_selected" from="FileDialog" to="." method="_on_FileDialog_files_selected"]
-[connection signal="custom_action" from="AcceptDialog" to="." method="_on_AcceptDialog_custom_action"]
 [connection signal="confirmed" from="QuitConfirm" to="." method="_on_QuitConfirm_confirmed"]
