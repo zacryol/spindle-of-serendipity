@@ -26,7 +26,6 @@ onready var spindle := $SpindleTex as TextureRect
 onready var buttons := $VBoxContainer as VBoxContainer
 
 func _ready() -> void:
-#	MusicManager.play_song_id("menu")
 	$HexContainer.set_text("spindle of serendipity", not GlobalVars.menu_first_time)
 	if GlobalVars.menu_first_time:
 		var s_target := spindle.rect_position.x
