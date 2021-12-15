@@ -23,6 +23,7 @@ extends Control
 
 func _ready() -> void:
 	MusicManager.play_song_id("menu")
+	$HexContainer.set_text("spindle of serendipity", true)
 
 
 func _on_ImportButton_pressed() -> void:

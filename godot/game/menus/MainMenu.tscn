@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://game/menus/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://tex/title/TitleHex.tscn" type="PackedScene" id=2]
 [ext_resource path="res://GameTheme.tres" type="Theme" id=3]
 [ext_resource path="res://tex/spindle.png" type="Texture" id=4]
+[ext_resource path="res://hex_panel/HexContainer.tscn" type="PackedScene" id=5]
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
@@ -122,6 +123,7 @@ __meta__ = {
 }
 
 [node name="Title" type="Control" parent="."]
+visible = false
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -297.0
@@ -262,6 +264,14 @@ margin_right = 102.0
 margin_bottom = 38.0
 window_title = "Quit?"
 dialog_text = "Exit game?"
+
+[node name="HexContainer" parent="." instance=ExtResource( 5 )]
+margin_left = 343.0
+margin_top = 109.6
+margin_right = -937.0
+margin_bottom = -610.4
+grow_horizontal = 1
+grow_vertical = 1
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/ImportButton" to="." method="_on_ImportButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/EButton" to="." method="_on_EButton_pressed"]
