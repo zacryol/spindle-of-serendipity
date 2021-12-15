@@ -84,7 +84,7 @@ func split_lines(input: String) -> PoolStringArray:
 	return lines
 
 
-func set_text(new_text: String) -> void:
+func set_text(new_text: String, force_mute := false) -> void:
 	text = new_text
 	var instant := text.length() > MAX_LENGTH_TO_WAIT
 	for c in get_children():
@@ -105,7 +105,7 @@ func set_text(new_text: String) -> void:
 		h.line_text = s
 	
 	for h in get_hex_nodes(true):
-		h.call_deferred("start", instant)
+		h.call_deferred("start", instant or force_mute)
 		if not instant:
 			yield(h, "anim")
 	emit_signal("setup")
