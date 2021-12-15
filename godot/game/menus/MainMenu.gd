@@ -21,9 +21,24 @@
 
 extends Control
 
+onready var tween := $Tween as Tween
+onready var spindle := $SpindleTex as TextureRect
+onready var buttons := $VBoxContainer as VBoxContainer
+
 func _ready() -> void:
+#	MusicManager.play_song_id("menu")
+	$HexContainer.set_text("spindle of serendipity")
+	var s_target := spindle.rect_position.x
+	var b_target := buttons.rect_position.y
+	buttons.rect_position.y += 700
+	spindle.rect_position.x -= 1200
+	tween.interpolate_property(spindle, "rect_position:x", null, s_target, 
+			0.4, 0, Tween.EASE_OUT, 1.5)
+	tween.interpolate_property(buttons, "rect_position:y", null, b_target, 
+			0.4, Tween.TRANS_BOUNCE, 2, 1.5)
+	tween.start()
+	yield(get_tree().create_timer(1.8), "timeout")
 	MusicManager.play_song_id("menu")
-	$HexContainer.set_text("spindle of serendipity", true)
 
 
 func _on_ImportButton_pressed() -> void:

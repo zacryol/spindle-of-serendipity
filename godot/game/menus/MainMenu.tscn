@@ -24,7 +24,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="SpindleTex" type="TextureRect" parent="."]
 margin_left = 140.158
 margin_top = 92.1039
 margin_right = 1012.16
@@ -272,6 +272,8 @@ margin_right = -937.0
 margin_bottom = -610.4
 grow_horizontal = 1
 grow_vertical = 1
+
+[node name="Tween" type="Tween" parent="."]
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/ImportButton" to="." method="_on_ImportButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/EButton" to="." method="_on_EButton_pressed"]
