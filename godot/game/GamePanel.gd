@@ -67,7 +67,7 @@ func total_win() -> bool:
 	return false
 
 
-func _log(text: String = "") -> void:
+func _log(text := "") -> void:
 	if text == "":
 		log_label.text = text
 	else:

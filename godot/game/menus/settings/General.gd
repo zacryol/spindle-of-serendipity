@@ -40,11 +40,11 @@ func _ready() -> void:
 	sfx_vol.value = GlobalVars.settings.sfx_vol
 
 
-func _on_source_option_selected(id) -> void:
+func _on_source_option_selected(id: int) -> void:
 	GlobalVars.settings["source"] = id
 
 
-func _on_rand_option_selected(id) -> void:
+func _on_rand_option_selected(id: int) -> void:
 	GlobalVars.settings["rand"] = id
 
 
@@ -52,7 +52,7 @@ func _on_Save_pressed() -> void:
 	GlobalVars.save_settings_to_file()
 
 
-func _on_Refresh_value_changed(value) -> void:
+func _on_Refresh_value_changed(value: int) -> void:
 	GlobalVars.settings["refresh"] = value
 
 
