@@ -115,7 +115,7 @@ func _on_Key_pressed(letter: String) -> void:
 	guess_letter(letter)
 
 
-func _on_EntryDisplay_one_letter(letter) -> void:
+func _on_EntryDisplay_one_letter(letter: String) -> void:
 	if get_button(letter):
 		get_button(letter).disabled = true
 		get_button(letter).focus_mode = FOCUS_NONE

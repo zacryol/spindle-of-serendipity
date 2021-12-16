@@ -37,5 +37,5 @@ func _on_Back_pressed() -> void:
 	get_tree().change_scene("res://game/menus/MainMenu.tscn")
 
 
-func _meta_clicked(meta) -> void:
+func _meta_clicked(meta: String) -> void:
 	OS.shell_open(meta)

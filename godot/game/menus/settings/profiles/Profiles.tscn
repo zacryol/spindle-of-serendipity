@@ -167,7 +167,7 @@ The first column lists the Catgeories, the second lists the Sources, and the thi
 
 Select the checkboxes for each of the the three that you want to appear in the game when this profile is used, and select how many fields must be matched for an entry to appear.
 
-For example, if you want to only show entiries in the Category \"Character\" and in a certain Source, you check that catgory and source, and set the number to 2.
+For example, if you want to only show entiries in the Category \"Character\" and in a certain Source, you check that category and source, and set the number to 2.
 
 If you only want to use the entries from a specific file, you can enable only that and set the number to 1"
 dialog_autowrap = true
