@@ -30,9 +30,9 @@ config/name="spindle of serendipity"
 run/main_scene="res://game/menus/MainMenu.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="spindle-of-serendipity"
-config/icon="res://icons/icon_256.png"
-config/macos_native_icon="res://icons/icon_256.icns"
-config/windows_native_icon="res://icons/icon_256.ico"
+config/icon="res://icons/sos_icon_256_square.png"
+config/macos_native_icon="res://icons/sos_icon_256_square.icns"
+config/windows_native_icon="res://icons/sos_icon.ico"
 
 [autoload]
 
