@@ -56,6 +56,7 @@ tracks/2/keys = {
 [node name="HexNode" type="TextureRect"]
 margin_right = 40.0
 margin_bottom = 40.0
+mouse_filter = 2
 texture = ExtResource( 1 )
 script = ExtResource( 3 )
 __meta__ = {
@@ -80,6 +81,7 @@ clip_text = true
 margin_right = 40.0
 margin_bottom = 40.0
 rect_pivot_offset = Vector2( 27.5, 32 )
+mouse_filter = 2
 texture = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false

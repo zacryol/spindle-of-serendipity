@@ -6,6 +6,7 @@
 [node name="EntryDisplay" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -15,6 +16,7 @@ __meta__ = {
 self_modulate = Color( 1, 1, 1, 0.72549 )
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.25
 __meta__ = {
@@ -26,7 +28,7 @@ margin_left = 7.0
 margin_top = 7.0
 margin_right = 1273.0
 margin_bottom = 713.0
-mouse_filter = 2
+mouse_filter = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="PanelContainer/ScrollContainer"]
 margin_right = 1266.0
@@ -44,7 +46,6 @@ margin_left = 633.0
 margin_top = 353.0
 margin_right = 633.0
 margin_bottom = 353.0
-mouse_filter = 2
 
 [node name="Control" type="Control" parent="PanelContainer"]
 margin_left = 7.0
