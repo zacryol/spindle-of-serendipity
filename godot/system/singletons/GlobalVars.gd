@@ -52,7 +52,7 @@ var settings: Dictionary = {
 }
 # End of Settings
 
-const PLAYER_NAME_MAX := 19
+const PLAYER_NAME_MAX_SIZE := 250.0
 
 var p1_name := "Player 1"
 var p2_name := "Player 2"

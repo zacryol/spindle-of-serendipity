@@ -28,11 +28,11 @@ signal init_solve
 const NUM_PLAYER := 3
 
 # position data for moving each player
-const MAIN_SIZE := Vector2(275 * 1.25, 50 * 1.25)
-const OTHER_SIZE := Vector2(315, 50)
-const MAIN_POSITION := Vector2(-345, -168)
-const POS_2 := Vector2(-315, -102)
-const POS_3 := Vector2(-315, -51)
+const MAIN_SIZE := Vector2(393.75, 62.5)
+const OTHER_SIZE := Vector2(365, 50)
+const MAIN_POSITION := Vector2(-395, -168)
+const POS_2 := Vector2(-365, -102)
+const POS_3 := Vector2(-365, -51)
 const Sizes := PoolVector2Array([MAIN_SIZE, OTHER_SIZE, OTHER_SIZE])
 const Positions := PoolVector2Array([MAIN_POSITION, POS_2, POS_3])
 const TWEEN_TIME := 0.15
