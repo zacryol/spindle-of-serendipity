@@ -41,6 +41,7 @@ onready var hex := $PanelContainer/ScrollContainer/CenterContainer/HexContainer
 onready var source_label := $SourceLabel as Label
 onready var cat_label := $CategoryLabel as Label
 onready var solve_ui := $PanelContainer/Control/SolveUI as VBoxContainer
+onready var scroll := $PanelContainer/ScrollContainer as ScrollContainer
 
 func _ready() -> void:
 	bool_mask.clear()
