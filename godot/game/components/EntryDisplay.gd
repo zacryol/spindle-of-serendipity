@@ -61,6 +61,16 @@ func _input(event: InputEvent) -> void:
 		hex.pop_solve()
 
 
+func _process(delta: float) -> void:
+	var scroll_dir: Vector2
+	var scroll_speed := 150.0
+	scroll_dir.x = Input.get_action_strength("scroll_right") - Input.get_action_strength("scroll_left")
+	scroll_dir.y = Input.get_action_strength("scroll_down") - Input.get_action_strength("scroll_up")
+	scroll_dir = scroll_dir.snapped(Vector2.ONE).normalized()
+	scroll.get_v_scrollbar().value += scroll_dir.y * scroll_speed * delta
+	scroll.get_h_scrollbar().value += scroll_dir.x * scroll_speed * delta
+
+
 func set_display(entry: Entry) -> void:
 	entry_text = entry.get_entry_text().to_upper()
 	source_text = entry.get_game_source()
