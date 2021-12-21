@@ -11,7 +11,7 @@ A "Wheel of Fortune"-styled game with customizable entries.
 Alternatively, download for Linux, Windows, and OSX on [the itch.io page](https://zacryol.itch.io/spindle-of-serendipity)
 
 # License
-Copyright (C) 2020, "zacryol" (https://gitlab.com/zacryol)
+Copyright (C) 2020-2021, "zacryol" (https://gitlab.com/zacryol)
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
