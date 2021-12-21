@@ -24,6 +24,7 @@ extends Control
 onready var tween := $Tween as Tween
 onready var spindle := $SpindleTex as TextureRect
 onready var buttons := $VBoxContainer as VBoxContainer
+onready var files := $FileDialog as FileDialog
 
 func _ready() -> void:
 	$HexContainer.set_text("spindle of serendipity", not GlobalVars.menu_first_time)
@@ -46,8 +47,8 @@ func _ready() -> void:
 
 
 func _on_ImportButton_pressed() -> void:
-	$FileDialog.current_dir = OS.get_executable_path().get_base_dir()
-	$FileDialog.show()
+	files.current_dir = OS.get_executable_path().get_base_dir()
+	files.show()
 
 
 func _on_FileDialog_files_selected(paths: PoolStringArray) -> void:
