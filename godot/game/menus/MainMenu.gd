@@ -47,8 +47,9 @@ func _ready() -> void:
 
 
 func _on_ImportButton_pressed() -> void:
-	files.current_dir = OS.get_executable_path().get_base_dir()
+	files.current_dir = "C:/" if OS.get_name() == "Windows" else "/"
 	files.show()
+	files.invalidate()
 
 
 func _on_FileDialog_files_selected(paths: PoolStringArray) -> void:
