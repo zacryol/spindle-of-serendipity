@@ -258,6 +258,7 @@ __meta__ = {
 [node name="Import" type="ScrollContainer" parent="PanelContainer/MarginContainer/TabContainer/Alias/Tab/Categories/H"]
 margin_right = 748.0
 margin_bottom = 613.0
+rect_min_size = Vector2( 600, 0 )
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.57
 
@@ -269,6 +270,7 @@ size_flags_horizontal = 3
 margin_left = 760.0
 margin_right = 1235.0
 margin_bottom = 613.0
+rect_min_size = Vector2( 200, 0 )
 size_flags_horizontal = 3
 
 [node name="VBox" type="VBoxContainer" parent="PanelContainer/MarginContainer/TabContainer/Alias/Tab/Categories/H/View"]
@@ -290,6 +292,7 @@ anchor_bottom = 1.0
 [node name="Import" type="ScrollContainer" parent="PanelContainer/MarginContainer/TabContainer/Alias/Tab/Sources/H"]
 margin_right = 748.0
 margin_bottom = 613.0
+rect_min_size = Vector2( 600, 0 )
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.57
 
@@ -301,6 +304,7 @@ size_flags_horizontal = 3
 margin_left = 760.0
 margin_right = 1235.0
 margin_bottom = 613.0
+rect_min_size = Vector2( 200, 0 )
 size_flags_horizontal = 3
 
 [node name="VBox" type="VBoxContainer" parent="PanelContainer/MarginContainer/TabContainer/Alias/Tab/Sources/H/View"]

@@ -41,6 +41,7 @@ onready var hex := $PanelContainer/ScrollContainer/CenterContainer/HexContainer
 onready var source_label := $SourceLabel as Label
 onready var cat_label := $CategoryLabel as Label
 onready var solve_ui := $PanelContainer/Control/SolveUI as VBoxContainer
+onready var scroll := $PanelContainer/ScrollContainer as ScrollContainer
 
 func _ready() -> void:
 	bool_mask.clear()
@@ -58,6 +59,16 @@ func _input(event: InputEvent) -> void:
 		_on_SolveButton_pressed()
 	if event.is_action_pressed("ui_cancel"):
 		hex.pop_solve()
+
+
+func _process(delta: float) -> void:
+	var scroll_dir: Vector2
+	var scroll_speed := 150.0
+	scroll_dir.x = Input.get_action_strength("scroll_right") - Input.get_action_strength("scroll_left")
+	scroll_dir.y = Input.get_action_strength("scroll_down") - Input.get_action_strength("scroll_up")
+	scroll_dir = scroll_dir.snapped(Vector2.ONE).normalized()
+	scroll.get_v_scrollbar().value += scroll_dir.y * scroll_speed * delta
+	scroll.get_h_scrollbar().value += scroll_dir.x * scroll_speed * delta
 
 
 func set_display(entry: Entry) -> void:

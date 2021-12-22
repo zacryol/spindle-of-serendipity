@@ -67,12 +67,13 @@ func _on_Button_pressed() -> void:
 		GlobalVars.p3_name = GlobalVars.p3_name_default
 	
 	# Limit name length
-	if GlobalVars.p1_name.length() > GlobalVars.PLAYER_NAME_MAX:
-		GlobalVars.p1_name = GlobalVars.p1_name.substr(0, GlobalVars.PLAYER_NAME_MAX)
-	if GlobalVars.p2_name.length() > GlobalVars.PLAYER_NAME_MAX:
-		GlobalVars.p2_name = GlobalVars.p2_name.substr(0, GlobalVars.PLAYER_NAME_MAX)
-	if GlobalVars.p3_name.length() > GlobalVars.PLAYER_NAME_MAX:
-		GlobalVars.p3_name = GlobalVars.p3_name.substr(0, GlobalVars.PLAYER_NAME_MAX)
+	var max_size := GlobalVars.PLAYER_NAME_MAX_SIZE
+	while theme.default_font.get_string_size(GlobalVars.p1_name).x > max_size:
+		GlobalVars.p1_name = GlobalVars.p1_name.rstrip(GlobalVars.p1_name[-1])
+	while theme.default_font.get_string_size(GlobalVars.p2_name).x > max_size:
+		GlobalVars.p2_name = GlobalVars.p2_name.rstrip(GlobalVars.p2_name[-1])
+	while theme.default_font.get_string_size(GlobalVars.p3_name).x > max_size:
+		GlobalVars.p3_name = GlobalVars.p3_name.rstrip(GlobalVars.p3_name[-1])
 	
 	# Set player AI status
 	if p1_ai.pressed:
